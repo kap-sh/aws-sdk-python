@@ -45,6 +45,16 @@ class InvestigationGroupPolicy:
         Args:
             identifier: <p>Specify either the name or the ARN of the investigation group that you want to assign the policy to.</p>
             policy: <p>The policy, in JSON format.</p>
+
+        Raises:
+            aws_sdk_aiops.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_aiops.errors.conflict_exception.ConflictException: <p>This operation couldn't be completed because of a conflict in resource states.</p>
+            aws_sdk_aiops.errors.forbidden_exception.ForbiddenException: <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+            aws_sdk_aiops.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. You can try again later.</p>
+            aws_sdk_aiops.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_aiops.errors.validation_exception.ValidationException: <p>This operation or its parameters aren't formatted correctly.</p>
+            aws_sdk_aiops.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits. You can try again later.</p>
+            aws_sdk_aiops.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -83,6 +93,16 @@ class InvestigationGroupPolicy:
 
         Args:
             identifier: <p>Specify either the name or the ARN of the investigation group that you want to view the policy of.</p>
+
+        Raises:
+            aws_sdk_aiops.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_aiops.errors.conflict_exception.ConflictException: <p>This operation couldn't be completed because of a conflict in resource states.</p>
+            aws_sdk_aiops.errors.forbidden_exception.ForbiddenException: <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+            aws_sdk_aiops.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. You can try again later.</p>
+            aws_sdk_aiops.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_aiops.errors.validation_exception.ValidationException: <p>This operation or its parameters aren't formatted correctly.</p>
+            aws_sdk_aiops.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits. You can try again later.</p>
+            aws_sdk_aiops.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -120,6 +140,16 @@ class InvestigationGroupPolicy:
 
         Args:
             identifier: <p>Specify either the name or the ARN of the investigation group that you want to remove the policy from.</p>
+
+        Raises:
+            aws_sdk_aiops.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_aiops.errors.conflict_exception.ConflictException: <p>This operation couldn't be completed because of a conflict in resource states.</p>
+            aws_sdk_aiops.errors.forbidden_exception.ForbiddenException: <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+            aws_sdk_aiops.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. You can try again later.</p>
+            aws_sdk_aiops.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_aiops.errors.validation_exception.ValidationException: <p>This operation or its parameters aren't formatted correctly.</p>
+            aws_sdk_aiops.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits. You can try again later.</p>
+            aws_sdk_aiops.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -164,6 +194,16 @@ class AsyncInvestigationGroupPolicy:
         Args:
             identifier: <p>Specify either the name or the ARN of the investigation group that you want to assign the policy to.</p>
             policy: <p>The policy, in JSON format.</p>
+
+        Raises:
+            aws_sdk_aiops.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_aiops.errors.conflict_exception.ConflictException: <p>This operation couldn't be completed because of a conflict in resource states.</p>
+            aws_sdk_aiops.errors.forbidden_exception.ForbiddenException: <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+            aws_sdk_aiops.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. You can try again later.</p>
+            aws_sdk_aiops.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_aiops.errors.validation_exception.ValidationException: <p>This operation or its parameters aren't formatted correctly.</p>
+            aws_sdk_aiops.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits. You can try again later.</p>
+            aws_sdk_aiops.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -203,6 +243,16 @@ class AsyncInvestigationGroupPolicy:
 
         Args:
             identifier: <p>Specify either the name or the ARN of the investigation group that you want to view the policy of.</p>
+
+        Raises:
+            aws_sdk_aiops.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_aiops.errors.conflict_exception.ConflictException: <p>This operation couldn't be completed because of a conflict in resource states.</p>
+            aws_sdk_aiops.errors.forbidden_exception.ForbiddenException: <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+            aws_sdk_aiops.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. You can try again later.</p>
+            aws_sdk_aiops.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_aiops.errors.validation_exception.ValidationException: <p>This operation or its parameters aren't formatted correctly.</p>
+            aws_sdk_aiops.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits. You can try again later.</p>
+            aws_sdk_aiops.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -241,6 +291,16 @@ class AsyncInvestigationGroupPolicy:
 
         Args:
             identifier: <p>Specify either the name or the ARN of the investigation group that you want to remove the policy from.</p>
+
+        Raises:
+            aws_sdk_aiops.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_aiops.errors.conflict_exception.ConflictException: <p>This operation couldn't be completed because of a conflict in resource states.</p>
+            aws_sdk_aiops.errors.forbidden_exception.ForbiddenException: <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+            aws_sdk_aiops.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. You can try again later.</p>
+            aws_sdk_aiops.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource doesn't exist.</p>
+            aws_sdk_aiops.errors.validation_exception.ValidationException: <p>This operation or its parameters aren't formatted correctly.</p>
+            aws_sdk_aiops.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits. You can try again later.</p>
+            aws_sdk_aiops.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -159,6 +159,12 @@ class AsyncCodeGuruProfilerClient:
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>GetFindingsReportAccountSummary</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
             max_results: <p>The maximum number of results returned by <code> GetFindingsReportAccountSummary</code> in paginated output. When this parameter is used, <code>GetFindingsReportAccountSummary</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>GetFindingsReportAccountSummary</code> request with the returned <code>nextToken</code> value.</p>
             daily_reports_only: <p>A <code>Boolean</code> value indicating whether to only return reports from daily profiles. If set to <code>True</code>, only analysis data from daily profiles is returned. If set to <code>False</code>, analysis data is returned from smaller time windows (for example, one hour).</p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -202,6 +208,12 @@ class AsyncCodeGuruProfilerClient:
 
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the resource that contains the tags to return. </p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -242,6 +254,12 @@ class AsyncCodeGuruProfilerClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the resource that the tags are added to. </p>
             tags: <p> The list of tags that are added to the specified resource. </p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -283,6 +301,12 @@ class AsyncCodeGuruProfilerClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) of the resource that contains the tags to remove. </p>
             tag_keys: <p> A list of tag keys. Existing tags of resources with keys in this list are removed from the specified resource. </p>
+
+        Raises:
+            aws_sdk_codeguruprofiler.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_codeguruprofiler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            aws_sdk_codeguruprofiler.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_codeguruprofiler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

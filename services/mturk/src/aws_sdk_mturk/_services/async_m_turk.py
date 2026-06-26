@@ -234,6 +234,11 @@ class AsyncMTurkClient:
         Args:
             qualification_request_id: <p>The ID of the Qualification request, as returned by the <code>GetQualificationRequests</code> operation.</p>
             integer_value: <p> The value of the Qualification. You can omit this value if you are using the presence or absence of the Qualification as the basis for a HIT requirement. </p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -278,6 +283,11 @@ class AsyncMTurkClient:
             assignment_id: <p> The ID of the assignment. The assignment must correspond to a HIT created by the Requester. </p>
             requester_feedback: <p> A message for the Worker, which the Worker can see in the Status section of the web site. </p>
             override_rejection: <p> A flag indicating that an assignment should be approved even if it was previously rejected. Defaults to <code>False</code>. </p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -326,6 +336,11 @@ class AsyncMTurkClient:
             worker_id: <p> The ID of the Worker to whom the Qualification is being assigned. Worker IDs are included with submitted HIT assignments and Qualification requests. </p>
             integer_value: <p>The value of the Qualification to assign.</p>
             send_notification: <p> Specifies whether to send a notification email message to the Worker saying that the qualification was assigned to the Worker. Note: this is true by default. </p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -375,6 +390,11 @@ class AsyncMTurkClient:
             hit_id: <p>The ID of the HIT to extend.</p>
             number_of_additional_assignments: <p>The number of additional assignments to request for this HIT.</p>
             unique_request_token: <p> A unique identifier for this request, which allows you to retry the call on error without extending the HIT multiple times. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the extend HIT already exists in the system from a previous call using the same <code>UniqueRequestToken</code>, subsequent calls will return an error with a message containing the request ID. </p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -458,6 +478,11 @@ class AsyncMTurkClient:
             hit_review_policy: <p> The HIT-level Review Policy applies to the HIT. You can specify for Mechanical Turk to take various actions based on the policy. </p>
             hit_layout_id: <p> The HITLayoutId allows you to use a pre-existing HIT design with placeholder values and create an additional HIT by providing those values as HITLayoutParameters. </p> <p> Constraints: Either a Question parameter or a HITLayoutId parameter must be provided. </p>
             hit_layout_parameters: <p> If the HITLayoutId is provided, any placeholder values must be filled in with values using the HITLayoutParameter structure. For more information, see HITLayout. </p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -538,6 +563,11 @@ class AsyncMTurkClient:
             keywords: <p> One or more words or phrases that describe the HIT, separated by commas. These words are used in searches to find HITs. </p>
             description: <p> A general description of the HIT. A description includes detailed information about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT description appears in the expanded view of search results, and in the HIT and assignment screens. A good description gives the user enough information to evaluate the HIT before accepting it. </p>
             qualification_requirements: <p> Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the <code>ActionsGuarded</code> field on each <code>QualificationRequirement</code> structure. </p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -611,6 +641,11 @@ class AsyncMTurkClient:
             hit_review_policy: <p> The HIT-level Review Policy applies to the HIT. You can specify for Mechanical Turk to take various actions based on the policy. </p>
             hit_layout_id: <p> The HITLayoutId allows you to use a pre-existing HIT design with placeholder values and create an additional HIT by providing those values as HITLayoutParameters. </p> <p> Constraints: Either a Question parameter or a HITLayoutId parameter must be provided. </p>
             hit_layout_parameters: <p> If the HITLayoutId is provided, any placeholder values must be filled in with values using the HITLayoutParameter structure. For more information, see HITLayout. </p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -684,6 +719,11 @@ class AsyncMTurkClient:
             test_duration_in_seconds: <p>The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.</p>
             auto_granted: <p>Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.</p> <p>Constraints: If the Test parameter is specified, this parameter cannot be true.</p>
             auto_granted_value: <p>The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -740,6 +780,11 @@ class AsyncMTurkClient:
         Args:
             worker_id: <p>The ID of the Worker to block.</p>
             reason: <p>A message explaining the reason for blocking the Worker. This parameter enables you to keep track of your Workers. The Worker does not see this message.</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -779,6 +824,11 @@ class AsyncMTurkClient:
 
         Args:
             hit_id: <p>The ID of the HIT to be deleted.</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -817,6 +867,11 @@ class AsyncMTurkClient:
 
         Args:
             qualification_type_id: <p>The ID of the QualificationType to dispose.</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -857,6 +912,11 @@ class AsyncMTurkClient:
         Args:
             worker_id: <p>The ID of the Worker to unblock.</p>
             reason: <p>A message that explains the reason for unblocking the Worker. The Worker does not see this message.</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -901,6 +961,11 @@ class AsyncMTurkClient:
             worker_id: <p>The ID of the Worker who possesses the Qualification to be revoked.</p>
             qualification_type_id: <p>The ID of the Qualification type of the Qualification to be revoked.</p>
             reason: <p>A text message that explains why the Qualification was revoked. The user who had the Qualification sees this message.</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -935,7 +1000,13 @@ class AsyncMTurkClient:
     async def get_account_balance(
         self, *, config_overrides: Optional[AsyncMTurkClientConfig] = None
     ) -> "aws_sdk_mturk.types.get_account_balance_response.GetAccountBalanceResponse":
-        """<p>The <code>GetAccountBalance</code> operation retrieves the Prepaid HITs balance in your Amazon Mechanical Turk account if you are a Prepaid Requester. Alternatively, this operation will retrieve the remaining available AWS Billing usage if you have enabled AWS Billing. Note: If you have enabled AWS Billing and still have a remaining Prepaid HITs balance, this balance can be viewed on the My Account page in the Requester console.</p>"""
+        """<p>The <code>GetAccountBalance</code> operation retrieves the Prepaid HITs balance in your Amazon Mechanical Turk account if you are a Prepaid Requester. Alternatively, this operation will retrieve the remaining available AWS Billing usage if you have enabled AWS Billing. Note: If you have enabled AWS Billing and still have a remaining Prepaid HITs balance, this balance can be viewed on the My Account page in the Requester console.</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_mturk.types.get_account_balance_request.GetAccountBalanceRequest]",
@@ -972,6 +1043,11 @@ class AsyncMTurkClient:
 
         Args:
             assignment_id: <p>The ID of the Assignment to be retrieved.</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1012,6 +1088,11 @@ class AsyncMTurkClient:
         Args:
             assignment_id: <p>The ID of the assignment that contains the question with a FileUploadAnswer.</p>
             question_identifier: <p>The identifier of the question with a FileUploadAnswer, as specified in the QuestionForm of the HIT.</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1051,6 +1132,11 @@ class AsyncMTurkClient:
 
         Args:
             hit_id: <p>The ID of the HIT to be retrieved.</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1091,6 +1177,11 @@ class AsyncMTurkClient:
         Args:
             qualification_type_id: <p>The ID of the QualificationType.</p>
             worker_id: <p>The ID of the Worker whose Qualification is being updated.</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1130,6 +1221,11 @@ class AsyncMTurkClient:
 
         Args:
             qualification_type_id: <p>The ID of the QualificationType.</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1177,6 +1273,11 @@ class AsyncMTurkClient:
             hit_id: <p>The ID of the HIT.</p>
             next_token: <p>Pagination token</p>
             assignment_statuses: <p>The status of the assignments to return: Submitted | Approved | Rejected</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1228,6 +1329,11 @@ class AsyncMTurkClient:
             hit_id: <p>The ID of the HIT associated with the bonus payments to retrieve. If not specified, all bonus payments for all assignments for the given HIT are returned. Either the HITId parameter or the AssignmentId parameter must be specified</p>
             assignment_id: <p>The ID of the assignment associated with the bonus payments to retrieve. If specified, only bonus payments for the given assignment are returned. Either the HITId parameter or the AssignmentId parameter must be specified</p>
             next_token: <p>Pagination token</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1276,6 +1382,11 @@ class AsyncMTurkClient:
 
         Args:
             next_token: <p>Pagination token</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1323,6 +1434,11 @@ class AsyncMTurkClient:
             qualification_type_id: <p> The ID of the Qualification type to use when querying HITs. </p>
             next_token: <p>Pagination Token</p>
             max_results: <p> Limit the number of results returned. </p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1372,6 +1488,11 @@ class AsyncMTurkClient:
         Args:
             qualification_type_id: <p>The ID of the QualificationType.</p>
             max_results: <p> The maximum number of results to return in a single call. </p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1424,6 +1545,11 @@ class AsyncMTurkClient:
             must_be_requestable: <p>Specifies that only Qualification types that a user can request through the Amazon Mechanical Turk web site, such as by taking a Qualification test, are returned as results of the search. Some Qualification types, such as those assigned automatically by the system, cannot be requested directly by users. If false, all Qualification types, including those managed by the system, are considered. Valid values are True | False. </p>
             must_be_owned_by_caller: <p> Specifies that only Qualification types that the Requester created are returned. If false, the operation returns all Qualification types. </p>
             max_results: <p> The maximum number of results to return in a single call. </p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1482,6 +1608,11 @@ class AsyncMTurkClient:
             status: <p> Can be either <code>Reviewable</code> or <code>Reviewing</code>. Reviewable is the default value. </p>
             next_token: <p>Pagination Token</p>
             max_results: <p> Limit the number of results returned. </p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1541,6 +1672,11 @@ class AsyncMTurkClient:
             retrieve_results: <p> Specify if the operation should retrieve a list of the results computed by the Review Policies. </p>
             next_token: <p>Pagination token</p>
             max_results: <p>Limit the number of results returned.</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1592,6 +1728,11 @@ class AsyncMTurkClient:
 
         Args:
             next_token: <p>Pagination token</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1643,6 +1784,11 @@ class AsyncMTurkClient:
             status: <p> The status of the Qualifications to return. Can be <code>Granted | Revoked</code>. </p>
             next_token: <p>Pagination Token</p>
             max_results: <p> Limit the number of results returned. </p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1691,6 +1837,11 @@ class AsyncMTurkClient:
             subject: <p>The subject line of the email message to send. Can include up to 200 characters.</p>
             message_text: <p>The text of the email message to send. Can include up to 4,096 characters</p>
             worker_ids: <p>A list of Worker IDs you wish to notify. You can notify upto 100 Workers at a time.</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1733,6 +1884,11 @@ class AsyncMTurkClient:
         Args:
             assignment_id: <p> The ID of the assignment. The assignment must correspond to a HIT created by the Requester. </p>
             requester_feedback: <p> A message for the Worker, which the Worker can see in the Status section of the web site. </p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1774,6 +1930,11 @@ class AsyncMTurkClient:
         Args:
             qualification_request_id: <p> The ID of the Qualification request, as returned by the <code>ListQualificationRequests</code> operation. </p>
             reason: <p>A text message explaining why the request was rejected, to be shown to the Worker who made the request.</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1824,6 +1985,11 @@ class AsyncMTurkClient:
             assignment_id: <p>The ID of the assignment for which this bonus is paid.</p>
             reason: <p>A message that explains the reason for the bonus payment. The Worker receiving the bonus can see this message.</p>
             unique_request_token: <p>A unique identifier for this request, which allows you to retry the call on error without granting multiple bonuses. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the bonus already exists in the system from a previous call using the same UniqueRequestToken, subsequent calls will return an error with a message containing the request ID.</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1869,6 +2035,11 @@ class AsyncMTurkClient:
         Args:
             notification: <p> The notification specification to test. This value is identical to the value you would provide to the UpdateNotificationSettings operation when you establish the notification specification for a HIT type. </p>
             test_event_type: <p> The event to simulate to test the notification specification. This event is included in the test message even if the notification specification does not include the event type. The notification specification does not filter out the test event. </p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1910,6 +2081,11 @@ class AsyncMTurkClient:
         Args:
             hit_id: <p> The HIT to update. </p>
             expire_at: <p> The date and time at which you want the HIT to expire </p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1951,6 +2127,11 @@ class AsyncMTurkClient:
         Args:
             hit_id: <p> The ID of the HIT to update. </p>
             revert: <p> Specifies how to update the HIT status. Default is <code>False</code>. </p> <ul> <li> <p> Setting this to false will only transition a HIT from <code>Reviewable</code> to <code>Reviewing</code> </p> </li> <li> <p> Setting this to true will only transition a HIT from <code>Reviewing</code> to <code>Reviewable</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1995,6 +2176,11 @@ class AsyncMTurkClient:
         Args:
             hit_id: <p>The HIT to update.</p>
             hit_type_id: <p>The ID of the new HIT type.</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2040,6 +2226,11 @@ class AsyncMTurkClient:
             hit_type_id: <p> The ID of the HIT type whose notification specification is being updated. </p>
             notification: <p> The notification specification for the HIT type. </p>
             active: <p> Specifies whether notifications are sent for HITs of this HIT type, according to the notification specification. You must specify either the Notification parameter or the Active parameter for the call to UpdateNotificationSettings to succeed. </p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2100,6 +2291,11 @@ class AsyncMTurkClient:
             retry_delay_in_seconds: <p>The amount of time, in seconds, that Workers must wait after requesting a Qualification of the specified Qualification type before they can retry the Qualification request. It is not possible to disable retries for a Qualification type after it has been created with retries enabled. If you want to disable retries, you must dispose of the existing retry-enabled Qualification type using DisposeQualificationType and then create a new Qualification type with retries disabled using CreateQualificationType.</p>
             auto_granted: <p>Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.</p> <p>Constraints: If the Test parameter is specified, this parameter cannot be true.</p>
             auto_granted_value: <p>The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.</p>
+
+        Raises:
+            aws_sdk_mturk.errors.request_error.RequestError: <p>Your request is invalid.</p>
+            aws_sdk_mturk.errors.service_fault.ServiceFault: <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+            aws_sdk_mturk.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

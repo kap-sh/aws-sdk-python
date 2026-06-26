@@ -2528,6 +2528,9 @@ class AsyncEC2Client:
             address: <p>The Elastic IP address you are accepting for transfer.</p>
             tag_specifications: <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2572,6 +2575,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             capacity_reservation_id: <p>The ID of the Capacity Reservation for which to accept the request.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2618,6 +2624,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             reserved_instance_ids: <p>The IDs of the Convertible Reserved Instances to exchange for another Convertible Reserved Instance of the same or higher value.</p>
             target_configurations: <p>The configuration of the target Convertible Reserved Instance to exchange for your current Convertible Reserved Instances.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2662,6 +2671,9 @@ class AsyncEC2Client:
         Args:
             transit_gateway_attachment_id: <p>The ID of the Transit Gateway attachment.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2714,6 +2726,9 @@ class AsyncEC2Client:
             transit_gateway_attachment_id: <p>The ID of the transit gateway attachment.</p>
             subnet_ids: <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2763,6 +2778,9 @@ class AsyncEC2Client:
         Args:
             transit_gateway_attachment_id: <p>The ID of the transit gateway attachment.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2805,6 +2823,9 @@ class AsyncEC2Client:
         Args:
             transit_gateway_attachment_id: <p>The ID of the attachment.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2849,6 +2870,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             service_id: <p>The ID of the VPC endpoint service.</p>
             vpc_endpoint_ids: <p>The IDs of the interface VPC endpoints.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2892,6 +2916,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             vpc_peering_connection_id: <p>The ID of the VPC peering connection. You must specify this parameter in the request.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2938,6 +2965,9 @@ class AsyncEC2Client:
             asn: <p>The public 2-byte or 4-byte ASN that you want to advertise.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             network_border_group: <p>If you have <a href=\"https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html\">Local Zones</a> enabled, you can choose a network border group for Local Zones when you provision and advertise a BYOIPv4 CIDR. Choose the network border group carefully as the EIP and the Amazon Web Services resource it is associated with must reside in the same network border group.</p> <p>You can provision BYOIP address ranges to and advertise them in the following Local Zone network border groups:</p> <ul> <li> <p>us-east-1-dfw-2</p> </li> <li> <p>us-west-2-lax-1</p> </li> <li> <p>us-west-2-phx-2</p> </li> </ul> <note> <p>You cannot provision or advertise BYOIPv6 address ranges in Local Zones at this time.</p> </note>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3000,6 +3030,9 @@ class AsyncEC2Client:
             tag_specifications: <p>The tags to assign to the Elastic IP address.</p>
             ipam_pool_id: <p>The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html\">Allocate sequential Elastic IP addresses from an IPAM pool</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To allocate an Elastic IP address
@@ -3091,6 +3124,9 @@ class AsyncEC2Client:
             instance_type: <p>Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.</p> <p>If you want the Dedicated Hosts to support multiple instance types in a specific instance family, omit this parameter and specify <b>InstanceFamily</b> instead. You cannot specify <b>InstanceType</b> and <b>InstanceFamily</b> in the same request.</p>
             quantity: <p>The number of Dedicated Hosts to allocate to your account with these parameters. If you are allocating the Dedicated Hosts on an Outpost, and you specify <b>AssetIds</b>, you can omit this parameter. In this case, Amazon EC2 allocates a Dedicated Host on each specified hardware asset. If you specify both <b>AssetIds</b> and <b>Quantity</b>, then the value that you specify for <b>Quantity</b> must be equal to the number of asset IDs specified.</p>
             availability_zone: <p>The Availability Zone in which to allocate the Dedicated Host.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3176,6 +3212,9 @@ class AsyncEC2Client:
             allowed_cidrs: <p>Include a particular CIDR range that can be returned by the pool. Allowed CIDRs are only allowed if using netmask length for allocation.</p>
             disallowed_cidrs: <p>Exclude a particular CIDR range from being returned by the pool. Disallowed CIDRs are only allowed if using netmask length for allocation.</p>
             tag_specifications: <p>The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> <p>If you specify tags, the request is authorized against the allocation resource in addition to the pool resource.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3238,6 +3277,9 @@ class AsyncEC2Client:
             vpc_id: <p>The ID of the VPC in which the associated target network is located.</p>
             security_group_ids: <p>The IDs of the security groups to apply to the associated target network. Up to 5 security groups can be applied to an associated target network.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3290,6 +3332,9 @@ class AsyncEC2Client:
             network_interface_id: <p>The ID of the network interface.</p>
             ipv6_addresses: <p>The IPv6 addresses to be assigned to the network interface. You can't use this option if you're specifying a number of IPv6 addresses.</p>
             ipv6_address_count: <p>The number of additional IPv6 addresses to assign to the network interface. The specified number of IPv6 addresses are assigned in addition to the existing IPv6 addresses that are already assigned to the network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3350,6 +3395,9 @@ class AsyncEC2Client:
             private_ip_addresses: <p>The IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses.</p> <p>If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.</p>
             secondary_private_ip_address_count: <p>The number of secondary IP addresses to assign to the network interface. You can't specify this parameter when also specifying private IP addresses.</p>
             allow_reassignment: <p>Indicates whether to allow an IP address that is already assigned to another network interface or instance to be reassigned to the specified network interface.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To assign a specific secondary private IP address to an interface
@@ -3418,6 +3466,9 @@ class AsyncEC2Client:
             private_ip_addresses: <p>The private IPv4 addresses you want to assign to the private NAT gateway.</p>
             private_ip_address_count: <p>The number of private IP addresses to assign to the NAT gateway. You can't specify this parameter when also specifying private IP addresses.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3478,6 +3529,9 @@ class AsyncEC2Client:
             network_interface_id: <p>The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.</p> <p>You can specify either the instance ID or the network interface ID, but not both. </p>
             private_ip_address: <p>The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.</p>
             allow_reassociation: <p>Reassociation is automatic, but you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To associate an Elastic IP address
@@ -3543,6 +3597,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             capacity_reservation_id: <p>The ID of the Capacity Reservation.</p>
             unused_reservation_billing_owner_id: <p>The ID of the consumer account to which to assign billing.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3600,6 +3657,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             availability_zone: <p>The Availability Zone name for the Transit Gateway association. Required if when associating an Availability Zone with a Client VPN endpoint that uses a Transit Gateway. You cannot specify both <code>SubnetId</code> and <code>AvailabilityZone</code>.</p>
             availability_zone_id: <p>The Availability Zone ID for the Transit Gateway association. Required if when associating an Availability Zone with a Client VPN endpoint that uses a Transit Gateway. You cannot specify both <code>AvailabilityZone</code> and <code>AvailabilityZoneId</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3653,6 +3713,9 @@ class AsyncEC2Client:
             vpc_id: <p>The ID of the VPC.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To associate a DHCP options set with a VPC
             This example associates the specified DHCP options set with the specified VPC.
@@ -3705,6 +3768,9 @@ class AsyncEC2Client:
             certificate_arn: <p>The ARN of the ACM certificate with which to associate the IAM role.</p>
             role_arn: <p>The ARN of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3748,6 +3814,9 @@ class AsyncEC2Client:
         Args:
             iam_instance_profile: <p>The IAM instance profile.</p>
             instance_id: <p>The ID of the instance.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To associate an IAM instance profile with an instance
@@ -3797,6 +3866,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             instance_event_window_id: <p>The ID of the event window.</p>
             association_target: <p>One or more targets associated with the specified event window.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3842,6 +3914,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             asn: <p>A public 2-byte or 4-byte ASN.</p>
             cidr: <p>The BYOIP CIDR you want to associate with an ASN.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3893,6 +3968,9 @@ class AsyncEC2Client:
             ipam_resource_discovery_id: <p>A resource discovery ID.</p>
             tag_specifications: <p>Tag specifications.</p>
             client_token: <p>A client token.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3952,6 +4030,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             availability_zone: <p>For regional NAT gateways only: The Availability Zone where you want to associate an Elastic IP address (EIP). The regional NAT gateway uses a separate EIP in each AZ to handle outbound NAT traffic from that AZ.</p> <p>A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.</p>
             availability_zone_id: <p>For regional NAT gateways only: The ID of the Availability Zone where you want to associate an Elastic IP address (EIP). The regional NAT gateway uses a separate EIP in each AZ to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across Amazon Web Services Regions. </p> <p>A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4003,6 +4084,9 @@ class AsyncEC2Client:
             route_server_id: <p>The unique identifier for the route server to be associated.</p>
             vpc_id: <p>The ID of the VPC to associate with the route server.</p>
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4056,6 +4140,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             subnet_id: <p>The ID of the subnet.</p>
             route_table_id: <p>The ID of the route table.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To associate a route table with a subnet
@@ -4112,6 +4199,9 @@ class AsyncEC2Client:
             group_id: <p>A security group ID.</p>
             vpc_id: <p>A VPC ID.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4161,6 +4251,9 @@ class AsyncEC2Client:
             ipv6_netmask_length: <p>An IPv6 netmask length.</p>
             subnet_id: <p>The ID of your subnet.</p>
             ipv6_cidr_block: <p>The IPv6 CIDR block for your subnet.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4211,6 +4304,9 @@ class AsyncEC2Client:
             transit_gateway_attachment_id: <p>The ID of the transit gateway attachment to associate with the transit gateway multicast domain.</p>
             subnet_ids: <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4259,6 +4355,9 @@ class AsyncEC2Client:
             transit_gateway_policy_table_id: <p>The ID of the transit gateway policy table to associate with the transit gateway attachment.</p>
             transit_gateway_attachment_id: <p>The ID of the transit gateway attachment to associate with the policy table.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4304,6 +4403,9 @@ class AsyncEC2Client:
             transit_gateway_route_table_id: <p>The ID of the transit gateway route table.</p>
             transit_gateway_attachment_id: <p>The ID of the attachment.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4355,6 +4457,9 @@ class AsyncEC2Client:
             gre_key: <p>The application key. This applies to the GRE protocol.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4430,6 +4535,9 @@ class AsyncEC2Client:
             ipv6_netmask_length: <p>The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
             vpc_id: <p>The ID of the VPC.</p>
             amazon_provided_ipv6_cidr_block: <p>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses or the size of the CIDR block.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4494,6 +4602,9 @@ class AsyncEC2Client:
             instance_id: <p>The ID of the EC2-Classic instance.</p>
             vpc_id: <p>The ID of the ClassicLink-enabled VPC.</p>
             groups: <p>The IDs of the security groups. You cannot specify security groups from a different VPC.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4540,6 +4651,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             internet_gateway_id: <p>The ID of the internet gateway.</p>
             vpc_id: <p>The ID of the VPC.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To attach an Internet gateway to a VPC
@@ -4602,6 +4716,9 @@ class AsyncEC2Client:
             instance_id: <p>The ID of the instance.</p>
             device_index: <p>The index of the device for the network interface attachment.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To attach a network interface to an instance
             This example attaches the specified network interface to the specified instance.
@@ -4661,6 +4778,9 @@ class AsyncEC2Client:
             verified_access_trust_provider_id: <p>The ID of the Verified Access trust provider.</p>
             client_token: <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4712,6 +4832,9 @@ class AsyncEC2Client:
             volume_id: <p>The ID of the EBS volume. The volume and instance must be within the same Availability Zone.</p>
             ebs_card_index: <p>The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To attach a volume to an instance
@@ -4766,6 +4889,9 @@ class AsyncEC2Client:
             vpc_id: <p>The ID of the VPC.</p>
             vpn_gateway_id: <p>The ID of the virtual private gateway.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4819,6 +4945,9 @@ class AsyncEC2Client:
             description: <p>A brief description of the authorization rule.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4892,6 +5021,9 @@ class AsyncEC2Client:
             to_port: <p>Not supported. Use IP permissions instead.</p>
             cidr_ip: <p>Not supported. Use IP permissions instead.</p>
             ip_permissions: <p>The permissions for the security group rules.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To add a rule that allows outbound traffic to a specific address range
@@ -4989,6 +5121,9 @@ class AsyncEC2Client:
             tag_specifications: <p>The tags applied to the security group rule.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To add a rule that allows inbound HTTP traffic from another security group
             This example enables inbound traffic on TCP port 80 from the specified security group. The group must be in the same VPC or a peer VPC. Incoming traffic is allowed based on the private IP addresses of instances that are associated with the specified security group.
@@ -5065,6 +5200,9 @@ class AsyncEC2Client:
             instance_id: <p>The ID of the instance to bundle.</p> <p>Default: None</p>
             storage: <p>The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5108,6 +5246,9 @@ class AsyncEC2Client:
         Args:
             bundle_id: <p>The ID of the bundle task.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5150,6 +5291,9 @@ class AsyncEC2Client:
         Args:
             capacity_reservation_id: <p>The ID of the Capacity Reservation to be cancelled.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5192,6 +5336,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             capacity_reservation_fleet_ids: <p>The IDs of the Capacity Reservation Fleets to cancel.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5236,6 +5383,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             conversion_task_id: <p>The ID of the conversion task.</p>
             reason_message: <p>The reason for canceling the conversion task.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5278,6 +5428,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             report_id: <p>The ID of the report.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5318,6 +5471,9 @@ class AsyncEC2Client:
 
         Args:
             export_task_id: <p>The ID of the export task. This is the ID returned by the <code>CreateInstanceExportTask</code> and <code>ExportImage</code> operations.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5356,6 +5512,9 @@ class AsyncEC2Client:
         Args:
             image_id: <p>The ID of the AMI that was shared with your Amazon Web Services account.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5402,6 +5561,9 @@ class AsyncEC2Client:
             cancel_reason: <p>The reason for canceling the task.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             import_task_id: <p>The ID of the import image or import snapshot task to be canceled.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5445,6 +5607,9 @@ class AsyncEC2Client:
 
         Args:
             reserved_instances_listing_id: <p>The ID of the Reserved Instance listing.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5487,6 +5652,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             spot_fleet_request_ids: <p>The IDs of the Spot Fleet requests.</p> <p>Constraint: You can specify up to 100 IDs in a single request.</p>
             terminate_instances: <p>Indicates whether to terminate the associated instances when the Spot Fleet request is canceled. The default is to terminate the instances.</p> <p>To let the instances continue to run after the Spot Fleet request is canceled, specify <code>no-terminate-instances</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To cancel a Spot fleet request
@@ -5541,6 +5709,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             spot_instance_request_ids: <p>The IDs of the Spot Instance requests.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To cancel Spot Instance requests
             This example cancels a Spot Instance request.
@@ -5592,6 +5763,9 @@ class AsyncEC2Client:
             instance_id: <p>The ID of the instance.</p>
             product_code: <p>The product code. This must be a product code that you own.</p>
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To confirm the product instance
@@ -5649,6 +5823,9 @@ class AsyncEC2Client:
             name: <p>The name for the new AFI. The default is the name of the source AFI.</p>
             source_region: <p>The Region that contains the source AFI.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5734,6 +5911,9 @@ class AsyncEC2Client:
             destination_availability_zone: <p>The Local Zone for the new AMI (for example, <code>cn-north-1-pkx-1a</code>).</p> <p>Only one of <code>DestinationAvailabilityZone</code>, <code>DestinationAvailabilityZoneId</code>, or <code>DestinationOutpostArn</code> can be specified.</p>
             destination_availability_zone_id: <p>The ID of the Local Zone for the new AMI (for example, <code>cnn1-pkx1-az1</code>).</p> <p>Only one of <code>DestinationAvailabilityZone</code>, <code>DestinationAvailabilityZoneId</code>, or <code>DestinationOutpostArn</code> can be specified.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To copy an AMI to another region
@@ -5837,6 +6017,9 @@ class AsyncEC2Client:
             destination_availability_zone: <p>The Local Zone, for example, <code>cn-north-1-pkx-1a</code> to which to copy the snapshot.</p> <note> <p>Only supported when copying a snapshot to a Local Zone.</p> </note>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To copy a snapshot
             This example copies a snapshot with the snapshot ID of ``snap-066877671789bd71b`` from the ``us-west-2`` region to the ``us-east-1`` region and adds a short description to identify the snapshot.
@@ -5919,6 +6102,9 @@ class AsyncEC2Client:
             multi_attach_enabled: <p>Indicates whether to enable Amazon EBS Multi-Attach for the volume copy. If you enable Multi-Attach, you can attach the volume to up to 16 Nitro instances in the same Availability Zone simultaneously. Supported with <code>io1</code> and <code>io2</code> volumes only. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html\"> Amazon EBS Multi-Attach</a>.</p>
             throughput: <p>The throughput to provision for the volume copy, in MiB/s. Supported for <code>gp3</code> volumes only. Omit for all other volume types. Full provisioned throughput performance can be achieved only once the volume copy is fully initialized.</p> <p>Valid Range: <code>125 - 2000</code> MiB/s</p> <p></p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\"> Ensure Idempotency</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5987,6 +6173,9 @@ class AsyncEC2Client:
             client_token: <p> Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see Ensure Idempotency. </p>
             dry_run: <p> Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>. </p>
             tag_specifications: <p> The tags to apply to the data export configuration. You can tag the export for organization and cost tracking purposes. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6089,6 +6278,9 @@ class AsyncEC2Client:
             start_date: <note> <p>Required for future-dated Capacity Reservations only. To create a Capacity Reservation for immediate use, omit this parameter. </p> </note> <p>The date and time at which the future-dated Capacity Reservation should become available for use, in the ISO8601 format in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p> <p>You can request a future-dated Capacity Reservation between 5 and 120 days in advance.</p>
             commitment_duration: <note> <p>Required for future-dated Capacity Reservations only. To create a Capacity Reservation for immediate use, omit this parameter. </p> </note> <p>Specify a commitment duration, in seconds, for the future-dated Capacity Reservation.</p> <p>The commitment duration is a minimum duration for which you commit to having the future-dated Capacity Reservation in the <code>active</code> state in your account after it has been delivered.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-concepts.html#cr-commitment-duration\"> Commitment duration</a>.</p>
             delivery_preference: <note> <p>Required for future-dated Capacity Reservations only. To create a Capacity Reservation for immediate use, omit this parameter. </p> </note> <p>Indicates that the requested capacity will be delivered in addition to any running instances or reserved capacity that you have in your account at the requested date and time.</p> <p>The only supported value is <code>incremental</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6171,6 +6363,9 @@ class AsyncEC2Client:
             source_capacity_reservation_id: <p> The ID of the Capacity Reservation from which you want to split the capacity. </p>
             instance_count: <p> The number of instances to split from the source Capacity Reservation. </p>
             tag_specifications: <p> The tags to apply to the new Capacity Reservation. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6240,6 +6435,9 @@ class AsyncEC2Client:
             instance_match_criteria: <p>Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.</p> <p>Currently, Capacity Reservation Fleets support <code>open</code> instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.</p>
             tag_specifications: <p>The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6301,6 +6499,9 @@ class AsyncEC2Client:
             tag_specifications: <p>The tags to associate with the carrier gateway.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">How to ensure idempotency</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6413,6 +6614,9 @@ class AsyncEC2Client:
             endpoint_ip_address_type: <p>The IP address type for the Client VPN endpoint. Valid values are <code>ipv4</code> (default) for IPv4 addressing only, <code>ipv6</code> for IPv6 addressing only, or <code>dual-stack</code> for both IPv4 and IPv6 addressing. When set to <code>dual-stack,</code> clients can connect to the endpoint using either IPv4 or IPv6 addresses..</p>
             traffic_ip_address_type: <p>The IP address type for traffic within the Client VPN tunnel. Valid values are <code>ipv4</code> (default) for IPv4 traffic only, <code>ipv6</code> for IPv6 addressing only, or <code>dual-stack</code> for both IPv4 and IPv6 traffic. When set to <code>dual-stack</code>, clients can access both IPv4 and IPv6 resources through the VPN .</p>
             transit_gateway_configuration: <p>The Transit Gateway configuration for the Client VPN endpoint. Use this parameter to associate the endpoint with a Transit Gateway instead of a VPC. You cannot specify both <code>TransitGatewayConfiguration</code> and <code>VpcId</code>/<code>SecurityGroupIds</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6505,6 +6709,9 @@ class AsyncEC2Client:
             description: <p>A brief description of the route.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6556,6 +6763,9 @@ class AsyncEC2Client:
             cidr: <p> A customer-owned IP address range to create. </p>
             coip_pool_id: <p> The ID of the address pool. </p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6603,6 +6813,9 @@ class AsyncEC2Client:
             local_gateway_route_table_id: <p> The ID of the local gateway route table. </p>
             tag_specifications: <p> The tags to assign to the CoIP address pool. </p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6663,6 +6876,9 @@ class AsyncEC2Client:
             ip_address: <p>The IP address for the customer gateway device's outside interface. The address must be static. If <code>OutsideIpAddressType</code> in your VPN connection options is set to <code>PrivateIpv4</code>, you can use an RFC6598 or RFC1918 private IPv4 address. If <code>OutsideIpAddressType</code> is set to <code>Ipv6</code>, you can use an IPv6 address. </p>
             bgp_asn_extended: <p>For customer gateway devices that support BGP, specify the device's ASN. You must specify either <code>BgpAsn</code> or <code>BgpAsnExtended</code> when creating the customer gateway. If the ASN is larger than <code>2,147,483,647</code>, you must use <code>BgpAsnExtended</code>.</p> <p>Valid values: <code>2,147,483,648</code> to <code>4,294,967,295</code> </p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a customer gateway
@@ -6733,6 +6949,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             ipv6_native: <p>Indicates whether to create an IPv6 only subnet. If you already have a default subnet for this Availability Zone, you must delete it before you can create an IPv6 only subnet.</p>
             availability_zone_id: <p>The ID of the Availability Zone.</p> <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified, but not both.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6778,6 +6997,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6827,6 +7049,9 @@ class AsyncEC2Client:
             instance_id: <p>The ID of the Amazon EC2 Mac instance.</p>
             mac_credentials: <p>Specifies the following credentials:</p> <ul> <li> <p> <b>Internal disk administrative user</b> </p> <ul> <li> <p> <b>Username</b> - Only the default administrative user (<code>aws-managed-user</code>) is supported and it is used by default. You can't specify a different administrative user.</p> </li> <li> <p> <b>Password</b> - If you did not change the default password for <code>aws-managed-user</code>, specify the default password, which is <i>blank</i>. Otherwise, specify your password.</p> </li> </ul> </li> <li> <p> <b>Amazon EBS root volume administrative user</b> </p> <ul> <li> <p> <b>Username</b> - If you did not change the default administrative user, specify <code>ec2-user</code>. Otherwise, specify the username for your administrative user.</p> </li> <li> <p> <b>Password</b> - Specify the password for the administrative user.</p> </li> </ul> </li> </ul> <p>The credentials must be specified in the following JSON format:</p> <p> <code>{ \"internalDiskPassword\":\"<i>internal-disk-admin_password</i>\", \"rootVolumeUsername\":\"<i>root-volume-admin_username</i>\", \"rootVolumepassword\":\"<i>root-volume-admin_password</i>\" }</code> </p>
             tag_specifications: <p>The tags to assign to the volume ownership delegation task.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6878,6 +7103,9 @@ class AsyncEC2Client:
             dhcp_configurations: <p>A DHCP configuration option.</p>
             tag_specifications: <p>The tags to assign to the DHCP option.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a DHCP options set
@@ -6934,6 +7162,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             vpc_id: <p>The ID of the VPC for which to create the egress-only internet gateway.</p>
             tag_specifications: <p>The tags to assign to the egress-only internet gateway.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7020,6 +7251,9 @@ class AsyncEC2Client:
             replace_unhealthy_instances: <p>Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type <code>maintain</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks\">EC2 Fleet health checks</a> in the <i>Amazon EC2 User Guide</i>.</p>
             tag_specifications: <p>The key-value pair for tagging the EC2 Fleet request on creation. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources\">Tag your resources</a>.</p> <p>If the fleet type is <code>instant</code>, specify a resource type of <code>fleet</code> to tag the fleet or <code>instance</code> to tag the instances at launch.</p> <p>If the fleet type is <code>maintain</code> or <code>request</code>, specify a resource type of <code>fleet</code> to tag the fleet. You cannot specify a resource type of <code>instance</code>. To tag instances at launch, specify the tags in a <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template\">launch template</a>.</p>
             context: <p>Reserved.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7121,6 +7355,9 @@ class AsyncEC2Client:
             tag_specifications: <p>The tags to apply to the flow logs.</p>
             max_aggregation_interval: <p>The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. The possible values are 60 seconds (1 minute) or 600 seconds (10 minutes). This parameter must be 60 seconds for transit gateway resource types.</p> <p>When a network interface is attached to a <a href=\"https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html\">Nitro-based instance</a>, the aggregation interval is always 60 seconds or less, regardless of the value that you specify.</p> <p>Default: 600</p>
             destination_options: <p>The destination options.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7200,6 +7437,9 @@ class AsyncEC2Client:
             name: <p>A name for the AFI.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring Idempotency</a>.</p>
             tag_specifications: <p>The tags to apply to the FPGA image during creation.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7272,6 +7512,9 @@ class AsyncEC2Client:
             description: <p>A description for the new image.</p>
             no_reboot: <p>Indicates whether or not the instance should be automatically rebooted before creating the image. Specify one of the following values:</p> <ul> <li> <p> <code>true</code> - The instance is not rebooted before creating the image. This creates crash-consistent snapshots that include only the data that has been written to the volumes at the time the snapshots are created. Buffered data and data in memory that has not yet been written to the volumes is not included in the snapshots.</p> </li> <li> <p> <code>false</code> - The instance is rebooted before creating the image. This ensures that all buffered data and data in memory is written to the volumes before the snapshots are created.</p> </li> </ul> <p>Default: <code>false</code> </p>
             block_device_mappings: <p>The block device mappings.</p> <p>When using the CreateImage action:</p> <ul> <li> <p>You can't change the volume size using the VolumeSize parameter. If you want a different volume size, you must first change the volume size of the source instance.</p> </li> <li> <p>You can't modify the encryption status of existing volumes or snapshots. To create an AMI with volumes or snapshots that have a different encryption status (for example, where the source volume and snapshots are unencrypted, and you want to create an AMI with encrypted volumes or snapshots), copy the image instead.</p> </li> <li> <p>The only option that can be changed for existing mappings or snapshots is <code>DeleteOnTermination</code>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7339,6 +7582,9 @@ class AsyncEC2Client:
             account_ids: <p>The Amazon Web Services account IDs to include in the report. To include all accounts, omit this parameter.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure idempotency of the request.</p>
             tag_specifications: <p>The tags to apply to the report on creation. The <code>ResourceType</code> must be set to <code>image-usage-report</code>; any other value will cause the report creation to fail.</p> <p>To tag a report after it has been created, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\">CreateTags</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7404,6 +7650,9 @@ class AsyncEC2Client:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
             tag_specifications: <p>The tags to apply to the EC2 Instance Connect Endpoint during creation.</p>
             ip_address_type: <p>The IP address type of the endpoint.</p> <p>If no value is specified, the default value is determined by the IP address type of the subnet:</p> <ul> <li> <p> <code>dualstack</code> - If the subnet has both IPv4 and IPv6 CIDRs</p> </li> <li> <p> <code>ipv4</code> - If the subnet has only IPv4 CIDRs</p> </li> <li> <p> <code>ipv6</code> - If the subnet has only IPv6 CIDRs</p> </li> </ul> <note> <p> <code>PreserveClientIp</code> is only supported on IPv4 EC2 Instance Connect Endpoints. To use <code>PreserveClientIp</code>, the value for <code>IpAddressType</code> must be <code>ipv4</code>.</p> </note>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7468,6 +7717,9 @@ class AsyncEC2Client:
             time_ranges: <p>The time range for the event window. If you specify a time range, you can't specify a cron expression.</p>
             cron_expression: <p>The cron expression for the event window, for example, <code>* 0-4,20-23 * * 1,5</code>. If you specify a cron expression, you can't specify a time range.</p> <p>Constraints:</p> <ul> <li> <p>Only hour and day of the week values are supported.</p> </li> <li> <p>For day of the week values, you can specify either integers <code>0</code> through <code>6</code>, or alternative single values <code>SUN</code> through <code>SAT</code>.</p> </li> <li> <p>The minute, month, and year must be specified by <code>*</code>.</p> </li> <li> <p>The hour value must be one or a multiple range, for example, <code>0-4</code> or <code>0-4,20-23</code>.</p> </li> <li> <p>Each hour range must be >= 2 hours, for example, <code>0-2</code> or <code>20-23</code>.</p> </li> <li> <p>The event window must be >= 4 hours. The combined total time ranges in the event window must be >= 4 hours.</p> </li> </ul> <p>For more information about cron expressions, see <a href=\"https://en.wikipedia.org/wiki/Cron\">cron</a> on the <i>Wikipedia website</i>.</p>
             tag_specifications: <p>The tags to apply to the event window.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7525,6 +7777,9 @@ class AsyncEC2Client:
             instance_id: <p>The ID of the instance.</p>
             target_environment: <p>The target virtualization environment.</p>
             export_to_s3_task: <p>The format and location for an export instance task.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7573,6 +7828,9 @@ class AsyncEC2Client:
         Args:
             tag_specifications: <p>The tags to assign to the internet gateway.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create an Internet gateway
@@ -7630,6 +7888,9 @@ class AsyncEC2Client:
             client_token: <p> Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. </p>
             dry_run: <p> Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. </p>
             tag_specifications: <p> The tags to apply to the interruptible Capacity Reservation during creation. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7695,6 +7956,9 @@ class AsyncEC2Client:
             tier: <p>IPAM is offered in a Free Tier and an Advanced Tier. For more information about the features available in each tier and the costs associated with the tiers, see <a href=\"http://aws.amazon.com/vpc/pricing/\">Amazon VPC pricing > IPAM tab</a>.</p>
             enable_private_gua: <p>Enable this option to use your own GUA ranges as private IPv6 addresses. This option is disabled by default.</p>
             metered_account: <p>A metered account is an Amazon Web Services account that is charged for active IP addresses managed in IPAM. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/ipam-enable-cost-distro.html\">Enable cost distribution</a> in the <i>Amazon VPC IPAM User Guide</i>.</p> <p>Possible values:</p> <ul> <li> <p> <code>ipam-owner</code> (default): The Amazon Web Services account which owns the IPAM is charged for all active IP addresses managed in IPAM.</p> </li> <li> <p> <code>resource-owner</code>: The Amazon Web Services account that owns the IP address is charged for the active IP address.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7756,6 +8020,9 @@ class AsyncEC2Client:
             ipam_id: <p>The ID of the IPAM that will create the token.</p>
             tag_specifications: <p>Token tags.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7808,6 +8075,9 @@ class AsyncEC2Client:
             tag_specifications: <p>The tags to assign to the IPAM policy.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure the idempotency of the request.</p>
             ipam_id: <p>The ID of the IPAM for which you're creating the policy.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7902,6 +8172,9 @@ class AsyncEC2Client:
             aws_service: <p>Limits which service in Amazon Web Services that the pool can be used in. \"ec2\", for example, allows users to use space for Elastic IP addresses and VPCs.</p>
             public_ip_source: <p>The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is <code>byoip</code>. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html\">Create IPv6 pools</a> in the <i>Amazon VPC IPAM User Guide</i>. By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool if PublicIpSource is <code>amazon</code>. For information on increasing the default limit, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html\"> Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
             source_resource: <p>The resource used to provision CIDRs to a resource planning pool.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7989,6 +8262,9 @@ class AsyncEC2Client:
             rules: <p>The CIDR selection rules for the resolver.</p> <p>CIDR selection rules define the business logic for selecting CIDRs from IPAM. If a CIDR matches any of the rules, it will be included. If a rule has multiple conditions, the CIDR has to match every condition of that rule. You can create a prefix list resolver without any CIDR selection rules, but it will generate empty versions (containing no CIDRs) until you add rules.</p>
             tag_specifications: <p>The tags to apply to the IPAM prefix list resolver during creation. Tags help you organize and manage your Amazon Web Services resources.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8054,6 +8330,9 @@ class AsyncEC2Client:
             track_latest_version: <p>Indicates whether the resolver target should automatically track the latest version of the prefix list. When enabled, the target will always synchronize with the most current version of the prefix list.</p> <p>Choose this for automatic updates when you want your prefix lists to stay current with infrastructure changes without manual intervention.</p>
             tag_specifications: <p>The tags to apply to the IPAM prefix list resolver target during creation. Tags help you organize and manage your Amazon Web Services resources.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8115,6 +8394,9 @@ class AsyncEC2Client:
             operating_regions: <p>Operating Regions for the IPAM resource discovery. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
             tag_specifications: <p>Tag specifications for the IPAM resource discovery.</p>
             client_token: <p>A client token for the IPAM resource discovery.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8176,6 +8458,9 @@ class AsyncEC2Client:
             tag_specifications: <p>The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
             external_authority_configuration: <p>The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.</p> <p>In IPAM, an external authority is a third-party IP address management system that provides CIDR blocks when you provision address space for top-level IPAM pools. This allows you to use your existing IP management system to control which address ranges are allocated to Amazon Web Services while using Amazon VPC IPAM to manage subnets within those ranges.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8236,6 +8521,9 @@ class AsyncEC2Client:
             tag_specifications: <p>The tags to apply to the new key pair.</p>
             key_format: <p>The format of the key pair.</p> <p>Default: <code>pem</code> </p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a key pair
@@ -8302,6 +8590,9 @@ class AsyncEC2Client:
             launch_template_data: <p>The information for the launch template.</p>
             operator: <p>Reserved for internal use.</p>
             tag_specifications: <p>The tags to apply to the launch template on creation. To tag the launch template, the resource type must be <code>launch-template</code>.</p> <p>To specify the tags for the resources that are created when an instance is launched, you must use the <code>TagSpecifications</code> parameter in the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html\">launch template data</a> structure.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a launch template
@@ -8378,6 +8669,9 @@ class AsyncEC2Client:
             launch_template_data: <p>The information for the launch template.</p>
             resolve_alias: <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageID</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id\">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Default: <code>false</code> </p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a launch template version
             This example creates a new launch template version based on version 1 of the specified launch template and specifies a different AMI ID.
@@ -8451,6 +8745,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             network_interface_id: <p>The ID of the network interface.</p>
             destination_prefix_list_id: <p> The ID of the prefix list. Use a prefix list in place of <code>DestinationCidrBlock</code>. You cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8511,6 +8808,9 @@ class AsyncEC2Client:
             mode: <p> The mode of the local gateway route table. </p>
             tag_specifications: <p> The tags assigned to the local gateway route table. </p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8563,6 +8863,9 @@ class AsyncEC2Client:
             local_gateway_virtual_interface_group_id: <p> The ID of the local gateway route table virtual interface group association. </p>
             tag_specifications: <p> The tags assigned to the local gateway route table virtual interface group association. </p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8616,6 +8919,9 @@ class AsyncEC2Client:
             vpc_id: <p>The ID of the VPC.</p>
             tag_specifications: <p>The tags to assign to the local gateway route table VPC association.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8677,6 +8983,9 @@ class AsyncEC2Client:
             tag_specifications: <p>The tags to apply to a resource when the local gateway virtual interface is being created. </p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             peer_bgp_asn_extended: <p>The extended 32-bit ASN of the BGP peer for use with larger ASN values.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8739,6 +9048,9 @@ class AsyncEC2Client:
             local_bgp_asn_extended: <p>The extended 32-bit ASN for the local BGP configuration.</p>
             tag_specifications: <p>The tags to apply to the local gateway virtual interface group when the resource is being created.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8803,6 +9115,9 @@ class AsyncEC2Client:
             mac_system_integrity_protection_configuration: <p>Specifies the overrides to selectively enable or disable individual SIP settings. The individual settings you specify here override the overall SIP status you specify for <b>MacSystemIntegrityProtectionStatus</b>.</p>
             mac_system_integrity_protection_status: <p>Specifies the overall SIP status for the instance. To enable all SIP settings, specify <code>enabled</code>. To disable all SIP settings, specify <code>disabled</code>.</p>
             tag_specifications: <p>Specifies tags to apply to the SIP modification task.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8872,6 +9187,9 @@ class AsyncEC2Client:
             tag_specifications: <p>The tags to apply to the prefix list during creation.</p>
             address_family: <p>The IP address type.</p> <p>Valid Values: <code>IPv4</code> | <code>IPv6</code> </p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p> <p>Constraints: Up to 255 UTF-8 characters in length.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8959,6 +9277,9 @@ class AsyncEC2Client:
             secondary_private_ip_addresses: <p>Secondary private IPv4 addresses. For more information about secondary addresses, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html\">Create a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</p>
             secondary_private_ip_address_count: <p>[Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html\">Create a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a NAT gateway
             This example creates a NAT gateway in subnet subnet-1a2b3c4d and associates an Elastic IP address with the allocation ID eipalloc-37fc1a52 with the NAT gateway.
@@ -9038,6 +9359,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             vpc_id: <p>The ID of the VPC.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a network ACL
             This example creates a network ACL for the specified VPC.
@@ -9108,6 +9432,9 @@ class AsyncEC2Client:
             icmp_type_code: <p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>
             port_range: <p>TCP or UDP protocols: The range of ports the rule applies to. Required if specifying protocol 6 (TCP) or 17 (UDP).</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a network ACL entry
             This example creates an entry for the specified network ACL. The rule allows ingress traffic from anywhere (0.0.0.0/0) on UDP port 53 (DNS) into any associated subnet.
@@ -9177,6 +9504,9 @@ class AsyncEC2Client:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">How to ensure idempotency</a>.</p>
             tag_specifications: <p>The tags to apply.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9251,6 +9581,9 @@ class AsyncEC2Client:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">How to ensure idempotency</a>.</p>
             filter_at_source: <p>Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify the parameters for the source IP address or the destination port.</p>
             filter_at_destination: <p>Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify the parameter for the destination IP address.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9363,6 +9696,9 @@ class AsyncEC2Client:
             ipv6_addresses: <p>The IPv6 addresses from the IPv6 CIDR block range of your subnet.</p> <p>You can't specify IPv6 addresses using this parameter if you've specified one of the following: a count of IPv6 addresses, specific IPv6 prefixes, or a count of IPv6 prefixes.</p>
             ipv6_address_count: <p>The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range.</p> <p>You can't specify a count of IPv6 addresses using this parameter if you've specified one of the following: specific IPv6 addresses, specific IPv6 prefixes, or a count of IPv6 prefixes.</p> <p>If your subnet has the <code>AssignIpv6AddressOnCreation</code> attribute set, you can override that setting by specifying 0 as the IPv6 address count.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9449,6 +9785,9 @@ class AsyncEC2Client:
             aws_service: <p>The Amazon Web Services service. Currently not supported.</p>
             permission: <p>The type of permission to grant.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9515,6 +9854,9 @@ class AsyncEC2Client:
             group_name: <p>A name for the placement group. Must be unique within the scope of your account for the Region.</p> <p>Constraints: Up to 255 ASCII characters</p>
             strategy: <p>The placement strategy.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a placement group
             This example creates a placement group with the specified name.
@@ -9579,6 +9921,9 @@ class AsyncEC2Client:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             tag_specifications: <p>The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
             network_border_group: <p>The Availability Zone (AZ) or Local Zone (LZ) network border group that the resource that the IP address is assigned to is in. Defaults to an AZ network border group. For more information on available Local Zones, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail\">Local Zone availability</a> in the <i>Amazon EC2 User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9640,6 +9985,9 @@ class AsyncEC2Client:
             image_id: <p>The ID of the AMI to use to restore the root volume. The specified AMI must have the same product code, billing information, architecture type, and virtualization type as that of the instance.</p> <p>If you want to restore the replacement volume from a specific snapshot, or if you want to restore it to its launch state, omit this parameter.</p>
             delete_replaced_root_volume: <p>Indicates whether to automatically delete the original root volume after the root volume replacement task completes. To delete the original root volume, specify <code>true</code>. If you choose to keep the original root volume after the replacement task completes, you must manually delete it when you no longer need it.</p>
             volume_initialization_rate: <p>Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the replacement root volume. This is also known as <i>volume initialization</i>. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.</p> <p>Omit this parameter if:</p> <ul> <li> <p>You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.</p> <note> <p>If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.</p> </note> </li> <li> <p>You want to create a volume that is initialized at the default rate.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html\"> Initialize Amazon EBS volumes</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Valid range: 100 - 300 MiB/s</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9698,6 +10046,9 @@ class AsyncEC2Client:
             instance_count: <p>The number of instances that are a part of a Reserved Instance account to be listed in the Reserved Instance Marketplace. This number should be less than or equal to the instance count associated with the Reserved Instance ID specified in this call.</p>
             price_schedules: <p>A list specifying the price of the Standard Reserved Instance for each month remaining in the Reserved Instance term.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring Idempotency</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9749,6 +10100,9 @@ class AsyncEC2Client:
             name: <p>The name for the restored AMI. The name must be unique for AMIs in the Region for this account. If you do not provide a name, the new AMI gets the same name as the original AMI.</p>
             tag_specifications: <p>The tags to apply to the AMI and snapshots on restoration. You can tag the AMI, the snapshots, or both.</p> <ul> <li> <p>To tag the AMI, the value for <code>ResourceType</code> must be <code>image</code>.</p> </li> <li> <p>To tag the snapshots, the value for <code>ResourceType</code> must be <code>snapshot</code>. The same tag is applied to all of the snapshots that are created.</p> </li> </ul>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9851,6 +10205,9 @@ class AsyncEC2Client:
             vpc_peering_connection_id: <p>The ID of a VPC peering connection.</p>
             nat_gateway_id: <p>[IPv4 traffic only] The ID of a NAT gateway.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a route
             This example creates a route for the specified route table. The route matches all traffic (0.0.0.0/0) and routes it to the specified Internet gateway.
@@ -9944,6 +10301,9 @@ class AsyncEC2Client:
             persist_routes_duration: <p>The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if PersistRoutes is <code>enabled</code>.</p> <p>If you set the duration to 1 minute, then when your network appliance re-establishes BGP with route server, it has 1 minute to relearn it's adjacent network and advertise those routes to route server before route server resumes normal functionality. In most cases, 1 minute is probably sufficient. If, however, you have concerns that your BGP network may not be capable of fully re-establishing and re-learning everything in 1 minute, you can increase the duration up to 5 minutes.</p>
             sns_notifications_enabled: <p>Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by Amazon Web Services.</p>
             tag_specifications: <p>The tags to apply to the route server during creation.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10004,6 +10364,9 @@ class AsyncEC2Client:
             client_token: <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             tag_specifications: <p>The tags to apply to the route server endpoint during creation.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10061,6 +10424,9 @@ class AsyncEC2Client:
             bgp_options: <p>The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings.</p>
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             tag_specifications: <p>The tags to apply to the route server peer during creation.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10113,6 +10479,9 @@ class AsyncEC2Client:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             vpc_id: <p>The ID of the VPC.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a route table
@@ -10175,6 +10544,9 @@ class AsyncEC2Client:
             ipv4_cidr_block: <p>The IPv4 CIDR block for the secondary network. The CIDR block size must be between /12 and /28.</p>
             network_type: <p>The type of secondary network.</p>
             tag_specifications: <p>The tags to assign to the secondary network.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a secondary network
@@ -10245,6 +10617,9 @@ class AsyncEC2Client:
             secondary_network_id: <p>The ID of the secondary network in which to create the secondary subnet.</p>
             tag_specifications: <p>The tags to assign to the secondary subnet.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a secondary subnet
             This example creates a secondary subnet with a /24 CIDR block in the specified secondary network and Availability Zone.
@@ -10310,6 +10685,9 @@ class AsyncEC2Client:
             tag_specifications: <p>The tags to assign to the security group.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a security group for a VPC
             This example creates a security group for the specified VPC.
@@ -10374,6 +10752,9 @@ class AsyncEC2Client:
             tag_specifications: <p>The tags to apply to the snapshot during creation.</p>
             location: <note> <p>Only supported for volumes in Local Zones. If the source volume is not in a Local Zone, omit this parameter.</p> </note> <ul> <li> <p>To create a local snapshot in the same Local Zone as the source volume, specify <code>local</code>.</p> </li> <li> <p>To create a regional snapshot in the parent Region of the Local Zone, specify <code>regional</code> or omit this parameter.</p> </li> </ul> <p>Default value: <code>regional</code> </p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a snapshot
@@ -10444,6 +10825,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             copy_tags_from_source: <p>Copies the tags from the specified volume to corresponding snapshot.</p>
             location: <note> <p>Only supported for instances in Local Zones. If the source instance is not in a Local Zone, omit this parameter.</p> </note> <ul> <li> <p>To create local snapshots in the same Local Zone as the source instance, specify <code>local</code>.</p> </li> <li> <p>To create regional snapshots in the parent Region of the Local Zone, specify <code>regional</code> or omit this parameter.</p> </li> </ul> <p>Default value: <code>regional</code> </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10498,6 +10882,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             bucket: <p>The name of the Amazon S3 bucket in which to store the Spot Instance data feed. For more information about bucket names, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html\">Bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p>
             prefix: <p>The prefix for the data feed file names.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a Spot Instance datafeed
@@ -10554,6 +10941,9 @@ class AsyncEC2Client:
             bucket: <p>The name of the Amazon S3 bucket in which the AMI object will be stored. The bucket must be in the Region in which the request is being made. The AMI object appears in the bucket only after the upload task has completed. </p>
             s3_object_tags: <p>The tags to apply to the AMI object that will be stored in the Amazon S3 bucket. </p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10627,6 +11017,9 @@ class AsyncEC2Client:
             ipv6_ipam_pool_id: <p>An IPv6 IPAM pool ID for the subnet.</p>
             ipv6_netmask_length: <p>An IPv6 netmask length for the subnet.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a subnet
@@ -10707,6 +11100,9 @@ class AsyncEC2Client:
             description: <p>The description to assign to the subnet CIDR reservation.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             tag_specifications: <p>The tags to assign to the subnet CIDR reservation.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10757,6 +11153,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             resources: <p>The IDs of the resources, separated by spaces.</p> <p>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.</p>
             tags: <p>The tags. The <code>value</code> parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To add a tag to a resource
@@ -10810,6 +11209,9 @@ class AsyncEC2Client:
             tag_specifications: <p>The tags to assign to a Traffic Mirror filter.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">How to ensure idempotency</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10885,6 +11287,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">How to ensure idempotency</a>.</p>
             tag_specifications: <p>Traffic Mirroring tags specifications.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10962,6 +11367,9 @@ class AsyncEC2Client:
             tag_specifications: <p>The tags to assign to a Traffic Mirror session.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">How to ensure idempotency</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11033,6 +11441,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">How to ensure idempotency</a>.</p>
             gateway_load_balancer_endpoint_id: <p>The ID of the Gateway Load Balancer endpoint.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11096,6 +11507,9 @@ class AsyncEC2Client:
             options: <p>The transit gateway options.</p>
             tag_specifications: <p>The tags to apply to the transit gateway.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11149,6 +11563,9 @@ class AsyncEC2Client:
             options: <p>The Connect attachment options.</p>
             tag_specifications: <p>The tags to apply to the Connect attachment.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11210,6 +11627,9 @@ class AsyncEC2Client:
             inside_cidr_blocks: <p>The range of inside IP addresses that are used for BGP peering. You must specify a size /29 IPv4 CIDR block from the <code>169.254.0.0/16</code> range. The first address from the range must be configured on the appliance as the BGP IP address. You can also optionally specify a size /125 IPv6 CIDR block from the <code>fd00::/8</code> range.</p>
             tag_specifications: <p>The tags to apply to the Connect peer.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11268,6 +11688,9 @@ class AsyncEC2Client:
             middlebox_attachment_ids: <p>The IDs of the middlebox attachments to include in the metering policy.</p>
             tag_specifications: <p>The tags to assign to the metering policy.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11344,6 +11767,9 @@ class AsyncEC2Client:
             protocol: <p>The protocol for traffic matching (1, 6, 17, etc.).</p>
             metered_account: <p>The Amazon Web Services account ID to which the metered traffic should be attributed.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11424,6 +11850,9 @@ class AsyncEC2Client:
             options: <p>The options for the transit gateway multicast domain.</p>
             tag_specifications: <p>The tags for the transit gateway multicast domain.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11484,6 +11913,9 @@ class AsyncEC2Client:
             options: <p>Requests a transit gateway peering attachment.</p>
             tag_specifications: <p>The tags to apply to the transit gateway peering attachment.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11537,6 +11969,9 @@ class AsyncEC2Client:
             transit_gateway_id: <p>The ID of the transit gateway used for the policy table.</p>
             tag_specifications: <p>The tags specification for the transit gateway policy table created during the request.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11589,6 +12024,9 @@ class AsyncEC2Client:
             transit_gateway_attachment_id: <p>The ID of the attachment to which traffic is routed.</p>
             blackhole: <p>Indicates whether to drop traffic that matches this route.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11644,6 +12082,9 @@ class AsyncEC2Client:
             transit_gateway_attachment_id: <p>The ID of the attachment.</p>
             blackhole: <p>Indicates whether to drop traffic that matches this route.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11695,6 +12136,9 @@ class AsyncEC2Client:
             transit_gateway_id: <p>The ID of the transit gateway.</p>
             tag_specifications: <p>The tags to apply to the transit gateway route table.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11745,6 +12189,9 @@ class AsyncEC2Client:
             peering_attachment_id: <p>The ID of the peering attachment.</p>
             tag_specifications: <p>The tags specifications applied to the transit gateway route table announcement.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11802,6 +12249,9 @@ class AsyncEC2Client:
             options: <p>The VPC attachment options.</p>
             tag_specifications: <p>The tags to apply to the VPC attachment.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11896,6 +12346,9 @@ class AsyncEC2Client:
             sse_specification: <p>The options for server side encryption.</p>
             rds_options: <p>The RDS details. This parameter is required if the endpoint type is <code>rds</code>.</p>
             cidr_options: <p>The CIDR options. This parameter is required if the endpoint type is <code>cidr</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11980,6 +12433,9 @@ class AsyncEC2Client:
             client_token: <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             sse_specification: <p>The options for server side encryption.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12044,6 +12500,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             fips_enabled: <p>Enable or disable support for Federal Information Processing Standards (FIPS) on the instance.</p>
             cidr_endpoints_custom_sub_domain: <p>The custom subdomain.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12131,6 +12590,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             sse_specification: <p>The options for server side encryption.</p>
             native_application_oidc_options: <p>The OpenID Connect (OIDC) options.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12228,6 +12690,9 @@ class AsyncEC2Client:
             volume_initialization_rate: <p>Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as <i>volume initialization</i>. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.</p> <p>This parameter is supported only for volumes created from snapshots. Omit this parameter if:</p> <ul> <li> <p>You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.</p> <note> <p>If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.</p> </note> </li> <li> <p>You want to create a volume that is initialized at the default rate.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html\"> Initialize Amazon EBS volumes</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Valid range: 100 - 300 MiB/s</p>
             operator: <p>Reserved for internal use.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a new Provisioned IOPS (SSD) volume from a snapshot
@@ -12342,6 +12807,9 @@ class AsyncEC2Client:
             instance_tenancy: <p>The tenancy options for instances launched into the VPC. For <code>default</code>, instances are launched with shared tenancy by default. You can launch instances with any tenancy into a shared tenancy VPC. For <code>dedicated</code>, instances are launched as dedicated tenancy instances by default. You can only launch instances with a tenancy of <code>dedicated</code> or <code>host</code> into a dedicated tenancy VPC. </p> <p> <b>Important:</b> The <code>host</code> value cannot be used with this parameter. Use the <code>default</code> or <code>dedicated</code> values only.</p> <p>Default: <code>default</code> </p>
             amazon_provided_ipv6_cidr_block: <p>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a VPC
             This example creates a VPC with the specified CIDR block.
@@ -12422,6 +12890,9 @@ class AsyncEC2Client:
             vpc_id: <p>A VPC ID.</p>
             internet_gateway_exclusion_mode: <p>The exclusion mode for internet gateway traffic.</p> <ul> <li> <p> <code>allow-bidirectional</code>: Allow all internet traffic to and from the excluded VPCs and subnets.</p> </li> <li> <p> <code>allow-egress</code>: Allow outbound internet traffic from the excluded VPCs and subnets. Block inbound internet traffic to the excluded VPCs and subnets. Only applies when VPC Block Public Access is set to Bidirectional.</p> </li> </ul>
             tag_specifications: <p> <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12474,6 +12945,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             vpc_id: <p>The ID of the VPC for which to create the encryption control configuration.</p>
             tag_specifications: <p>The tags to apply to the VPC Encryption Control resource.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12568,6 +13042,9 @@ class AsyncEC2Client:
             service_network_arn: <p>The Amazon Resource Name (ARN) of a service network that will be associated with the VPC endpoint of type service-network.</p>
             resource_configuration_arn: <p>The Amazon Resource Name (ARN) of a resource configuration that will be associated with the VPC endpoint of type resource.</p>
             service_region: <p>The Region where the service is hosted. The default is the current Region.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12652,6 +13129,9 @@ class AsyncEC2Client:
             connection_notification_arn: <p>The ARN of the SNS topic for the notifications.</p>
             connection_events: <p>The endpoint events for which to receive notifications. Valid values are <code>Accept</code>, <code>Connect</code>, <code>Delete</code>, and <code>Reject</code>.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">How to ensure idempotency</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12725,6 +13205,9 @@ class AsyncEC2Client:
             supported_regions: <p>The Regions from which service consumers can access the service.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">How to ensure idempotency</a>.</p>
             tag_specifications: <p>The tags to associate with the service.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12792,6 +13275,9 @@ class AsyncEC2Client:
             vpc_id: <p>The ID of the requester VPC. You must specify this parameter in the request.</p>
             peer_vpc_id: <p>The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.</p>
             peer_owner_id: <p>The Amazon Web Services account ID of the owner of the accepter VPC.</p> <p>Default: Your Amazon Web Services account ID</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12850,6 +13336,9 @@ class AsyncEC2Client:
             transit_gateway_id: <p>The ID of the transit gateway to attach the VPN concentrator to.</p>
             tag_specifications: <p>The tags to apply to the VPN concentrator during creation.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12920,6 +13409,9 @@ class AsyncEC2Client:
             pre_shared_key_storage: <p>Specifies the storage mode for the pre-shared key (PSK). Valid values are <code>Standard</code>\" (stored in the Site-to-Site VPN service) or <code>SecretsManager</code> (stored in Amazon Web Services Secrets Manager).</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             options: <p>The options for the VPN connection.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12975,6 +13467,9 @@ class AsyncEC2Client:
         Args:
             destination_cidr_block: <p>The CIDR block associated with the local subnet of the customer network.</p>
             vpn_connection_id: <p>The ID of the VPN connection.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13022,6 +13517,9 @@ class AsyncEC2Client:
             tag_specifications: <p>The tags to apply to the virtual private gateway.</p>
             amazon_side_asn: <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. If you're using a 16-bit ASN, it must be in the 64512 to 65534 range. If you're using a 32-bit ASN, it must be in the 4200000000 to 4294967294 range.</p> <p>Default: 64512</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13070,6 +13568,9 @@ class AsyncEC2Client:
         Args:
             capacity_manager_data_export_id: <p> The unique identifier of the data export configuration to delete. </p>
             dry_run: <p> Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13112,6 +13613,9 @@ class AsyncEC2Client:
         Args:
             carrier_gateway_id: <p>The ID of the carrier gateway.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13154,6 +13658,9 @@ class AsyncEC2Client:
         Args:
             client_vpn_endpoint_id: <p>The ID of the Client VPN to be deleted.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13200,6 +13707,9 @@ class AsyncEC2Client:
             target_vpc_subnet_id: <p>The ID of the target subnet used by the route.</p>
             destination_cidr_block: <p>The IPv4 address range, in CIDR notation, of the route to be deleted.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13247,6 +13757,9 @@ class AsyncEC2Client:
             cidr: <p> A customer-owned IP address range that you want to delete. </p>
             coip_pool_id: <p> The ID of the customer-owned address pool. </p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13290,6 +13803,9 @@ class AsyncEC2Client:
         Args:
             coip_pool_id: <p>The ID of the CoIP pool that you want to delete. </p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13332,6 +13848,9 @@ class AsyncEC2Client:
         Args:
             customer_gateway_id: <p>The ID of the customer gateway.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a customer gateway
@@ -13379,6 +13898,9 @@ class AsyncEC2Client:
             dhcp_options_id: <p>The ID of the DHCP options set.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a DHCP options set
             This example deletes the specified DHCP options set.
@@ -13424,6 +13946,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             egress_only_internet_gateway_id: <p>The ID of the egress-only internet gateway.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13468,6 +13993,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             fleet_ids: <p>The IDs of the EC2 Fleets.</p> <p>Constraints: In a single request, you can specify up to 25 <code>instant</code> fleet IDs and up to 100 <code>maintain</code> or <code>request</code> fleet IDs. </p>
             terminate_instances: <p>Indicates whether to terminate the associated instances when the EC2 Fleet is deleted. The default is to terminate the instances.</p> <p>To let the instances continue to run after the EC2 Fleet is deleted, specify <code>no-terminate-instances</code>. Supported only for fleets of type <code>maintain</code> and <code>request</code>.</p> <p>For <code>instant</code> fleets, you cannot specify <code>NoTerminateInstances</code>. A deleted <code>instant</code> fleet with running instances is not supported.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13511,6 +14039,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             flow_log_ids: <p>One or more flow log IDs.</p> <p>Constraint: Maximum of 1000 flow log IDs.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13553,6 +14084,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             fpga_image_id: <p>The ID of the AFI.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13595,6 +14129,9 @@ class AsyncEC2Client:
         Args:
             report_id: <p>The ID of the report to delete.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13637,6 +14174,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             instance_connect_endpoint_id: <p>The ID of the EC2 Instance Connect Endpoint to delete.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13681,6 +14221,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             force_delete: <p>Specify <code>true</code> to force delete the event window. Use the force delete parameter if the event window is currently associated with targets.</p>
             instance_event_window_id: <p>The ID of the event window.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13725,6 +14268,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             internet_gateway_id: <p>The ID of the internet gateway.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete an Internet gateway
@@ -13773,6 +14319,9 @@ class AsyncEC2Client:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             ipam_id: <p>The ID of the IPAM to delete.</p>
             cascade: <p>Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes. You cannot delete the IPAM with this option if there is a pool in your public scope. If you use this option, IPAM does the following:</p> <ul> <li> <p>Deallocates any CIDRs allocated to VPC resources (such as VPCs) in pools in private scopes.</p> <note> <p>No VPC resources are deleted as a result of enabling this option. The CIDR associated with the resource will no longer be allocated from an IPAM pool, but the CIDR itself will remain unchanged.</p> </note> </li> <li> <p>Deprovisions all IPv4 CIDRs provisioned to IPAM pools in private scopes.</p> </li> <li> <p>Deletes all IPAM pools in private scopes.</p> </li> <li> <p>Deletes all non-default private scopes in the IPAM.</p> </li> <li> <p>Deletes the default public and private scopes and the IPAM.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13817,6 +14366,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             ipam_external_resource_verification_token_id: <p>The token ID.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13861,6 +14413,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             ipam_policy_id: <p>The ID of the IPAM policy to delete.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13905,6 +14460,9 @@ class AsyncEC2Client:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             ipam_pool_id: <p>The ID of the pool to delete.</p>
             cascade: <p>Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.</p> <important> <p>You can only use this option to delete pools in the private scope or pools in the public scope with a source resource. A source resource is a resource used to provision CIDRs to a resource planning pool.</p> </important>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13949,6 +14507,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             ipam_prefix_list_resolver_id: <p>The ID of the IPAM prefix list resolver to delete.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13991,6 +14552,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             ipam_prefix_list_resolver_target_id: <p>The ID of the IPAM prefix list resolver target to delete.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14035,6 +14599,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             ipam_resource_discovery_id: <p>The IPAM resource discovery ID.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14077,6 +14644,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             ipam_scope_id: <p>The ID of the scope to delete.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14123,6 +14693,9 @@ class AsyncEC2Client:
             key_name: <p>The name of the key pair.</p>
             key_pair_id: <p>The ID of the key pair.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a key pair
@@ -14180,6 +14753,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             launch_template_id: <p>The ID of the launch template.</p> <p>You must specify either the launch template ID or the launch template name, but not both.</p>
             launch_template_name: <p>The name of the launch template.</p> <p>You must specify either the launch template ID or the launch template name, but not both.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a launch template
@@ -14240,6 +14816,9 @@ class AsyncEC2Client:
             launch_template_name: <p>The name of the launch template.</p> <p>You must specify either the launch template ID or the launch template name, but not both.</p>
             versions: <p>The version numbers of one or more launch template versions to delete. You can specify up to 200 launch template version numbers.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a launch template version
             This example deletes the specified launch template version.
@@ -14297,6 +14876,9 @@ class AsyncEC2Client:
             local_gateway_route_table_id: <p>The ID of the local gateway route table.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             destination_prefix_list_id: <p> Use a prefix list in place of <code>DestinationCidrBlock</code>. You cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14343,6 +14925,9 @@ class AsyncEC2Client:
         Args:
             local_gateway_route_table_id: <p> The ID of the local gateway route table. </p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14385,6 +14970,9 @@ class AsyncEC2Client:
         Args:
             local_gateway_route_table_virtual_interface_group_association_id: <p> The ID of the local gateway route table virtual interface group association. </p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14429,6 +15017,9 @@ class AsyncEC2Client:
         Args:
             local_gateway_route_table_vpc_association_id: <p>The ID of the association.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14473,6 +15064,9 @@ class AsyncEC2Client:
         Args:
             local_gateway_virtual_interface_id: <p>The ID of the local virtual interface to delete.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14517,6 +15111,9 @@ class AsyncEC2Client:
         Args:
             local_gateway_virtual_interface_group_id: <p>The ID of the local gateway virtual interface group to delete.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14561,6 +15158,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             prefix_list_id: <p>The ID of the prefix list.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14603,6 +15203,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             nat_gateway_id: <p>The ID of the NAT gateway.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a NAT gateway
@@ -14651,6 +15254,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             network_acl_id: <p>The ID of the network ACL.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a network ACL
@@ -14702,6 +15308,9 @@ class AsyncEC2Client:
             rule_number: <p>The rule number of the entry to delete.</p>
             egress: <p>Indicates whether the rule is an egress rule.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a network ACL entry
             This example deletes ingress rule number 100 from the specified network ACL.
@@ -14749,6 +15358,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             network_insights_access_scope_id: <p>The ID of the Network Access Scope.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14791,6 +15403,9 @@ class AsyncEC2Client:
         Args:
             network_insights_access_scope_analysis_id: <p>The ID of the Network Access Scope analysis.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14835,6 +15450,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             network_insights_analysis_id: <p>The ID of the network insights analysis.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14877,6 +15495,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             network_insights_path_id: <p>The ID of the path.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14919,6 +15540,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             network_interface_id: <p>The ID of the network interface.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a network interface
@@ -14967,6 +15591,9 @@ class AsyncEC2Client:
             network_interface_permission_id: <p>The ID of the network interface permission.</p>
             force: <p>Specify <code>true</code> to remove the permission even if the network interface is attached to an instance.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15011,6 +15638,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             group_name: <p>The name of the placement group.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a placement group
@@ -15060,6 +15690,9 @@ class AsyncEC2Client:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             pool_id: <p>The ID of the public IPv4 pool you want to delete.</p>
             network_border_group: <p>The Availability Zone (AZ) or Local Zone (LZ) network border group that the resource that the IP address is assigned to is in. Defaults to an AZ network border group. For more information on available Local Zones, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail\">Local Zone availability</a> in the <i>Amazon EC2 User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15104,6 +15737,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             reserved_instances_ids: <p>The IDs of the Reserved Instances.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15154,6 +15790,9 @@ class AsyncEC2Client:
             route_table_id: <p>The ID of the route table.</p>
             destination_cidr_block: <p>The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
             destination_ipv6_cidr_block: <p>The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a route
@@ -15206,6 +15845,9 @@ class AsyncEC2Client:
         Args:
             route_server_id: <p>The ID of the route server to delete.</p>
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15248,6 +15890,9 @@ class AsyncEC2Client:
         Args:
             route_server_endpoint_id: <p>The ID of the route server endpoint to delete.</p>
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15292,6 +15937,9 @@ class AsyncEC2Client:
         Args:
             route_server_peer_id: <p>The ID of the route server peer to delete.</p>
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15334,6 +15982,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             route_table_id: <p>The ID of the route table.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a route table
@@ -15384,6 +16035,9 @@ class AsyncEC2Client:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensure Idempotency</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             secondary_network_id: <p>The ID of the secondary network.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a secondary network
@@ -15436,6 +16090,9 @@ class AsyncEC2Client:
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensure Idempotency</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             secondary_subnet_id: <p>The ID of the secondary subnet to delete.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a secondary subnet
@@ -15493,6 +16150,9 @@ class AsyncEC2Client:
             group_name: <p>[Default VPC] The name of the security group. You can specify either the security group name or the security group ID. For security groups in a nondefault VPC, you must specify the security group ID.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a security group
             This example deletes the specified security group.
@@ -15544,6 +16204,9 @@ class AsyncEC2Client:
             snapshot_id: <p>The ID of the EBS snapshot.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a snapshot
             This example deletes a snapshot with the snapshot ID of ``snap-1234567890abcdef0``. If the command succeeds, no output is returned.
@@ -15587,6 +16250,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To cancel a Spot Instance data feed subscription
@@ -15633,6 +16299,9 @@ class AsyncEC2Client:
             subnet_id: <p>The ID of the subnet.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a subnet
             This example deletes the specified subnet.
@@ -15678,6 +16347,9 @@ class AsyncEC2Client:
         Args:
             subnet_cidr_reservation_id: <p>The ID of the subnet CIDR reservation.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15722,6 +16394,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             resources: <p>The IDs of the resources, separated by spaces.</p> <p>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.</p>
             tags: <p>The tags to delete. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string.</p> <p>If you omit this parameter, we delete all user-defined tags for the specified resources. We do not delete Amazon Web Services-generated tags (tags that have the <code>aws:</code> prefix).</p> <p>Constraints: Up to 1000 tags.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a tag from a resource
@@ -15770,6 +16445,9 @@ class AsyncEC2Client:
         Args:
             traffic_mirror_filter_id: <p>The ID of the Traffic Mirror filter.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15812,6 +16490,9 @@ class AsyncEC2Client:
         Args:
             traffic_mirror_filter_rule_id: <p>The ID of the Traffic Mirror rule.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15854,6 +16535,9 @@ class AsyncEC2Client:
         Args:
             traffic_mirror_session_id: <p>The ID of the Traffic Mirror session.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15896,6 +16580,9 @@ class AsyncEC2Client:
         Args:
             traffic_mirror_target_id: <p>The ID of the Traffic Mirror target.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15938,6 +16625,9 @@ class AsyncEC2Client:
         Args:
             transit_gateway_id: <p>The ID of the transit gateway.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -15980,6 +16670,9 @@ class AsyncEC2Client:
         Args:
             transit_gateway_attachment_id: <p>The ID of the Transit Gateway attachment.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16022,6 +16715,9 @@ class AsyncEC2Client:
         Args:
             transit_gateway_attachment_id: <p>The ID of the Connect attachment.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16064,6 +16760,9 @@ class AsyncEC2Client:
         Args:
             transit_gateway_connect_peer_id: <p>The ID of the Connect peer.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16106,6 +16805,9 @@ class AsyncEC2Client:
         Args:
             transit_gateway_metering_policy_id: <p>The ID of the transit gateway metering policy to delete.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16152,6 +16854,9 @@ class AsyncEC2Client:
             transit_gateway_metering_policy_id: <p>The ID of the transit gateway metering policy containing the entry to delete.</p>
             policy_rule_number: <p>The rule number of the metering policy entry to delete.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16197,6 +16902,9 @@ class AsyncEC2Client:
         Args:
             transit_gateway_multicast_domain_id: <p>The ID of the transit gateway multicast domain.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16241,6 +16949,9 @@ class AsyncEC2Client:
         Args:
             transit_gateway_attachment_id: <p>The ID of the transit gateway peering attachment.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16283,6 +16994,9 @@ class AsyncEC2Client:
         Args:
             transit_gateway_policy_table_id: <p>The transit gateway policy table to delete.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16327,6 +17041,9 @@ class AsyncEC2Client:
             transit_gateway_route_table_id: <p>The ID of the route table.</p>
             prefix_list_id: <p>The ID of the prefix list.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16372,6 +17089,9 @@ class AsyncEC2Client:
             transit_gateway_route_table_id: <p>The ID of the transit gateway route table.</p>
             destination_cidr_block: <p>The CIDR range for the route. This must match the CIDR for the route exactly.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16415,6 +17135,9 @@ class AsyncEC2Client:
         Args:
             transit_gateway_route_table_id: <p>The ID of the transit gateway route table.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16457,6 +17180,9 @@ class AsyncEC2Client:
         Args:
             transit_gateway_route_table_announcement_id: <p>The transit gateway route table ID that's being deleted. </p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16501,6 +17227,9 @@ class AsyncEC2Client:
         Args:
             transit_gateway_attachment_id: <p>The ID of the attachment.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16545,6 +17274,9 @@ class AsyncEC2Client:
             verified_access_endpoint_id: <p>The ID of the Verified Access endpoint.</p>
             client_token: <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16591,6 +17323,9 @@ class AsyncEC2Client:
             verified_access_group_id: <p>The ID of the Verified Access group.</p>
             client_token: <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16637,6 +17372,9 @@ class AsyncEC2Client:
             verified_access_instance_id: <p>The ID of the Verified Access instance.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             client_token: <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16683,6 +17421,9 @@ class AsyncEC2Client:
             verified_access_trust_provider_id: <p>The ID of the Verified Access trust provider.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             client_token: <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16727,6 +17468,9 @@ class AsyncEC2Client:
         Args:
             volume_id: <p>The ID of the volume.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a volume
@@ -16774,6 +17518,9 @@ class AsyncEC2Client:
             vpc_id: <p>The ID of the VPC.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a VPC
             This example deletes the specified VPC.
@@ -16819,6 +17566,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             exclusion_id: <p>The ID of the exclusion.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16861,6 +17611,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             vpc_encryption_control_id: <p>The ID of the VPC Encryption Control resource to delete.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16903,6 +17656,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             connection_notification_ids: <p>The IDs of the notifications.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16945,6 +17701,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             vpc_endpoint_ids: <p>The IDs of the VPC endpoints.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -16987,6 +17746,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             service_ids: <p>The IDs of the services.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17029,6 +17791,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             vpc_peering_connection_id: <p>The ID of the VPC peering connection.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17071,6 +17836,9 @@ class AsyncEC2Client:
         Args:
             vpn_concentrator_id: <p>The ID of the VPN concentrator to delete.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17113,6 +17881,9 @@ class AsyncEC2Client:
         Args:
             vpn_connection_id: <p>The ID of the VPN connection.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17153,6 +17924,9 @@ class AsyncEC2Client:
         Args:
             destination_cidr_block: <p>The CIDR block associated with the local subnet of the customer network.</p>
             vpn_connection_id: <p>The ID of the VPN connection.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17192,6 +17966,9 @@ class AsyncEC2Client:
         Args:
             vpn_gateway_id: <p>The ID of the virtual private gateway.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17232,6 +18009,9 @@ class AsyncEC2Client:
         Args:
             cidr: <p>The address range, in CIDR notation. The prefix must be the same prefix that you specified when you provisioned the address range.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17276,6 +18056,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             ipam_id: <p>The IPAM ID.</p>
             asn: <p>An ASN.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17321,6 +18104,9 @@ class AsyncEC2Client:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             ipam_pool_id: <p>The ID of the pool that has the CIDR you want to deprovision.</p>
             cidr: <p>The CIDR which you want to deprovision from the pool.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17367,6 +18153,9 @@ class AsyncEC2Client:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             pool_id: <p>The ID of the pool that you want to deprovision the CIDR from.</p>
             cidr: <p>The CIDR you want to deprovision from the pool.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17414,6 +18203,9 @@ class AsyncEC2Client:
             image_id: <p>The ID of the AMI.</p>
             delete_associated_snapshots: <p>Specifies whether to delete the snapshots associated with the AMI during deregistration.</p> <note> <p>If a snapshot is associated with multiple AMIs, it is not deleted, regardless of this setting.</p> </note> <p>Default: The snapshots are not deleted.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17458,6 +18250,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             instance_tag_attribute: <p>Information about the tag keys to deregister.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17508,6 +18303,9 @@ class AsyncEC2Client:
             group_ip_address: <p>The IP address assigned to the transit gateway multicast group.</p>
             network_interface_ids: <p>The IDs of the group members' network interfaces.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17565,6 +18363,9 @@ class AsyncEC2Client:
             group_ip_address: <p>The IP address assigned to the transit gateway multicast group.</p>
             network_interface_ids: <p>The IDs of the group sources' network interfaces.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17616,6 +18417,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             attribute_names: <p>The account attribute names.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a single attribute for your AWS account
@@ -17677,6 +18481,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             filters: <p>One or more filters. Filter names and values are case-sensitive.</p> <ul> <li> <p> <code>allocation-id</code> - The allocation ID for the address.</p> </li> <li> <p> <code>association-id</code> - The association ID for the address.</p> </li> <li> <p> <code>instance-id</code> - The ID of the instance the address is associated with, if any.</p> </li> <li> <p> <code>network-border-group</code> - A unique set of Availability Zones, Local Zones, or Wavelength Zones from where Amazon Web Services advertises IP addresses. </p> </li> <li> <p> <code>network-interface-id</code> - The ID of the network interface that the address is associated with, if any.</p> </li> <li> <p> <code>network-interface-owner-id</code> - The Amazon Web Services account ID of the owner.</p> </li> <li> <p> <code>private-ip-address</code> - The private IP address associated with the Elastic IP address.</p> </li> <li> <p> <code>public-ip</code> - The Elastic IP address, or the carrier IP address.</p> </li> <li> <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>
             allocation_ids: <p>Information about the allocation IDs.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe your Elastic IP addresses
@@ -17742,6 +18549,9 @@ class AsyncEC2Client:
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17832,6 +18642,9 @@ class AsyncEC2Client:
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             max_results: <p>The maximum number of address transfers to return in one page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17906,6 +18719,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -17957,6 +18773,9 @@ class AsyncEC2Client:
             all_availability_zones: <p>Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your opt-in status.</p> <p>If you do not use this parameter, the results include only the zones for the Regions where you have chosen the option to opt in.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>group-long-name</code> - The long name of the zone group for the Availability Zone (for example, <code>US West (Oregon) 1</code>), the Local Zone (for example, for Zone group <code>us-west-2-lax-1</code>, it is <code>US West (Los Angeles)</code>, or the Wavelength Zone (for example, for Zone group <code>us-east-1-wl1</code>, it is <code>US East (Verizon)</code>.</p> </li> <li> <p> <code>group-name</code> - The name of the zone group for the Availability Zone (for example, <code>us-east-1-zg-1</code>), the Local Zone (for example, <code>us-west-2-lax-1</code>), or the Wavelength Zone (for example, <code>us-east-1-wl1</code>).</p> </li> <li> <p> <code>message</code> - The Zone message.</p> </li> <li> <p> <code>opt-in-status</code> - The opt-in status (<code>opted-in</code> | <code>not-opted-in</code> | <code>opt-in-not-required</code>).</p> </li> <li> <p> <code>parent-zone-id</code> - The ID of the zone that handles some of the Local Zone and Wavelength Zone control plane operations, such as API calls.</p> </li> <li> <p> <code>parent-zone-name</code> - The ID of the zone that handles some of the Local Zone and Wavelength Zone control plane operations, such as API calls.</p> </li> <li> <p> <code>region-name</code> - The name of the Region for the Zone (for example, <code>us-east-1</code>).</p> </li> <li> <p> <code>state</code> - The state of the Availability Zone, the Local Zone, or the Wavelength Zone (<code>available</code> | <code>unavailable</code> | <code>constrained</code>).</p> </li> <li> <p> <code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>), the Local Zone (for example, <code>usw2-lax1-az1</code>), or the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p> </li> <li> <p> <code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>), the Local Zone (for example, <code>us-west-2-lax-1a</code>), or the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p> </li> <li> <p> <code>zone-type</code> - The type of zone (<code>availability-zone</code> | <code>local-zone</code> | <code>wavelength-zone</code>).</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe your Availability Zones
@@ -18018,6 +18837,9 @@ class AsyncEC2Client:
             next_token: <p>The token for the next page of results.</p>
             filters: <p>One or more filters.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18098,6 +18920,9 @@ class AsyncEC2Client:
             bundle_ids: <p>The bundle task IDs.</p> <p>Default: Describes all your bundle tasks.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>bundle-id</code> - The ID of the bundle task.</p> </li> <li> <p> <code>error-code</code> - If the task failed, the error code returned.</p> </li> <li> <p> <code>error-message</code> - If the task failed, the error message returned.</p> </li> <li> <p> <code>instance-id</code> - The ID of the instance.</p> </li> <li> <p> <code>progress</code> - The level of task completion, as a percentage (for example, 20%).</p> </li> <li> <p> <code>s3-bucket</code> - The Amazon S3 bucket to store the AMI.</p> </li> <li> <p> <code>s3-prefix</code> - The beginning of the AMI name.</p> </li> <li> <p> <code>start-time</code> - The time the task started (for example, 2013-09-15T17:15:20.000Z).</p> </li> <li> <p> <code>state</code> - The state of the task (<code>pending</code> | <code>waiting-for-shutdown</code> | <code>bundling</code> | <code>storing</code> | <code>cancelling</code> | <code>complete</code> | <code>failed</code>).</p> </li> <li> <p> <code>update-time</code> - The time of the most recent update for the task.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18145,6 +18970,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18222,6 +19050,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             filters: <p>One or more filters</p> <ul> <li> <p> <code>availability-zone</code> - The Availability Zone of the extension.</p> </li> <li> <p> <code>availability-zone-id</code> - The Availability Zone ID of the extension.</p> </li> <li> <p> <code>capacity-block-extension-offering-id</code> - The ID of the extension offering.</p> </li> <li> <p> <code>capacity-block-extension-status</code> - The status of the extension (<code>payment-pending</code> | <code>payment-failed</code> | <code>payment-succeeded</code>).</p> </li> <li> <p> <code>capacity-reservation-id</code> - The reservation ID of the extension.</p> </li> <li> <p> <code>instance-type</code> - The instance type of the extension.</p> </li> </ul>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18310,6 +19141,9 @@ class AsyncEC2Client:
             capacity_reservation_id: <p>The ID of the Capacity reservation to be extended.</p>
             next_token: <p>The token to use to retrieve the next page of results.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18412,6 +19246,9 @@ class AsyncEC2Client:
             ultraserver_type: <p>The EC2 UltraServer type of the Capacity Block offerings.</p>
             ultraserver_count: <p>The number of EC2 UltraServers in the offerings.</p>
             all_availability_zones: <p> Include all Availability Zones and Local Zones, regardless of your opt-in status. If you do not use this parameter, the results include available offerings from all Availability Zones in the Amazon Web Services Region and Local Zones you are opted into. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18531,6 +19368,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             filters: <p> One or more filters. </p> <ul> <li> <p> <code>capacity-block-id</code> - The ID of the Capacity Block.</p> </li> <li> <p> <code>ultraserver-type</code> - The Capacity Block type. The type can be <code>instances</code> or <code>ultraservers</code>.</p> </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the Capacity Block.</p> </li> <li> <p> <code>start-date</code> - The date and time at which the Capacity Block was started.</p> </li> <li> <p> <code>end-date</code> - The date and time at which the Capacity Block expires. When a Capacity Block expires, all instances in the Capacity Block are terminated.</p> </li> <li> <p> <code>create-date</code> - The date and time at which the Capacity Block was created.</p> </li> <li> <p> <code>state</code> - The state of the Capacity Block (<code>active</code> | <code>expired</code> | <code>unavailable</code> | <code>cancelled</code> | <code>failed</code> | <code>scheduled</code> | <code>payment-pending</code> | <code>payment-failed</code>).</p> </li> <li> <p> <code>tags</code> - The tags assigned to the Capacity Block.</p> </li> </ul>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18621,6 +19461,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             filters: <p>One or more filters. </p> <ul> <li> <p> <code>interconnect-status</code> - The status of the interconnect for the Capacity Block (<code>ok</code> | <code>impaired</code> | <code>insufficient-data</code>).</p> </li> </ul>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18711,6 +19554,9 @@ class AsyncEC2Client:
             next_token: <p> The token for the next page of results. Use this value in a subsequent call to retrieve additional results. </p>
             dry_run: <p> Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>. </p>
             filters: <p> One or more filters to narrow the results. Supported filters include export status, creation date, and S3 bucket name. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18805,6 +19651,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>status</code> - The state of the request (<code>pending</code> | <code>accepted</code> | <code>rejected</code> | <code>cancelled</code> | <code>revoked</code> | <code>expired</code>).</p> </li> <li> <p> <code>requested-by</code> - The account ID of the Capacity Reservation owner that initiated the request. Not supported if you specify <code>requested-by</code> for <b>Role</b>.</p> </li> <li> <p> <code>unused-reservation-billing-owner</code> - The ID of the consumer account to which the request was sent. Not supported if you specify <code>unused-reservation-billing-owner</code> for <b>Role</b>.</p> </li> </ul>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18898,6 +19747,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>state</code> - The state of the Fleet (<code>submitted</code> | <code>modifying</code> | <code>active</code> | <code>partially_fulfilled</code> | <code>expiring</code> | <code>expired</code> | <code>cancelling</code> | <code>cancelled</code> | <code>failed</code>).</p> </li> <li> <p> <code>instance-match-criteria</code> - The instance matching criteria for the Fleet. Only <code>open</code> is supported.</p> </li> <li> <p> <code>tenancy</code> - The tenancy of the Fleet (<code>default</code> | <code>dedicated</code>).</p> </li> <li> <p> <code>allocation-strategy</code> - The allocation strategy used by the Fleet. Only <code>prioritized</code> is supported.</p> </li> </ul>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -18988,6 +19840,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>instance-type</code> - The type of instance for which the Capacity Reservation reserves capacity.</p> </li> <li> <p> <code>owner-id</code> - The ID of the Amazon Web Services account that owns the Capacity Reservation.</p> </li> <li> <p> <code>instance-platform</code> - The type of operating system for which the Capacity Reservation reserves capacity.</p> </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the Capacity Reservation.</p> </li> <li> <p> <code>tenancy</code> - Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:</p> <ul> <li> <p> <code>default</code> - The Capacity Reservation is created on hardware that is shared with other Amazon Web Services accounts.</p> </li> <li> <p> <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single Amazon Web Services account.</p> </li> </ul> </li> <li> <p> <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost on which the Capacity Reservation was created.</p> </li> <li> <p> <code>state</code> - The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p> <ul> <li> <p> <code>active</code>- The Capacity Reservation is active and the capacity is available for your use.</p> </li> <li> <p> <code>expired</code> - The Capacity Reservation expired automatically at the date and time specified in your request. The reserved capacity is no longer available for your use.</p> </li> <li> <p> <code>cancelled</code> - The Capacity Reservation was cancelled. The reserved capacity is no longer available for your use.</p> </li> <li> <p> <code>pending</code> - The Capacity Reservation request was successful but the capacity provisioning is still pending.</p> </li> <li> <p> <code>failed</code> - The Capacity Reservation request has failed. A request might fail due to invalid request parameters, capacity constraints, or instance limit constraints. Failed requests are retained for 60 minutes.</p> </li> </ul> </li> <li> <p> <code>start-date</code> - The date and time at which the Capacity Reservation was started.</p> </li> <li> <p> <code>end-date</code> - The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to expired when it reaches its end date and time.</p> </li> <li> <p> <code>end-date-type</code> - Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:</p> <ul> <li> <p> <code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it.</p> </li> <li> <p> <code>limited</code> - The Capacity Reservation expires automatically at a specified date and time.</p> </li> </ul> </li> <li> <p> <code>instance-match-criteria</code> - Indicates the type of instance launches that the Capacity Reservation accepts. The options include:</p> <ul> <li> <p> <code>open</code> - The Capacity Reservation accepts all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes launch into the Capacity Reservation automatically without specifying any additional parameters.</p> </li> <li> <p> <code>targeted</code> - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.</p> </li> </ul> </li> <li> <p> <code>placement-group-arn</code> - The ARN of the cluster placement group in which the Capacity Reservation was created.</p> </li> </ul>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19078,6 +19933,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p> <p>You can't specify this parameter and the Capacity Reservation IDs parameter in the same request.</p> <p>Default: <code>10</code> </p>
             capacity_reservation_ids: <p>The Capacity Reservation IDs.</p> <p>Default: Describes all your Capacity Reservations.</p> <p>Constraints: Maximum 100 explicitly specified Capacity Reservation IDs.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>availability-zone</code> - The name of the Availability Zone (for example, <code>us-west-2a</code>) or Local Zone (for example, <code>us-west-2-lax-1b</code>) that the Capacity Reservation is in.</p> </li> <li> <p> <code>instance-type</code> - The instance type (for example, <code>p4d.24xlarge</code>) or instance family (for example, <code>p4d*</code>). You can use the <code>*</code> wildcard to match zero or more characters, or the <code>?</code> wildcard to match zero or one character.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19137,6 +19995,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19227,6 +20088,9 @@ class AsyncEC2Client:
             filters: <p>The filters.</p> <ul> <li> <p> <code>group-id</code> - The ID of a VPC security group that's associated with the instance.</p> </li> <li> <p> <code>instance-id</code> - The ID of the instance.</p> </li> <li> <p> <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC to which the instance is linked.</p> </li> </ul>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p> <p>Constraint: If the value is greater than 1000, we return only 1000 items.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19315,6 +20179,9 @@ class AsyncEC2Client:
             next_token: <p>The token to retrieve the next page of results.</p>
             filters: <p>One or more filters. Filter names and values are case-sensitive.</p> <ul> <li> <p> <code>description</code> - The description of the authorization rule.</p> </li> <li> <p> <code>destination-cidr</code> - The CIDR of the network to which the authorization rule applies.</p> </li> <li> <p> <code>group-id</code> - The ID of the Active Directory group to which the authorization rule grants access.</p> </li> </ul>
             max_results: <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19400,6 +20267,9 @@ class AsyncEC2Client:
             next_token: <p>The token to retrieve the next page of results.</p>
             max_results: <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19487,6 +20357,9 @@ class AsyncEC2Client:
             next_token: <p>The token to retrieve the next page of results.</p>
             filters: <p>One or more filters. Filter names and values are case-sensitive.</p> <ul> <li> <p> <code>endpoint-id</code> - The ID of the Client VPN endpoint.</p> </li> <li> <p> <code>transport-protocol</code> - The transport protocol (<code>tcp</code> | <code>udp</code>).</p> </li> </ul>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19575,6 +20448,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
             next_token: <p>The token to retrieve the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19664,6 +20540,9 @@ class AsyncEC2Client:
             next_token: <p>The token to retrieve the next page of results.</p>
             filters: <p>One or more filters. Filter names and values are case-sensitive.</p> <ul> <li> <p> <code>association-id</code> - The ID of the association.</p> </li> <li> <p> <code>target-network-id</code> - The ID of the subnet specified as the target network.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC in which the target network is located.</p> </li> </ul>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19755,6 +20634,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19835,6 +20717,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             conversion_task_ids: <p>The conversion task IDs.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19882,6 +20767,9 @@ class AsyncEC2Client:
             customer_gateway_ids: <p>One or more customer gateway IDs.</p> <p>Default: Describes all your customer gateways.</p>
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>bgp-asn</code> - The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).</p> </li> <li> <p> <code>customer-gateway-id</code> - The ID of the customer gateway.</p> </li> <li> <p> <code>ip-address</code> - The IP address of the customer gateway device's external interface.</p> </li> <li> <p> <code>state</code> - The state of the customer gateway (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p> </li> <li> <p> <code>type</code> - The type of customer gateway. Currently, the only supported type is <code>ipsec.1</code>.</p> </li> <li> <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a customer gateway
@@ -19941,6 +20829,9 @@ class AsyncEC2Client:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             report_ids: <p>One or more report IDs.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -19998,6 +20889,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>dhcp-options-id</code> - The ID of a DHCP options set.</p> </li> <li> <p> <code>key</code> - The key for one of the options (for example, <code>domain-name</code>).</p> </li> <li> <p> <code>value</code> - The value for one of the options.</p> </li> <li> <p> <code>owner-id</code> - The ID of the Amazon Web Services account that owns the DHCP options set.</p> </li> <li> <p> <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a DHCP options set
@@ -20094,6 +20988,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20186,6 +21083,9 @@ class AsyncEC2Client:
             filters: <p>The filters.</p> <ul> <li> <p> <code>availability-zone</code> - The Availability Zone in which the Elastic Graphics accelerator resides.</p> </li> <li> <p> <code>elastic-gpu-health</code> - The status of the Elastic Graphics accelerator (<code>OK</code> | <code>IMPAIRED</code>).</p> </li> <li> <p> <code>elastic-gpu-state</code> - The state of the Elastic Graphics accelerator (<code>ATTACHED</code>).</p> </li> <li> <p> <code>elastic-gpu-type</code> - The type of Elastic Graphics accelerator; for example, <code>eg1.medium</code>.</p> </li> <li> <p> <code>instance-id</code> - The ID of the instance to which the Elastic Graphics accelerator is associated.</p> </li> </ul>
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. This value can be between 5 and 1000.</p>
             next_token: <p>The token to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20245,6 +21145,9 @@ class AsyncEC2Client:
             export_image_task_ids: <p>The IDs of the export image tasks.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>A token that indicates the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20327,6 +21230,9 @@ class AsyncEC2Client:
         Args:
             filters: <p>the filters for the export tasks.</p>
             export_task_ids: <p>The export task IDs.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20380,6 +21286,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20466,6 +21375,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20550,6 +21462,9 @@ class AsyncEC2Client:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             fleet_id: <p>The ID of the EC2 Fleet.</p>
             start_time: <p>The start date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20607,6 +21522,9 @@ class AsyncEC2Client:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             fleet_id: <p>The ID of the EC2 Fleet.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>instance-type</code> - The instance type.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20661,6 +21579,9 @@ class AsyncEC2Client:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             fleet_ids: <p>The IDs of the EC2 Fleets.</p> <note> <p>If a fleet is of type <code>instant</code>, you must specify the fleet ID, otherwise it does not appear in the response.</p> </note>
             filters: <p>The filters.</p> <ul> <li> <p> <code>activity-status</code> - The progress of the EC2 Fleet ( <code>error</code> | <code>pending-fulfillment</code> | <code>pending-termination</code> | <code>fulfilled</code>).</p> </li> <li> <p> <code>excess-capacity-termination-policy</code> - Indicates whether to terminate running instances if the target capacity is decreased below the current EC2 Fleet size (<code>true</code> | <code>false</code>).</p> </li> <li> <p> <code>fleet-state</code> - The state of the EC2 Fleet (<code>submitted</code> | <code>active</code> | <code>deleted</code> | <code>failed</code> | <code>deleted-running</code> | <code>deleted-terminating</code> | <code>modifying</code>).</p> </li> <li> <p> <code>replace-unhealthy-instances</code> - Indicates whether EC2 Fleet should replace unhealthy instances (<code>true</code> | <code>false</code>).</p> </li> <li> <p> <code>type</code> - The type of request (<code>instant</code> | <code>request</code> | <code>maintain</code>).</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20745,6 +21666,9 @@ class AsyncEC2Client:
             flow_log_ids: <p>One or more flow log IDs.</p> <p>Constraint: Maximum of 1000 flow log IDs.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token to request the next page of items. Pagination continues from the end of the items returned by the previous request.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20825,6 +21749,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             fpga_image_id: <p>The ID of the AFI.</p>
             attribute: <p>The AFI attribute.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20880,6 +21807,9 @@ class AsyncEC2Client:
             filters: <p>The filters.</p> <ul> <li> <p> <code>create-time</code> - The creation time of the AFI.</p> </li> <li> <p> <code>fpga-image-id</code> - The FPGA image identifier (AFI ID).</p> </li> <li> <p> <code>fpga-image-global-id</code> - The global FPGA image identifier (AGFI ID).</p> </li> <li> <p> <code>name</code> - The name of the AFI.</p> </li> <li> <p> <code>owner-id</code> - The Amazon Web Services account ID of the AFI owner.</p> </li> <li> <p> <code>product-code</code> - The product code.</p> </li> <li> <p> <code>shell-version</code> - The version of the Amazon Web Services Shell that was used to create the bitstream.</p> </li> <li> <p> <code>state</code> - The state of the AFI (<code>pending</code> | <code>failed</code> | <code>available</code> | <code>unavailable</code>).</p> </li> <li> <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>update-time</code> - The time of the most recent update.</p> </li> </ul>
             next_token: <p>The token to retrieve the next page of results.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -20974,6 +21904,9 @@ class AsyncEC2Client:
             min_duration: <p>This is the minimum duration of the reservation you'd like to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 31536000 for one year.</p>
             next_token: <p>The token to use to retrieve the next page of results.</p>
             offering_id: <p>The ID of the reservation offering.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21062,6 +21995,9 @@ class AsyncEC2Client:
             host_reservation_id_set: <p>The host reservation IDs.</p>
             max_results: <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
             next_token: <p>The token to use to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21142,6 +22078,9 @@ class AsyncEC2Client:
             next_token: <p>The token to use to retrieve the next page of results.</p>
             max_results: <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p> <p>You cannot specify this parameter and the host IDs parameter in the same request.</p>
             filter: <p>The filters.</p> <ul> <li> <p> <code>auto-placement</code> - Whether auto-placement is enabled or disabled (<code>on</code> | <code>off</code>).</p> </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the host.</p> </li> <li> <p> <code>client-token</code> - The idempotency token that you provided when you allocated the host.</p> </li> <li> <p> <code>host-reservation-id</code> - The ID of the reservation assigned to this host.</p> </li> <li> <p> <code>instance-type</code> - The instance type size that the Dedicated Host is configured to support.</p> </li> <li> <p> <code>state</code> - The allocation state of the Dedicated Host (<code>available</code> | <code>under-assessment</code> | <code>permanent-failure</code> | <code>released</code> | <code>released-permanent-failure</code>).</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21225,6 +22164,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe an IAM instance profile association
             This example describes the specified IAM instance profile association.
@@ -21306,6 +22248,9 @@ class AsyncEC2Client:
         Args:
             resource: <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>snapshot</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code> </p>
             principal_arn: <p>The ARN of the principal, which can be an IAM role, IAM user, or the root user.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21346,6 +22291,9 @@ class AsyncEC2Client:
 
         Args:
             resource: <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>snapshot</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code> </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21389,6 +22337,9 @@ class AsyncEC2Client:
             attribute: <p>The AMI attribute.</p> <p> <b>Note</b>: The <code>blockDeviceMapping</code> attribute is deprecated. Using this attribute returns the <code>Client.AuthFailure</code> error. To get information about the block device mappings for an AMI, describe the image instead.</p>
             image_id: <p>The ID of the AMI.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the launch permissions for an AMI
@@ -21450,6 +22401,9 @@ class AsyncEC2Client:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             max_results: <p> The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21553,6 +22507,9 @@ class AsyncEC2Client:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code> | <code>x86_64_mac</code> | <code>arm64_mac</code>).</p> </li> <li> <p> <code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.</p> </li> <li> <p> <code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p> </li> <li> <p> <code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS volume.</p> </li> <li> <p> <code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p> </li> <li> <p> <code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code> | <code>sc1 </code>| <code>st1</code> | <code>standard</code>).</p> </li> <li> <p> <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS volume is encrypted.</p> </li> <li> <p> <code>creation-date</code> - The time when the image was created, in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which matches an entire day.</p> </li> <li> <p> <code>description</code> - The description of the image (provided during image creation).</p> </li> <li> <p> <code>ena-support</code> - A Boolean that indicates whether enhanced networking with ENA is enabled.</p> </li> <li> <p> <code>free-tier-eligible</code> - A Boolean that indicates whether this image can be used under the Amazon Web Services Free Tier (<code>true</code> | <code>false</code>).</p> </li> <li> <p> <code>hypervisor</code> - The hypervisor type (<code>ovm</code> | <code>xen</code>).</p> </li> <li> <p> <code>image-allowed</code> - A Boolean that indicates whether the image meets the criteria specified for Allowed AMIs.</p> </li> <li> <p> <code>image-id</code> - The ID of the image.</p> </li> <li> <p> <code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> | <code>ramdisk</code>).</p> </li> <li> <p> <code>is-public</code> - A Boolean that indicates whether the image is public.</p> </li> <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li> <li> <p> <code>manifest-location</code> - The location of the image manifest.</p> </li> <li> <p> <code>name</code> - The name of the AMI (provided during image creation).</p> </li> <li> <p> <code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-backup-vault</code> | <code>aws-marketplace</code>). The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be set using the IAM console. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p> </li> <li> <p> <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p> </li> <li> <p> <code>platform</code> - The platform. The only supported value is <code>windows</code>.</p> </li> <li> <p> <code>product-code</code> - The product code.</p> </li> <li> <p> <code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</p> </li> <li> <p> <code>ramdisk-id</code> - The RAM disk ID.</p> </li> <li> <p> <code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p> </li> <li> <p> <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p> </li> <li> <p> <code>source-image-id</code> - The ID of the source AMI from which the AMI was created.</p> </li> <li> <p> <code>source-image-region</code> - The Region of the source AMI.</p> </li> <li> <p> <code>source-instance-id</code> - The ID of the instance that the AMI was created from if the AMI was created using CreateImage. This filter is applicable only if the AMI was created using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html\">CreateImage</a>.</p> </li> <li> <p> <code>state</code> - The state of the image (<code>available</code> | <code>pending</code> | <code>failed</code>).</p> </li> <li> <p> <code>state-reason-code</code> - The reason code for the state change.</p> </li> <li> <p> <code>state-reason-message</code> - The message for the state change.</p> </li> <li> <p> <code>sriov-net-support</code> - A value of <code>simple</code> indicates that enhanced networking with the Intel 82599 VF interface is enabled.</p> </li> <li> <p> <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> | <code>hvm</code>).</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe an AMI
@@ -21669,6 +22626,9 @@ class AsyncEC2Client:
             filters: <p>The filters.</p> <ul> <li> <p> <code>account-id</code> - A 12-digit Amazon Web Services account ID.</p> </li> <li> <p> <code>creation-time</code> - The time when the report was created, in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2025-11-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for example, <code>2025-11-29T*</code>, which matches an entire day.</p> </li> <li> <p> <code>resource-type</code> - The resource type (<code>ec2:Instance</code> | <code>ec2:LaunchTemplate</code>).</p> </li> </ul>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21769,6 +22729,9 @@ class AsyncEC2Client:
             filters: <p>The filters.</p> <ul> <li> <p> <code>creation-time</code> - The time when the report was created, in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2025-11-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for example, <code>2025-11-29T*</code>, which matches an entire day.</p> </li> <li> <p> <code>state</code> - The state of the report (<code>available</code> | <code>pending</code> | <code>error</code>).</p> </li> <li> <p> <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21863,6 +22826,9 @@ class AsyncEC2Client:
             import_task_ids: <p>The IDs of the import image tasks.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>A token that indicates the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -21949,6 +22915,9 @@ class AsyncEC2Client:
             import_task_ids: <p>A list of import snapshot task IDs.</p>
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
             next_token: <p>A token that indicates the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -22030,6 +22999,9 @@ class AsyncEC2Client:
             instance_id: <p>The ID of the instance.</p>
             attribute: <p>The instance attribute.</p> <p>Note that the <code>enaSupport</code> attribute is not supported.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the block device mapping for an instance
             This example describes the ``blockDeviceMapping`` attribute of the specified instance.
@@ -22094,6 +23066,9 @@ class AsyncEC2Client:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>instance-connect-endpoint-id</code> - The ID of the EC2 Instance Connect Endpoint.</p> </li> <li> <p> <code>state</code> - The state of the EC2 Instance Connect Endpoint (<code>create-in-progress</code> | <code>create-complete</code> | <code>create-failed</code> | <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>).</p> </li> <li> <p> <code>subnet-id</code> - The ID of the subnet in which the EC2 Instance Connect Endpoint was created.</p> </li> <li> <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>tag-value</code> - The value of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific value, regardless of tag key.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC in which the EC2 Instance Connect Endpoint was created.</p> </li> </ul>
             instance_connect_endpoint_ids: <p>One or more EC2 Instance Connect Endpoint IDs.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -22184,6 +23159,9 @@ class AsyncEC2Client:
             instance_ids: <p>The instance IDs.</p> <p>Default: Describes all your instances.</p> <p>Constraints: Maximum 1000 explicitly specified instance IDs.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p> <p>You cannot specify this parameter and the instance IDs parameter in the same call.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -22262,6 +23240,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -22311,6 +23292,9 @@ class AsyncEC2Client:
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>dedicated-host-id</code> - The event windows associated with the specified Dedicated Host ID.</p> </li> <li> <p> <code>event-window-name</code> - The event windows associated with the specified names. </p> </li> <li> <p> <code>instance-id</code> - The event windows associated with the specified instance ID.</p> </li> <li> <p> <code>instance-tag</code> - The event windows associated with the specified tag and value.</p> </li> <li> <p> <code>instance-tag-key</code> - The event windows associated with the specified tag key, regardless of the value.</p> </li> <li> <p> <code>instance-tag-value</code> - The event windows associated with the specified tag value, regardless of the key.</p> </li> <li> <p> <code>tag:<key></code> - The key/value combination of a tag assigned to the event window. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>CMX</code>, specify <code>tag:Owner</code> for the filter name and <code>CMX</code> for the filter value. </p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the event window. Use this filter to find all event windows that have a tag with a specific key, regardless of the tag value. </p> </li> <li> <p> <code>tag-value</code> - The value of a tag assigned to the event window. Use this filter to find all event windows that have a tag with a specific value, regardless of the tag key. </p> </li> </ul>
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. This value can be between 20 and 500. You cannot specify this parameter and the event window IDs parameter in the same call.</p>
             next_token: <p>The token to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -22399,6 +23383,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p> <p>Default: 1000</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -22491,6 +23478,9 @@ class AsyncEC2Client:
             filters: <p>The filters.</p> <ul> <li> <p> <code>affinity</code> - The affinity setting for an instance running on a Dedicated Host (<code>default</code> | <code>host</code>).</p> </li> <li> <p> <code>architecture</code> - The instance architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p> </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the instance.</p> </li> <li> <p> <code>availability-zone-id</code> - The ID of the Availability Zone of the instance.</p> </li> <li> <p> <code>block-device-mapping.attach-time</code> - The attach time for an EBS volume mapped to the instance, for example, <code>2022-09-15T17:15:20.000Z</code>.</p> </li> <li> <p> <code>block-device-mapping.delete-on-termination</code> - A Boolean that indicates whether the EBS volume is deleted on instance termination.</p> </li> <li> <p> <code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p> </li> <li> <p> <code>block-device-mapping.status</code> - The status for the EBS volume (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p> </li> <li> <p> <code>block-device-mapping.volume-id</code> - The volume ID of the EBS volume.</p> </li> <li> <p> <code>boot-mode</code> - The boot mode that was specified by the AMI (<code>legacy-bios</code> | <code>uefi</code> | <code>uefi-preferred</code>).</p> </li> <li> <p> <code>capacity-reservation-id</code> - The ID of the Capacity Reservation into which the instance was launched.</p> </li> <li> <p> <code>capacity-reservation-specification.capacity-reservation-preference</code> - The instance's Capacity Reservation preference (<code>open</code> | <code>none</code>).</p> </li> <li> <p> <code>capacity-reservation-specification.capacity-reservation-target.capacity-reservation-id</code> - The ID of the targeted Capacity Reservation.</p> </li> <li> <p> <code>capacity-reservation-specification.capacity-reservation-target.capacity-reservation-resource-group-arn</code> - The ARN of the targeted Capacity Reservation group.</p> </li> <li> <p> <code>client-token</code> - The idempotency token you provided when you launched the instance.</p> </li> <li> <p> <code>current-instance-boot-mode</code> - The boot mode that is used to launch the instance at launch or start (<code>legacy-bios</code> | <code>uefi</code>).</p> </li> <li> <p> <code>dns-name</code> - The public DNS name of the instance.</p> </li> <li> <p> <code>ebs-optimized</code> - A Boolean that indicates whether the instance is optimized for Amazon EBS I/O.</p> </li> <li> <p> <code>ena-support</code> - A Boolean that indicates whether the instance is enabled for enhanced networking with ENA.</p> </li> <li> <p> <code>enclave-options.enabled</code> - A Boolean that indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p> </li> <li> <p> <code>hibernation-options.configured</code> - A Boolean that indicates whether the instance is enabled for hibernation. A value of <code>true</code> means that the instance is enabled for hibernation.</p> </li> <li> <p> <code>host-id</code> - The ID of the Dedicated Host on which the instance is running, if applicable.</p> </li> <li> <p> <code>hypervisor</code> - The hypervisor type of the instance (<code>ovm</code> | <code>xen</code>). The value <code>xen</code> is used for both Xen and Nitro hypervisors.</p> </li> <li> <p> <code>iam-instance-profile.arn</code> - The instance profile associated with the instance. Specified as an ARN.</p> </li> <li> <p> <code>iam-instance-profile.id</code> - The instance profile associated with the instance. Specified as an ID.</p> </li> <li> <p> <code>image-id</code> - The ID of the image used to launch the instance.</p> </li> <li> <p> <code>instance-id</code> - The ID of the instance.</p> </li> <li> <p> <code>instance-lifecycle</code> - Indicates whether this is a Spot Instance, a Scheduled Instance, or a Capacity Block (<code>spot</code> | <code>scheduled</code> | <code>capacity-block</code>).</p> </li> <li> <p> <code>instance-state-code</code> - The state of the instance, as a 16-bit unsigned integer. The high byte is used for internal purposes and should be ignored. The low byte is set based on the state represented. The valid values are: 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</p> </li> <li> <p> <code>instance-state-name</code> - The state of the instance (<code>pending</code> | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code> | <code>stopped</code>).</p> </li> <li> <p> <code>instance-type</code> - The type of instance (for example, <code>t2.micro</code>).</p> </li> <li> <p> <code>instance.group-id</code> - The ID of the security group for the instance. </p> </li> <li> <p> <code>instance.group-name</code> - The name of the security group for the instance. </p> </li> <li> <p> <code>ip-address</code> - The public IPv4 address of the instance.</p> </li> <li> <p> <code>ipv6-address</code> - The IPv6 address of the instance.</p> </li> <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li> <li> <p> <code>key-name</code> - The name of the key pair used when the instance was launched.</p> </li> <li> <p> <code>launch-index</code> - When launching multiple instances, this is the index for the instance in the launch group (for example, 0, 1, 2, and so on). </p> </li> <li> <p> <code>launch-time</code> - The time when the instance was launched, in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which matches an entire day.</p> </li> <li> <p> <code>maintenance-options.auto-recovery</code> - The current automatic recovery behavior of the instance (<code>disabled</code> | <code>default</code>).</p> </li> <li> <p> <code>metadata-options.http-endpoint</code> - The status of access to the HTTP metadata endpoint on your instance (<code>enabled</code> | <code>disabled</code>)</p> </li> <li> <p> <code>metadata-options.http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint is enabled (<code>disabled</code> | <code>enabled</code>).</p> </li> <li> <p> <code>metadata-options.http-protocol-ipv6</code> - Indicates whether the IPv6 endpoint is enabled (<code>disabled</code> | <code>enabled</code>).</p> </li> <li> <p> <code>metadata-options.http-put-response-hop-limit</code> - The HTTP metadata request put response hop limit (integer, possible values <code>1</code> to <code>64</code>)</p> </li> <li> <p> <code>metadata-options.http-tokens</code> - The metadata request authorization state (<code>optional</code> | <code>required</code>)</p> </li> <li> <p> <code>metadata-options.instance-metadata-tags</code> - The status of access to instance tags from the instance metadata (<code>enabled</code> | <code>disabled</code>)</p> </li> <li> <p> <code>metadata-options.state</code> - The state of the metadata option changes (<code>pending</code> | <code>applied</code>).</p> </li> <li> <p> <code>monitoring-state</code> - Indicates whether detailed monitoring is enabled (<code>disabled</code> | <code>enabled</code>).</p> </li> <li> <p> <code>network-interface.addresses.association.allocation-id</code> - The allocation ID.</p> </li> <li> <p> <code>network-interface.addresses.association.association-id</code> - The association ID.</p> </li> <li> <p> <code>network-interface.addresses.association.carrier-ip</code> - The carrier IP address.</p> </li> <li> <p> <code>network-interface.addresses.association.customer-owned-ip</code> - The customer-owned IP address.</p> </li> <li> <p> <code>network-interface.addresses.association.ip-owner-id</code> - The owner ID of the private IPv4 address associated with the network interface.</p> </li> <li> <p> <code>network-interface.addresses.association.public-dns-name</code> - The public DNS name.</p> </li> <li> <p> <code>network-interface.addresses.association.public-ip</code> - The ID of the association of an Elastic IP address (IPv4) with a network interface.</p> </li> <li> <p> <code>network-interface.addresses.primary</code> - Specifies whether the IPv4 address of the network interface is the primary private IPv4 address.</p> </li> <li> <p> <code>network-interface.addresses.private-dns-name</code> - The private DNS name.</p> </li> <li> <p> <code>network-interface.addresses.private-ip-address</code> - The private IPv4 address associated with the network interface.</p> </li> <li> <p> <code>network-interface.association.allocation-id</code> - The allocation ID returned when you allocated the Elastic IP address (IPv4) for your network interface.</p> </li> <li> <p> <code>network-interface.association.association-id</code> - The association ID returned when the network interface was associated with an IPv4 address.</p> </li> <li> <p> <code>network-interface.association.carrier-ip</code> - The customer-owned IP address.</p> </li> <li> <p> <code>network-interface.association.customer-owned-ip</code> - The customer-owned IP address.</p> </li> <li> <p> <code>network-interface.association.ip-owner-id</code> - The owner of the Elastic IP address (IPv4) associated with the network interface.</p> </li> <li> <p> <code>network-interface.association.public-dns-name</code> - The public DNS name.</p> </li> <li> <p> <code>network-interface.association.public-ip</code> - The address of the Elastic IP address (IPv4) bound to the network interface.</p> </li> <li> <p> <code>network-interface.attachment.attach-time</code> - The time that the network interface was attached to an instance.</p> </li> <li> <p> <code>network-interface.attachment.attachment-id</code> - The ID of the interface attachment.</p> </li> <li> <p> <code>network-interface.attachment.delete-on-termination</code> - Specifies whether the attachment is deleted when an instance is terminated.</p> </li> <li> <p> <code>network-interface.attachment.device-index</code> - The device index to which the network interface is attached.</p> </li> <li> <p> <code>network-interface.attachment.instance-id</code> - The ID of the instance to which the network interface is attached.</p> </li> <li> <p> <code>network-interface.attachment.instance-owner-id</code> - The owner ID of the instance to which the network interface is attached.</p> </li> <li> <p> <code>network-interface.attachment.network-card-index</code> - The index of the network card.</p> </li> <li> <p> <code>network-interface.attachment.status</code> - The status of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p> </li> <li> <p> <code>network-interface.availability-zone</code> - The Availability Zone for the network interface.</p> </li> <li> <p> <code>network-interface.deny-all-igw-traffic</code> - A Boolean that indicates whether a network interface with an IPv6 address is unreachable from the public internet.</p> </li> <li> <p> <code>network-interface.description</code> - The description of the network interface.</p> </li> <li> <p> <code>network-interface.group-id</code> - The ID of a security group associated with the network interface.</p> </li> <li> <p> <code>network-interface.group-name</code> - The name of a security group associated with the network interface.</p> </li> <li> <p> <code>network-interface.ipv4-prefixes.ipv4-prefix</code> - The IPv4 prefixes that are assigned to the network interface.</p> </li> <li> <p> <code>network-interface.ipv6-address</code> - The IPv6 address associated with the network interface.</p> </li> <li> <p> <code>network-interface.ipv6-addresses.ipv6-address</code> - The IPv6 address associated with the network interface.</p> </li> <li> <p> <code>network-interface.ipv6-addresses.is-primary-ipv6</code> - A Boolean that indicates whether this is the primary IPv6 address.</p> </li> <li> <p> <code>network-interface.ipv6-native</code> - A Boolean that indicates whether this is an IPv6 only network interface.</p> </li> <li> <p> <code>network-interface.ipv6-prefixes.ipv6-prefix</code> - The IPv6 prefix assigned to the network interface.</p> </li> <li> <p> <code>network-interface.mac-address</code> - The MAC address of the network interface.</p> </li> <li> <p> <code>network-interface.network-interface-id</code> - The ID of the network interface.</p> </li> <li> <p> <code>network-interface.operator.managed</code> - A Boolean that indicates whether the instance has a managed network interface.</p> </li> <li> <p> <code>network-interface.operator.principal</code> - The principal that manages the network interface. Only valid for instances with managed network interfaces, where <code>managed</code> is <code>true</code>.</p> </li> <li> <p> <code>network-interface.outpost-arn</code> - The ARN of the Outpost.</p> </li> <li> <p> <code>network-interface.owner-id</code> - The ID of the owner of the network interface.</p> </li> <li> <p> <code>network-interface.private-dns-name</code> - The private DNS name of the network interface.</p> </li> <li> <p> <code>network-interface.private-ip-address</code> - The private IPv4 address.</p> </li> <li> <p> <code>network-interface.public-dns-name</code> - The public DNS name.</p> </li> <li> <p> <code>network-interface.requester-id</code> - The requester ID for the network interface.</p> </li> <li> <p> <code>network-interface.requester-managed</code> - Indicates whether the network interface is being managed by Amazon Web Services.</p> </li> <li> <p> <code>network-interface.status</code> - The status of the network interface (<code>available</code>) | <code>in-use</code>).</p> </li> <li> <p> <code>network-interface.source-dest-check</code> - Whether the network interface performs source/destination checking. A value of <code>true</code> means that checking is enabled, and <code>false</code> means that checking is disabled. The value must be <code>false</code> for the network interface to perform network address translation (NAT) in your VPC.</p> </li> <li> <p> <code>network-interface.subnet-id</code> - The ID of the subnet for the network interface.</p> </li> <li> <p> <code>network-interface.tag-key</code> - The key of a tag assigned to the network interface.</p> </li> <li> <p> <code>network-interface.tag-value</code> - The value of a tag assigned to the network interface.</p> </li> <li> <p> <code>network-interface.vpc-id</code> - The ID of the VPC for the network interface.</p> </li> <li> <p> <code>network-performance-options.bandwidth-weighting</code> - Where the performance boost is applied, if applicable. Valid values: <code>default</code>, <code>vpc-1</code>, <code>ebs-1</code>.</p> </li> <li> <p> <code>operator.managed</code> - A Boolean that indicates whether this is a managed instance.</p> </li> <li> <p> <code>operator.principal</code> - The principal that manages the instance. Only valid for managed instances, where <code>managed</code> is <code>true</code>.</p> </li> <li> <p> <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p> </li> <li> <p> <code>owner-id</code> - The Amazon Web Services account ID of the instance owner.</p> </li> <li> <p> <code>placement-group-name</code> - The name of the placement group for the instance.</p> </li> <li> <p> <code>placement-partition-number</code> - The partition in which the instance is located.</p> </li> <li> <p> <code>platform</code> - The platform. To list only Windows instances, use <code>windows</code>.</p> </li> <li> <p> <code>platform-details</code> - The platform (<code>Linux/UNIX</code> | <code>Red Hat BYOL Linux</code> | <code> Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> | <code>Red Hat Enterprise Linux with High Availability</code> | <code>Red Hat Enterprise Linux with SQL Server Standard and HA</code> | <code>Red Hat Enterprise Linux with SQL Server Enterprise and HA</code> | <code>Red Hat Enterprise Linux with SQL Server Standard</code> | <code>Red Hat Enterprise Linux with SQL Server Web</code> | <code>Red Hat Enterprise Linux with SQL Server Enterprise</code> | <code>SQL Server Enterprise</code> | <code>SQL Server Standard</code> | <code>SQL Server Web</code> | <code>SUSE Linux</code> | <code>Ubuntu Pro</code> | <code>Windows</code> | <code>Windows BYOL</code> | <code>Windows with SQL Server Enterprise</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with SQL Server Web</code>).</p> </li> <li> <p> <code>private-dns-name</code> - The private IPv4 DNS name of the instance.</p> </li> <li> <p> <code>private-dns-name-options.enable-resource-name-dns-a-record</code> - A Boolean that indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p> </li> <li> <p> <code>private-dns-name-options.enable-resource-name-dns-aaaa-record</code> - A Boolean that indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p> </li> <li> <p> <code>private-dns-name-options.hostname-type</code> - The type of hostname (<code>ip-name</code> | <code>resource-name</code>).</p> </li> <li> <p> <code>private-ip-address</code> - The private IPv4 address of the instance. This can only be used to filter by the primary IP address of the network interface attached to the instance. To filter by additional IP addresses assigned to the network interface, use the filter <code>network-interface.addresses.private-ip-address</code>.</p> </li> <li> <p> <code>product-code</code> - The product code associated with the AMI used to launch the instance.</p> </li> <li> <p> <code>product-code.type</code> - The type of product code (<code>devpay</code> | <code>marketplace</code>).</p> </li> <li> <p> <code>ramdisk-id</code> - The RAM disk ID.</p> </li> <li> <p> <code>reason</code> - The reason for the current state of the instance (for example, shows \"User Initiated [date]\" when you stop or terminate the instance). Similar to the state-reason-code filter.</p> </li> <li> <p> <code>requester-id</code> - The ID of the entity that launched the instance on your behalf (for example, Amazon Web Services Management Console, Auto Scaling, and so on).</p> </li> <li> <p> <code>reservation-id</code> - The ID of the instance's reservation. A reservation ID is created any time you launch an instance. A reservation ID has a one-to-one relationship with an instance launch request, but can be associated with more than one instance if you launch multiple instances using the same launch request. For example, if you launch one instance, you get one reservation ID. If you launch ten instances using the same launch request, you also get one reservation ID.</p> </li> <li> <p> <code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p> </li> <li> <p> <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p> </li> <li> <p> <code>source-dest-check</code> - Indicates whether the instance performs source/destination checking. A value of <code>true</code> means that checking is enabled, and <code>false</code> means that checking is disabled. The value must be <code>false</code> for the instance to perform network address translation (NAT) in your VPC. </p> </li> <li> <p> <code>spot-instance-request-id</code> - The ID of the Spot Instance request.</p> </li> <li> <p> <code>state-reason-code</code> - The reason code for the state change.</p> </li> <li> <p> <code>state-reason-message</code> - A message that describes the state change.</p> </li> <li> <p> <code>subnet-id</code> - The ID of the subnet for the instance.</p> </li> <li> <p> <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>tenancy</code> - The tenancy of an instance (<code>dedicated</code> | <code>default</code> | <code>host</code>).</p> </li> <li> <p> <code>tpm-support</code> - Indicates if the instance is configured for NitroTPM support (<code>v2.0</code>). </p> </li> <li> <p> <code>usage-operation</code> - The usage operation value for the instance (<code>RunInstances</code> | <code>RunInstances:00g0</code> | <code>RunInstances:0010</code> | <code>RunInstances:1010</code> | <code>RunInstances:1014</code> | <code>RunInstances:1110</code> | <code>RunInstances:0014</code> | <code>RunInstances:0210</code> | <code>RunInstances:0110</code> | <code>RunInstances:0100</code> | <code>RunInstances:0004</code> | <code>RunInstances:0200</code> | <code>RunInstances:000g</code> | <code>RunInstances:0g00</code> | <code>RunInstances:0002</code> | <code>RunInstances:0800</code> | <code>RunInstances:0102</code> | <code>RunInstances:0006</code> | <code>RunInstances:0202</code>).</p> </li> <li> <p> <code>usage-operation-update-time</code> - The time that the usage operation was last updated, for example, <code>2022-09-15T17:15:20.000Z</code>.</p> </li> <li> <p> <code>virtualization-type</code> - The virtualization type of the instance (<code>paravirtual</code> | <code>hvm</code>).</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC that the instance is running in.</p> </li> </ul>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p> <p>You cannot specify this parameter and the instance IDs parameter in the same request.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe an Amazon EC2 instance
@@ -22605,6 +23595,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value.</p>
             filters: <p>One or more filters to apply to the results. Supported filters include:</p> <ul> <li> <p> <code>tag:<key></code> - The tag key and value pair assigned to the instance. For example, to find all instances tagged with <code>Owner:TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The tag key assigned to the instance.</p> </li> <li> <p> <code>haStatus</code> - The SQL Server High Availability status of the SQL Server High Availability instance (<code>processing</code> | <code>active</code> | <code>standby</code> | <code>invalid</code>).</p> </li> <li> <p> <code>sqlServerLicenseUsage</code> - The license type for the SQL Server license (<code>full</code> | <code>waived</code>).</p> </li> </ul>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -22668,6 +23661,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value.</p>
             filters: <p>One or more filters to apply to the results. Supported filters include:</p> <ul> <li> <p> <code>tag:<key></code> - The tag key and value pair assigned to the instance. For example, to find all instances tagged with <code>Owner:TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The tag key assigned to the instance.</p> </li> <li> <p> <code>haStatus</code> - The SQL Server High Availability status of the SQL Server High Availability instance (<code>processing</code> | <code>active</code> | <code>standby</code> | <code>invalid</code>).</p> </li> <li> <p> <code>sqlServerLicenseUsage</code> - The license type for the SQL Server license (<code>full</code> | <code>waived</code>).</p> </li> </ul>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -22731,6 +23727,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>availability-zone</code> - The Availability Zone of the instance.</p> </li> <li> <p> <code>availability-zone-id</code> - The ID of the Availability Zone of the instance.</p> </li> <li> <p> <code>event.code</code> - The code for the scheduled event (<code>instance-reboot</code> | <code>system-reboot</code> | <code>system-maintenance</code> | <code>instance-retirement</code> | <code>instance-stop</code>).</p> </li> <li> <p> <code>event.description</code> - A description of the event.</p> </li> <li> <p> <code>event.instance-event-id</code> - The ID of the event whose date and time you are modifying.</p> </li> <li> <p> <code>event.not-after</code> - The latest end time for the scheduled event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p> </li> <li> <p> <code>event.not-before</code> - The earliest start time for the scheduled event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p> </li> <li> <p> <code>event.not-before-deadline</code> - The deadline for starting the event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p> </li> <li> <p> <code>instance-state-code</code> - The code for the instance state, as a 16-bit unsigned integer. The high byte is used for internal purposes and should be ignored. The low byte is set based on the state represented. The valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</p> </li> <li> <p> <code>instance-state-name</code> - The state of the instance (<code>pending</code> | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code> | <code>stopped</code>).</p> </li> <li> <p> <code>instance-status.reachability</code> - Filters on instance status where the name is <code>reachability</code> (<code>passed</code> | <code>failed</code> | <code>initializing</code> | <code>insufficient-data</code>).</p> </li> <li> <p> <code>instance-status.status</code> - The status of the instance (<code>ok</code> | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code> | <code>not-applicable</code>).</p> </li> <li> <p> <code>operator.managed</code> - A Boolean that indicates whether this is a managed instance.</p> </li> <li> <p> <code>operator.principal</code> - The principal that manages the instance. Only valid for managed instances, where <code>managed</code> is <code>true</code>.</p> </li> <li> <p> <code>system-status.reachability</code> - Filters on system status where the name is <code>reachability</code> (<code>passed</code> | <code>failed</code> | <code>initializing</code> | <code>insufficient-data</code>).</p> </li> <li> <p> <code>system-status.status</code> - The system status of the instance (<code>ok</code> | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code> | <code>not-applicable</code>).</p> </li> <li> <p> <code>attached-ebs-status.status</code> - The status of the attached EBS volume for the instance (<code>ok</code> | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code> | <code>not-applicable</code>).</p> </li> </ul>
             include_all_instances: <p>When <code>true</code>, includes the health status for all instances. When <code>false</code>, includes the health status for running instances only.</p> <p>Default: <code>false</code> </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the status of an instance
@@ -22837,6 +23836,9 @@ class AsyncEC2Client:
             instance_ids: <p>The instance IDs.</p> <p>Default: Describes all your instances.</p> <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>
             group_names: <p>The name of the placement group that each instance is in.</p> <p>Constraints: Maximum 100 explicitly specified placement group names.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>availability-zone</code> - The name of the Availability Zone (for example, <code>us-west-2a</code>) or Local Zone (for example, <code>us-west-2-lax-1b</code>) that the instance is in.</p> </li> <li> <p> <code>instance-type</code> - The instance type (for example, <code>p4d.24xlarge</code>) or instance family (for example, <code>p4d*</code>). You can use the <code>*</code> wildcard to match zero or more characters, or the <code>?</code> wildcard to match zero or one character.</p> </li> <li> <p> <code>zone-id</code> - The ID of the Availability Zone (for example, <code>usw2-az2</code>) or Local Zone (for example, <code>usw2-lax1-az1</code>) that the instance is in.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -22931,6 +23933,9 @@ class AsyncEC2Client:
             filters: <p>One or more filters. Filter names and values are case-sensitive.</p> <ul> <li> <p> <code>instance-type</code> - The instance type. For a list of possible values, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Instance.html\">Instance</a>.</p> </li> <li> <p> <code>location</code> - The location. For a list of possible identifiers, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html\">Regions and Zones</a>.</p> </li> </ul>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23021,6 +24026,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             include_unsupported_in_region: <p>If <code>true</code>, the response includes instance types that are not supported in the current Region, in addition to the supported types. Default: <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23116,6 +24124,9 @@ class AsyncEC2Client:
             internet_gateway_ids: <p>The IDs of the internet gateways.</p> <p>Default: Describes all your internet gateways.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>attachment.state</code> - The current state of the attachment between the gateway and the VPC (<code>available</code>). Present only if a VPC is attached.</p> </li> <li> <p> <code>attachment.vpc-id</code> - The ID of an attached VPC.</p> </li> <li> <p> <code>internet-gateway-id</code> - The ID of the Internet gateway.</p> </li> <li> <p> <code>owner-id</code> - The ID of the Amazon Web Services account that owns the internet gateway.</p> </li> <li> <p> <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the Internet gateway for a VPC
             This example describes the Internet gateway for the specified VPC.
@@ -23205,6 +24216,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23260,6 +24274,9 @@ class AsyncEC2Client:
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of tokens to return in one page of results.</p>
             ipam_external_resource_verification_token_ids: <p>Verification token IDs.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23321,6 +24338,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
             ipam_policy_ids: <p>The IDs of the IPAM policies to describe.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23380,6 +24400,9 @@ class AsyncEC2Client:
             filters: <p>One or more filters for the request. For more information about filtering, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html\">Filtering CLI output</a>.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23470,6 +24493,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token for the next page of results.</p>
             ipam_pool_ids: <p>The IDs of the IPAM pools you would like information on.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23560,6 +24586,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token for the next page of results.</p>
             ipam_prefix_list_resolver_ids: <p>The IDs of the IPAM prefix list resolvers to describe. If not specified, all resolvers in your account are described.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23654,6 +24683,9 @@ class AsyncEC2Client:
             next_token: <p>The token for the next page of results.</p>
             ipam_prefix_list_resolver_target_ids: <p>The IDs of the IPAM prefix list resolver Targets to describe. If not specified, all targets in your account are described.</p>
             ipam_prefix_list_resolver_id: <p>The ID of the IPAM prefix list resolver to filter targets by. Only targets associated with this resolver will be returned.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23752,6 +24784,9 @@ class AsyncEC2Client:
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of resource discoveries to return in one page of results.</p>
             filters: <p>The resource discovery filters.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23844,6 +24879,9 @@ class AsyncEC2Client:
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             max_results: <p>The maximum number of resource discovery associations to return in one page of results.</p>
             filters: <p>The resource discovery association filters.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -23936,6 +24974,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token for the next page of results.</p>
             ipam_ids: <p>The IDs of the IPAMs you want information on.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24026,6 +25067,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token for the next page of results.</p>
             ipam_scope_ids: <p>The IDs of the scopes you want information on.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24114,6 +25158,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24203,6 +25250,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>key-pair-id</code> - The ID of the key pair.</p> </li> <li> <p> <code>fingerprint</code> - The fingerprint of the key pair.</p> </li> <li> <p> <code>key-name</code> - The name of the key pair.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> </ul>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To display a key pair
             This example displays the fingerprint for the specified key.
@@ -24273,6 +25323,9 @@ class AsyncEC2Client:
             next_token: <p>The token to request the next page of results.</p>
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. This value can be between 1 and 200.</p>
             include_managed_resources: <p>Indicates whether to include managed resources in the output. If this parameter is set to <code>true</code>, the output includes resources that are managed by Amazon Web Services services, even if managed resource visibility is set to hidden.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a launch template
@@ -24393,6 +25446,9 @@ class AsyncEC2Client:
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>create-time</code> - The time the launch template version was created.</p> </li> <li> <p> <code>ebs-optimized</code> - A boolean that indicates whether the instance is optimized for Amazon EBS I/O.</p> </li> <li> <p> <code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on your instances is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li> <li> <p> <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the instance metadata service is enabled (<code>enabled</code> | <code>disabled</code>).</p> </li> <li> <p> <code>host-resource-group-arn</code> - The ARN of the host resource group in which to launch the instances.</p> </li> <li> <p> <code>http-tokens</code> - The state of token usage for your instance metadata requests (<code>optional</code> | <code>required</code>).</p> </li> <li> <p> <code>iam-instance-profile</code> - The ARN of the IAM instance profile.</p> </li> <li> <p> <code>image-id</code> - The ID of the AMI.</p> </li> <li> <p> <code>instance-type</code> - The instance type.</p> </li> <li> <p> <code>is-default-version</code> - A boolean that indicates whether the launch template version is the default version.</p> </li> <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li> <li> <p> <code>license-configuration-arn</code> - The ARN of the license configuration.</p> </li> <li> <p> <code>network-card-index</code> - The index of the network card.</p> </li> <li> <p> <code>ram-disk-id</code> - The RAM disk ID.</p> </li> </ul>
             resolve_alias: <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageId</code>.</p> <p>If <code>false</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the parameter is displayed in the response for <code>imageId</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id\">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Default: <code>false</code> </p>
             include_managed_resources: <p>Indicates whether to include managed resources in the output. If this parameter is set to <code>true</code>, the output includes resources that are managed by Amazon Web Services services, even if managed resource visibility is set to hidden.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the versions for a launch template
@@ -24517,6 +25573,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24607,6 +25666,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24705,6 +25767,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24799,6 +25864,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24889,6 +25957,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -24983,6 +26054,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25075,6 +26149,9 @@ class AsyncEC2Client:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             snapshot_ids: <p>The IDs of the snapshots for which to view the lock status.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25132,6 +26209,9 @@ class AsyncEC2Client:
             host_ids: <p> The IDs of the EC2 Mac Dedicated Hosts. </p>
             max_results: <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
             next_token: <p>The token to use to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25218,6 +26298,9 @@ class AsyncEC2Client:
             mac_modification_task_ids: <p>The ID of task.</p>
             max_results: <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
             next_token: <p>The token to use to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25308,6 +26391,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             prefix_list_ids: <p>One or more prefix list IDs.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25398,6 +26484,9 @@ class AsyncEC2Client:
             next_token: <p>The token for the next page of results.</p>
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>moving-status</code> - The status of the Elastic IP address (<code>MovingToVpc</code> | <code>RestoringToClassic</code>).</p> </li> </ul>
             max_results: <p>The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned <code>NextToken</code> value. This value can be between 5 and 1000; if <code>MaxResults</code> is given a value outside of this range, an error is returned.</p> <p>Default: If no value is provided, the default is 1000.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe your moving addresses
@@ -25495,6 +26584,9 @@ class AsyncEC2Client:
             nat_gateway_ids: <p>The IDs of the NAT gateways.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe a NAT gateway
             This example describes the NAT gateway for the specified VPC.
@@ -25590,6 +26682,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             network_acl_ids: <p>The IDs of the network ACLs.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>association.association-id</code> - The ID of an association ID for the ACL.</p> </li> <li> <p> <code>association.network-acl-id</code> - The ID of the network ACL involved in the association.</p> </li> <li> <p> <code>association.subnet-id</code> - The ID of the subnet involved in the association.</p> </li> <li> <p> <code>default</code> - Indicates whether the ACL is the default network ACL for the VPC.</p> </li> <li> <p> <code>entry.cidr</code> - The IPv4 CIDR range specified in the entry.</p> </li> <li> <p> <code>entry.icmp.code</code> - The ICMP code specified in the entry, if any.</p> </li> <li> <p> <code>entry.icmp.type</code> - The ICMP type specified in the entry, if any.</p> </li> <li> <p> <code>entry.ipv6-cidr</code> - The IPv6 CIDR range specified in the entry.</p> </li> <li> <p> <code>entry.port-range.from</code> - The start of the port range specified in the entry. </p> </li> <li> <p> <code>entry.port-range.to</code> - The end of the port range specified in the entry. </p> </li> <li> <p> <code>entry.protocol</code> - The protocol specified in the entry (<code>tcp</code> | <code>udp</code> | <code>icmp</code> or a protocol number).</p> </li> <li> <p> <code>entry.rule-action</code> - Allows or denies the matching traffic (<code>allow</code> | <code>deny</code>).</p> </li> <li> <p> <code>entry.egress</code> - A Boolean that indicates the type of rule. Specify <code>true</code> for egress rules, or <code>false</code> for ingress rules.</p> </li> <li> <p> <code>entry.rule-number</code> - The number of an entry (in other words, rule) in the set of ACL entries.</p> </li> <li> <p> <code>network-acl-id</code> - The ID of the network ACL.</p> </li> <li> <p> <code>owner-id</code> - The ID of the Amazon Web Services account that owns the network ACL.</p> </li> <li> <p> <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC for the network ACL.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a network ACL
@@ -25698,6 +26793,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25812,6 +26910,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -25916,6 +27017,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26024,6 +27128,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26109,6 +27216,9 @@ class AsyncEC2Client:
             network_interface_id: <p>The ID of the network interface.</p>
             attribute: <p>The attribute of the network interface. This parameter is required.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the attachment attribute of a network interface
             This example describes the attachment attribute of the specified network interface.
@@ -26178,6 +27288,9 @@ class AsyncEC2Client:
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>network-interface-permission.network-interface-permission-id</code> - The ID of the permission.</p> </li> <li> <p> <code>network-interface-permission.network-interface-id</code> - The ID of the network interface.</p> </li> <li> <p> <code>network-interface-permission.aws-account-id</code> - The Amazon Web Services account ID.</p> </li> <li> <p> <code>network-interface-permission.aws-service</code> - The Amazon Web Services service.</p> </li> <li> <p> <code>network-interface-permission.permission</code> - The type of permission (<code>INSTANCE-ATTACH</code> | <code>EIP-ASSOCIATE</code>).</p> </li> </ul>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. If this parameter is not specified, up to 50 results are returned by default. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26268,6 +27381,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             network_interface_ids: <p>The network interface IDs.</p> <p>Default: Describes all your network interfaces.</p>
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>association.allocation-id</code> - The allocation ID returned when you allocated the Elastic IP address (IPv4) for your network interface.</p> </li> <li> <p> <code>association.association-id</code> - The association ID returned when the network interface was associated with an IPv4 address.</p> </li> <li> <p> <code>addresses.association.owner-id</code> - The owner ID of the addresses associated with the network interface.</p> </li> <li> <p> <code>addresses.association.public-ip</code> - The association ID returned when the network interface was associated with the Elastic IP address (IPv4).</p> </li> <li> <p> <code>addresses.primary</code> - Whether the private IPv4 address is the primary IP address associated with the network interface. </p> </li> <li> <p> <code>addresses.private-ip-address</code> - The private IPv4 addresses associated with the network interface.</p> </li> <li> <p> <code>association.ip-owner-id</code> - The owner of the Elastic IP address (IPv4) associated with the network interface.</p> </li> <li> <p> <code>association.public-ip</code> - The address of the Elastic IP address (IPv4) bound to the network interface.</p> </li> <li> <p> <code>association.public-dns-name</code> - The public DNS name for the network interface (IPv4).</p> </li> <li> <p> <code>attachment.attach-time</code> - The time that the network interface was attached to an instance.</p> </li> <li> <p> <code>attachment.attachment-id</code> - The ID of the interface attachment.</p> </li> <li> <p> <code>attachment.delete-on-termination</code> - Indicates whether the attachment is deleted when an instance is terminated.</p> </li> <li> <p> <code>attachment.device-index</code> - The device index to which the network interface is attached.</p> </li> <li> <p> <code>attachment.instance-id</code> - The ID of the instance to which the network interface is attached.</p> </li> <li> <p> <code>attachment.instance-owner-id</code> - The owner ID of the instance to which the network interface is attached.</p> </li> <li> <p> <code>attachment.status</code> - The status of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p> </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the network interface.</p> </li> <li> <p> <code>availability-zone-id</code> - The ID of the Availability Zone of the network interface.</p> </li> <li> <p> <code>description</code> - The description of the network interface.</p> </li> <li> <p> <code>group-id</code> - The ID of a security group associated with the network interface.</p> </li> <li> <p> <code>ipv6-addresses.ipv6-address</code> - An IPv6 address associated with the network interface.</p> </li> <li> <p> <code>interface-type</code> - The type of network interface (<code>api_gateway_managed</code> | <code>aws_codestar_connections_managed</code> | <code>branch</code> | <code>ec2_instance_connect_endpoint</code> | <code>efa</code> | <code>efa-only</code> | <code>efs</code> | <code>evs</code> | <code>gateway_load_balancer</code> | <code>gateway_load_balancer_endpoint</code> | <code>global_accelerator_managed</code> | <code>interface</code> | <code>iot_rules_managed</code> | <code>lambda</code> | <code>load_balancer</code> | <code>nat_gateway</code> | <code>network_load_balancer</code> | <code>quicksight</code> | <code>transit_gateway</code> | <code>trunk</code> | <code>vpc_endpoint</code>).</p> </li> <li> <p> <code>mac-address</code> - The MAC address of the network interface.</p> </li> <li> <p> <code>network-interface-id</code> - The ID of the network interface.</p> </li> <li> <p> <code>operator.managed</code> - A Boolean that indicates whether this is a managed network interface.</p> </li> <li> <p> <code>operator.principal</code> - The principal that manages the network interface. Only valid for managed network interfaces, where <code>managed</code> is <code>true</code>.</p> </li> <li> <p> <code>owner-id</code> - The Amazon Web Services account ID of the network interface owner.</p> </li> <li> <p> <code>private-dns-name</code> - The private DNS name of the network interface (IPv4).</p> </li> <li> <p> <code>private-ip-address</code> - The private IPv4 address or addresses of the network interface.</p> </li> <li> <p> <code>requester-id</code> - The alias or Amazon Web Services account ID of the principal or service that created the network interface.</p> </li> <li> <p> <code>requester-managed</code> - Indicates whether the network interface is being managed by an Amazon Web Services service (for example, Amazon Web Services Management Console, Auto Scaling, and so on).</p> </li> <li> <p> <code>source-dest-check</code> - Indicates whether the network interface performs source/destination checking. A value of <code>true</code> means checking is enabled, and <code>false</code> means checking is disabled. The value must be <code>false</code> for the network interface to perform network address translation (NAT) in your VPC. </p> </li> <li> <p> <code>status</code> - The status of the network interface. If the network interface is not attached to an instance, the status is <code>available</code>; if a network interface is attached to an instance the status is <code>in-use</code>.</p> </li> <li> <p> <code>subnet-id</code> - The ID of the subnet for the network interface.</p> </li> <li> <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC for the network interface.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a network interface
@@ -26367,6 +27483,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26424,6 +27543,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             group_names: <p>The names of the placement groups.</p> <p>Constraints:</p> <ul> <li> <p>You can specify a name only if the placement group is owned by your account.</p> </li> <li> <p>If a placement group is <i>shared</i> with your account, specifying the name results in an error. You must use the <code>GroupId</code> parameter instead.</p> </li> </ul>
             filters: <p>The filters.</p> <ul> <li> <p> <code>group-name</code> - The name of the placement group.</p> </li> <li> <p> <code>group-arn</code> - The Amazon Resource Name (ARN) of the placement group.</p> </li> <li> <p> <code>spread-level</code> - The spread level for the placement group (<code>host</code> | <code>rack</code>). </p> </li> <li> <p> <code>state</code> - The state of the placement group (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p> </li> <li> <p> <code>strategy</code> - The strategy of the placement group (<code>cluster</code> | <code>spread</code> | <code>partition</code>).</p> </li> <li> <p> <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26479,6 +27601,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             prefix_list_ids: <p>One or more prefix list IDs.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26563,6 +27688,9 @@ class AsyncEC2Client:
             resources: <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>snapshot</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code> </p>
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value. </p>
             next_token: <p>The token to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26645,6 +27773,9 @@ class AsyncEC2Client:
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26728,6 +27859,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>endpoint</code> - The endpoint of the Region (for example, <code>ec2.us-east-1.amazonaws.com</code>).</p> </li> <li> <p> <code>opt-in-status</code> - The opt-in status of the Region (<code>opt-in-not-required</code> | <code>opted-in</code> | <code>not-opted-in</code>).</p> </li> <li> <p> <code>region-name</code> - The name of the Region (for example, <code>us-east-1</code>).</p> </li> </ul>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe your regions
             This example describes all the regions that are available to you.
@@ -26790,6 +27924,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26882,6 +28019,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>availability-zone</code> - The Availability Zone where the Reserved Instance can be used.</p> </li> <li> <p> <code>availability-zone-id</code> - The ID of the Availability Zone where the Reserved Instance can be used.</p> </li> <li> <p> <code>duration</code> - The duration of the Reserved Instance (one year or three years), in seconds (<code>31536000</code> | <code>94608000</code>).</p> </li> <li> <p> <code>end</code> - The time when the Reserved Instance expires (for example, 2015-08-07T11:54:42.000Z).</p> </li> <li> <p> <code>fixed-price</code> - The purchase price of the Reserved Instance (for example, 9800.0).</p> </li> <li> <p> <code>instance-type</code> - The instance type that is covered by the reservation.</p> </li> <li> <p> <code>scope</code> - The scope of the Reserved Instance (<code>Region</code> or <code>Availability Zone</code>).</p> </li> <li> <p> <code>product-description</code> - The Reserved Instance product platform description (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> | <code>Linux with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> | <code>SUSE Linux</code> | <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> | <code>Windows</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Enterprise</code>).</p> </li> <li> <p> <code>reserved-instances-id</code> - The ID of the Reserved Instance.</p> </li> <li> <p> <code>start</code> - The time at which the Reserved Instance purchase request was placed (for example, 2014-08-07T11:54:42.000Z).</p> </li> <li> <p> <code>state</code> - The state of the Reserved Instance (<code>payment-pending</code> | <code>active</code> | <code>payment-failed</code> | <code>retired</code>).</p> </li> <li> <p> <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>usage-price</code> - The usage price of the Reserved Instance, per hour (for example, 0.84).</p> </li> </ul>
             offering_type: <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the <code>Medium Utilization</code> Reserved Instance offering type.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26937,6 +28077,9 @@ class AsyncEC2Client:
             reserved_instances_id: <p>One or more Reserved Instance IDs.</p>
             reserved_instances_listing_id: <p>One or more Reserved Instance listing IDs.</p>
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>reserved-instances-id</code> - The ID of the Reserved Instances.</p> </li> <li> <p> <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</p> </li> <li> <p> <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> | <code>active</code> | <code>cancelled</code> | <code>closed</code>).</p> </li> <li> <p> <code>status-message</code> - The reason for the status.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -26986,6 +28129,9 @@ class AsyncEC2Client:
             reserved_instances_modification_ids: <p>IDs for the submitted modification request.</p>
             next_token: <p>The token to retrieve the next page of results.</p>
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>client-token</code> - The idempotency token for the modification request.</p> </li> <li> <p> <code>create-date</code> - The time when the modification request was created.</p> </li> <li> <p> <code>effective-date</code> - The time when the modification becomes effective.</p> </li> <li> <p> <code>modification-result.reserved-instances-id</code> - The ID for the Reserved Instances created as part of the modification request. This ID is only available when the status of the modification is <code>fulfilled</code>.</p> </li> <li> <p> <code>modification-result.target-configuration.availability-zone</code> - The Availability Zone for the new Reserved Instances.</p> </li> <li> <p> <code>modification-result.target-configuration.availability-zone-id</code> - The ID of the Availability Zone for the new Reserved Instances.</p> </li> <li> <p> <code>modification-result.target-configuration.instance-count </code> - The number of new Reserved Instances.</p> </li> <li> <p> <code>modification-result.target-configuration.instance-type</code> - The instance type of the new Reserved Instances.</p> </li> <li> <p> <code>reserved-instances-id</code> - The ID of the Reserved Instances modified.</p> </li> <li> <p> <code>reserved-instances-modification-id</code> - The ID of the modification request.</p> </li> <li> <p> <code>status</code> - The status of the Reserved Instances modification request (<code>processing</code> | <code>fulfilled</code> | <code>failed</code>).</p> </li> <li> <p> <code>status-message</code> - The reason for the status.</p> </li> <li> <p> <code>update-date</code> - The time when the modification request was last updated.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27096,6 +28242,9 @@ class AsyncEC2Client:
             offering_type: <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the <code>Medium Utilization</code> Reserved Instance offering type. </p>
             next_token: <p>The token to retrieve the next page of results.</p>
             max_results: <p>The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned <code>NextToken</code> value. The maximum is 100.</p> <p>Default: 100</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27236,6 +28385,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call.</p>
             filters: <p>One or more filters to apply to the describe request.</p>
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27326,6 +28478,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call.</p>
             filters: <p>One or more filters to apply to the describe request.</p>
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27416,6 +28571,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call.</p>
             filters: <p>One or more filters to apply to the describe request.</p>
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27506,6 +28664,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             route_table_ids: <p>The IDs of the route tables.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>association.gateway-id</code> - The ID of the gateway involved in the association.</p> </li> <li> <p> <code>association.route-table-association-id</code> - The ID of an association ID for the route table.</p> </li> <li> <p> <code>association.route-table-id</code> - The ID of the route table involved in the association.</p> </li> <li> <p> <code>association.subnet-id</code> - The ID of the subnet involved in the association.</p> </li> <li> <p> <code>association.main</code> - Indicates whether the route table is the main route table for the VPC (<code>true</code> | <code>false</code>). Route tables that do not have an association ID are not returned in the response.</p> </li> <li> <p> <code>owner-id</code> - The ID of the Amazon Web Services account that owns the route table.</p> </li> <li> <p> <code>route-table-id</code> - The ID of the route table.</p> </li> <li> <p> <code>route.destination-cidr-block</code> - The IPv4 CIDR range specified in a route in the table.</p> </li> <li> <p> <code>route.destination-ipv6-cidr-block</code> - The IPv6 CIDR range specified in a route in the route table.</p> </li> <li> <p> <code>route.destination-prefix-list-id</code> - The ID (prefix) of the Amazon Web Services service specified in a route in the table.</p> </li> <li> <p> <code>route.egress-only-internet-gateway-id</code> - The ID of an egress-only Internet gateway specified in a route in the route table.</p> </li> <li> <p> <code>route.gateway-id</code> - The ID of a gateway specified in a route in the table.</p> </li> <li> <p> <code>route.instance-id</code> - The ID of an instance specified in a route in the table.</p> </li> <li> <p> <code>route.nat-gateway-id</code> - The ID of a NAT gateway.</p> </li> <li> <p> <code>route.transit-gateway-id</code> - The ID of a transit gateway.</p> </li> <li> <p> <code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code> indicates that the route was automatically created when the route table was created; <code>CreateRoute</code> indicates that the route was manually added to the route table; <code>EnableVgwRoutePropagation</code> indicates that the route was propagated by route propagation.</p> </li> <li> <p> <code>route.state</code> - The state of a route in the route table (<code>active</code> | <code>blackhole</code>). The blackhole state indicates that the route's target isn't available (for example, the specified gateway isn't attached to the VPC, the specified NAT instance has been terminated, and so on).</p> </li> <li> <p> <code>route.vpc-peering-connection-id</code> - The ID of a VPC peering connection specified in a route in the table.</p> </li> <li> <p> <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC for the route table.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a route table
@@ -27610,6 +28771,9 @@ class AsyncEC2Client:
             min_slot_duration_in_hours: <p>The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p>
             next_token: <p>The token for the next set of results.</p>
             recurrence: <p>The schedule recurrence.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27714,6 +28878,9 @@ class AsyncEC2Client:
             next_token: <p>The token for the next set of results.</p>
             scheduled_instance_ids: <p>The Scheduled Instance IDs.</p>
             slot_start_time_range: <p>The time period for the first schedule to start.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -27808,6 +28975,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             secondary_interface_ids: <p>The IDs of the secondary interfaces.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe all secondary interfaces
@@ -27909,6 +29079,9 @@ class AsyncEC2Client:
             next_token: <p>The token for the next page of results.</p>
             secondary_network_ids: <p>The IDs of the secondary networks.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe specified secondary networks
             This example describes the specified secondary networks.
@@ -28009,6 +29182,9 @@ class AsyncEC2Client:
             next_token: <p>The token for the next page of results.</p>
             secondary_subnet_ids: <p>The IDs of the secondary subnets.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe specified secondary subnets
             This example describes the specified secondary subnets.
@@ -28095,6 +29271,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             group_id: <p>The IDs of the security groups in your account.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe security group references
             This example describes the security group references for the specified security group.
@@ -28152,6 +29331,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. This value can be between 5 and 1000. If this parameter is not specified, then all items are returned. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -28248,6 +29430,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. This value can be between 5 and 1000. If this parameter is not specified, then all items are returned. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             filters: <p>The filters. If using multiple filters for rules, the results include security groups for which any combination of rules - not necessarily a single rule - match all filters.</p> <ul> <li> <p> <code>description</code> - The description of the security group.</p> </li> <li> <p> <code>egress.ip-permission.cidr</code> - An IPv4 CIDR block for an outbound security group rule.</p> </li> <li> <p> <code>egress.ip-permission.from-port</code> - For an outbound rule, the start of port range for the TCP and UDP protocols, or an ICMP type number.</p> </li> <li> <p> <code>egress.ip-permission.group-id</code> - The ID of a security group that has been referenced in an outbound security group rule.</p> </li> <li> <p> <code>egress.ip-permission.group-name</code> - The name of a security group that is referenced in an outbound security group rule.</p> </li> <li> <p> <code>egress.ip-permission.ipv6-cidr</code> - An IPv6 CIDR block for an outbound security group rule.</p> </li> <li> <p> <code>egress.ip-permission.prefix-list-id</code> - The ID of a prefix list to which a security group rule allows outbound access.</p> </li> <li> <p> <code>egress.ip-permission.protocol</code> - The IP protocol for an outbound security group rule (<code>tcp</code> | <code>udp</code> | <code>icmp</code>, a protocol number, or -1 for all protocols).</p> </li> <li> <p> <code>egress.ip-permission.to-port</code> - For an outbound rule, the end of port range for the TCP and UDP protocols, or an ICMP code.</p> </li> <li> <p> <code>egress.ip-permission.user-id</code> - The ID of an Amazon Web Services account that has been referenced in an outbound security group rule.</p> </li> <li> <p> <code>group-id</code> - The ID of the security group. </p> </li> <li> <p> <code>group-name</code> - The name of the security group.</p> </li> <li> <p> <code>ip-permission.cidr</code> - An IPv4 CIDR block for an inbound security group rule.</p> </li> <li> <p> <code>ip-permission.from-port</code> - For an inbound rule, the start of port range for the TCP and UDP protocols, or an ICMP type number.</p> </li> <li> <p> <code>ip-permission.group-id</code> - The ID of a security group that has been referenced in an inbound security group rule.</p> </li> <li> <p> <code>ip-permission.group-name</code> - The name of a security group that is referenced in an inbound security group rule.</p> </li> <li> <p> <code>ip-permission.ipv6-cidr</code> - An IPv6 CIDR block for an inbound security group rule.</p> </li> <li> <p> <code>ip-permission.prefix-list-id</code> - The ID of a prefix list from which a security group rule allows inbound access.</p> </li> <li> <p> <code>ip-permission.protocol</code> - The IP protocol for an inbound security group rule (<code>tcp</code> | <code>udp</code> | <code>icmp</code>, a protocol number, or -1 for all protocols).</p> </li> <li> <p> <code>ip-permission.to-port</code> - For an inbound rule, the end of port range for the TCP and UDP protocols, or an ICMP code.</p> </li> <li> <p> <code>ip-permission.user-id</code> - The ID of an Amazon Web Services account that has been referenced in an inbound security group rule.</p> </li> <li> <p> <code>owner-id</code> - The Amazon Web Services account ID of the owner of the security group.</p> </li> <li> <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC specified when the security group was created.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a security group
@@ -28350,6 +29535,9 @@ class AsyncEC2Client:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -28434,6 +29622,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -28487,6 +29678,9 @@ class AsyncEC2Client:
             attribute: <p>The snapshot attribute you would like to view.</p>
             snapshot_id: <p>The ID of the EBS snapshot.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe snapshot attributes
@@ -28552,6 +29746,9 @@ class AsyncEC2Client:
             snapshot_ids: <p>The snapshot IDs.</p> <p>Default: Describes the snapshots for which you have create volume permissions.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>description</code> - A description of the snapshot.</p> </li> <li> <p> <code>encrypted</code> - Indicates whether the snapshot is encrypted (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>owner-alias</code> - The owner alias, from an Amazon-maintained list (<code>amazon</code>). This is not the user-configured Amazon Web Services account alias set using the IAM console. We recommend that you use the related parameter instead of this filter.</p> </li> <li> <p> <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the related parameter instead of this filter.</p> </li> <li> <p> <code>progress</code> - The progress of the snapshot, as a percentage (for example, 80%).</p> </li> <li> <p> <code>snapshot-id</code> - The snapshot ID.</p> </li> <li> <p> <code>start-time</code> - The time stamp when the snapshot was initiated.</p> </li> <li> <p> <code>status</code> - The status of the snapshot (<code>pending</code> | <code>completed</code> | <code>error</code>).</p> </li> <li> <p> <code>storage-tier</code> - The storage tier of the snapshot (<code>archive</code> | <code>standard</code>).</p> </li> <li> <p> <code>transfer-type</code> - The type of operation used to create the snapshot (<code>time-based</code> | <code>standard</code>).</p> </li> <li> <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>volume-id</code> - The ID of the volume the snapshot is for.</p> </li> <li> <p> <code>volume-size</code> - The size of the volume, in GiB.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a snapshot
@@ -28658,6 +29855,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -28731,6 +29931,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the datafeed for your AWS account
             This example describes the Spot Instance datafeed subscription for your AWS account.
@@ -28783,6 +29986,9 @@ class AsyncEC2Client:
             spot_fleet_request_id: <p>The ID of the Spot Fleet request.</p>
             next_token: <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the Spot Instances associated with a Spot fleet
@@ -28846,6 +30052,9 @@ class AsyncEC2Client:
             next_token: <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe Spot fleet history
             This example returns the history for the specified Spot fleet starting at the specified time.
@@ -28906,6 +30115,9 @@ class AsyncEC2Client:
             spot_fleet_request_ids: <p>The IDs of the Spot Fleet requests.</p>
             next_token: <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a Spot fleet request
@@ -28994,6 +30206,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             spot_instance_request_ids: <p>The IDs of the Spot Instance requests.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>availability-zone-group</code> - The Availability Zone group.</p> </li> <li> <p> <code>create-time</code> - The time stamp when the Spot Instance request was created.</p> </li> <li> <p> <code>fault-code</code> - The fault code related to the request.</p> </li> <li> <p> <code>fault-message</code> - The fault message related to the request.</p> </li> <li> <p> <code>instance-id</code> - The ID of the instance that fulfilled the request.</p> </li> <li> <p> <code>launch-group</code> - The Spot Instance launch group.</p> </li> <li> <p> <code>launch.block-device-mapping.delete-on-termination</code> - Indicates whether the EBS volume is deleted on instance termination.</p> </li> <li> <p> <code>launch.block-device-mapping.device-name</code> - The device name for the volume in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p> </li> <li> <p> <code>launch.block-device-mapping.snapshot-id</code> - The ID of the snapshot for the EBS volume.</p> </li> <li> <p> <code>launch.block-device-mapping.volume-size</code> - The size of the EBS volume, in GiB.</p> </li> <li> <p> <code>launch.block-device-mapping.volume-type</code> - The type of EBS volume: <code>gp2</code> or <code>gp3</code> for General Purpose SSD, <code>io1</code> or <code>io2</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized HDD, <code>sc1</code> for Cold HDD, or <code>standard</code> for Magnetic.</p> </li> <li> <p> <code>launch.group-id</code> - The ID of the security group for the instance.</p> </li> <li> <p> <code>launch.group-name</code> - The name of the security group for the instance.</p> </li> <li> <p> <code>launch.image-id</code> - The ID of the AMI.</p> </li> <li> <p> <code>launch.instance-type</code> - The type of instance (for example, <code>m3.medium</code>).</p> </li> <li> <p> <code>launch.kernel-id</code> - The kernel ID.</p> </li> <li> <p> <code>launch.key-name</code> - The name of the key pair the instance launched with.</p> </li> <li> <p> <code>launch.monitoring-enabled</code> - Whether detailed monitoring is enabled for the Spot Instance.</p> </li> <li> <p> <code>launch.ramdisk-id</code> - The RAM disk ID.</p> </li> <li> <p> <code>launched-availability-zone</code> - The Availability Zone in which the request is launched.</p> </li> <li> <p> <code>launched-availability-zone-id</code> - The ID of the Availability Zone in which the request is launched.</p> </li> <li> <p> <code>network-interface.addresses.primary</code> - Indicates whether the IP address is the primary private IP address.</p> </li> <li> <p> <code>network-interface.delete-on-termination</code> - Indicates whether the network interface is deleted when the instance is terminated.</p> </li> <li> <p> <code>network-interface.description</code> - A description of the network interface.</p> </li> <li> <p> <code>network-interface.device-index</code> - The index of the device for the network interface attachment on the instance.</p> </li> <li> <p> <code>network-interface.group-id</code> - The ID of the security group associated with the network interface.</p> </li> <li> <p> <code>network-interface.network-interface-id</code> - The ID of the network interface.</p> </li> <li> <p> <code>network-interface.private-ip-address</code> - The primary private IP address of the network interface.</p> </li> <li> <p> <code>network-interface.subnet-id</code> - The ID of the subnet for the instance.</p> </li> <li> <p> <code>product-description</code> - The product description associated with the instance (<code>Linux/UNIX</code> | <code>Windows</code>).</p> </li> <li> <p> <code>spot-instance-request-id</code> - The Spot Instance request ID.</p> </li> <li> <p> <code>spot-price</code> - The maximum hourly price for any Spot Instance launched to fulfill the request.</p> </li> <li> <p> <code>state</code> - The state of the Spot Instance request (<code>open</code> | <code>active</code> | <code>closed</code> | <code>cancelled</code> | <code>failed</code>). Spot request status information can help you track your Amazon EC2 Spot Instance requests. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html\">Spot request status</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> <li> <p> <code>status-code</code> - The short code describing the most recent evaluation of your Spot Instance request.</p> </li> <li> <p> <code>status-message</code> - The message explaining the status of the Spot Instance request.</p> </li> <li> <p> <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>type</code> - The type of Spot Instance request (<code>one-time</code> | <code>persistent</code>).</p> </li> <li> <p> <code>valid-from</code> - The start date of the request.</p> </li> <li> <p> <code>valid-until</code> - The end date of the request.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a Spot Instance request
@@ -29100,6 +30315,9 @@ class AsyncEC2Client:
             availability_zone: <p>Filters the results by the specified Availability Zone.</p> <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified, but not both</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe Spot price history for Linux/UNIX (Amazon VPC)
@@ -29216,6 +30434,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             vpc_id: <p>The ID of the VPC.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -29299,6 +30520,9 @@ class AsyncEC2Client:
             filters: <p>The filters.</p> <ul> <li> <p> <code>task-state</code> - Returns tasks in a certain state (<code>InProgress</code> | <code>Completed</code> | <code>Failed</code>)</p> </li> <li> <p> <code>bucket</code> - Returns task information for tasks that targeted a specific bucket. For the filter value, specify the bucket name.</p> </li> </ul> <note> <p>When you specify the <code>ImageIds</code> parameter, any filters that you specify are ignored. To use the filters, you must remove the <code>ImageIds</code> parameter.</p> </note>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p> <p>You cannot specify this parameter and the <code>ImageIds</code> parameter in the same call.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -29390,6 +30614,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the subnets for a VPC
             This example describes the subnets for the specified VPC.
@@ -29479,6 +30706,9 @@ class AsyncEC2Client:
             filters: <p>The filters.</p> <ul> <li> <p> <code>key</code> - The tag key.</p> </li> <li> <p> <code>resource-id</code> - The ID of the resource.</p> </li> <li> <p> <code>resource-type</code> - The resource type. For a list of possible values, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TagSpecification.html\">TagSpecification</a>.</p> </li> <li> <p> <code>tag</code>:<key> - The key/value combination of the tag. For example, specify \"tag:Owner\" for the filter name and \"TeamA\" for the filter value to find resources with the tag \"Owner=TeamA\".</p> </li> <li> <p> <code>value</code> - The tag value.</p> </li> </ul>
             max_results: <p>The maximum number of items to return for this request. This value can be between 5 and 1000. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the tags for a single resource
@@ -29571,6 +30801,9 @@ class AsyncEC2Client:
             filters: <p>Traffic mirror filters.</p> <ul> <li> <p> <code>traffic-mirror-filter-rule-id</code>: The ID of the Traffic Mirror rule.</p> </li> <li> <p> <code>traffic-mirror-filter-id</code>: The ID of the filter that this rule is associated with.</p> </li> <li> <p> <code>rule-number</code>: The number of the Traffic Mirror rule.</p> </li> <li> <p> <code>rule-action</code>: The action taken on the filtered traffic. Possible actions are <code>accept</code> and <code>reject</code>.</p> </li> <li> <p> <code>traffic-direction</code>: The traffic direction. Possible directions are <code>ingress</code> and <code>egress</code>.</p> </li> <li> <p> <code>protocol</code>: The protocol, for example UDP, assigned to the Traffic Mirror rule.</p> </li> <li> <p> <code>source-cidr-block</code>: The source CIDR block assigned to the Traffic Mirror rule.</p> </li> <li> <p> <code>destination-cidr-block</code>: The destination CIDR block assigned to the Traffic Mirror rule.</p> </li> <li> <p> <code>description</code>: The description of the Traffic Mirror rule.</p> </li> </ul>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -29632,6 +30865,9 @@ class AsyncEC2Client:
             filters: <p>One or more filters. The possible values are:</p> <ul> <li> <p> <code>description</code>: The Traffic Mirror filter description.</p> </li> <li> <p> <code>traffic-mirror-filter-id</code>: The ID of the Traffic Mirror filter.</p> </li> </ul>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -29722,6 +30958,9 @@ class AsyncEC2Client:
             filters: <p>One or more filters. The possible values are:</p> <ul> <li> <p> <code>description</code>: The Traffic Mirror session description.</p> </li> <li> <p> <code>network-interface-id</code>: The ID of the Traffic Mirror session network interface.</p> </li> <li> <p> <code>owner-id</code>: The ID of the account that owns the Traffic Mirror session.</p> </li> <li> <p> <code>packet-length</code>: The assigned number of packets to mirror. </p> </li> <li> <p> <code>session-number</code>: The assigned session number. </p> </li> <li> <p> <code>traffic-mirror-filter-id</code>: The ID of the Traffic Mirror filter.</p> </li> <li> <p> <code>traffic-mirror-session-id</code>: The ID of the Traffic Mirror session.</p> </li> <li> <p> <code>traffic-mirror-target-id</code>: The ID of the Traffic Mirror target.</p> </li> <li> <p> <code>virtual-network-id</code>: The virtual network ID of the Traffic Mirror session.</p> </li> </ul>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -29812,6 +31051,9 @@ class AsyncEC2Client:
             filters: <p>One or more filters. The possible values are:</p> <ul> <li> <p> <code>description</code>: The Traffic Mirror target description.</p> </li> <li> <p> <code>network-interface-id</code>: The ID of the Traffic Mirror session network interface.</p> </li> <li> <p> <code>network-load-balancer-arn</code>: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the session.</p> </li> <li> <p> <code>owner-id</code>: The ID of the account that owns the Traffic Mirror session.</p> </li> <li> <p> <code>traffic-mirror-target-id</code>: The ID of the Traffic Mirror target.</p> </li> </ul>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -29902,6 +31144,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -29992,6 +31237,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -30084,6 +31332,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -30176,6 +31427,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -30237,6 +31491,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -30329,6 +31586,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -30419,6 +31679,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -30511,6 +31774,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -30605,6 +31871,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -30695,6 +31964,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -30785,6 +32057,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -30875,6 +32150,9 @@ class AsyncEC2Client:
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>gre-key</code> - The ID of a trunk interface association.</p> </li> <li> <p> <code>interface-protocol</code> - The interface protocol. Valid values are <code>VLAN</code> and <code>GRE</code>.</p> </li> </ul>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -30973,6 +32251,9 @@ class AsyncEC2Client:
             next_token: <p>The token for the next page of results.</p>
             filters: <p>One or more filters. Filter names and values are case-sensitive.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -31079,6 +32360,9 @@ class AsyncEC2Client:
             next_token: <p>The token for the next page of results.</p>
             filters: <p>One or more filters. Filter names and values are case-sensitive.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -31175,6 +32459,9 @@ class AsyncEC2Client:
             next_token: <p>The token for the next page of results.</p>
             filters: <p>One or more filters. Filter names and values are case-sensitive.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -31267,6 +32554,9 @@ class AsyncEC2Client:
             next_token: <p>The token for the next page of results.</p>
             filters: <p>One or more filters. Filter names and values are case-sensitive.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -31357,6 +32647,9 @@ class AsyncEC2Client:
             next_token: <p>The token for the next page of results.</p>
             filters: <p>One or more filters. Filter names and values are case-sensitive.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -31442,6 +32735,9 @@ class AsyncEC2Client:
             volume_id: <p>The ID of the volume.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe a volume attribute
             This example describes the ``autoEnableIo`` attribute of the volume with the ID ``vol-049df61146c4d7901``.
@@ -31500,6 +32796,9 @@ class AsyncEC2Client:
             filters: <p>The filters.</p> <ul> <li> <p> <code>attachment.attach-time</code> - The time stamp when the attachment initiated.</p> </li> <li> <p> <code>attachment.delete-on-termination</code> - Whether the volume is deleted on instance termination.</p> </li> <li> <p> <code>attachment.device</code> - The device name specified in the block device mapping (for example, <code>/dev/sda1</code>).</p> </li> <li> <p> <code>attachment.instance-id</code> - The ID of the instance the volume is attached to.</p> </li> <li> <p> <code>attachment.status</code> - The attachment state (<code>attaching</code> | <code>attached</code> | <code>detaching</code>).</p> </li> <li> <p> <code>availability-zone</code> - The Availability Zone in which the volume was created.</p> </li> <li> <p> <code>availability-zone-id</code> - The ID of the Availability Zone in which the volume was created.</p> </li> <li> <p> <code>create-time</code> - The time stamp when the volume was created.</p> </li> <li> <p> <code>encrypted</code> - Indicates whether the volume is encrypted (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>fast-restored</code> - Indicates whether the volume was created from a snapshot that is enabled for fast snapshot restore (<code>true</code> | <code>false</code>).</p> </li> <li> <p> <code>multi-attach-enabled</code> - Indicates whether the volume is enabled for Multi-Attach (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>operator.managed</code> - A Boolean that indicates whether this is a managed volume.</p> </li> <li> <p> <code>operator.principal</code> - The principal that manages the volume. Only valid for managed volumes, where <code>managed</code> is <code>true</code>.</p> </li> <li> <p> <code>size</code> - The size of the volume, in GiB.</p> </li> <li> <p> <code>snapshot-id</code> - The snapshot from which the volume was created.</p> </li> <li> <p> <code>status</code> - The state of the volume (<code>creating</code> | <code>available</code> | <code>in-use</code> | <code>deleting</code> | <code>deleted</code> | <code>error</code>).</p> </li> <li> <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>volume-id</code> - The volume ID.</p> </li> <li> <p> <code>volume-type</code> - The Amazon EBS volume type (<code>gp2</code> | <code>gp3</code> | <code>io1</code> | <code>io2</code> | <code>st1</code> | <code>sc1</code>| <code>standard</code>)</p> </li> </ul>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe all volumes
@@ -31600,6 +32899,9 @@ class AsyncEC2Client:
             filters: <p>The filters.</p> <ul> <li> <p> <code>modification-state</code> - The current modification state (modifying | optimizing | completed | failed).</p> </li> <li> <p> <code>original-iops</code> - The original IOPS rate of the volume.</p> </li> <li> <p> <code>original-size</code> - The original size of the volume, in GiB.</p> </li> <li> <p> <code>original-volume-type</code> - The original volume type of the volume (standard | io1 | io2 | gp2 | sc1 | st1).</p> </li> <li> <p> <code>originalMultiAttachEnabled</code> - Indicates whether Multi-Attach support was enabled (true | false).</p> </li> <li> <p> <code>start-time</code> - The modification start time.</p> </li> <li> <p> <code>target-iops</code> - The target IOPS rate of the volume.</p> </li> <li> <p> <code>target-size</code> - The target size of the volume, in GiB.</p> </li> <li> <p> <code>target-volume-type</code> - The target volume type of the volume (standard | io1 | io2 | gp2 | sc1 | st1).</p> </li> <li> <p> <code>targetMultiAttachEnabled</code> - Indicates whether Multi-Attach support is to be enabled (true | false).</p> </li> <li> <p> <code>volume-id</code> - The ID of the volume.</p> </li> </ul>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             max_results: <p>The maximum number of results (up to a limit of 500) to be returned in a paginated request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -31688,6 +32990,9 @@ class AsyncEC2Client:
             include_managed_resources: <p>Indicates whether to include managed resources in the output. If this parameter is set to <code>true</code>, the output includes resources that are managed by Amazon Web Services services, even if managed resource visibility is set to hidden.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>action.code</code> - The action code for the event (for example, <code>enable-volume-io</code>).</p> </li> <li> <p> <code>action.description</code> - A description of the action.</p> </li> <li> <p> <code>action.event-id</code> - The event ID associated with the action.</p> </li> <li> <p> <code>availability-zone</code> - The Availability Zone of the instance.</p> </li> <li> <p> <code>event.description</code> - A description of the event.</p> </li> <li> <p> <code>event.event-id</code> - The event ID.</p> </li> <li> <p> <code>event.event-type</code> - The event type (for <code>io-enabled</code>: <code>passed</code> | <code>failed</code>; for <code>io-performance</code>: <code>io-performance:degraded</code> | <code>io-performance:severely-degraded</code> | <code>io-performance:stalled</code>).</p> </li> <li> <p> <code>event.not-after</code> - The latest end time for the event.</p> </li> <li> <p> <code>event.not-before</code> - The earliest start time for the event.</p> </li> <li> <p> <code>volume-status.details-name</code> - The cause for <code>volume-status.status</code> (<code>io-enabled</code> | <code>io-performance</code>).</p> </li> <li> <p> <code>volume-status.details-status</code> - The status of <code>volume-status.details-name</code> (for <code>io-enabled</code>: <code>passed</code> | <code>failed</code>; for <code>io-performance</code>: <code>normal</code> | <code>degraded</code> | <code>severely-degraded</code> | <code>stalled</code>).</p> </li> <li> <p> <code>volume-status.status</code> - The status of the volume (<code>ok</code> | <code>impaired</code> | <code>warning</code> | <code>insufficient-data</code>).</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe the status of a single volume
@@ -31783,6 +33088,9 @@ class AsyncEC2Client:
             vpc_id: <p>The ID of the VPC.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe the enableDnsSupport attribute
             This example describes the enableDnsSupport attribute. This attribute indicates whether DNS resolution is enabled for the VPC. If this attribute is true, the Amazon DNS server resolves DNS hostnames for your instances to their corresponding IP addresses; otherwise, it does not.
@@ -31845,6 +33153,9 @@ class AsyncEC2Client:
             exclusion_ids: <p>IDs of exclusions.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -31892,6 +33203,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -31937,6 +33251,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             vpc_ids: <p>The VPCs for which you want to describe the ClassicLink status.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>is-classic-link-enabled</code> - Whether the VPC is enabled for ClassicLink (<code>true</code> | <code>false</code>).</p> </li> <li> <p> <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -31990,6 +33307,9 @@ class AsyncEC2Client:
             vpc_ids: <p>The IDs of the VPCs.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -32078,6 +33398,9 @@ class AsyncEC2Client:
             vpc_ids: <p>The IDs of the VPCs to describe encryption control configurations for.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -32137,6 +33460,9 @@ class AsyncEC2Client:
             filters: <p>The filters.</p> <ul> <li> <p> <code>vpc-endpoint-id</code> - The ID of the VPC endpoint.</p> </li> <li> <p> <code>associated-resource-accessibility</code> - The association state. When the state is <code>accessible</code>, it returns <code>AVAILABLE</code>. When the state is <code>inaccessible</code>, it returns <code>PENDING</code> or <code>FAILED</code>.</p> </li> <li> <p> <code>association-id</code> - The ID of the VPC endpoint association.</p> </li> <li> <p> <code>associated-resource-id</code> - The ID of the associated resource configuration.</p> </li> <li> <p> <code>service-network-arn</code> - The Amazon Resource Name (ARN) of the associated service network. Only VPC endpoints of type service network will be returned.</p> </li> <li> <p> <code>resource-configuration-group-arn</code> - The Amazon Resource Name (ARN) of the resource configuration of type GROUP.</p> </li> </ul>
             max_results: <p>The maximum page size.</p>
             next_token: <p>The pagination token.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -32194,6 +33520,9 @@ class AsyncEC2Client:
             filters: <p>The filters.</p> <ul> <li> <p> <code>connection-notification-arn</code> - The ARN of the SNS topic for the notification.</p> </li> <li> <p> <code>connection-notification-id</code> - The ID of the notification.</p> </li> <li> <p> <code>connection-notification-state</code> - The state of the notification (<code>Enabled</code> | <code>Disabled</code>).</p> </li> <li> <p> <code>connection-notification-type</code> - The type of notification (<code>Topic</code>).</p> </li> <li> <p> <code>service-id</code> - The ID of the endpoint service.</p> </li> <li> <p> <code>vpc-endpoint-id</code> - The ID of the VPC endpoint.</p> </li> </ul>
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another request with the returned <code>NextToken</code> value.</p>
             next_token: <p>The token to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -32276,6 +33605,9 @@ class AsyncEC2Client:
             filters: <p>The filters.</p> <ul> <li> <p> <code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p> </li> <li> <p> <code>service-id</code> - The ID of the service.</p> </li> <li> <p> <code>vpc-endpoint-owner</code> - The ID of the Amazon Web Services account ID that owns the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-region</code> - The Region of the endpoint or <code>cross-region</code> to find endpoints for other Regions.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p> <code>vpc-endpoint-id</code> - The ID of the endpoint.</p> </li> </ul>
             max_results: <p>The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned <code>NextToken</code> value. This value can be between 5 and 1,000; if <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are returned.</p>
             next_token: <p>The token to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -32358,6 +33690,9 @@ class AsyncEC2Client:
             filters: <p>The filters.</p> <ul> <li> <p> <code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p> </li> <li> <p> <code>service-name</code> - The name of the service.</p> </li> <li> <p> <code>service-region</code> - The Region of the service.</p> </li> <li> <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code> - The ID of the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p> <code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> | <code>Gateway</code> | <code>GatewayLoadBalancer</code> | <code>Resource</code> | <code>ServiceNetwork</code>).</p> </li> </ul>
             max_results: <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p> <p>Constraint: If the value is greater than 1,000, we return only 1,000 items.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -32444,6 +33779,9 @@ class AsyncEC2Client:
             filters: <p>The filters.</p> <ul> <li> <p> <code>service-name</code> - The name of the service.</p> </li> <li> <p> <code>service-id</code> - The ID of the service.</p> </li> <li> <p> <code>service-state</code> - The state of the service (<code>Pending</code> | <code>Available</code> | <code>Deleting</code> | <code>Deleted</code> | <code>Failed</code>). </p> </li> <li> <p> <code>supported-ip-address-types</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p> </li> <li> <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>
             max_results: <p>The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned <code>NextToken</code> value. This value can be between 5 and 1,000; if <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are returned.</p>
             next_token: <p>The token to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -32528,6 +33866,9 @@ class AsyncEC2Client:
             filters: <p>The filters.</p> <ul> <li> <p> <code>principal</code> - The ARN of the principal.</p> </li> <li> <p> <code>principal-type</code> - The principal type (<code>All</code> | <code>Service</code> | <code>OrganizationUnit</code> | <code>Account</code> | <code>User</code> | <code>Role</code>).</p> </li> </ul>
             max_results: <p>The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned <code>NextToken</code> value. This value can be between 5 and 1,000; if <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are returned.</p>
             next_token: <p>The token to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -32615,6 +33956,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p> <p>Constraint: If the value is greater than 1,000, we return only 1,000 items.</p>
             next_token: <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
             service_regions: <p>The service Regions.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -32676,6 +34020,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             vpc_peering_connection_ids: <p>The IDs of the VPC peering connections.</p> <p>Default: Describes all your VPC peering connections.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>accepter-vpc-info.cidr-block</code> - The IPv4 CIDR block of the accepter VPC.</p> </li> <li> <p> <code>accepter-vpc-info.owner-id</code> - The ID of the Amazon Web Services account that owns the accepter VPC.</p> </li> <li> <p> <code>accepter-vpc-info.vpc-id</code> - The ID of the accepter VPC.</p> </li> <li> <p> <code>expiration-time</code> - The expiration date and time for the VPC peering connection.</p> </li> <li> <p> <code>requester-vpc-info.cidr-block</code> - The IPv4 CIDR block of the requester's VPC.</p> </li> <li> <p> <code>requester-vpc-info.owner-id</code> - The ID of the Amazon Web Services account that owns the requester VPC.</p> </li> <li> <p> <code>requester-vpc-info.vpc-id</code> - The ID of the requester VPC.</p> </li> <li> <p> <code>status-code</code> - The status of the VPC peering connection (<code>pending-acceptance</code> | <code>failed</code> | <code>expired</code> | <code>provisioning</code> | <code>active</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code>).</p> </li> <li> <p> <code>status-message</code> - A message that provides more information about the status of the VPC peering connection, if applicable.</p> </li> <li> <p> <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>vpc-peering-connection-id</code> - The ID of the VPC peering connection.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -32828,6 +34175,9 @@ class AsyncEC2Client:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a VPC
@@ -32983,6 +34333,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -33069,6 +34422,9 @@ class AsyncEC2Client:
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>customer-gateway-configuration</code> - The configuration information for the customer gateway.</p> </li> <li> <p> <code>customer-gateway-id</code> - The ID of a customer gateway associated with the VPN connection.</p> </li> <li> <p> <code>state</code> - The state of the VPN connection (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p> </li> <li> <p> <code>option.static-routes-only</code> - Indicates whether the connection has static routes only. Used for devices that do not support Border Gateway Protocol (BGP).</p> </li> <li> <p> <code>route.destination-cidr-block</code> - The destination CIDR block. This corresponds to the subnet used in a customer data center.</p> </li> <li> <p> <code>bgp-asn</code> - The BGP Autonomous System Number (ASN) associated with a BGP device.</p> </li> <li> <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>type</code> - The type of VPN connection. Currently the only supported type is <code>ipsec.1</code>.</p> </li> <li> <p> <code>vpn-connection-id</code> - The ID of the VPN connection.</p> </li> <li> <p> <code>vpn-gateway-id</code> - The ID of a virtual private gateway associated with the VPN connection.</p> </li> <li> <p> <code>transit-gateway-id</code> - The ID of a transit gateway associated with the VPN connection.</p> </li> </ul>
             vpn_connection_ids: <p>One or more VPN connection IDs.</p> <p>Default: Describes your VPN connections.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -33118,6 +34474,9 @@ class AsyncEC2Client:
             filters: <p>One or more filters.</p> <ul> <li> <p> <code>amazon-side-asn</code> - The Autonomous System Number (ASN) for the Amazon side of the gateway.</p> </li> <li> <p> <code>attachment.state</code> - The current state of the attachment between the gateway and the VPC (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p> </li> <li> <p> <code>attachment.vpc-id</code> - The ID of an attached VPC.</p> </li> <li> <p> <code>availability-zone</code> - The Availability Zone for the virtual private gateway (if applicable).</p> </li> <li> <p> <code>state</code> - The state of the virtual private gateway (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p> </li> <li> <p> <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>type</code> - The type of virtual private gateway. Currently the only supported type is <code>ipsec.1</code>.</p> </li> <li> <p> <code>vpn-gateway-id</code> - The ID of the virtual private gateway.</p> </li> </ul>
             vpn_gateway_ids: <p>One or more virtual private gateway IDs.</p> <p>Default: Describes all your virtual private gateways.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -33165,6 +34524,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             instance_id: <p>The ID of the instance to unlink from the VPC.</p>
             vpc_id: <p>The ID of the VPC to which the instance is linked.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -33210,6 +34572,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             internet_gateway_id: <p>The ID of the internet gateway.</p>
             vpc_id: <p>The ID of the VPC.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To detach an Internet gateway from a VPC
@@ -33259,6 +34624,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             attachment_id: <p>The ID of the attachment.</p>
             force: <p>Specifies whether to force a detachment.</p> <note> <ul> <li> <p>Use the <code>Force</code> parameter only as a last resort to detach a network interface from a failed instance. </p> </li> <li> <p>If you use the <code>Force</code> parameter to detach a network interface, you might not be able to attach a different network interface to the same index on the instance without first stopping and starting the instance.</p> </li> <li> <p>If you force the detachment of a network interface, the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">instance metadata</a> might not get updated. This means that the attributes associated with the detached network interface might still be visible. The instance metadata will get updated when you stop and start the instance.</p> </li> </ul> </note>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To detach a network interface from an instance
@@ -33311,6 +34679,9 @@ class AsyncEC2Client:
             verified_access_trust_provider_id: <p>The ID of the Verified Access trust provider.</p>
             client_token: <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -33364,6 +34735,9 @@ class AsyncEC2Client:
             instance_id: <p>The ID of the instance. If you are detaching a Multi-Attach enabled volume, you must specify an instance ID.</p>
             volume_id: <p>The ID of the volume.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To detach a volume from an instance
@@ -33420,6 +34794,9 @@ class AsyncEC2Client:
             vpc_id: <p>The ID of the VPC.</p>
             vpn_gateway_id: <p>The ID of the virtual private gateway.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -33463,6 +34840,9 @@ class AsyncEC2Client:
         Args:
             allocation_id: <p>The allocation ID of an Elastic IP address.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -33503,6 +34883,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -33550,6 +34933,9 @@ class AsyncEC2Client:
             metric: <p>The metric used for the disabled subscription.</p>
             statistic: <p>The statistic used for the disabled subscription. </p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -33601,6 +34987,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p> Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>. </p>
             client_token: <p> Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -33642,6 +35031,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -33685,6 +35077,9 @@ class AsyncEC2Client:
             image_id: <p>Specify the ID of the image for which to disable Windows fast launch.</p>
             force: <p>Forces the image settings to turn off Windows fast launch for your Windows AMI. This parameter overrides any errors that are encountered while cleaning up resources in your account.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -33737,6 +35132,9 @@ class AsyncEC2Client:
             availability_zone_ids: <p>One or more Availability Zone IDs. For example, <code>use2-az1</code>.</p> <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified in the request, but not both.</p>
             source_snapshot_ids: <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -33783,6 +35181,9 @@ class AsyncEC2Client:
         Args:
             image_id: <p>The ID of the AMI.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -33823,6 +35224,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -33864,6 +35268,9 @@ class AsyncEC2Client:
         Args:
             image_id: <p>The ID of the AMI.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -33906,6 +35313,9 @@ class AsyncEC2Client:
         Args:
             image_id: <p>The ID of the AMI.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -33948,6 +35358,9 @@ class AsyncEC2Client:
         Args:
             instance_ids: <p>The IDs of the instances to disable from SQL Server High Availability standby detection monitoring.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -33990,6 +35403,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             delegated_admin_account_id: <p>The Organizations member account ID that you want to disable as IPAM account.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -34034,6 +35450,9 @@ class AsyncEC2Client:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             ipam_policy_id: <p>The ID of the IPAM policy to disable.</p>
             organization_target_id: <p>The ID of the Amazon Web Services Organizations target for which to disable the IPAM policy. This parameter is required only when IPAM is integrated with Amazon Web Services Organizations. When IPAM is not integrated with Amazon Web Services Organizations, omit this parameter and the policy will be disabled for the current account.</p> <p>A target can be an individual Amazon Web Services account or an entity within an Amazon Web Services Organization to which an IPAM policy can be applied.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -34080,6 +35499,9 @@ class AsyncEC2Client:
             route_server_id: <p>The ID of the route server for which to disable propagation.</p>
             route_table_id: <p>The ID of the route table for which to disable route server propagation.</p>
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -34121,6 +35543,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -34160,6 +35585,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -34209,6 +35637,9 @@ class AsyncEC2Client:
             transit_gateway_attachment_id: <p>The ID of the attachment.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             transit_gateway_route_table_announcement_id: <p>The ID of the route table announcement.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -34260,6 +35691,9 @@ class AsyncEC2Client:
             route_table_id: <p>The ID of the route table.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To disable route propagation
             This example disables the specified virtual private gateway from propagating static routes to the specified route table.
@@ -34308,6 +35742,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             vpc_id: <p>The ID of the VPC.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -34348,6 +35785,9 @@ class AsyncEC2Client:
 
         Args:
             vpc_id: <p>The ID of the VPC.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -34395,6 +35835,9 @@ class AsyncEC2Client:
             association_id: <p>The association ID. This parameter is required.</p>
             public_ip: <p>Deprecated.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To disassociate an Elastic IP address
@@ -34446,6 +35889,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             capacity_reservation_id: <p>The ID of the Capacity Reservation.</p>
             unused_reservation_billing_owner_id: <p>The ID of the consumer account to which the request was sent.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -34493,6 +35939,9 @@ class AsyncEC2Client:
             client_vpn_endpoint_id: <p>The ID of the Client VPN endpoint from which to disassociate the target network.</p>
             association_id: <p>The ID of the target network association.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -34538,6 +35987,9 @@ class AsyncEC2Client:
             certificate_arn: <p>The ARN of the ACM certificate from which to disassociate the IAM role.</p>
             role_arn: <p>The ARN of the IAM role to disassociate.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -34579,6 +36031,9 @@ class AsyncEC2Client:
 
         Args:
             association_id: <p>The ID of the IAM instance profile association.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To disassociate an IAM instance profile
@@ -34627,6 +36082,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             instance_event_window_id: <p>The ID of the event window.</p>
             association_target: <p>One or more targets to disassociate from the specified event window.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -34674,6 +36132,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             asn: <p>A public 2-byte or 4-byte ASN.</p>
             cidr: <p>A BYOIP CIDR.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -34717,6 +36178,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             ipam_resource_discovery_association_id: <p>A resource discovery association ID.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -34767,6 +36231,9 @@ class AsyncEC2Client:
             association_ids: <p>The association IDs of EIPs that have been associated with the NAT gateway.</p>
             max_drain_duration_seconds: <p>The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -34814,6 +36281,9 @@ class AsyncEC2Client:
             route_server_id: <p>The ID of the route server to disassociate.</p>
             vpc_id: <p>The ID of the VPC to disassociate from the route server.</p>
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -34857,6 +36327,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             association_id: <p>The association ID representing the current association between the route table and subnet or gateway.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To disassociate a route table
@@ -34905,6 +36378,9 @@ class AsyncEC2Client:
             group_id: <p>A security group ID.</p>
             vpc_id: <p>A VPC ID.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -34946,6 +36422,9 @@ class AsyncEC2Client:
 
         Args:
             association_id: <p>The association ID for the CIDR block.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -34990,6 +36469,9 @@ class AsyncEC2Client:
             transit_gateway_attachment_id: <p>The ID of the attachment.</p>
             subnet_ids: <p>The IDs of the subnets;</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35038,6 +36520,9 @@ class AsyncEC2Client:
             transit_gateway_policy_table_id: <p>The ID of the disassociated policy table.</p>
             transit_gateway_attachment_id: <p>The ID of the transit gateway attachment to disassociate from the policy table.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35083,6 +36568,9 @@ class AsyncEC2Client:
             transit_gateway_route_table_id: <p>The ID of the transit gateway route table.</p>
             transit_gateway_attachment_id: <p>The ID of the attachment.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35128,6 +36616,9 @@ class AsyncEC2Client:
             association_id: <p>The ID of the association</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35170,6 +36661,9 @@ class AsyncEC2Client:
 
         Args:
             association_id: <p>The association ID for the CIDR block.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35212,6 +36706,9 @@ class AsyncEC2Client:
             allocation_id: <p>The allocation ID of an Elastic IP address.</p>
             transfer_account_id: <p>The ID of the account that you want to transfer the Elastic IP address to.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35255,6 +36752,9 @@ class AsyncEC2Client:
         Args:
             allowed_images_settings_state: <p>Specify <code>enabled</code> to apply the image criteria specified by the Allowed AMIs settings. Specify <code>audit-mode</code> so that you can check which AMIs will be allowed or not allowed by the image criteria.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35303,6 +36803,9 @@ class AsyncEC2Client:
             metric: <p>The metric used for the enabled subscription.</p>
             statistic: <p>The statistic used for the enabled subscription.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35354,6 +36857,9 @@ class AsyncEC2Client:
             organizations_access: <p> Specifies whether to enable cross-account access for Amazon Web Services Organizations. When enabled, Capacity Manager can aggregate data from all accounts in your organization. Default is false. </p>
             dry_run: <p> Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>. </p>
             client_token: <p> Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35397,6 +36903,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35450,6 +36959,9 @@ class AsyncEC2Client:
             launch_template: <p>The launch template to use when launching Windows instances from pre-provisioned snapshots. Launch template parameters can include either the name or ID of the launch template, but not both.</p>
             max_parallel_launches: <p>The maximum number of instances that Amazon EC2 can launch at the same time to create pre-provisioned snapshots for Windows fast launch. Value must be <code>6</code> or greater.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35508,6 +37020,9 @@ class AsyncEC2Client:
             availability_zone_ids: <p>One or more Availability Zone IDs. For example, <code>use2-az1</code>.</p> <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified in the request, but not both.</p>
             source_snapshot_ids: <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>. You can specify a snapshot that was shared with you from another Amazon Web Services account.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35554,6 +37069,9 @@ class AsyncEC2Client:
         Args:
             image_id: <p>The ID of the AMI.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35596,6 +37114,9 @@ class AsyncEC2Client:
         Args:
             image_block_public_access_state: <p>Specify <code>block-new-sharing</code> to enable block public access for AMIs at the account level in the specified Region. This will block any attempt to publicly share your AMIs in the specified Region.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35642,6 +37163,9 @@ class AsyncEC2Client:
             image_id: <p>The ID of the AMI.</p>
             deprecate_at: <p>The date and time to deprecate the AMI, in UTC, in the following format: <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z. If you specify a value for seconds, Amazon EC2 rounds the seconds to the nearest minute.</p> <p>You can’t specify a date in the past. The upper limit for <code>DeprecateAt</code> is 10 years from now, except for public AMIs, where the upper limit is 2 years from the creation date.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35687,6 +37211,9 @@ class AsyncEC2Client:
             image_id: <p>The ID of the AMI.</p>
             with_cooldown: <p>If <code>true</code>, enforces deregistration protection for 24 hours after deregistration protection is disabled.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35735,6 +37262,9 @@ class AsyncEC2Client:
             instance_ids: <p>The IDs of the instances to enable for SQL Server High Availability standby detection monitoring.</p>
             sql_server_credentials: <p>The ARN of the Secrets Manager secret containing the SQL Server access credentials. The specified secret must contain valid SQL Server credentials for the specified instances. If not specified, deafult local user credentials will be used by the Amazon Web Services Systems Manager agent. To enable instances with different credentials, you must make separate requests.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35779,6 +37309,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             delegated_admin_account_id: <p>The Organizations member account ID that you want to enable as the IPAM account.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35823,6 +37356,9 @@ class AsyncEC2Client:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             ipam_policy_id: <p>The ID of the IPAM policy to enable.</p>
             organization_target_id: <p>A target can be an individual Amazon Web Services account or an entity within an Amazon Web Services Organization to which an IPAM policy can be applied.</p> <p>The ID of the Amazon Web Services Organizations target for which to enable the IPAM policy. This parameter is required only when IPAM is integrated with Amazon Web Services Organizations. When IPAM is not integrated with Amazon Web Services Organizations, omit this parameter and the policy will apply to the current account.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35865,6 +37401,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35908,6 +37447,9 @@ class AsyncEC2Client:
             route_server_id: <p>The ID of the route server for which to enable propagation.</p>
             route_table_id: <p>The ID of the route table to which route server will propagate routes.</p>
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35949,6 +37491,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -35990,6 +37535,9 @@ class AsyncEC2Client:
         Args:
             state: <p>The mode in which to enable block public access for snapshots for the Region. Specify one of the following values:</p> <ul> <li> <p> <code>block-all-sharing</code> - Prevents all public sharing of snapshots in the Region. Users in the account will no longer be able to request new public sharing. Additionally, snapshots that are already publicly shared are treated as private and they are no longer publicly available.</p> </li> <li> <p> <code>block-new-sharing</code> - Prevents only new public sharing of snapshots in the Region. Users in the account will no longer be able to request new public sharing. However, snapshots that are already publicly shared, remain publicly available.</p> </li> </ul> <p> <code>unblocked</code> is not a valid value for <b>EnableSnapshotBlockPublicAccess</b>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -36040,6 +37588,9 @@ class AsyncEC2Client:
             transit_gateway_attachment_id: <p>The ID of the attachment.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             transit_gateway_route_table_announcement_id: <p>The ID of the transit gateway route table announcement.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -36091,6 +37642,9 @@ class AsyncEC2Client:
             route_table_id: <p>The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to. </p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To enable route propagation
             This example enables the specified virtual private gateway to propagate static routes to the specified route table.
@@ -36138,6 +37692,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             volume_id: <p>The ID of the volume.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To enable I/O for a volume
             This example enables I/O on volume ``vol-1234567890abcdef0``.
@@ -36183,6 +37740,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             vpc_id: <p>The ID of the VPC.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -36223,6 +37783,9 @@ class AsyncEC2Client:
 
         Args:
             vpc_id: <p>The ID of the VPC.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -36264,6 +37827,9 @@ class AsyncEC2Client:
         Args:
             client_vpn_endpoint_id: <p>The ID of the Client VPN endpoint.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -36306,6 +37872,9 @@ class AsyncEC2Client:
         Args:
             client_vpn_endpoint_id: <p>The ID of the Client VPN endpoint.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -36362,6 +37931,9 @@ class AsyncEC2Client:
             s3_export_location: <p>The Amazon S3 bucket for the destination image. The destination bucket must exist.</p>
             role_name: <p>The name of the role that grants VM Import/Export permission to export images to your Amazon S3 bucket. If this parameter is not specified, the default role is named 'vmimport'.</p>
             tag_specifications: <p>The tags to apply to the export image task during creation.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -36418,6 +37990,9 @@ class AsyncEC2Client:
             filters: <p>One or more filters. The possible values are:</p> <ul> <li> <p> <code>attachment.transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p> </li> <li> <p> <code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</p> </li> <li> <p> <code>route-search.exact-match</code> - The exact match of the specified filter.</p> </li> <li> <p> <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p> </li> <li> <p> <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p> </li> <li> <p> <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p> </li> <li> <p> <code>state</code> - The state of the route (<code>active</code> | <code>blackhole</code>).</p> </li> <li> <p> <code>transit-gateway-route-destination-cidr-block</code> - The CIDR range.</p> </li> <li> <p> <code>type</code> - The type of route (<code>propagated</code> | <code>static</code>).</p> </li> </ul>
             s3_bucket: <p>The name of the S3 bucket.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -36463,6 +38038,9 @@ class AsyncEC2Client:
         Args:
             verified_access_instance_id: <p>The ID of the Verified Access instance.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -36507,6 +38085,9 @@ class AsyncEC2Client:
             vpn_connection_id: <p>The ID of the VPN connection for which to retrieve the active tunnel status.</p>
             vpn_tunnel_outside_ip_address: <p>The external IP address of the VPN tunnel for which to retrieve the active status.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -36548,6 +38129,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -36589,6 +38173,9 @@ class AsyncEC2Client:
         Args:
             certificate_arn: <p>The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon S3 object information.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -36637,6 +38224,9 @@ class AsyncEC2Client:
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -36722,6 +38312,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -36804,6 +38397,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p> Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -36861,6 +38457,9 @@ class AsyncEC2Client:
             max_results: <p> The maximum number of data points to return. Valid range is 1 to 100,000. Use with NextToken for pagination of large result sets. </p>
             next_token: <p> The token for the next page of results. Use this value in a subsequent call to retrieve additional data points. </p>
             dry_run: <p> Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -36965,6 +38564,9 @@ class AsyncEC2Client:
             max_results: <p> The maximum number of dimension combinations to return. Valid range is 1 to 1000. Use with NextToken for pagination. </p>
             next_token: <p> The token for the next page of results. Use this value in a subsequent call to retrieve additional dimension values. </p>
             dry_run: <p> Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -37055,6 +38657,9 @@ class AsyncEC2Client:
             max_results: <p> The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. If not specified, up to 1000 results are returned. </p>
             next_token: <p> The token for the next page of results. Use the value returned from a previous call to retrieve additional results. </p>
             dry_run: <p> Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -37131,6 +38736,9 @@ class AsyncEC2Client:
             next_token: <p>The token to use to retrieve the next page of results.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -37185,6 +38793,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -37235,6 +38846,9 @@ class AsyncEC2Client:
             instance_id: <p>The ID of the instance.</p>
             latest: <p>When enabled, retrieves the latest console output for the instance.</p> <p>Default: disabled (<code>false</code>)</p>
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get the console output
@@ -37287,6 +38901,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             instance_id: <p>The ID of the instance.</p>
             wake_up: <p>When set to <code>true</code>, acts as keystroke input and wakes up an instance that's in standby or \"sleep\" mode.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -37331,6 +38948,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             report_id: <p>The ID of the report.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -37373,6 +38993,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             instance_family: <p>The instance family.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -37413,6 +39036,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -37452,6 +39078,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -37491,6 +39120,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -37536,6 +39168,9 @@ class AsyncEC2Client:
             flow_log_id: <p>The ID of the flow log.</p>
             config_delivery_s3_destination_arn: <p>To store the CloudFormation template in Amazon S3, specify the location in Amazon S3.</p>
             integrate_services: <p>Information about the service integration.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -37588,6 +39223,9 @@ class AsyncEC2Client:
             next_token: <p>The token to use to retrieve the next page of results.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -37661,6 +39299,9 @@ class AsyncEC2Client:
         Args:
             host_id_set: <p>The IDs of the Dedicated Hosts with which the reservation is associated.</p>
             offering_id: <p>The offering ID of the reservation.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -37702,6 +39343,9 @@ class AsyncEC2Client:
         Args:
             image_id: <p>The ID of the AMI whose ancestry you want to trace.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -37742,6 +39386,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -37781,6 +39428,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -37826,6 +39476,9 @@ class AsyncEC2Client:
             key_type: <p>The required public endorsement key type.</p>
             key_format: <p>The required public endorsement key format. Specify <code>der</code> for a DER-encoded public key that is compatible with OpenSSL. Specify <code>tpmt</code> for a TPM 2.0 format that is compatible with tpm2-tools. The returned key is base64 encoded.</p>
             dry_run: <p>Specify this parameter to verify whether the request will succeed, without actually making the request. If the request will succeed, the response is <code>DryRunOperation</code>. Otherwise, the response is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -37880,6 +39533,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             context: <p>Reserved.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -37961,6 +39617,9 @@ class AsyncEC2Client:
         Args:
             instance_id: <p>The ID of the instance from which to retrieve the UEFI data.</p>
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -38023,6 +39682,9 @@ class AsyncEC2Client:
             end_time: <p>The end of the time period for which you are looking for history. If you omit this option, it will default to the current time.</p>
             max_results: <p>The maximum number of historical results you would like returned per page. Defaults to 100.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -38125,6 +39787,9 @@ class AsyncEC2Client:
             filters: <p>Discovered account filters.</p>
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             max_results: <p>The maximum number of discovered accounts to return in one page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -38217,6 +39882,9 @@ class AsyncEC2Client:
             filters: <p>Filters.</p>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of IPAM discovered public addresses to return in one page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -38276,6 +39944,9 @@ class AsyncEC2Client:
             filters: <p>Filters.</p>
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             max_results: <p>The maximum number of discovered resource CIDRs to return in one page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -38370,6 +40041,9 @@ class AsyncEC2Client:
             resource_type: <p>The resource type for which to get the allocation rules.</p> <p>The Amazon Web Services service or resource type that can use IP addresses through IPAM policies. Supported services and resource types include:</p> <ul> <li> <p>Elastic IP addresses</p> </li> </ul>
             max_results: <p>The maximum number of results to return in a single call.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -38430,6 +40104,9 @@ class AsyncEC2Client:
             next_token: <p>The token for the next page of results.</p>
             ipam_policy_id: <p>The ID of the IPAM policy for which to get Amazon Web Services Organizations targets.</p>
             filters: <p>One or more filters for the Amazon Web Services Organizations targets.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -38490,6 +40167,9 @@ class AsyncEC2Client:
             filters: <p>One or more filters for the request. For more information about filtering, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html\">Filtering CLI output</a>.</p>
             max_results: <p>The maximum number of results you would like returned per page.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -38581,6 +40261,9 @@ class AsyncEC2Client:
             filters: <p>One or more filters for the request. For more information about filtering, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html\">Filtering CLI output</a>.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -38666,6 +40349,9 @@ class AsyncEC2Client:
             filters: <p>One or more filters to limit the results.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -38751,6 +40437,9 @@ class AsyncEC2Client:
             ipam_prefix_list_resolver_version: <p>The version number of the resolver for which to retrieve CIDR entries. If not specified, the latest version is used.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -38839,6 +40528,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             filters: <p>One or more filters to limit the results.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -38946,6 +40638,9 @@ class AsyncEC2Client:
             resource_type: <p>The resource type.</p>
             resource_tag: <p>The resource tag.</p>
             resource_owner: <p>The ID of the Amazon Web Services account that owns the resource.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -39050,6 +40745,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             instance_id: <p>The ID of the instance.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get the launch template data for an instance
             This example gets the launch template data for the specified instance.
@@ -39103,6 +40801,9 @@ class AsyncEC2Client:
             prefix_list_id: <p>The ID of the prefix list.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -39186,6 +40887,9 @@ class AsyncEC2Client:
             target_version: <p>The version of the prefix list for which to return the entries. The default is the current version.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -39261,6 +40965,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -39308,6 +41015,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -39383,6 +41093,9 @@ class AsyncEC2Client:
         Args:
             network_insights_access_scope_id: <p>The ID of the Network Access Scope.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -39425,6 +41138,9 @@ class AsyncEC2Client:
         Args:
             instance_id: <p>The ID of the Windows instance.</p>
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -39471,6 +41187,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             reserved_instance_ids: <p>The IDs of the Convertible Reserved Instances to exchange.</p>
             target_configurations: <p>The configuration of the target Convertible Reserved Instance to exchange for your current Convertible Reserved Instances.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -39515,6 +41234,9 @@ class AsyncEC2Client:
         Args:
             route_server_id: <p>The ID of the route server for which to get association information.</p>
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -39561,6 +41283,9 @@ class AsyncEC2Client:
             route_server_id: <p>The ID of the route server for which to get propagation information.</p>
             route_table_id: <p>The ID of the route table for which to get propagation information.</p>
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -39613,6 +41338,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of routing database entries to return in a single response.</p>
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             filters: <p>Filters to apply to the routing database query.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -39669,6 +41397,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             filters: <p>The filters. If using multiple filters, the results include security groups which match all filters.</p> <ul> <li> <p> <code>group-id</code>: The security group ID.</p> </li> <li> <p> <code>description</code>: The security group's description.</p> </li> <li> <p> <code>group-name</code>: The security group name.</p> </li> <li> <p> <code>owner-id</code>: The security group owner ID.</p> </li> <li> <p> <code>primary-vpc-id</code>: The VPC ID in which the security group was created.</p> </li> </ul>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -39744,6 +41475,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -39783,6 +41517,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -39846,6 +41583,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -39955,6 +41695,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             next_token: <p>The token for the next page of results.</p>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -40011,6 +41754,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -40098,6 +41844,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -40156,6 +41905,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -40243,6 +41995,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -40328,6 +42083,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -40384,6 +42142,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -40471,6 +42232,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -40556,6 +42320,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -40635,6 +42402,9 @@ class AsyncEC2Client:
         Args:
             verified_access_endpoint_id: <p>The ID of the Verified Access endpoint.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -40683,6 +42453,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -40729,6 +42502,9 @@ class AsyncEC2Client:
         Args:
             verified_access_group_id: <p>The ID of the Verified Access group.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -40777,6 +42553,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -40831,6 +42610,9 @@ class AsyncEC2Client:
             internet_key_exchange_version: <p>The IKE version to be used in the sample configuration file for your customer gateway device. You can specify one of the following versions: <code>ikev1</code> or <code>ikev2</code>.</p>
             sample_type: <p>The type of sample configuration to generate. Valid values are \"compatibility\" (includes IKEv1) or \"recommended\" (throws UnsupportedOperationException for IKEv1).</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -40882,6 +42664,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results returned by <code>GetVpnConnectionDeviceTypes</code> in paginated output. When this parameter is used, <code>GetVpnConnectionDeviceTypes</code> only returns <code>MaxResults</code> results in a single page along with a <code>NextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>GetVpnConnectionDeviceTypes</code> request with the returned <code>NextToken</code> value. This value can be between 200 and 1000. If this parameter is not used, then <code>GetVpnConnectionDeviceTypes</code> returns all results.</p>
             next_token: <p>The <code>NextToken</code> value returned from a previous paginated <code>GetVpnConnectionDeviceTypes</code> request where <code>MaxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>NextToken</code> value. This value is null when there are no more results to return. </p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -40954,6 +42739,9 @@ class AsyncEC2Client:
             vpn_connection_id: <p>The ID of the Site-to-Site VPN connection. </p>
             vpn_tunnel_outside_ip_address: <p>The external IP address of the VPN tunnel.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -40999,6 +42787,9 @@ class AsyncEC2Client:
             client_vpn_endpoint_id: <p>The ID of the Client VPN endpoint to which the client certificate revocation list applies.</p>
             certificate_revocation_list: <p>The client certificate revocation list file. For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate\">Generate a Client Certificate Revocation List</a> in the <i>Client VPN Administrator Guide</i>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -41076,6 +42867,9 @@ class AsyncEC2Client:
             tag_specifications: <p>The tags to apply to the import image task during creation.</p>
             usage_operation: <p>The usage operation value. For more information, see <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#prerequisites\">Licensing options</a> in the <i>VM Import/Export User Guide</i>.</p>
             boot_mode: <p>The boot mode of the virtual machine.</p> <note> <p>The <code>uefi-preferred</code> boot mode isn't supported for importing images. For more information, see <a href=\"https://docs.aws.amazon.com/vm-import/latest/userguide/prerequisites.html#vmimport-boot-modes\">Boot modes</a> in the <i>VM Import/Export User Guide</i>.</p> </note>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -41155,6 +42949,9 @@ class AsyncEC2Client:
             launch_specification: <p>The launch specification.</p>
             disk_images: <p>The disk image.</p>
             platform: <p>The instance operating system.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -41209,6 +43006,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             key_name: <p>A unique name for the key pair.</p>
             public_key_material: <p>The public key.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -41272,6 +43072,9 @@ class AsyncEC2Client:
             kms_key_id: <p>An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be set. </p> <p>The KMS key identifier may be provided in any of the following formats: </p> <ul> <li> <p>Key ID</p> </li> <li> <p>Key alias</p> </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p> </li> <li> <p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p> </li> </ul> <p>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure. </p> <p>The specified KMS key must exist in the Region that the snapshot is being copied to.</p> <p>Amazon EBS does not support asymmetric KMS keys.</p>
             role_name: <p>The name of the role to use when not using the default role, 'vmimport'.</p>
             tag_specifications: <p>The tags to apply to the import snapshot task during creation.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -41339,6 +43142,9 @@ class AsyncEC2Client:
             image: <p>The disk image.</p>
             description: <p>A description of the volume.</p>
             volume: <p>The volume size.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -41396,6 +43202,9 @@ class AsyncEC2Client:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -41480,6 +43289,9 @@ class AsyncEC2Client:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             snapshot_ids: <p>The IDs of the snapshots to list. Omit this parameter to list all of the snapshots that are in the Recycle Bin.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -41562,6 +43374,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p> <p>Valid range: 5 - 500</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -41623,6 +43438,9 @@ class AsyncEC2Client:
             cool_off_period: <p>The cooling-off period during which you can unlock the snapshot or modify the lock settings after locking the snapshot in compliance mode, in hours. After the cooling-off period expires, you can't unlock or delete the snapshot, decrease the lock duration, or change the lock mode. You can increase the lock duration after the cooling-off period expires.</p> <p>The cooling-off period is optional when locking a snapshot in compliance mode. If you are locking the snapshot in governance mode, omit this parameter.</p> <p>To lock the snapshot in compliance mode immediately without a cooling-off period, omit this parameter.</p> <p>If you are extending the lock duration for a snapshot that is locked in compliance mode after the cooling-off period has expired, omit this parameter. If you specify a cooling-period in a such a request, the request fails.</p> <p>Allowed values: Min 1, max 72.</p>
             lock_duration: <p>The period of time for which to lock the snapshot, in days. The snapshot lock will automatically expire after this period lapses.</p> <p>You must specify either this parameter or <b>ExpirationDate</b>, but not both.</p> <p>Allowed values: Min: 1, max 36500</p>
             expiration_date: <p>The date and time at which the snapshot lock is to automatically expire, in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p> <p>You must specify either this parameter or <b>LockDuration</b>, but not both.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -41676,6 +43494,9 @@ class AsyncEC2Client:
             allocation_id: <p>[EC2-VPC] The allocation ID.</p>
             domain_name: <p>The domain name to modify for the IP address.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -41722,6 +43543,9 @@ class AsyncEC2Client:
             group_name: <p>The name of the Availability Zone group, Local Zone group, or Wavelength Zone group.</p>
             opt_in_status: <p>Indicates whether to opt in to the zone group. The only valid value is <code>opted-in</code>. You must contact Amazon Web Services Support to opt out of a Local Zone or Wavelength Zone group.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -41779,6 +43603,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             additional_info: <p>Reserved for future use.</p>
             instance_match_criteria: <p> The matching criteria (instance eligibility) that you want to use in the modified Capacity Reservation. If you change the instance eligibility of an existing Capacity Reservation from <code>targeted</code> to <code>open</code>, any running instances that match the attributes of the Capacity Reservation, have the <code>CapacityReservationPreference</code> set to <code>open</code>, and are not yet running in the Capacity Reservation, will automatically use the modified Capacity Reservation. </p> <p>To modify the instance eligibility, the Capacity Reservation must be completely idle (zero usage).</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -41841,6 +43668,9 @@ class AsyncEC2Client:
             end_date: <p>The date and time at which the Capacity Reservation Fleet expires. When the Capacity Reservation Fleet expires, its state changes to <code>expired</code> and all of the Capacity Reservations in the Fleet expire.</p> <p>The Capacity Reservation Fleet expires within an hour after the specified time. For example, if you specify <code>5/31/2019</code>, <code>13:30:55</code>, the Capacity Reservation Fleet is guaranteed to expire between <code>13:30:55</code> and <code>14:30:55</code> on <code>5/31/2019</code>.</p> <p>You can't specify <b>EndDate</b> and <b> RemoveEndDate</b> in the same request.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             remove_end_date: <p>Indicates whether to remove the end date from the Capacity Reservation Fleet. If you remove the end date, the Capacity Reservation Fleet does not expire and it remains active until you explicitly cancel it using the <b>CancelCapacityReservationFleet</b> action.</p> <p>You can't specify <b>RemoveEndDate</b> and <b> EndDate</b> in the same request.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -41937,6 +43767,9 @@ class AsyncEC2Client:
             client_route_enforcement_options: <p>Client route enforcement is a feature of the Client VPN service that helps enforce administrator defined routes on devices connected through the VPN. T his feature helps improve your security posture by ensuring that network traffic originating from a connected client is not inadvertently sent outside the VPN tunnel.</p> <p>Client route enforcement works by monitoring the route table of a connected device for routing policy changes to the VPN connection. If the feature detects any VPN routing policy modifications, it will automatically force an update to the route table, reverting it back to the expected route configurations.</p>
             disconnect_on_session_timeout: <p>Indicates whether the client VPN session is disconnected after the maximum timeout specified in <code>sessionTimeoutHours</code> is reached. If <code>true</code>, users are prompted to reconnect client VPN. If <code>false</code>, client VPN attempts to reconnect automatically. The default value is <code>true</code>.</p>
             transit_gateway_configuration: <p>The Transit Gateway configuration for the Client VPN endpoint. This option is currently not supported.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -42013,6 +43846,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             instance_family: <p>The instance family.</p>
             cpu_credits: <p>The credit option for CPU usage of the instance family.</p> <p>Valid Values: <code>standard</code> | <code>unlimited</code> </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -42056,6 +43892,9 @@ class AsyncEC2Client:
         Args:
             kms_key_id: <p>The identifier of the KMS key to use for Amazon EBS encryption. If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code> is specified, the encrypted state must be <code>true</code>.</p> <p>You can specify the KMS key using any of the following:</p> <ul> <li> <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p> </li> <li> <p>Key alias. For example, alias/ExampleAlias.</p> </li> <li> <p>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</p> </li> <li> <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p> </li> </ul> <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually fails.</p> <p>Amazon EBS does not support asymmetric KMS keys.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -42112,6 +43951,9 @@ class AsyncEC2Client:
             fleet_id: <p>The ID of the EC2 Fleet.</p>
             target_capacity_specification: <p>The size of the EC2 Fleet.</p>
             context: <p>Reserved.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -42192,6 +44034,9 @@ class AsyncEC2Client:
             load_permission: <p>The load permission for the AFI.</p>
             description: <p>A description for the AFI.</p>
             name: <p>A name for the AFI.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -42262,6 +44107,9 @@ class AsyncEC2Client:
             host_maintenance: <p>Indicates whether to enable or disable host maintenance for the Dedicated Host. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html\">Host maintenance</a> in the <i>Amazon EC2 User Guide</i>.</p>
             host_ids: <p>The IDs of the Dedicated Hosts to modify.</p>
             auto_placement: <p>Specify whether to enable or disable auto-placement.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -42314,6 +44162,9 @@ class AsyncEC2Client:
             resource: <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p> <p>Alternatively, use the <code>all-current</code> option to include all resource types that are currently within their opt-in period for longer IDs.</p>
             use_long_ids: <p>Indicates whether the resource should use longer IDs (17-character IDs)</p>
             principal_arn: <p>The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify <code>all</code> to modify the ID format for all IAM users, IAM roles, and the root user of the account.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -42354,6 +44205,9 @@ class AsyncEC2Client:
         Args:
             resource: <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p> <p>Alternatively, use the <code>all-current</code> option to include all resource types that are currently within their opt-in period for longer IDs.</p>
             use_long_ids: <p>Indicate whether the resource should use longer IDs (17-character IDs).</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -42433,6 +44287,9 @@ class AsyncEC2Client:
             organizational_unit_arns: <p>The Amazon Resource Name (ARN) of an organizational unit (OU). This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
             imds_support: <p>Set to <code>v2.0</code> to indicate that IMDSv2 is specified in the AMI. Instances launched from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code> so that, by default, the instance requires that IMDSv2 is used when requesting instance metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration\">Configure the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p> <important> <p>Do not use this parameter unless your AMI software supports IMDSv2. After you set the value to <code>v2.0</code>, you can't undo it. The only way to “reset” your AMI is to create a new AMI from the underlying snapshot.</p> </important>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To grant launch permissions
@@ -42566,6 +44423,9 @@ class AsyncEC2Client:
             sriov_net_support: <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual Function interface for the instance.</p> <p>There is no way to disable enhanced networking with the Intel 82599 Virtual Function interface at this time.</p> <p>This option is supported only for HVM instances. Specifying this option with a PV instance can make it unreachable.</p>
             ena_support: <p>Set to <code>true</code> to enable enhanced networking with ENA for the instance.</p> <p>This option is supported only for HVM instances. Specifying this option with a PV instance can make it unreachable.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To enable enhanced networking
             This example enables enhanced networking for the specified stopped instance.
@@ -42651,6 +44511,9 @@ class AsyncEC2Client:
             instance_id: <p>The ID of the instance to be modified.</p>
             capacity_reservation_specification: <p>Information about the Capacity Reservation targeting option.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -42706,6 +44569,9 @@ class AsyncEC2Client:
             ip_address_type: <p>The new IP address type for the EC2 Instance Connect Endpoint.</p> <note> <p> <code>PreserveClientIp</code> is only supported on IPv4 EC2 Instance Connect Endpoints. To use <code>PreserveClientIp</code>, the value for <code>IpAddressType</code> must be <code>ipv4</code>.</p> </note>
             security_group_ids: <p>Changes the security groups for the EC2 Instance Connect Endpoint. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.</p>
             preserve_client_ip: <p>Indicates whether the client IP address is preserved as the source when you connect to a resource. The following are the possible values.</p> <ul> <li> <p> <code>true</code> - Use the IP address of the client. Your instance must have an IPv4 address.</p> </li> <li> <p> <code>false</code> - Use the IP address of the network interface.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -42762,6 +44628,9 @@ class AsyncEC2Client:
             threads_per_core: <p>The number of threads to run for each CPU core.</p>
             nested_virtualization: <p>Indicates whether to enable or disable nested virtualization for the instance. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance.</p>
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -42812,6 +44681,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             client_token: <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring Idempotency</a>.</p>
             instance_credit_specifications: <p>Information about the credit option for CPU usage.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -42860,6 +44732,9 @@ class AsyncEC2Client:
             instance_id: <p>The ID of the instance with the scheduled event.</p>
             instance_event_id: <p>The ID of the event whose date and time you are modifying.</p>
             not_before: <p>The new date and time when the event will take place.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -42914,6 +44789,9 @@ class AsyncEC2Client:
             instance_event_window_id: <p>The ID of the event window.</p>
             time_ranges: <p>The time ranges of the event window.</p>
             cron_expression: <p>The cron expression of the event window, for example, <code>* 0-4,20-23 * * 1,5</code>.</p> <p>Constraints:</p> <ul> <li> <p>Only hour and day of the week values are supported.</p> </li> <li> <p>For day of the week values, you can specify either integers <code>0</code> through <code>6</code>, or alternative single values <code>SUN</code> through <code>SAT</code>.</p> </li> <li> <p>The minute, month, and year must be specified by <code>*</code>.</p> </li> <li> <p>The hour value must be one or a multiple range, for example, <code>0-4</code> or <code>0-4,20-23</code>.</p> </li> <li> <p>Each hour range must be >= 2 hours, for example, <code>0-2</code> or <code>20-23</code>.</p> </li> <li> <p>The event window must be >= 4 hours. The combined total time ranges in the event window must be >= 4 hours.</p> </li> </ul> <p>For more information about cron expressions, see <a href=\"https://en.wikipedia.org/wiki/Cron\">cron</a> on the <i>Wikipedia website</i>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -42970,6 +44848,9 @@ class AsyncEC2Client:
             auto_recovery: <p>Disables the automatic recovery behavior of your instance or sets it to default.</p>
             reboot_migration: <p>Specifies whether to attempt reboot migration during a user-initiated reboot of an instance that has a scheduled <code>system-reboot</code> event:</p> <ul> <li> <p> <code>default</code> - Amazon EC2 attempts to migrate the instance to new hardware (reboot migration). If successful, the <code>system-reboot</code> event is cleared. If unsuccessful, an in-place reboot occurs and the event remains scheduled.</p> </li> <li> <p> <code>disabled</code> - Amazon EC2 keeps the instance on the same hardware (in-place reboot). The <code>system-reboot</code> event remains scheduled.</p> </li> </ul> <p>This setting only applies to supported instances that have a scheduled reboot event. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/schedevents_actions_reboot.html#reboot-migration\">Enable or disable reboot migration</a> in the <i>Amazon EC2 User Guide</i>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -43034,6 +44915,9 @@ class AsyncEC2Client:
             instance_metadata_tags: <p>Enables or disables access to an instance's tags from the instance metadata. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html\">View tags for your EC2 instances using instance metadata</a> in the <i>Amazon EC2 User Guide</i>.</p>
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             http_tokens_enforced: <p>Specifies whether to enforce the requirement of IMDSv2 on an instance at the time of launch. When enforcement is enabled, the instance can't launch unless IMDSv2 (<code>HttpTokens</code>) is set to <code>required</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#enforce-imdsv2-at-the-account-level\">Enforce IMDSv2 at the account level</a> in the <i>Amazon EC2 User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -43105,6 +44989,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             http_protocol_ipv6: <p>Enables or disables the IPv6 endpoint for the instance metadata service. Applies only if you enabled the HTTP metadata endpoint.</p>
             instance_metadata_tags: <p>Set to <code>enabled</code> to allow access to instance tags from the instance metadata. Set to <code>disabled</code> to turn off access to instance tags from the instance metadata. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html\">View tags for your EC2 instances using instance metadata</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -43159,6 +45046,9 @@ class AsyncEC2Client:
             instance_id: <p>The ID of the instance to update.</p>
             bandwidth_weighting: <p>Specify the bandwidth weighting option to boost the associated type of baseline bandwidth, as follows:</p> <dl> <dt>default</dt> <dd> <p>This option uses the standard bandwidth configuration for your instance type.</p> </dd> <dt>vpc-1</dt> <dd> <p>This option boosts your networking baseline bandwidth and reduces your EBS baseline bandwidth.</p> </dd> <dt>ebs-1</dt> <dd> <p>This option boosts your EBS baseline bandwidth and reduces your networking baseline bandwidth.</p> </dd> </dl>
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -43218,6 +45108,9 @@ class AsyncEC2Client:
             tenancy: <p>The tenancy for the instance.</p> <note> <p>For T3 instances, you must launch the instance on a Dedicated Host to use a tenancy of <code>host</code>. You can't change the tenancy from <code>host</code> to <code>dedicated</code> or <code>default</code>. Attempting to make one of these unsupported tenancy changes results in an <code>InvalidRequest</code> error code.</p> </note>
             affinity: <p>The affinity setting for the instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-affinity\">Host affinity</a> in the <i>Amazon EC2 User Guide</i>.</p>
             host_id: <p>The ID of the Dedicated Host with which to associate the instance.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -43290,6 +45183,9 @@ class AsyncEC2Client:
             tier: <p>IPAM is offered in a Free Tier and an Advanced Tier. For more information about the features available in each tier and the costs associated with the tiers, see <a href=\"http://aws.amazon.com/vpc/pricing/\">Amazon VPC pricing > IPAM tab</a>.</p>
             enable_private_gua: <p>Enable this option to use your own GUA ranges as private IPv6 addresses. This option is disabled by default.</p>
             metered_account: <p>A metered account is an Amazon Web Services account that is charged for active IP addresses managed in IPAM. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/ipam-enable-cost-distro.html\">Enable cost distribution</a> in the <i>Amazon VPC IPAM User Guide</i>.</p> <p>Possible values:</p> <ul> <li> <p> <code>ipam-owner</code> (default): The Amazon Web Services account which owns the IPAM is charged for all active IP addresses managed in IPAM.</p> </li> <li> <p> <code>resource-owner</code>: The Amazon Web Services account that owns the IP address is charged for the active IP address.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -43352,6 +45248,9 @@ class AsyncEC2Client:
             locale: <p>The locale for which to modify the allocation rules.</p>
             resource_type: <p>The resource type for which to modify the allocation rules.</p> <p>The Amazon Web Services service or resource type that can use IP addresses through IPAM policies. Supported services and resource types include:</p> <ul> <li> <p>Elastic IP addresses</p> </li> </ul>
             allocation_rules: <p>The new allocation rules to apply to the IPAM policy.</p> <p>Allocation rules are optional configurations within an IPAM policy that map Amazon Web Services resource types to specific IPAM pools. If no rules are defined, the resource types default to using Amazon-provided IP addresses.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -43426,6 +45325,9 @@ class AsyncEC2Client:
             clear_allocation_default_netmask_length: <p>Clear the default netmask length allocation rule for this pool.</p>
             add_allocation_resource_tags: <p>Add tag allocation rules to a pool. For more information about allocation rules, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html\">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
             remove_allocation_resource_tags: <p>Remove tag allocation rules from a pool.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -43490,6 +45392,9 @@ class AsyncEC2Client:
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             ipam_pool_allocation_id: <p>The ID of the IPAM pool allocation you want to modify.</p>
             description: <p>The new description for the IPAM pool allocation. If you submit a <code>null</code> value, the description is removed from the allocation.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -43540,6 +45445,9 @@ class AsyncEC2Client:
             ipam_prefix_list_resolver_id: <p>The ID of the IPAM prefix list resolver to modify.</p>
             description: <p>A new description for the IPAM prefix list resolver.</p>
             rules: <p>The updated CIDR selection rules for the resolver. These rules replace the existing rules entirely.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -43594,6 +45502,9 @@ class AsyncEC2Client:
             desired_version: <p>The desired version of the prefix list to target. This allows you to pin the target to a specific version.</p>
             track_latest_version: <p>Indicates whether the resolver target should automatically track the latest version of the prefix list. When enabled, the target will always synchronize with the most current version.</p> <p>Choose this for automatic updates when you want your prefix lists to stay current with infrastructure changes without manual intervention.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -43656,6 +45567,9 @@ class AsyncEC2Client:
             current_ipam_scope_id: <p>The ID of the current scope that the resource CIDR is in.</p>
             destination_ipam_scope_id: <p>The ID of the scope you want to transfer the resource CIDR to.</p>
             monitored: <p>Determines if the resource is monitored by IPAM. If a resource is monitored, the resource is discovered by IPAM and you can view details about the resource’s CIDR.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -43722,6 +45636,9 @@ class AsyncEC2Client:
             remove_operating_regions: <p>Remove operating Regions.</p>
             add_organizational_unit_exclusions: <p>Add an Organizational Unit (OU) exclusion to your IPAM. If your IPAM is integrated with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion. There is a limit on the number of exclusions you can create. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html\">Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p> <note> <p>The resulting set of exclusions must not result in \"overlap\", meaning two or more OU exclusions must not exclude the same OU. For more information and examples, see the Amazon Web Services CLI request process in <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/exclude-ous.html#exclude-ous-create-delete\">Add or remove OU exclusions </a> in the <i>Amazon VPC User Guide</i>.</p> </note>
             remove_organizational_unit_exclusions: <p>Remove an Organizational Unit (OU) exclusion to your IPAM. If your IPAM is integrated with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion. There is a limit on the number of exclusions you can create. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html\">Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p> <note> <p>The resulting set of exclusions must not result in \"overlap\", meaning two or more OU exclusions must not exclude the same OU. For more information and examples, see the Amazon Web Services CLI request process in <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/exclude-ous.html#exclude-ous-create-delete\">Add or remove OU exclusions </a> in the <i>Amazon VPC User Guide</i>.</p> </note>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -43788,6 +45705,9 @@ class AsyncEC2Client:
             description: <p>The description of the scope you want to modify.</p>
             external_authority_configuration: <p>The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.</p> <p>In IPAM, an external authority is a third-party IP address management system that provides CIDR blocks when you provision address space for top-level IPAM pools. This allows you to use your existing IP management system to control which address ranges are allocated to Amazon Web Services while using Amazon VPC IPAM to manage subnets within those ranges.</p>
             remove_external_authority_configuration: <p>Remove the external authority configuration. <code>true</code> to remove.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -43850,6 +45770,9 @@ class AsyncEC2Client:
             launch_template_id: <p>The ID of the launch template.</p> <p>You must specify either the launch template ID or the launch template name, but not both.</p>
             launch_template_name: <p>The name of the launch template.</p> <p>You must specify either the launch template ID or the launch template name, but not both.</p>
             default_version: <p>The version number of the launch template to set as the default version.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To change the default version of a launch template
@@ -43919,6 +45842,9 @@ class AsyncEC2Client:
             network_interface_id: <p>The ID of the network interface.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             destination_prefix_list_id: <p> The ID of the prefix list. Use a prefix list in place of <code>DestinationCidrBlock</code>. You cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -43989,6 +45915,9 @@ class AsyncEC2Client:
             remove_entries: <p>One or more entries to remove from the prefix list.</p>
             max_entries: <p>The maximum number of entries for the prefix list. You cannot modify the entries of a prefix list and modify the size of a prefix list at the same time.</p> <p>If any of the resources that reference the prefix list cannot support the new maximum size, the modify operation fails. Check the state message for the IDs of the first ten resources that do not support the new maximum size.</p>
             ipam_prefix_list_resolver_sync_enabled: <p>Indicates whether synchronization with an IPAM prefix list resolver should be enabled for this managed prefix list. When enabled, the prefix list CIDRs are automatically updated based on the associated resolver's CIDR selection rules.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -44045,6 +45974,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             default_visibility: <p>The default visibility setting for managed resources. Valid values: <code>hidden</code> | <code>visible</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -44121,6 +46053,9 @@ class AsyncEC2Client:
             source_dest_check: <p>Enable or disable source/destination checks, which ensure that the instance is either the source or the destination of any traffic that it receives. If the value is <code>true</code>, source/destination checks are enabled; otherwise, they are disabled. The default value is <code>true</code>. You must disable source/destination checks if the instance runs services such as network address translation, routing, or firewalls.</p>
             groups: <p>Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.</p>
             attachment: <p>Information about the interface attachment. If modifying the <code>delete on termination</code> attribute, you must specify the ID of the interface attachment.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To modify the attachment attribute of a network interface
@@ -44211,6 +46146,9 @@ class AsyncEC2Client:
             private_dns_hostname_type: <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID.</p>
             enable_resource_name_dns_a_record: <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p>
             enable_resource_name_dns_aaaa_record: <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -44265,6 +46203,9 @@ class AsyncEC2Client:
             network_interface_id: <p>A network interface ID.</p>
             hostname_type: <p>The public hostname type. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html\">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p> <ul> <li> <p> <code>public-dual-stack-dns-name</code>: A dual-stack public hostname for a network interface. Requests from within the VPC resolve to both the private IPv4 address and the IPv6 Global Unicast Address of the network interface. Requests from the internet resolve to both the public IPv4 and the IPv6 GUA address of the network interface.</p> </li> <li> <p> <code>public-ipv4-dns-name</code>: An IPv4-enabled public hostname for a network interface. Requests from within the VPC resolve to the private primary IPv4 address of the network interface. Requests from the internet resolve to the public IPv4 address of the network interface.</p> </li> <li> <p> <code>public-ipv6-dns-name</code>: An IPv6-enabled public hostname for a network interface. Requests from within the VPC or from the internet resolve to the IPv6 GUA of the network interface. </p> </li> </ul>
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -44310,6 +46251,9 @@ class AsyncEC2Client:
             reserved_instances_ids: <p>The IDs of the Reserved Instances to modify.</p>
             client_token: <p>A unique, case-sensitive token you provide to ensure idempotency of your modification request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring Idempotency</a>.</p>
             target_configurations: <p>The configuration settings for the Reserved Instances to modify.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -44363,6 +46307,9 @@ class AsyncEC2Client:
             persist_routes_duration: <p>The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if PersistRoutes is <code>enabled</code>.</p> <p>If you set the duration to 1 minute, then when your network appliance re-establishes BGP with route server, it has 1 minute to relearn it's adjacent network and advertise those routes to route server before route server resumes normal functionality. In most cases, 1 minute is probably sufficient. If, however, you have concerns that your BGP network may not be capable of fully re-establishing and re-learning everything in 1 minute, you can increase the duration up to 5 minutes.</p>
             sns_notifications_enabled: <p>Specifies whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by Amazon Web Services.</p>
             dry_run: <p>A check for whether you have the required permissions for the action without actually making the request and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -44413,6 +46360,9 @@ class AsyncEC2Client:
             group_id: <p>The ID of the security group.</p>
             security_group_rules: <p>Information about the security group properties to update.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -44477,6 +46427,9 @@ class AsyncEC2Client:
             user_ids: <p>The account ID to modify for the snapshot.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To make a snapshot public
             This example makes the snapshot ``snap-1234567890abcdef0`` public.
@@ -44540,6 +46493,9 @@ class AsyncEC2Client:
             snapshot_id: <p>The ID of the snapshot.</p>
             storage_tier: <p>The name of the storage tier. You must specify <code>archive</code>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -44596,6 +46552,9 @@ class AsyncEC2Client:
             spot_fleet_request_id: <p>The ID of the Spot Fleet request.</p>
             target_capacity: <p>The size of the fleet.</p>
             excess_capacity_termination_policy: <p>Indicates whether running instances should be terminated if the target capacity of the Spot Fleet request is decreased below the current size of the Spot Fleet.</p> <p>Supported only for fleets of type <code>maintain</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To increase the target capacity of a Spot fleet request
@@ -44693,6 +46652,9 @@ class AsyncEC2Client:
             enable_lni_at_device_index: <p> Indicates the device position for local network interfaces in this subnet. For example, <code>1</code> indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0). </p>
             disable_lni_at_device_index: <p> Specify <code>true</code> to indicate that local network interfaces at the current position should be disabled. </p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To change a subnet's public IP addressing behavior
             This example modifies the specified subnet so that all instances launched into this subnet are assigned a public IP address.
@@ -44770,6 +46732,9 @@ class AsyncEC2Client:
             add_network_services: <p>The network service, for example Amazon DNS, that you want to mirror.</p>
             remove_network_services: <p>The network service, for example Amazon DNS, that you no longer want to mirror.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -44846,6 +46811,9 @@ class AsyncEC2Client:
             description: <p>The description to assign to the Traffic Mirror rule.</p>
             remove_fields: <p>The properties that you want to remove from the Traffic Mirror filter rule.</p> <p>When you remove a property from a Traffic Mirror filter rule, the property is set to the default.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -44928,6 +46896,9 @@ class AsyncEC2Client:
             description: <p>The description to assign to the Traffic Mirror session.</p>
             remove_fields: <p>The properties that you want to remove from the Traffic Mirror session.</p> <p>When you remove a property from a Traffic Mirror session, the property is set to the default.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -44990,6 +46961,9 @@ class AsyncEC2Client:
             description: <p>The description for the transit gateway.</p>
             options: <p>The options to modify.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -45044,6 +47018,9 @@ class AsyncEC2Client:
             add_middlebox_attachment_ids: <p>The IDs of middlebox attachments to add to the metering policy.</p>
             remove_middlebox_attachment_ids: <p>The IDs of middlebox attachments to remove from the metering policy.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -45100,6 +47077,9 @@ class AsyncEC2Client:
             transit_gateway_attachment_id: <p>The ID of the attachment to which traffic is routed.</p>
             blackhole: <p>Indicates whether to drop traffic that matches this route.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -45159,6 +47139,9 @@ class AsyncEC2Client:
             remove_subnet_ids: <p>The IDs of one or more subnets to remove.</p>
             options: <p>The new VPC attachment options.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -45231,6 +47214,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             rds_options: <p>The RDS options.</p>
             cidr_options: <p>The CIDR options.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -45297,6 +47283,9 @@ class AsyncEC2Client:
             client_token: <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             sse_specification: <p>The options for server side encryption.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -45355,6 +47344,9 @@ class AsyncEC2Client:
             description: <p>A description for the Verified Access group.</p>
             client_token: <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -45413,6 +47405,9 @@ class AsyncEC2Client:
             client_token: <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             sse_specification: <p>The options for server side encryption.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -45471,6 +47466,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             client_token: <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
             cidr_endpoints_custom_sub_domain: <p>The custom subdomain.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -45525,6 +47523,9 @@ class AsyncEC2Client:
             access_logs: <p>The configuration options for Verified Access instances.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             client_token: <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -45590,6 +47591,9 @@ class AsyncEC2Client:
             client_token: <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
             sse_specification: <p>The options for server side encryption.</p>
             native_application_oidc_options: <p>The OpenID Connect (OIDC) options.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -45654,6 +47658,9 @@ class AsyncEC2Client:
             iops: <p>The target IOPS rate of the volume. This parameter is valid only for <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes.</p> <p>The following are the supported values for each volume type:</p> <ul> <li> <p> <code>gp3</code>: 3,000 - 80,000 IOPS</p> </li> <li> <p> <code>io1</code>: 100 - 64,000 IOPS</p> </li> <li> <p> <code>io2</code>: 100 - 256,000 IOPS</p> </li> </ul> <note> <p> <a href=\"https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html\"> Instances built on the Nitro System</a> can support up to 256,000 IOPS. Other instances can support up to 32,000 IOPS.</p> </note> <p>Default: The existing value is retained if you keep the same volume type. If you change the volume type to <code>io1</code>, <code>io2</code>, or <code>gp3</code>, the default is 3,000.</p>
             throughput: <p>The target throughput of the volume, in MiB/s. This parameter is valid only for <code>gp3</code> volumes. The maximum value is 2,000.</p> <p>Default: The existing value is retained if the source and target volume type is <code>gp3</code>. Otherwise, the default value is 125.</p> <p>Valid Range: Minimum value of 125. Maximum value of 2,000.</p>
             multi_attach_enabled: <p>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the volume to up to 16 <a href=\"https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html\"> Nitro-based instances</a> in the same Availability Zone. This parameter is supported with <code>io1</code> and <code>io2</code> volumes only. For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html\"> Amazon EBS Multi-Attach</a> in the <i>Amazon EBS User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -45710,6 +47717,9 @@ class AsyncEC2Client:
             auto_enable_io: <p>Indicates whether the volume should be auto-enabled for I/O operations.</p>
             volume_id: <p>The ID of the volume.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To modify a volume attribute
@@ -45769,6 +47779,9 @@ class AsyncEC2Client:
             vpc_id: <p>The ID of the VPC.</p>
             enable_network_address_usage_metrics: <p>Indicates whether Network Address Usage metrics are enabled for your VPC.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To modify the enableDnsSupport attribute
             This example modifies the enableDnsSupport attribute. This attribute indicates whether DNS resolution is enabled for the VPC. If this attribute is true, the Amazon DNS server resolves DNS hostnames for instances in the VPC to their corresponding IP addresses; otherwise, it does not.
@@ -45826,6 +47839,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             exclusion_id: <p>The ID of an exclusion.</p>
             internet_gateway_exclusion_mode: <p>The exclusion mode for internet gateway traffic.</p> <ul> <li> <p> <code>allow-bidirectional</code>: Allow all internet traffic to and from the excluded VPCs and subnets.</p> </li> <li> <p> <code>allow-egress</code>: Allow outbound internet traffic from the excluded VPCs and subnets. Block inbound internet traffic to the excluded VPCs and subnets. Only applies when VPC Block Public Access is set to Bidirectional.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -45869,6 +47885,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             internet_gateway_block_mode: <p>The mode of VPC BPA.</p> <ul> <li> <p> <code>off</code>: VPC BPA is not enabled and traffic is allowed to and from internet gateways and egress-only internet gateways in this Region.</p> </li> <li> <p> <code>block-bidirectional</code>: Block all traffic to and from internet gateways and egress-only internet gateways in this Region (except for excluded VPCs and subnets).</p> </li> <li> <p> <code>block-ingress</code>: Block all internet traffic to the VPCs in this Region (except for VPCs or subnets which are excluded). Only traffic to and from NAT gateways and egress-only internet gateways is allowed because these gateways only allow outbound connections to be established.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -45947,6 +47966,9 @@ class AsyncEC2Client:
             lambda_exclusion: <p>Specifies whether to exclude Lambda function traffic from encryption enforcement.</p>
             vpc_lattice_exclusion: <p>Specifies whether to exclude VPC Lattice traffic from encryption enforcement.</p>
             elastic_file_system_exclusion: <p>Specifies whether to exclude Elastic File System traffic from encryption enforcement.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -46053,6 +48075,9 @@ class AsyncEC2Client:
             dns_options: <p>The DNS options for the endpoint.</p>
             private_dns_enabled: <p>(Interface endpoint) Indicates whether a private hosted zone is associated with the VPC.</p>
             subnet_configurations: <p>The subnet configurations for the endpoint.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -46125,6 +48150,9 @@ class AsyncEC2Client:
             connection_notification_id: <p>The ID of the notification.</p>
             connection_notification_arn: <p>The ARN for the SNS topic for the notification.</p>
             connection_events: <p>The events for the endpoint. Valid values are <code>Accept</code>, <code>Connect</code>, <code>Delete</code>, and <code>Reject</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -46209,6 +48237,9 @@ class AsyncEC2Client:
             remove_supported_ip_address_types: <p>The IP address types to remove from the service configuration.</p>
             add_supported_regions: <p>The supported Regions to add to the service configuration.</p>
             remove_supported_regions: <p>The supported Regions to remove from the service configuration.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -46281,6 +48312,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             service_id: <p>The ID of the service.</p>
             payer_responsibility: <p>The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -46332,6 +48366,9 @@ class AsyncEC2Client:
             service_id: <p>The ID of the service.</p>
             add_allowed_principals: <p>The Amazon Resource Names (ARN) of the principals. Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*).</p>
             remove_allowed_principals: <p>The Amazon Resource Names (ARN) of the principals. Permissions are revoked for principals in this list.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -46386,6 +48423,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             requester_peering_connection_options: <p>The VPC peering connection options for the requester VPC.</p>
             vpc_peering_connection_id: <p>The ID of the VPC peering connection.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -46438,6 +48478,9 @@ class AsyncEC2Client:
             vpc_id: <p>The ID of the VPC.</p>
             instance_tenancy: <p>The instance tenancy attribute for the VPC. </p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -46493,6 +48536,9 @@ class AsyncEC2Client:
             customer_gateway_id: <p>The ID of the customer gateway at your end of the VPN connection.</p>
             vpn_gateway_id: <p>The ID of the virtual private gateway at the Amazon Web Services side of the VPN connection.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -46553,6 +48599,9 @@ class AsyncEC2Client:
             remote_ipv6_network_cidr: <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p> <p>Default: <code>::/0</code> </p>
             tunnel_bandwidth: <p>The desired bandwidth specification for the VPN connection. <code>standard</code> supports up to 1.25 Gbps per tunnel, while <code>large</code> supports up to 5 Gbps per tunnel. Large bandwidth is only available for VPN connections attached to a transit gateway or to Cloud WAN. The default value is <code>standard</code>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -46607,6 +48656,9 @@ class AsyncEC2Client:
             vpn_connection_id: <p>The ID of the Amazon Web Services Site-to-Site VPN connection.</p>
             vpn_tunnel_outside_ip_address: <p>The external IP address of the VPN tunnel.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -46658,6 +48710,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             skip_tunnel_replacement: <p>Choose whether or not to trigger immediate tunnel replacement. This is only applicable when turning on or off <code>EnableTunnelLifecycleControl</code>.</p> <p>Valid values: <code>True</code> | <code>False</code> </p>
             pre_shared_key_storage: <p>Specifies the storage mode for the pre-shared key (PSK). Valid values are <code>Standard</code> (stored in Site-to-Site VPN service) or <code>SecretsManager</code> (stored in Amazon Web Services Secrets Manager).</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -46706,6 +48761,9 @@ class AsyncEC2Client:
         Args:
             instance_ids: <p>The IDs of the instances.</p>
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -46748,6 +48806,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             public_ip: <p>The Elastic IP address.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To move an address to EC2-VPC
@@ -46800,6 +48861,9 @@ class AsyncEC2Client:
             cidr: <p>The BYOIP CIDR.</p>
             ipam_pool_id: <p>The IPAM pool ID.</p>
             ipam_pool_owner: <p>The Amazon Web Services account ID of the owner of the IPAM pool.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -46850,6 +48914,9 @@ class AsyncEC2Client:
             source_capacity_reservation_id: <p> The ID of the Capacity Reservation from which you want to move capacity. </p>
             destination_capacity_reservation_id: <p> The ID of the Capacity Reservation that you want to move capacity into. </p>
             instance_count: <p>The number of instances that you want to move from the source Capacity Reservation. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -46914,6 +48981,9 @@ class AsyncEC2Client:
             pool_tag_specifications: <p>The tags to apply to the address pool.</p>
             multi_region: <p>Reserved.</p>
             network_border_group: <p>If you have <a href=\"https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html\">Local Zones</a> enabled, you can choose a network border group for Local Zones when you provision and advertise a BYOIPv4 CIDR. Choose the network border group carefully as the EIP and the Amazon Web Services resource it is associated with must reside in the same network border group.</p> <p>You can provision BYOIP address ranges to and advertise them in the following Local Zone network border groups:</p> <ul> <li> <p>us-east-1-dfw-2</p> </li> <li> <p>us-west-2-lax-1</p> </li> <li> <p>us-west-2-phx-2</p> </li> </ul> <note> <p>You cannot provision or advertise BYOIPv6 address ranges in Local Zones at this time.</p> </note>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -46972,6 +49042,9 @@ class AsyncEC2Client:
             ipam_id: <p>An IPAM ID.</p>
             asn: <p>A public 2-byte or 4-byte ASN.</p>
             asn_authorization_context: <p>An ASN authorization context.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -47036,6 +49109,9 @@ class AsyncEC2Client:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
             verification_method: <p>The method for verifying control of a public IP address range. Defaults to <code>remarks-x509</code> if not specified. This option only applies to IPv4 and IPv6 pools in the public scope.</p>
             ipam_external_resource_verification_token_id: <p>Verification token ID. This option only applies to IPv4 and IPv6 pools in the public scope.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -47098,6 +49174,9 @@ class AsyncEC2Client:
             pool_id: <p>The ID of the public IPv4 pool you would like to use for this CIDR.</p>
             netmask_length: <p>The netmask length of the CIDR you would like to allocate to the public IPv4 pool. The least specific netmask length you can define is 24.</p>
             network_border_group: <p>The Availability Zone (AZ) or Local Zone (LZ) network border group that the resource that the IP address is assigned to is in. Defaults to an AZ network border group. For more information on available Local Zones, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail\">Local Zone availability</a> in the <i>Amazon EC2 User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -47150,6 +49229,9 @@ class AsyncEC2Client:
             tag_specifications: <p>The tags to apply to the Capacity Block during launch.</p>
             capacity_block_offering_id: <p>The ID of the Capacity Block offering.</p>
             instance_platform: <p>The type of operating system for which to reserve capacity.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -47197,6 +49279,9 @@ class AsyncEC2Client:
             capacity_block_extension_offering_id: <p>The ID of the Capacity Block extension offering to purchase.</p>
             capacity_reservation_id: <p>The ID of the Capacity reservation to be extended.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -47254,6 +49339,9 @@ class AsyncEC2Client:
             limit_price: <p>The specified limit is checked against the total upfront cost of the reservation (calculated as the offering's upfront cost multiplied by the host count). If the total upfront cost is greater than the specified price limit, the request fails. This is used to ensure that the purchase does not exceed the expected upfront cost of the purchase. At this time, the only supported currency is <code>USD</code>. For example, to indicate a limit price of USD 100, specify 100.00.</p>
             offering_id: <p>The ID of the offering.</p>
             tag_specifications: <p>The tags to apply to the Dedicated Host Reservation during purchase.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -47311,6 +49399,9 @@ class AsyncEC2Client:
             purchase_time: <p>The time at which to purchase the Reserved Instance, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             limit_price: <p>Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -47360,6 +49451,9 @@ class AsyncEC2Client:
             client_token: <p>Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring Idempotency</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             purchase_requests: <p>The purchase requests.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -47404,6 +49498,9 @@ class AsyncEC2Client:
         Args:
             instance_ids: <p>The instance IDs.</p>
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To reboot an EC2 instance
@@ -47498,6 +49595,9 @@ class AsyncEC2Client:
             virtualization_type: <p>The type of virtualization (<code>hvm</code> | <code>paravirtual</code>).</p> <p>Default: <code>paravirtual</code> </p>
             sriov_net_support: <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI.</p> <p>There is no way to disable <code>sriovNetSupport</code> at this time.</p> <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.</p>
             ena_support: <p>Set to <code>true</code> to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI.</p> <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -47572,6 +49672,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             instance_tag_attribute: <p>Information about the tag keys to register.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -47618,6 +49721,9 @@ class AsyncEC2Client:
             group_ip_address: <p>The IP address assigned to the transit gateway multicast group.</p>
             network_interface_ids: <p>The group members' network interface IDs to register with the transit gateway multicast group.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -47669,6 +49775,9 @@ class AsyncEC2Client:
             group_ip_address: <p>The IP address assigned to the transit gateway multicast group.</p>
             network_interface_ids: <p>The group sources' network interface IDs to register with the transit gateway multicast group.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -47716,6 +49825,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             capacity_reservation_id: <p>The ID of the Capacity Reservation for which to reject the request.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -47758,6 +49870,9 @@ class AsyncEC2Client:
         Args:
             transit_gateway_attachment_id: <p>The ID of the Transit Gateway attachment.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -47810,6 +49925,9 @@ class AsyncEC2Client:
             transit_gateway_attachment_id: <p>The ID of the transit gateway attachment.</p>
             subnet_ids: <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -47859,6 +49977,9 @@ class AsyncEC2Client:
         Args:
             transit_gateway_attachment_id: <p>The ID of the transit gateway peering attachment.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -47901,6 +50022,9 @@ class AsyncEC2Client:
         Args:
             transit_gateway_attachment_id: <p>The ID of the attachment.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -47945,6 +50069,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             service_id: <p>The ID of the service.</p>
             vpc_endpoint_ids: <p>The IDs of the VPC endpoints.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -47988,6 +50115,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             vpc_peering_connection_id: <p>The ID of the VPC peering connection.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -48034,6 +50164,9 @@ class AsyncEC2Client:
             public_ip: <p>Deprecated.</p>
             network_border_group: <p>The set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services advertises IP addresses.</p> <p>If you provide an incorrect network border group, you receive an <code>InvalidAddress.NotFound</code> error.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To release an Elastic IP address
@@ -48083,6 +50216,9 @@ class AsyncEC2Client:
 
         Args:
             host_ids: <p>The IDs of the Dedicated Hosts to release.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -48127,6 +50263,9 @@ class AsyncEC2Client:
             ipam_pool_id: <p>The ID of the IPAM pool which contains the allocation you want to release.</p>
             cidr: <p>The CIDR of the allocation you want to release.</p>
             ipam_pool_allocation_id: <p>The ID of the allocation.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -48171,6 +50310,9 @@ class AsyncEC2Client:
         Args:
             iam_instance_profile: <p>The IAM instance profile.</p>
             association_id: <p>The ID of the existing IAM instance profile association.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -48214,6 +50356,9 @@ class AsyncEC2Client:
         Args:
             image_criteria: <p>The list of criteria that are evaluated to determine whether AMIs are discoverable and usable in the account in the specified Amazon Web Services Region.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -48259,6 +50404,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             association_id: <p>The ID of the current association between the original network ACL and the subnet.</p>
             network_acl_id: <p>The ID of the new network ACL to associate with the subnet.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To replace the network ACL associated with a subnet
@@ -48326,6 +50474,9 @@ class AsyncEC2Client:
             ipv6_cidr_block: <p>The IPv6 network range to allow or deny, in CIDR notation (for example <code>2001:bd8:1234:1a00::/64</code>).</p>
             icmp_type_code: <p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>
             port_range: <p>TCP or UDP protocols: The range of ports the rule applies to. Required if specifying protocol 6 (TCP) or 17 (UDP).</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To replace a network ACL entry
@@ -48441,6 +50592,9 @@ class AsyncEC2Client:
             vpc_peering_connection_id: <p>The ID of a VPC peering connection.</p>
             nat_gateway_id: <p>[IPv4 traffic only] The ID of a NAT gateway.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To replace a route
             This example replaces the specified route in the specified table table. The new route matches the specified CIDR and sends the traffic to the specified virtual private gateway.
@@ -48521,6 +50675,9 @@ class AsyncEC2Client:
             association_id: <p>The association ID.</p>
             route_table_id: <p>The ID of the new route table to associate with the subnet.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To replace the route table associated with a subnet
             This example associates the specified route table with the subnet for the specified route table association.
@@ -48577,6 +50734,9 @@ class AsyncEC2Client:
             transit_gateway_attachment_id: <p>The ID of the attachment.</p>
             blackhole: <p>Indicates whether traffic matching this route is to be dropped.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -48628,6 +50788,9 @@ class AsyncEC2Client:
             vpn_tunnel_outside_ip_address: <p>The external IP address of the VPN tunnel.</p>
             apply_pending_maintenance: <p>Trigger pending tunnel endpoint maintenance.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -48685,6 +50848,9 @@ class AsyncEC2Client:
             end_time: <p>The time at which the reported instance health state ended.</p>
             reason_codes: <p>The reason codes that describe the health state of your instance.</p> <ul> <li> <p> <code>instance-stuck-in-state</code>: My instance is stuck in a state.</p> </li> <li> <p> <code>unresponsive</code>: My instance is unresponsive.</p> </li> <li> <p> <code>not-accepting-credentials</code>: My instance is not accepting my credentials.</p> </li> <li> <p> <code>password-not-available</code>: A password is not available for my instance.</p> </li> <li> <p> <code>performance-network</code>: My instance is experiencing performance problems that I believe are network related.</p> </li> <li> <p> <code>performance-instance-store</code>: My instance is experiencing performance problems that I believe are related to the instance stores.</p> </li> <li> <p> <code>performance-ebs-volume</code>: My instance is experiencing performance problems that I believe are related to an EBS volume.</p> </li> <li> <p> <code>performance-other</code>: My instance is experiencing performance problems.</p> </li> <li> <p> <code>other</code>: [explain using the description parameter]</p> </li> </ul>
             description: <p>Descriptive text about the health state of your instance.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -48733,6 +50899,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             spot_fleet_request_config: <p>The configuration for the Spot Fleet request.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To request a Spot fleet in the subnet with the lowest price
@@ -48822,6 +50991,9 @@ class AsyncEC2Client:
             availability_zone_group: <p>The user-specified name for a logical grouping of requests.</p> <p>When you specify an Availability Zone group in a Spot Instance request, all Spot Instances in the request are launched in the same Availability Zone. Instance proximity is maintained with this parameter, but the choice of Availability Zone is not. The group applies only to requests for Spot Instances of the same instance type. Any additional Spot Instance requests that are specified with the same Availability Zone group name are launched in that same Availability Zone, as long as at least one instance from the group is still active.</p> <p>If there is no active instance running in the Availability Zone group that you specify for a new Spot Instance request (all instances are terminated, the request is expired, or the maximum price you specified falls below current Spot price), then Amazon EC2 launches the instance in any Availability Zone where the constraint can be met. Consequently, the subsequent set of Spot Instances could be placed in a different zone from the original request, even if you specified the same Availability Zone group.</p> <p>Default: Instances are launched in any available Availability Zone.</p>
             block_duration_minutes: <p>Deprecated.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a one-time Spot Instance request
             This example creates a one-time Spot Instance request for five instances in the specified Availability Zone. If your account supports EC2-VPC only, Amazon EC2 launches the instances in the default subnet of the specified Availability Zone.
@@ -48898,6 +51070,9 @@ class AsyncEC2Client:
             allocation_id: <p>[EC2-VPC] The allocation ID.</p>
             attribute: <p>The attribute of the IP address.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -48939,6 +51114,9 @@ class AsyncEC2Client:
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -48984,6 +51162,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             fpga_image_id: <p>The ID of the AFI.</p>
             attribute: <p>The attribute.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -49030,6 +51211,9 @@ class AsyncEC2Client:
             attribute: <p>The attribute to reset (currently you can only reset the launch permission attribute).</p>
             image_id: <p>The ID of the AMI.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To reset the launchPermission attribute
@@ -49080,6 +51264,9 @@ class AsyncEC2Client:
             instance_id: <p>The ID of the instance.</p>
             attribute: <p>The attribute to reset.</p> <important> <p>You can only reset the following attributes: <code>kernel</code> | <code>ramdisk</code> | <code>sourceDestCheck</code>.</p> </important>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To reset the sourceDestCheck attribute
             This example resets the sourceDestCheck attribute for the specified instance.
@@ -49128,6 +51315,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             network_interface_id: <p>The ID of the network interface.</p>
             source_dest_check: <p>The source/destination checking attribute. Resets the value to <code>true</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -49172,6 +51362,9 @@ class AsyncEC2Client:
             attribute: <p>The attribute to reset. Currently, only the attribute for permission to create volumes can be reset.</p>
             snapshot_id: <p>The ID of the snapshot.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To reset a snapshot attribute
@@ -49219,6 +51412,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             public_ip: <p>The Elastic IP address.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -49261,6 +51457,9 @@ class AsyncEC2Client:
         Args:
             image_id: <p>The ID of the AMI to restore.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -49307,6 +51506,9 @@ class AsyncEC2Client:
             prefix_list_id: <p>The ID of the prefix list.</p>
             previous_version: <p>The version to restore.</p>
             current_version: <p>The current version number for the prefix list.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -49351,6 +51553,9 @@ class AsyncEC2Client:
         Args:
             snapshot_id: <p>The ID of the snapshot to restore.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -49399,6 +51604,9 @@ class AsyncEC2Client:
             temporary_restore_days: <p>Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.</p> <p>To temporarily restore an archived snapshot, specify the number of days and omit the <b>PermanentRestore</b> parameter or set it to <code>false</code>.</p>
             permanent_restore: <p>Indicates whether to permanently restore an archived snapshot. To permanently restore an archived snapshot, specify <code>true</code> and omit the <b>RestoreSnapshotTierRequest$TemporaryRestoreDays</b> parameter.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -49445,6 +51653,9 @@ class AsyncEC2Client:
         Args:
             volume_id: <p>The ID of the volume to restore.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -49493,6 +51704,9 @@ class AsyncEC2Client:
             access_group_id: <p>The ID of the Active Directory group for which to revoke access. </p>
             revoke_all_groups: <p>Indicates whether access should be revoked for all groups for a single <code>TargetNetworkCidr</code> that earlier authorized ingress for all groups using <code>AuthorizeAllGroups</code>. This does not impact other authorization rules that allowed ingress to the same <code>TargetNetworkCidr</code> with a specific <code>AccessGroupId</code>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -49562,6 +51776,9 @@ class AsyncEC2Client:
             to_port: <p>Not supported. Use a set of IP permissions to specify the port.</p>
             cidr_ip: <p>Not supported. Use a set of IP permissions to specify the CIDR.</p>
             ip_permissions: <p>The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -49648,6 +51865,9 @@ class AsyncEC2Client:
             to_port: <p>If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP, this is the ICMP code or -1 (all ICMP codes).</p>
             security_group_rule_ids: <p>The IDs of the security group rules.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -49844,6 +52064,9 @@ class AsyncEC2Client:
             iam_instance_profile: <p>The name or Amazon Resource Name (ARN) of an IAM instance profile.</p>
             ebs_optimized: <p>Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.</p> <p>Default: <code>false</code> </p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To launch an instance
             This example launches an instance using the specified AMI, instance type, security group, subnet, block device mapping, and tags.
@@ -49982,6 +52205,9 @@ class AsyncEC2Client:
             instance_count: <p>The number of instances.</p> <p>Default: 1</p>
             launch_specification: <p>The launch specification. You must match the instance type, Availability Zone, network, and platform of the schedule that you purchased.</p>
             scheduled_instance_id: <p>The Scheduled Instance ID.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -50035,6 +52261,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -50118,6 +52347,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -50205,6 +52437,9 @@ class AsyncEC2Client:
             max_results: <p>The maximum number of routes to return. If a value is not provided, the default is 1000.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -50281,6 +52516,9 @@ class AsyncEC2Client:
         Args:
             instance_id: <p>The ID of the instance.</p>
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -50329,6 +52567,9 @@ class AsyncEC2Client:
             s3_prefix: <p>The prefix for your S3 object.</p>
             target_id: <p>The root ID, organizational unit ID, or account ID.</p> <p>Format:</p> <ul> <li> <p>For root: <code>r-ab12</code> </p> </li> <li> <p>For OU: <code>ou-ab12-cdef1234</code> </p> </li> <li> <p>For account: <code>123456789012</code> </p> </li> </ul>
             tag_specifications: <p>The tags to apply.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -50378,6 +52619,9 @@ class AsyncEC2Client:
             instance_ids: <p>The IDs of the instances.</p>
             additional_info: <p>Reserved.</p>
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To start a stopped EC2 instance
@@ -50434,6 +52678,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             tag_specifications: <p>The tags to apply.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">How to ensure idempotency</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -50493,6 +52740,9 @@ class AsyncEC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             tag_specifications: <p>The tags to apply.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">How to ensure idempotency</a>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -50544,6 +52794,9 @@ class AsyncEC2Client:
         Args:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             service_id: <p>The ID of the endpoint service.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -50592,6 +52845,9 @@ class AsyncEC2Client:
             skip_os_shutdown: <p>Specifies whether to bypass the graceful OS shutdown process when the instance is stopped.</p> <important> <p>Bypassing the graceful OS shutdown might result in data loss or corruption (for example, memory contents not flushed to disk or loss of in-flight IOs) or skipped shutdown scripts.</p> </important> <p>Default: <code>false</code> </p>
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             force: <p>Forces the instance to stop. The instance will first attempt a graceful shutdown, which includes flushing file system caches and metadata. If the graceful shutdown fails to complete within the timeout period, the instance shuts down forcibly without flushing the file system caches and metadata.</p> <p>After using this option, you must perform file system check and repair procedures. This option is not recommended for Windows instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html\">Troubleshoot Amazon EC2 instance stop issues</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Default: <code>false</code> </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To stop a running EC2 instance
@@ -50650,6 +52906,9 @@ class AsyncEC2Client:
             connection_id: <p>The ID of the client connection to be terminated.</p>
             username: <p>The name of the user who initiated the connection. Use this option to terminate all active connections for the specified user. This option can only be used if the user has established up to five connections.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -50700,6 +52959,9 @@ class AsyncEC2Client:
             force: <p>Forces the instances to terminate. The instance will first attempt a graceful shutdown, which includes flushing file system caches and metadata. If the graceful shutdown fails to complete within the timeout period, the instance shuts down forcibly without flushing the file system caches and metadata.</p>
             skip_os_shutdown: <p>Specifies whether to bypass the graceful OS shutdown process when the instance is terminated.</p> <p>Default: <code>false</code> </p>
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To terminate an EC2 instance
@@ -50756,6 +53018,9 @@ class AsyncEC2Client:
             ipv6_prefixes: <p>The IPv6 prefixes to unassign from the network interface.</p>
             network_interface_id: <p>The ID of the network interface.</p>
             ipv6_addresses: <p>The IPv6 addresses to unassign from the network interface.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -50804,6 +53069,9 @@ class AsyncEC2Client:
             ipv4_prefixes: <p>The IPv4 prefixes to unassign from the network interface.</p>
             network_interface_id: <p>The ID of the network interface.</p>
             private_ip_addresses: <p>The secondary private IP addresses to unassign from the network interface. You can specify this option multiple times to unassign more than one IP address.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To unassign a secondary private IP address from a network interface
@@ -50858,6 +53126,9 @@ class AsyncEC2Client:
             private_ip_addresses: <p>The private IPv4 addresses you want to unassign.</p>
             max_drain_duration_seconds: <p>The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -50903,6 +53174,9 @@ class AsyncEC2Client:
         Args:
             snapshot_id: <p>The ID of the snapshot to unlock.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -50945,6 +53219,9 @@ class AsyncEC2Client:
         Args:
             instance_ids: <p>The IDs of the instances.</p>
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -50995,6 +53272,9 @@ class AsyncEC2Client:
             deactivate_tag_keys: <p> The tag keys to deactivate. Deactivated tag keys will no longer be included as dimensions in capacity metric data. </p>
             dry_run: <p> Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>. </p>
             client_token: <p> Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -51044,6 +53324,9 @@ class AsyncEC2Client:
             organizations_access: <p> Specifies whether to enable or disable cross-account access for Amazon Web Services Organizations. When enabled, Capacity Manager aggregates data from all accounts in your organization. </p>
             dry_run: <p> Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>. </p>
             client_token: <p> Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -51090,6 +53373,9 @@ class AsyncEC2Client:
             capacity_reservation_id: <p> The ID of the source Capacity Reservation containing the interruptible allocation to modify. </p>
             target_instance_count: <p> The new number of instances to allocate. Enter a higher number to add more capacity to share, or a lower number to reclaim capacity to your source Capacity Reservation. </p>
             dry_run: <p> Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. </p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -51147,6 +53433,9 @@ class AsyncEC2Client:
             group_name: <p>[Default VPC] The name of the security group. You must specify either the security group ID or the security group name.</p>
             ip_permissions: <p>The IP permissions for the security group rule. You must specify either the IP permissions or the description.</p>
             security_group_rule_descriptions: <p>The description for the egress security group rules. You must specify either the description or the IP permissions.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update an outbound security group rule description
@@ -51219,6 +53508,9 @@ class AsyncEC2Client:
             ip_permissions: <p>The IP permissions for the security group rule. You must specify either IP permissions or a description.</p>
             security_group_rule_descriptions: <p>The description for the ingress security group rules. You must specify either a description or IP permissions.</p>
 
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update an inbound security group rule description
             This example updates the description for the specified security group rule.
@@ -51275,6 +53567,9 @@ class AsyncEC2Client:
         Args:
             cidr: <p>The address range, in CIDR notation.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            aws_sdk_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

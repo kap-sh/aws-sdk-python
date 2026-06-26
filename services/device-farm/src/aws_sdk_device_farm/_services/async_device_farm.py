@@ -357,6 +357,13 @@ class AsyncDeviceFarmClient:
             rules: <p>The device pool's rules.</p>
             max_devices: <p>The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the <code>rules</code> parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.</p> <p>By specifying the maximum number of devices, you can control the costs that you incur by running tests.</p>
 
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a new device pool
             The following example creates a new device pool named MyDevicePool inside an existing project.
@@ -416,6 +423,13 @@ class AsyncDeviceFarmClient:
             package_cleanup: <p>When set to <code>true</code>, Device Farm removes app packages after a test run. The default value is <code>false</code> for private devices.</p>
             exclude_app_packages_from_cleanup: <p>An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.</p> <p>The list of packages is considered only if you set <code>packageCleanup</code> to <code>true</code>.</p>
             reboot_after_use: <p>When set to <code>true</code>, Device Farm reboots the instance after a test run. The default value is <code>true</code>.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -492,6 +506,13 @@ class AsyncDeviceFarmClient:
             downlink_jitter_ms: <p>Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.</p>
             uplink_loss_percent: <p>Proportion of transmitted packets that fail to arrive from 0 to 100 percent.</p>
             downlink_loss_percent: <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -565,6 +586,14 @@ class AsyncDeviceFarmClient:
             vpc_config: <p>The VPC security groups and subnets that are attached to a project.</p>
             environment_variables: <p> A set of environment variables which are used by default for all runs in the project. These environment variables are applied to the test run during the execution of a test spec file. </p> <p> For more information about using test spec files, please see <a href=\"https://docs.aws.amazon.com/devicefarm/latest/developerguide/custom-test-environments.html\">Custom test environments </a> in <i>AWS Device Farm.</i> </p>
             execution_role_arn: <p>An IAM role to be assumed by the test host for all runs in the project.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.tag_operation_exception.TagOperationException: <p>The operation was not successful. Try again.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -634,6 +663,13 @@ class AsyncDeviceFarmClient:
             interaction_mode: <p>The interaction mode of the remote access session. Changing the interactive mode of remote access sessions is no longer available.</p>
             skip_app_resign: <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.</p> <p>For more information on how Device Farm modifies your uploads during tests, see <a href=\"http://aws.amazon.com/device-farm/faqs/\">Do you modify my app?</a> </p>
 
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a remote access session
             The following example creates a remote access session named MySession.
@@ -698,6 +734,12 @@ class AsyncDeviceFarmClient:
             name: <p>Human-readable name of the Selenium testing project.</p>
             description: <p>Human-readable description of the project.</p>
             vpc_config: <p>The VPC security groups and subnets that are attached to a project.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.internal_service_exception.InternalServiceException: <p>An internal exception was raised in the service. Contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a> if you see this error. </p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -744,6 +786,12 @@ class AsyncDeviceFarmClient:
         Args:
             project_arn: <p>ARN (from <a>CreateTestGridProject</a> or <a>ListTestGridProjects</a>) to associate with the short-term URL. </p>
             expires_in_seconds: <p>Lifetime, in seconds, of the URL.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.internal_service_exception.InternalServiceException: <p>An internal exception was raised in the service. Contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a> if you see this error. </p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -791,6 +839,13 @@ class AsyncDeviceFarmClient:
             name: <p>The upload's file name. The name should not contain any forward slashes (<code>/</code>). If you are uploading an iOS app, the file name must end with the <code>.ipa</code> extension. If you are uploading an Android app, the file name must end with the <code>.apk</code> extension. For all others, the file name must end with the <code>.zip</code> file extension.</p>
             type: <p>The upload's upload type.</p> <p>Must be one of the following values:</p> <ul> <li> <p>ANDROID_APP</p> </li> <li> <p>IOS_APP</p> </li> <li> <p>WEB_APP</p> </li> <li> <p>EXTERNAL_DATA</p> </li> <li> <p>APPIUM_JAVA_JUNIT_TEST_PACKAGE</p> </li> <li> <p>APPIUM_JAVA_TESTNG_TEST_PACKAGE</p> </li> <li> <p>APPIUM_PYTHON_TEST_PACKAGE</p> </li> <li> <p>APPIUM_NODE_TEST_PACKAGE</p> </li> <li> <p>APPIUM_RUBY_TEST_PACKAGE</p> </li> <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE</p> </li> <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE</p> </li> <li> <p>APPIUM_WEB_PYTHON_TEST_PACKAGE</p> </li> <li> <p>APPIUM_WEB_NODE_TEST_PACKAGE</p> </li> <li> <p>APPIUM_WEB_RUBY_TEST_PACKAGE</p> </li> <li> <p>INSTRUMENTATION_TEST_PACKAGE</p> </li> <li> <p>XCTEST_TEST_PACKAGE</p> </li> <li> <p>XCTEST_UI_TEST_PACKAGE</p> </li> <li> <p>APPIUM_JAVA_JUNIT_TEST_SPEC</p> </li> <li> <p>APPIUM_JAVA_TESTNG_TEST_SPEC</p> </li> <li> <p>APPIUM_PYTHON_TEST_SPEC</p> </li> <li> <p>APPIUM_NODE_TEST_SPEC</p> </li> <li> <p>APPIUM_RUBY_TEST_SPEC</p> </li> <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_SPEC</p> </li> <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_SPEC</p> </li> <li> <p>APPIUM_WEB_PYTHON_TEST_SPEC</p> </li> <li> <p>APPIUM_WEB_NODE_TEST_SPEC</p> </li> <li> <p>APPIUM_WEB_RUBY_TEST_SPEC</p> </li> <li> <p>INSTRUMENTATION_TEST_SPEC</p> </li> <li> <p>XCTEST_UI_TEST_SPEC</p> </li> </ul> <p> If you call <code>CreateUpload</code> with <code>WEB_APP</code> specified, AWS Device Farm throws an <code>ArgumentException</code> error.</p>
             content_type: <p>The upload's content type (for example, <code>application/octet-stream</code>).</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -841,6 +896,12 @@ class AsyncDeviceFarmClient:
             vpce_service_name: <p>The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.</p>
             service_dns_name: <p>The DNS name of the service running in your VPC that you want Device Farm to test.</p>
             vpce_configuration_description: <p>An optional description that provides details about your VPC endpoint configuration.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -883,6 +944,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>Represents the Amazon Resource Name (ARN) of the Device Farm device pool to delete.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a device pool
@@ -927,6 +995,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the instance profile you are requesting to delete.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -965,6 +1040,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>The ARN of the network profile to delete.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1003,6 +1085,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>Represents the Amazon Resource Name (ARN) of the Device Farm project to delete.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a project
@@ -1048,6 +1137,13 @@ class AsyncDeviceFarmClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the session for which you want to delete remote access.</p>
 
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a specific remote access session
             The following example deletes a specific remote access session.
@@ -1092,6 +1188,13 @@ class AsyncDeviceFarmClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN) for the run to delete.</p>
 
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a run
             The following example deletes a specific test run.
@@ -1135,6 +1238,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             project_arn: <p>The ARN of the project to delete, from <a>CreateTestGridProject</a> or <a>ListTestGridProjects</a>.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.cannot_delete_exception.CannotDeleteException: <p>The requested object could not be deleted.</p>
+            aws_sdk_device_farm.errors.internal_service_exception.InternalServiceException: <p>An internal exception was raised in the service. Contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a> if you see this error. </p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1173,6 +1283,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>Represents the Amazon Resource Name (ARN) of the Device Farm upload to delete.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a specific upload
@@ -1217,6 +1334,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to delete.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.invalid_operation_exception.InvalidOperationException: <p>There was an error with the update request, or you do not have sufficient permissions to update this VPC endpoint configuration.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1251,6 +1375,13 @@ class AsyncDeviceFarmClient:
         "aws_sdk_device_farm.types.get_account_settings_result.GetAccountSettingsResult"
     ):
         """<p>Returns the number of unmetered iOS or unmetered Android devices that have been purchased by the account.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about account settings
@@ -1295,6 +1426,13 @@ class AsyncDeviceFarmClient:
         Args:
             arn: <p>The device type's ARN.</p>
 
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get information about a device
             The following example returns information about a specific device.
@@ -1338,6 +1476,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the instance you're requesting information about.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1376,6 +1521,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>The device pool's ARN.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about a device pool
@@ -1439,6 +1591,13 @@ class AsyncDeviceFarmClient:
             configuration: <p>An object that contains information about the settings for a run.</p>
             project_arn: <p>The ARN of the project for which you want to check device pool compatibility.</p>
 
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get information about the compatibility of a device pool
             The following example returns information about the compatibility of a specific device pool, given its ARN.
@@ -1494,6 +1653,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of an instance profile.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1532,6 +1698,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>The job's ARN.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about a job
@@ -1576,6 +1749,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>The ARN of the network profile to return information about.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1616,6 +1796,14 @@ class AsyncDeviceFarmClient:
 
         Args:
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_eligible_exception.NotEligibleException: <p>Exception gets thrown when a user is not eligible to perform the specified transaction.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1655,6 +1843,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>The project's ARN.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1693,6 +1888,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the remote access session about which you want to get session information.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a remote access session
@@ -1737,6 +1939,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>The run's ARN.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1775,6 +1984,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>The suite's ARN.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about a test suite
@@ -1820,6 +2036,13 @@ class AsyncDeviceFarmClient:
         Args:
             arn: <p>The test's ARN.</p>
 
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get information about a specific test
             The following example gets information about a specific test.
@@ -1863,6 +2086,12 @@ class AsyncDeviceFarmClient:
 
         Args:
             project_arn: <p>The ARN of the Selenium testing project, from either <a>CreateTestGridProject</a> or <a>ListTestGridProjects</a>.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.internal_service_exception.InternalServiceException: <p>An internal exception was raised in the service. Contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a> if you see this error. </p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1909,6 +2138,12 @@ class AsyncDeviceFarmClient:
             project_arn: <p>The ARN for the project that this session belongs to. See <a>CreateTestGridProject</a> and <a>ListTestGridProjects</a>.</p>
             session_id: <p>An ID associated with this session.</p>
             session_arn: <p>An ARN that uniquely identifies a <a>TestGridSession</a>.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.internal_service_exception.InternalServiceException: <p>An internal exception was raised in the service. Contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a> if you see this error. </p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1953,6 +2188,13 @@ class AsyncDeviceFarmClient:
         Args:
             arn: <p>The upload's ARN.</p>
 
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get information about a specific upload
             The following example gets information about a specific upload.
@@ -1996,6 +2238,12 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to describe.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2036,6 +2284,13 @@ class AsyncDeviceFarmClient:
         Args:
             remote_access_session_arn: <p>The Amazon Resource Name (ARN) of the remote access session about which you are requesting information.</p>
             app_arn: <p>The ARN of the app about which you are requesting information.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To install to a remote access session
@@ -2087,6 +2342,13 @@ class AsyncDeviceFarmClient:
             arn: <p>The run, job, suite, or test ARN.</p>
             type: <p>The artifacts' type.</p> <p>Allowed values include:</p> <ul> <li> <p>FILE</p> </li> <li> <p>LOG</p> </li> <li> <p>SCREENSHOT</p> </li> </ul>
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list artifacts for a resource
@@ -2163,6 +2425,13 @@ class AsyncDeviceFarmClient:
         Args:
             max_results: <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2212,6 +2481,13 @@ class AsyncDeviceFarmClient:
             arn: <p>The project ARN.</p>
             type: <p>The device pools' type.</p> <p>Allowed values include:</p> <ul> <li> <p>CURATED: A device pool that is created and managed by AWS Device Farm.</p> </li> <li> <p>PRIVATE: A device pool that is created and managed by the device pool developer.</p> </li> </ul>
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about device pools
@@ -2298,6 +2574,13 @@ class AsyncDeviceFarmClient:
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
             filters: <p>Used to select a set of devices. A filter is made up of an attribute, an operator, and one or more values.</p> <ul> <li> <p>Attribute: The aspect of a device such as platform or model used as the selection criteria in a device filter.</p> <p>Allowed values include:</p> <ul> <li> <p>ARN: The Amazon Resource Name (ARN) of the device (for example, <code>arn:aws:devicefarm:us-west-2::device:12345Example</code>).</p> </li> <li> <p>PLATFORM: The device platform. Valid values are ANDROID or IOS.</p> </li> <li> <p>OS_VERSION: The operating system version (for example, 10.3.2).</p> </li> <li> <p>MODEL: The device model (for example, iPad 5th Gen).</p> </li> <li> <p>AVAILABILITY: The current availability of the device. Valid values are AVAILABLE, HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.</p> </li> <li> <p>FORM_FACTOR: The device form factor. Valid values are PHONE or TABLET.</p> </li> <li> <p>MANUFACTURER: The device manufacturer (for example, Apple).</p> </li> <li> <p>REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access. Valid values are TRUE or FALSE.</p> </li> <li> <p>REMOTE_DEBUG_ENABLED: Whether the device is enabled for remote debugging. Valid values are TRUE or FALSE. Because remote debugging is <a href=\"https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html\">no longer supported</a>, this attribute is ignored.</p> </li> <li> <p>INSTANCE_ARN: The Amazon Resource Name (ARN) of the device instance.</p> </li> <li> <p>INSTANCE_LABELS: The label of the device instance.</p> </li> <li> <p>FLEET_TYPE: The fleet type. Valid values are PUBLIC or PRIVATE.</p> </li> </ul> </li> <li> <p>Operator: The filter operator.</p> <ul> <li> <p>The EQUALS operator is available for every attribute except INSTANCE_LABELS.</p> </li> <li> <p>The CONTAINS operator is available for the INSTANCE_LABELS and MODEL attributes.</p> </li> <li> <p>The IN and NOT_IN operators are available for the ARN, OS_VERSION, MODEL, MANUFACTURER, and INSTANCE_ARN attributes.</p> </li> <li> <p>The LESS_THAN, GREATER_THAN, LESS_THAN_OR_EQUALS, and GREATER_THAN_OR_EQUALS operators are also available for the OS_VERSION attribute.</p> </li> </ul> </li> <li> <p>Values: An array of one or more filter values.</p> <ul> <li> <p>The IN and NOT_IN operators take a values array that has one or more elements.</p> </li> <li> <p>The other operators require an array with a single element.</p> </li> <li> <p>In a request, the AVAILABILITY attribute takes the following values: AVAILABLE, HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.</p> </li> </ul> </li> </ul>
 
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get information about devices
             The following example returns information about the available devices in a specific project.
@@ -2379,6 +2662,13 @@ class AsyncDeviceFarmClient:
         Args:
             max_results: <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2424,6 +2714,13 @@ class AsyncDeviceFarmClient:
         Args:
             arn: <p>The run's Amazon Resource Name (ARN).</p>
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about jobs
@@ -2501,6 +2798,13 @@ class AsyncDeviceFarmClient:
             arn: <p>The Amazon Resource Name (ARN) of the project for which you want to list network profiles.</p>
             type: <p>The type of network profile to return information about. Valid values are listed here.</p>
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2545,6 +2849,14 @@ class AsyncDeviceFarmClient:
 
         Args:
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_eligible_exception.NotEligibleException: <p>Exception gets thrown when a user is not eligible to perform the specified transaction.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2586,6 +2898,14 @@ class AsyncDeviceFarmClient:
 
         Args:
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_eligible_exception.NotEligibleException: <p>Exception gets thrown when a user is not eligible to perform the specified transaction.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about device offerings
@@ -2654,6 +2974,14 @@ class AsyncDeviceFarmClient:
 
         Args:
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_eligible_exception.NotEligibleException: <p>Exception gets thrown when a user is not eligible to perform the specified transaction.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2720,6 +3048,13 @@ class AsyncDeviceFarmClient:
         Args:
             arn: <p>Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device Farm returns a list of all projects for the AWS account. You can also specify a project ARN.</p>
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2791,6 +3126,13 @@ class AsyncDeviceFarmClient:
             arn: <p>The Amazon Resource Name (ARN) of the project about which you are requesting information.</p>
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
 
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get information about a remote access session
             The following example returns information about a specific Device Farm remote access session.
@@ -2840,6 +3182,13 @@ class AsyncDeviceFarmClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the project for which you want to list runs.</p>
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2907,6 +3256,13 @@ class AsyncDeviceFarmClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the job used to list samples.</p>
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about samples
@@ -2981,6 +3337,13 @@ class AsyncDeviceFarmClient:
             arn: <p>The job's Amazon Resource Name (ARN).</p>
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
 
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get information about suites
             The following example returns information about suites, given a specific Device Farm job.
@@ -3049,6 +3412,12 @@ class AsyncDeviceFarmClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource or resources for which to list tags. You can associate tags with the following Device Farm resources: <code>PROJECT</code>, <code>TESTGRID_PROJECT</code>, <code>RUN</code>, <code>NETWORK_PROFILE</code>, <code>INSTANCE_PROFILE</code>, <code>DEVICE_INSTANCE</code>, <code>SESSION</code>, <code>DEVICE_POOL</code>, <code>DEVICE</code>, and <code>VPCE_CONFIGURATION</code>.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.tag_operation_exception.TagOperationException: <p>The operation was not successful. Try again.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3093,6 +3462,11 @@ class AsyncDeviceFarmClient:
         Args:
             max_result: <p>Return no more than this number of results.</p>
             next_token: <p>From a response, used to continue a paginated listing. </p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.internal_service_exception.InternalServiceException: <p>An internal exception was raised in the service. Contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a> if you see this error. </p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3142,6 +3516,12 @@ class AsyncDeviceFarmClient:
             session_arn: <p>The ARN of the session to retrieve.</p>
             max_result: <p>The maximum number of sessions to return per response.</p>
             next_token: <p>Pagination token.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.internal_service_exception.InternalServiceException: <p>An internal exception was raised in the service. Contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a> if you see this error. </p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3196,6 +3576,12 @@ class AsyncDeviceFarmClient:
             type: <p>Limit results to a specified type of artifact.</p>
             max_result: <p>The maximum number of results to be returned by a request.</p>
             next_token: <p>Pagination token.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.internal_service_exception.InternalServiceException: <p>An internal exception was raised in the service. Contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a> if you see this error. </p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3266,6 +3652,12 @@ class AsyncDeviceFarmClient:
             end_time_before: <p>Return only sessions that ended before this time.</p>
             max_result: <p>Return only this many results at a time.</p>
             next_token: <p>Pagination token.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.internal_service_exception.InternalServiceException: <p>An internal exception was raised in the service. Contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a> if you see this error. </p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3322,6 +3714,13 @@ class AsyncDeviceFarmClient:
         Args:
             arn: <p>The test suite's Amazon Resource Name (ARN).</p>
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about tests
@@ -3398,6 +3797,13 @@ class AsyncDeviceFarmClient:
             arn: <p>The unique problems' ARNs.</p>
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
 
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get information about unique problems
             The following example returns information about unique problems, given a specific Device Farm project.
@@ -3472,6 +3878,13 @@ class AsyncDeviceFarmClient:
             arn: <p>The Amazon Resource Name (ARN) of the project for which you want to list uploads.</p>
             type: <p>The type of upload.</p> <p>Must be one of the following values:</p> <ul> <li> <p>ANDROID_APP</p> </li> <li> <p>IOS_APP</p> </li> <li> <p>WEB_APP</p> </li> <li> <p>EXTERNAL_DATA</p> </li> <li> <p>APPIUM_JAVA_JUNIT_TEST_PACKAGE</p> </li> <li> <p>APPIUM_JAVA_TESTNG_TEST_PACKAGE</p> </li> <li> <p>APPIUM_PYTHON_TEST_PACKAGE</p> </li> <li> <p>APPIUM_NODE_TEST_PACKAGE</p> </li> <li> <p>APPIUM_RUBY_TEST_PACKAGE</p> </li> <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE</p> </li> <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE</p> </li> <li> <p>APPIUM_WEB_PYTHON_TEST_PACKAGE</p> </li> <li> <p>APPIUM_WEB_NODE_TEST_PACKAGE</p> </li> <li> <p>APPIUM_WEB_RUBY_TEST_PACKAGE</p> </li> <li> <p>INSTRUMENTATION_TEST_PACKAGE</p> </li> <li> <p>XCTEST_TEST_PACKAGE</p> </li> <li> <p>XCTEST_UI_TEST_PACKAGE</p> </li> <li> <p>APPIUM_JAVA_JUNIT_TEST_SPEC</p> </li> <li> <p>APPIUM_JAVA_TESTNG_TEST_SPEC</p> </li> <li> <p>APPIUM_PYTHON_TEST_SPEC</p> </li> <li> <p>APPIUM_NODE_TEST_SPEC</p> </li> <li> <p> APPIUM_RUBY_TEST_SPEC</p> </li> <li> <p>APPIUM_WEB_JAVA_JUNIT_TEST_SPEC</p> </li> <li> <p>APPIUM_WEB_JAVA_TESTNG_TEST_SPEC</p> </li> <li> <p>APPIUM_WEB_PYTHON_TEST_SPEC</p> </li> <li> <p>APPIUM_WEB_NODE_TEST_SPEC</p> </li> <li> <p>APPIUM_WEB_RUBY_TEST_SPEC</p> </li> <li> <p>INSTRUMENTATION_TEST_SPEC</p> </li> <li> <p>XCTEST_UI_TEST_SPEC</p> </li> </ul>
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get information about uploads
@@ -3549,6 +3962,11 @@ class AsyncDeviceFarmClient:
         Args:
             max_results: <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
             next_token: <p>An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3596,6 +4014,14 @@ class AsyncDeviceFarmClient:
             offering_id: <p>The ID of the offering.</p>
             quantity: <p>The number of device slots to purchase in an offering request.</p>
             offering_promotion_id: <p>The ID of the offering promotion to be applied to the purchase.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_eligible_exception.NotEligibleException: <p>Exception gets thrown when a user is not eligible to perform the specified transaction.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3639,6 +4065,14 @@ class AsyncDeviceFarmClient:
         Args:
             offering_id: <p>The ID of a request to renew an offering.</p>
             quantity: <p>The quantity requested in an offering renewal.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_eligible_exception.NotEligibleException: <p>Exception gets thrown when a user is not eligible to perform the specified transaction.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3703,6 +4137,14 @@ class AsyncDeviceFarmClient:
             configuration: <p>Information about the settings for the run to be scheduled.</p>
             execution_configuration: <p>Specifies configuration information about a test run, such as the execution timeout (in minutes).</p>
 
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.idempotency_exception.IdempotencyException: <p>An entity with the same name already exists.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To schedule a test run
             The following example schedules a test run named MyRun.
@@ -3759,6 +4201,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>Represents the Amazon Resource Name (ARN) of the Device Farm job to stop.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3797,6 +4246,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the remote access session to stop.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3835,6 +4291,13 @@ class AsyncDeviceFarmClient:
 
         Args:
             arn: <p>Represents the Amazon Resource Name (ARN) of the Device Farm run to stop.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To stop a test run
@@ -3881,6 +4344,14 @@ class AsyncDeviceFarmClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource or resources to which to add tags. You can associate tags with the following Device Farm resources: <code>PROJECT</code>, <code>TESTGRID_PROJECT</code>, <code>RUN</code>, <code>NETWORK_PROFILE</code>, <code>INSTANCE_PROFILE</code>, <code>DEVICE_INSTANCE</code>, <code>SESSION</code>, <code>DEVICE_POOL</code>, <code>DEVICE</code>, and <code>VPCE_CONFIGURATION</code>.</p>
             tags: <p>The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.tag_operation_exception.TagOperationException: <p>The operation was not successful. Try again.</p>
+            aws_sdk_device_farm.errors.tag_policy_exception.TagPolicyException: <p>The request doesn't comply with the AWS Identity and Access Management (IAM) tag policy. Correct your request and then retry it.</p>
+            aws_sdk_device_farm.errors.too_many_tags_exception.TooManyTagsException: <p>The list of tags on the repository is over the limit. The maximum number of tags that can be applied to a repository is 50. </p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3922,6 +4393,12 @@ class AsyncDeviceFarmClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource or resources from which to delete tags. You can associate tags with the following Device Farm resources: <code>PROJECT</code>, <code>TESTGRID_PROJECT</code>, <code>RUN</code>, <code>NETWORK_PROFILE</code>, <code>INSTANCE_PROFILE</code>, <code>DEVICE_INSTANCE</code>, <code>SESSION</code>, <code>DEVICE_POOL</code>, <code>DEVICE</code>, and <code>VPCE_CONFIGURATION</code>.</p>
             tag_keys: <p>The keys of the tags to be removed.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.tag_operation_exception.TagOperationException: <p>The operation was not successful. Try again.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3969,6 +4446,13 @@ class AsyncDeviceFarmClient:
             arn: <p>The Amazon Resource Name (ARN) of the device instance.</p>
             profile_arn: <p>The ARN of the profile that you want to associate with the device instance.</p>
             labels: <p>An array of strings that you want to associate with the device instance.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4021,6 +4505,13 @@ class AsyncDeviceFarmClient:
             rules: <p>Represents the rules to modify for the device pool. Updating rules is optional. If you update rules for your request, the update replaces the existing rules.</p>
             max_devices: <p>The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and that meet the criteria that you assign for the <code>rules</code> parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.</p> <p>By specifying the maximum number of devices, you can control the costs that you incur by running tests.</p> <p>If you use this parameter in your request, you cannot use the <code>clearMaxDevices</code> parameter in the same request.</p>
             clear_max_devices: <p>Sets whether the <code>maxDevices</code> parameter applies to your device pool. If you set this parameter to <code>true</code>, the <code>maxDevices</code> parameter does not apply, and Device Farm does not limit the number of devices that it adds to your device pool. In this case, Device Farm adds all available devices that meet the criteria specified in the <code>rules</code> parameter.</p> <p>If you use this parameter in your request, you cannot use the <code>maxDevices</code> parameter in the same request.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a device pool
@@ -4087,6 +4578,13 @@ class AsyncDeviceFarmClient:
             package_cleanup: <p>The updated choice for whether you want to specify package cleanup. The default value is <code>false</code> for private devices.</p>
             exclude_app_packages_from_cleanup: <p>An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run is over.</p> <p>The list of packages is only considered if you set <code>packageCleanup</code> to <code>true</code>.</p>
             reboot_after_use: <p>The updated choice for whether you want to reboot the device after use. The default value is <code>true</code>.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4165,6 +4663,13 @@ class AsyncDeviceFarmClient:
             downlink_jitter_ms: <p>Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.</p>
             uplink_loss_percent: <p>Proportion of transmitted packets that fail to arrive from 0 to 100 percent.</p>
             downlink_loss_percent: <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4241,6 +4746,13 @@ class AsyncDeviceFarmClient:
             vpc_config: <p>The VPC security groups and subnets that are attached to a project.</p>
             environment_variables: <p> A set of environment variables which are used by default for all runs in the project. These environment variables are applied to the test run during the execution of a test spec file. </p> <p> For more information about using test spec files, please see <a href=\"https://docs.aws.amazon.com/devicefarm/latest/developerguide/custom-test-environments.html\">Custom test environments </a> in <i>AWS Device Farm.</i> </p>
             execution_role_arn: <p>An IAM role to be assumed by the test host for all runs in the project.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4299,6 +4811,13 @@ class AsyncDeviceFarmClient:
             name: <p>Human-readable name for the project.</p>
             description: <p>Human-readable description for the project.</p>
             vpc_config: <p>The VPC security groups and subnets that are attached to a project.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.internal_service_exception.InternalServiceException: <p>An internal exception was raised in the service. Contact <a href=\"mailto:aws-devicefarm-support@amazon.com\">aws-devicefarm-support@amazon.com</a> if you see this error. </p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4351,6 +4870,13 @@ class AsyncDeviceFarmClient:
             name: <p>The upload's test spec file name. The name must not contain any forward slashes (/). The test spec file name must end with the <code>.yaml</code> or <code>.yml</code> file extension.</p>
             content_type: <p>The upload's content type (for example, <code>application/x-yaml</code>).</p>
             edit_content: <p>Set to true if the YAML file has changed and must be updated. Otherwise, set to false.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4411,6 +4937,13 @@ class AsyncDeviceFarmClient:
             vpce_service_name: <p>The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.</p>
             service_dns_name: <p>The DNS (domain) name used to connect to your private service in your VPC. The DNS name must not already be in use on the internet.</p>
             vpce_configuration_description: <p>An optional description that provides details about your VPC endpoint configuration.</p>
+
+        Raises:
+            aws_sdk_device_farm.errors.argument_exception.ArgumentException: <p>An invalid argument was specified.</p>
+            aws_sdk_device_farm.errors.invalid_operation_exception.InvalidOperationException: <p>There was an error with the update request, or you do not have sufficient permissions to update this VPC endpoint configuration.</p>
+            aws_sdk_device_farm.errors.not_found_exception.NotFoundException: <p>The specified entity was not found.</p>
+            aws_sdk_device_farm.errors.service_account_exception.ServiceAccountException: <p>There was a problem with the service account.</p>
+            aws_sdk_device_farm.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -298,6 +298,16 @@ class KafkaClient:
         Args:
             cluster_arn: <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>
             secret_arn_list: <p>List of AWS Secrets Manager secret ARNs.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -338,6 +348,16 @@ class KafkaClient:
         Args:
             cluster_arn: <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>
             secret_arn_list: <p>List of AWS Secrets Manager secret ARNs.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -409,6 +429,16 @@ class KafkaClient:
             number_of_broker_nodes: <p>The number of broker nodes in the cluster.</p>
             tags: <p>Create tags when creating the cluster.</p>
             storage_mode: <p>This controls storage mode for supported storage tiers.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.conflict_exception.ConflictException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -477,6 +507,16 @@ class KafkaClient:
             tags: <p>A map of tags that you want the cluster to have.</p>
             provisioned: <p>Information about the provisioned cluster.</p>
             serverless: <p>Information about the serverless cluster.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.conflict_exception.ConflictException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -530,6 +570,16 @@ class KafkaClient:
             kafka_versions: <p>The versions of Apache Kafka with which you can use this MSK configuration.</p>
             name: <p>The name of the configuration.</p>
             server_properties: <p>Contents of the <filename>server.properties</filename> file. When using the API, you must ensure that the contents of the file are base64 encoded. When using the AWS Management Console, the SDK, or the AWS CLI, the contents of <filename>server.properties</filename> can be in plaintext.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.conflict_exception.ConflictException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -586,6 +636,17 @@ class KafkaClient:
             service_execution_role_arn: <p>The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters)</p>
             tags: <p>List of tags to attach to created Replicator.</p>
             log_delivery: <p>Configuration for delivering replicator logs to customer destinations.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.conflict_exception.ConflictException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -640,6 +701,25 @@ class KafkaClient:
             partition_count: <p>The number of partitions for the topic.</p>
             replication_factor: <p>The replication factor for the topic.</p>
             configs: <p>Topic configurations encoded as a Base64 string.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.cluster_connectivity_exception.ClusterConnectivityException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.conflict_exception.ConflictException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.controller_moved_exception.ControllerMovedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.group_subscribed_to_topic_exception.GroupSubscribedToTopicException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.kafka_request_exception.KafkaRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.kafka_timeout_exception.KafkaTimeoutException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_controller_exception.NotControllerException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.reassignment_in_progress_exception.ReassignmentInProgressException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.topic_exists_exception.TopicExistsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unknown_topic_or_partition_exception.UnknownTopicOrPartitionException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -694,6 +774,15 @@ class KafkaClient:
             client_subnets: <p>The list of client subnets.</p>
             security_groups: <p>The list of security groups.</p>
             tags: <p>A map of tags for the VPC connection.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -739,6 +828,13 @@ class KafkaClient:
         Args:
             cluster_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
             current_version: <p>The current version of the MSK cluster.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -780,6 +876,13 @@ class KafkaClient:
 
         Args:
             cluster_arn: <p>The Amazon Resource Name (ARN) of the cluster.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -819,6 +922,13 @@ class KafkaClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -858,6 +968,16 @@ class KafkaClient:
         Args:
             current_version: <p>The current version of the replicator.</p>
             replicator_arn: <p>The Amazon Resource Name (ARN) of the replicator to be deleted.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -899,6 +1019,21 @@ class KafkaClient:
         Args:
             cluster_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
             topic_name: <p>The name of the topic to delete.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.cluster_connectivity_exception.ClusterConnectivityException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.controller_moved_exception.ControllerMovedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.group_subscribed_to_topic_exception.GroupSubscribedToTopicException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.kafka_request_exception.KafkaRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.kafka_timeout_exception.KafkaTimeoutException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_controller_exception.NotControllerException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.reassignment_in_progress_exception.ReassignmentInProgressException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unknown_topic_or_partition_exception.UnknownTopicOrPartitionException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -939,6 +1074,13 @@ class KafkaClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK VPC connection.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -976,6 +1118,14 @@ class KafkaClient:
 
         Args:
             cluster_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1013,6 +1163,14 @@ class KafkaClient:
 
         Args:
             cluster_operation_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the MSK cluster operation.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1050,6 +1208,16 @@ class KafkaClient:
 
         Args:
             cluster_operation_arn: ARN of the cluster operation to describe.
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1087,6 +1255,14 @@ class KafkaClient:
 
         Args:
             cluster_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1124,6 +1300,15 @@ class KafkaClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1163,6 +1348,15 @@ class KafkaClient:
         Args:
             arn: <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>
             revision: <p>A string that uniquely identifies a revision of an MSK configuration.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1201,6 +1395,16 @@ class KafkaClient:
 
         Args:
             replicator_arn: <p>The Amazon Resource Name (ARN) of the replicator to be described.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1240,6 +1444,14 @@ class KafkaClient:
         Args:
             cluster_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
             topic_name: <p>The Kafka topic name that uniquely identifies the topic.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1284,6 +1496,14 @@ class KafkaClient:
             topic_name: <p>The Kafka topic name that uniquely identifies the topic.</p>
             max_results: <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
             next_token: <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. To get the next batch, provide this token in your next request.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1351,6 +1571,15 @@ class KafkaClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) that uniquely identifies a MSK VPC connection.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1390,6 +1619,14 @@ class KafkaClient:
 
         Args:
             cluster_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.conflict_exception.ConflictException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1427,6 +1664,13 @@ class KafkaClient:
 
         Args:
             cluster_arn: <p>The Amazon Resource Name (ARN) of the cluster.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1464,6 +1708,16 @@ class KafkaClient:
 
         Args:
             cluster_arn: <p>The Amazon Resource Name (ARN) of the cluster check.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1506,6 +1760,14 @@ class KafkaClient:
             cluster_arn: <p>The Amazon Resource Name (ARN) of the cluster.</p>
             max_results: <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
             next_token: <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. To get the next batch, provide this token in your next request.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1574,6 +1836,13 @@ class KafkaClient:
             cluster_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
             max_results: <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
             next_token: <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. To get the next batch, provide this token in your next request.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1642,6 +1911,16 @@ class KafkaClient:
             cluster_arn: The arn of the cluster whose operations are being requested.
             max_results: The maxResults of the query.
             next_token: The nextToken of the query.
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1710,6 +1989,13 @@ class KafkaClient:
             cluster_name_filter: <p>Specify a prefix of the name of the clusters that you want to list. The service lists all the clusters whose names start with this prefix.</p>
             max_results: <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
             next_token: <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. To get the next batch, provide this token in your next request.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1781,6 +2067,13 @@ class KafkaClient:
             cluster_type_filter: <p>Specify either PROVISIONED or SERVERLESS.</p>
             max_results: <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
             next_token: <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. To get the next batch, provide this token in your next request.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1854,6 +2147,15 @@ class KafkaClient:
             arn: <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>
             max_results: <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
             next_token: <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. To get the next batch, provide this token in your next request.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1920,6 +2222,14 @@ class KafkaClient:
         Args:
             max_results: <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
             next_token: <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. To get the next batch, provide this token in your next request.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1983,6 +2293,13 @@ class KafkaClient:
         Args:
             max_results: <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
             next_token: <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. To get the next batch, provide this token in your next request.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2048,6 +2365,13 @@ class KafkaClient:
             cluster_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
             max_results: <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
             next_token: <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. To get the next batch, provide this token in your next request.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2118,6 +2442,16 @@ class KafkaClient:
             max_results: <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
             next_token: <p>If the response of ListReplicators is truncated, it returns a NextToken in the response. This NextToken should be sent in the subsequent request to ListReplicators.</p>
             replicator_name_filter: <p>Returns replicators starting with given name.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2189,6 +2523,16 @@ class KafkaClient:
             cluster_arn: <p>The arn of the cluster.</p>
             max_results: <p>The maxResults of the query.</p>
             next_token: <p>The nextToken of the query.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2253,6 +2597,12 @@ class KafkaClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2296,6 +2646,14 @@ class KafkaClient:
             max_results: <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
             next_token: <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. To get the next batch, provide this token in your next request.</p>
             topic_name_filter: <p>Returns topics starting with given name.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2366,6 +2724,14 @@ class KafkaClient:
         Args:
             max_results: <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
             next_token: <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. To get the next batch, provide this token in your next request.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2431,6 +2797,12 @@ class KafkaClient:
             cluster_arn: <p>The Amazon Resource Name (ARN) of the cluster.</p>
             current_version: <p>The policy version.</p>
             policy: <p>The policy.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2473,6 +2845,16 @@ class KafkaClient:
         Args:
             broker_ids: <p>The list of broker IDs to be rebooted. The reboot-broker operation supports rebooting one broker at a time.</p>
             cluster_arn: <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2513,6 +2895,14 @@ class KafkaClient:
         Args:
             cluster_arn: <p>The Amazon Resource Name (ARN) of the cluster.</p>
             vpc_connection_arn: <p>The VPC connection ARN.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2553,6 +2943,12 @@ class KafkaClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>
             tags: <p>The key-value pair for the resource tag.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2591,6 +2987,12 @@ class KafkaClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>
             tag_keys: <p>Tag keys must be unique for a given cluster. In addition, the following restrictions apply:</p> <ul> <li> <p>Each tag key must be unique. If you add a tag with a key that's already in use, your new tag overwrites the existing key-value pair. </p> </li> <li> <p>You can't start a tag key with aws: because this prefix is reserved for use by AWS. AWS creates tags that begin with this prefix on your behalf, but you can't edit or delete them.</p> </li> <li> <p>Tag keys must be between 1 and 128 Unicode characters in length.</p> </li> <li> <p>Tag keys must consist of the following characters: Unicode letters, digits, white space, and the following special characters: _ . / = + - @.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2631,6 +3033,14 @@ class KafkaClient:
             cluster_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
             current_version: <p>The version of cluster to update from. A successful operation will then generate a new version.</p>
             target_number_of_broker_nodes: <p>The number of broker nodes that you want the cluster to have after this operation completes successfully.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2676,6 +3086,14 @@ class KafkaClient:
             cluster_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
             current_version: <p>The version of cluster to update from. A successful operation will then generate a new version.</p>
             target_broker_ebs_volume_info: <p>Describes the target volume size and the ID of the broker to apply the update to.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2719,6 +3137,16 @@ class KafkaClient:
             cluster_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
             current_version: <p>The cluster version that you want to change. After this operation completes successfully, the cluster will have a new version.</p>
             target_instance_type: <p>The Amazon MSK broker type that you want all of the brokers in this cluster to be.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2762,6 +3190,15 @@ class KafkaClient:
             cluster_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
             configuration_info: <p>Represents the configuration that you want MSK to use for the brokers in a cluster.</p>
             current_version: <p>The version of the cluster that needs to be updated.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2809,6 +3246,16 @@ class KafkaClient:
             configuration_info: <p>The custom configuration that should be applied on the new version of cluster.</p>
             current_version: <p>Current cluster version.</p>
             target_kafka_version: <p>Target Kafka version.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2856,6 +3303,15 @@ class KafkaClient:
             arn: <p>The Amazon Resource Name (ARN) of the configuration.</p>
             description: <p>The description of the configuration revision.</p>
             server_properties: <p>Contents of the <filename>server.properties</filename> file. When using the API, you must ensure that the contents of the file are base64 encoded. When using the AWS Management Console, the SDK, or the AWS CLI, the contents of <filename>server.properties</filename> can be in plaintext.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2906,6 +3362,15 @@ class KafkaClient:
             connectivity_info: <p>Information about the broker access configuration.</p>
             current_version: <p>The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version.</p>
             zookeeper_access: <p>Access control settings for zookeeper</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2959,6 +3424,14 @@ class KafkaClient:
             current_version: <p>The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version.</p>
             enhanced_monitoring: <p>Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.</p>
             open_monitoring: <p>The settings for open monitoring.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3007,6 +3480,16 @@ class KafkaClient:
             cluster_arn: <p>The Amazon Resource Name (ARN) of the cluster.</p>
             current_version: <p>The current version of the cluster.</p>
             rebalancing: <p>Specifies if intelligent rebalancing should be turned on for your cluster. The default intelligent rebalancing status is ACTIVE for all new MSK Provisioned clusters that you create with Express brokers.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3074,6 +3557,16 @@ class KafkaClient:
             target_kafka_cluster_id: <p>The ID of the target Kafka cluster.</p>
             topic_replication: <p>Updated topic replication information.</p>
             log_delivery: <p>Configuration for delivering replicator logs to customer destinations.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3136,6 +3629,16 @@ class KafkaClient:
             cluster_arn: <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
             current_version: <p>The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version.</p>
             encryption_info: <p>Includes all encryption-related information.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3188,6 +3691,16 @@ class KafkaClient:
             provisioned_throughput: <p>EBS volume provisioned throughput information.</p>
             storage_mode: <p>Controls storage mode for supported storage tiers.</p>
             volume_size_gb: <p>size of the EBS volume to update.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3238,6 +3751,23 @@ class KafkaClient:
             topic_name: <p>The name of the topic to update configuration for.</p>
             configs: <p>The new topic configurations encoded as a Base64 string.</p>
             partition_count: <p>The new total number of partitions for the topic.</p>
+
+        Raises:
+            aws_sdk_kafka.errors.bad_request_exception.BadRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.cluster_connectivity_exception.ClusterConnectivityException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.controller_moved_exception.ControllerMovedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.forbidden_exception.ForbiddenException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.group_subscribed_to_topic_exception.GroupSubscribedToTopicException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.kafka_request_exception.KafkaRequestException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.kafka_timeout_exception.KafkaTimeoutException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_controller_exception.NotControllerException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.not_found_exception.NotFoundException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.reassignment_in_progress_exception.ReassignmentInProgressException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.unknown_topic_or_partition_exception.UnknownTopicOrPartitionException: <p>Returns information about an error.</p>
+            aws_sdk_kafka.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

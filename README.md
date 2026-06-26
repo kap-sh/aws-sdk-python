@@ -98,6 +98,8 @@ async with AsyncS3Client() as s3:
 
 Note that the service errors (errors returned by AWS) might have additional data of any shape stored in the `data` attribute, which is a TypedDict. You can access it to get more information about the error.
 
+All the service errors that an operation can raise are documented in that operation method's docstring.
+
 ## Streaming
 
 If the operation's input is a streaming blob, you can pass any `AsyncIterator[bytes]` or just a `bytes` object.

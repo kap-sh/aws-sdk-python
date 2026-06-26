@@ -151,6 +151,14 @@ class AsyncPartnerCentralChannelClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to list tags for.</p>
 
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Example for ListTagsForResource
 
@@ -198,6 +206,15 @@ class AsyncPartnerCentralChannelClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
             tags: <p>Key-value pairs to associate with the resource.</p>
 
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Example for TagResource
 
@@ -243,6 +260,15 @@ class AsyncPartnerCentralChannelClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
             tag_keys: <p>The keys of the tags to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example for UntagResource

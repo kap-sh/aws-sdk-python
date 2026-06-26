@@ -194,6 +194,15 @@ class MediaPackageClient:
 
         Args:
             id: The ID of the channel to log subscription.
+
+        Raises:
+            aws_sdk_mediapackage.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -238,6 +247,15 @@ class MediaPackageClient:
         Args:
             description: A short text description of the Channel.
             id: The ID of the Channel. The ID must be unique within the region and it cannot be changed after a Channel is created.
+
+        Raises:
+            aws_sdk_mediapackage.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -286,6 +304,15 @@ class MediaPackageClient:
             id: The ID of the HarvestJob. The ID must be unique within the region and it cannot be changed after the HarvestJob is submitted
             origin_endpoint_id: The ID of the OriginEndpoint that the HarvestJob will harvest from. This cannot be changed after the HarvestJob is submitted.
             start_time: The start of the time-window which will be harvested
+
+        Raises:
+            aws_sdk_mediapackage.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -365,6 +392,15 @@ class MediaPackageClient:
             startover_window_seconds: Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
             time_delay_seconds: Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
             whitelist: A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+
+        Raises:
+            aws_sdk_mediapackage.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -427,6 +463,15 @@ class MediaPackageClient:
 
         Args:
             id: The ID of the Channel to delete.
+
+        Raises:
+            aws_sdk_mediapackage.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -464,6 +509,15 @@ class MediaPackageClient:
 
         Args:
             id: The ID of the OriginEndpoint to delete.
+
+        Raises:
+            aws_sdk_mediapackage.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -501,6 +555,15 @@ class MediaPackageClient:
 
         Args:
             id: The ID of a Channel.
+
+        Raises:
+            aws_sdk_mediapackage.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -538,6 +601,15 @@ class MediaPackageClient:
 
         Args:
             id: The ID of the HarvestJob.
+
+        Raises:
+            aws_sdk_mediapackage.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -575,6 +647,15 @@ class MediaPackageClient:
 
         Args:
             id: The ID of the OriginEndpoint.
+
+        Raises:
+            aws_sdk_mediapackage.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -616,6 +697,15 @@ class MediaPackageClient:
         Args:
             max_results: Upper bound on number of records to return.
             next_token: A token used to resume pagination from the end of a previous request.
+
+        Raises:
+            aws_sdk_mediapackage.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -691,6 +781,15 @@ class MediaPackageClient:
             include_status: When specified, the request will return only HarvestJobs in the given status.
             max_results: The upper bound on the number of records to return.
             next_token: A token used to resume pagination from the end of a previous request.
+
+        Raises:
+            aws_sdk_mediapackage.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -770,6 +869,15 @@ class MediaPackageClient:
             channel_id: When specified, the request will return only OriginEndpoints associated with the given Channel ID.
             max_results: The upper bound on the number of records to return.
             next_token: A token used to resume pagination from the end of a previous request.
+
+        Raises:
+            aws_sdk_mediapackage.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -868,6 +976,15 @@ class MediaPackageClient:
 
         Args:
             id: The ID of the channel to update.
+
+        Raises:
+            aws_sdk_mediapackage.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -907,6 +1024,15 @@ class MediaPackageClient:
         Args:
             id: The ID of the channel the IngestEndpoint is on.
             ingest_endpoint_id: The id of the IngestEndpoint whose credentials should be rotated
+
+        Raises:
+            aws_sdk_mediapackage.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -977,6 +1103,9 @@ class MediaPackageClient:
 
         Args:
             tag_keys: The key(s) of tag to be deleted
+
+        Raises:
+            aws_sdk_mediapackage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1015,6 +1144,15 @@ class MediaPackageClient:
         Args:
             description: A short text description of the Channel.
             id: The ID of the Channel to update.
+
+        Raises:
+            aws_sdk_mediapackage.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1089,6 +1227,15 @@ class MediaPackageClient:
             startover_window_seconds: Maximum duration (in seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
             time_delay_seconds: Amount of delay (in seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
             whitelist: A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+
+        Raises:
+            aws_sdk_mediapackage.errors.forbidden_exception.ForbiddenException: The client is not authorized to access the requested resource.
+            aws_sdk_mediapackage.errors.internal_server_error_exception.InternalServerErrorException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.not_found_exception.NotFoundException: The requested resource does not exist.
+            aws_sdk_mediapackage.errors.service_unavailable_exception.ServiceUnavailableException: An unexpected error occurred.
+            aws_sdk_mediapackage.errors.too_many_requests_exception.TooManyRequestsException: The client has exceeded their resource or throttling limits.
+            aws_sdk_mediapackage.errors.unprocessable_entity_exception.UnprocessableEntityException: The parameters sent in the request are not valid.
+            aws_sdk_mediapackage.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

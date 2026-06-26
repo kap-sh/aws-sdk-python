@@ -176,6 +176,11 @@ class AsyncPollyClient:
         Args:
             name: <p>The name of the lexicon to delete. Must be an existing lexicon in the region.</p>
 
+        Raises:
+            aws_sdk_polly.errors.lexicon_not_found_exception.LexiconNotFoundException: <p>Amazon Polly can't find the specified lexicon. This could be caused by a lexicon that is missing, its name is misspelled or specifying a lexicon that is in a different region.</p> <p>Verify that the lexicon exists, is in the region (see <a>ListLexicons</a>) and that you spelled its name is spelled correctly. Then try again.</p>
+            aws_sdk_polly.errors.service_failure_exception.ServiceFailureException: <p>An unknown condition has caused a service failure.</p>
+            aws_sdk_polly.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a lexicon
             Deletes a specified pronunciation lexicon stored in an AWS Region.
@@ -230,6 +235,11 @@ class AsyncPollyClient:
             include_additional_language_codes: <p>Boolean value indicating whether to return any bilingual voices that use the specified language as an additional language. For instance, if you request all languages that use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT) and US English, that voice will be included if you specify <code>yes</code> but not if you specify <code>no</code>.</p>
             next_token: <p>An opaque pagination token returned from the previous <code>DescribeVoices</code> operation. If present, this indicates where to continue the listing.</p>
 
+        Raises:
+            aws_sdk_polly.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The NextToken is invalid. Verify that it's spelled correctly, and then try again.</p>
+            aws_sdk_polly.errors.service_failure_exception.ServiceFailureException: <p>An unknown condition has caused a service failure.</p>
+            aws_sdk_polly.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe available voices
             Returns the list of voices that are available for use when requesting speech synthesis. Displayed languages are those within the specified language code. If no language code is specified, voices for all available languages are displayed.
@@ -282,6 +292,11 @@ class AsyncPollyClient:
 
         Args:
             name: <p>Name of the lexicon.</p>
+
+        Raises:
+            aws_sdk_polly.errors.lexicon_not_found_exception.LexiconNotFoundException: <p>Amazon Polly can't find the specified lexicon. This could be caused by a lexicon that is missing, its name is misspelled or specifying a lexicon that is in a different region.</p> <p>Verify that the lexicon exists, is in the region (see <a>ListLexicons</a>) and that you spelled its name is spelled correctly. Then try again.</p>
+            aws_sdk_polly.errors.service_failure_exception.ServiceFailureException: <p>An unknown condition has caused a service failure.</p>
+            aws_sdk_polly.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -320,6 +335,12 @@ class AsyncPollyClient:
 
         Args:
             task_id: <p>The Amazon Polly generated identifier for a speech synthesis task.</p>
+
+        Raises:
+            aws_sdk_polly.errors.invalid_task_id_exception.InvalidTaskIdException: <p>The provided Task ID is not valid. Please provide a valid Task ID and try again.</p>
+            aws_sdk_polly.errors.service_failure_exception.ServiceFailureException: <p>An unknown condition has caused a service failure.</p>
+            aws_sdk_polly.errors.synthesis_task_not_found_exception.SynthesisTaskNotFoundException: <p>The Speech Synthesis task with requested Task ID cannot be found.</p>
+            aws_sdk_polly.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -358,6 +379,11 @@ class AsyncPollyClient:
 
         Args:
             next_token: <p>An opaque pagination token returned from previous <code>ListLexicons</code> operation. If present, indicates where to continue the list of lexicons.</p>
+
+        Raises:
+            aws_sdk_polly.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The NextToken is invalid. Verify that it's spelled correctly, and then try again.</p>
+            aws_sdk_polly.errors.service_failure_exception.ServiceFailureException: <p>An unknown condition has caused a service failure.</p>
+            aws_sdk_polly.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list all lexicons in a region
@@ -407,6 +433,11 @@ class AsyncPollyClient:
             max_results: <p>Maximum number of speech synthesis tasks returned in a List operation.</p>
             next_token: <p>The pagination token to use in the next request to continue the listing of speech synthesis tasks. </p>
             status: <p>Status of the speech synthesis tasks returned in a List operation</p>
+
+        Raises:
+            aws_sdk_polly.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The NextToken is invalid. Verify that it's spelled correctly, and then try again.</p>
+            aws_sdk_polly.errors.service_failure_exception.ServiceFailureException: <p>An unknown condition has caused a service failure.</p>
+            aws_sdk_polly.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -452,6 +483,16 @@ class AsyncPollyClient:
         Args:
             name: <p>Name of the lexicon. The name must follow the regular express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric string up to 20 characters long. </p>
             content: <p>Content of the PLS lexicon as string data.</p>
+
+        Raises:
+            aws_sdk_polly.errors.invalid_lexicon_exception.InvalidLexiconException: <p>Amazon Polly can't find the specified lexicon. Verify that the lexicon's name is spelled correctly, and then try again.</p>
+            aws_sdk_polly.errors.lexicon_size_exceeded_exception.LexiconSizeExceededException: <p>The maximum size of the specified lexicon would be exceeded by this operation.</p>
+            aws_sdk_polly.errors.max_lexeme_length_exceeded_exception.MaxLexemeLengthExceededException: <p>The maximum size of the lexeme would be exceeded by this operation.</p>
+            aws_sdk_polly.errors.max_lexicons_number_exceeded_exception.MaxLexiconsNumberExceededException: <p>The maximum number of lexicons would be exceeded by this operation.</p>
+            aws_sdk_polly.errors.service_failure_exception.ServiceFailureException: <p>An unknown condition has caused a service failure.</p>
+            aws_sdk_polly.errors.unsupported_pls_alphabet_exception.UnsupportedPlsAlphabetException: <p>The alphabet specified by the lexicon is not a supported alphabet. Valid values are <code>x-sampa</code> and <code>ipa</code>.</p>
+            aws_sdk_polly.errors.unsupported_pls_language_exception.UnsupportedPlsLanguageException: <p>The language specified in the lexicon is unsupported. For a list of supported languages, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html\">Lexicon Attributes</a>.</p>
+            aws_sdk_polly.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To save a lexicon
@@ -516,6 +557,13 @@ class AsyncPollyClient:
             sample_rate: <p>The audio frequency, specified in Hz.</p>
             voice_id: <p>The voice to use in synthesis. To get a list of available voice IDs, use the <a href=\"https://docs.aws.amazon.com/polly/latest/API/API_DescribeVoices.html\">DescribeVoices</a> operation.</p>
             action_stream: <p>The input event stream that contains text events and stream control events.</p>
+
+        Raises:
+            aws_sdk_polly.errors.service_failure_exception.ServiceFailureException: <p>An unknown condition has caused a service failure.</p>
+            aws_sdk_polly.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_polly.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling.</p>
+            aws_sdk_polly.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_polly.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -594,6 +642,21 @@ class AsyncPollyClient:
             text: <p>The input text to synthesize. If you specify ssml as the TextType, follow the SSML format for the input text. </p>
             text_type: <p>Specifies whether the input text is plain text or SSML. The default value is plain text. </p>
             voice_id: <p>Voice ID to use for the synthesis. </p>
+
+        Raises:
+            aws_sdk_polly.errors.engine_not_supported_exception.EngineNotSupportedException: <p>This engine is not compatible with the voice that you have designated. Choose a new voice that is compatible with the engine or change the engine and restart the operation.</p>
+            aws_sdk_polly.errors.invalid_s3_bucket_exception.InvalidS3BucketException: <p>The provided Amazon S3 bucket name is invalid. Please check your input with S3 bucket naming requirements and try again.</p>
+            aws_sdk_polly.errors.invalid_s3_key_exception.InvalidS3KeyException: <p>The provided Amazon S3 key prefix is invalid. Please provide a valid S3 object key name.</p>
+            aws_sdk_polly.errors.invalid_sample_rate_exception.InvalidSampleRateException: <p>The specified sample rate is not valid.</p>
+            aws_sdk_polly.errors.invalid_sns_topic_arn_exception.InvalidSnsTopicArnException: <p>The provided SNS topic ARN is invalid. Please provide a valid SNS topic ARN and try again.</p>
+            aws_sdk_polly.errors.invalid_ssml_exception.InvalidSsmlException: <p>The SSML you provided is invalid. Verify the SSML syntax, spelling of tags and values, and then try again.</p>
+            aws_sdk_polly.errors.language_not_supported_exception.LanguageNotSupportedException: <p>The language specified is not currently supported by Amazon Polly in this capacity.</p>
+            aws_sdk_polly.errors.lexicon_not_found_exception.LexiconNotFoundException: <p>Amazon Polly can't find the specified lexicon. This could be caused by a lexicon that is missing, its name is misspelled or specifying a lexicon that is in a different region.</p> <p>Verify that the lexicon exists, is in the region (see <a>ListLexicons</a>) and that you spelled its name is spelled correctly. Then try again.</p>
+            aws_sdk_polly.errors.marks_not_supported_for_format_exception.MarksNotSupportedForFormatException: <p>Speech marks are not supported for the <code>OutputFormat</code> selected. Speech marks are only available for content in <code>json</code> format.</p>
+            aws_sdk_polly.errors.service_failure_exception.ServiceFailureException: <p>An unknown condition has caused a service failure.</p>
+            aws_sdk_polly.errors.ssml_marks_not_supported_for_text_type_exception.SsmlMarksNotSupportedForTextTypeException: <p>SSML speech marks are not supported for plain text-type input.</p>
+            aws_sdk_polly.errors.text_length_exceeded_exception.TextLengthExceededException: <p>The value of the \"Text\" parameter is longer than the accepted limits. For the <code>SynthesizeSpeech</code> API, the limit for input text is a maximum of 6000 characters total, of which no more than 3000 can be billed characters. For the <code>StartSpeechSynthesisTask</code> API, the maximum is 200,000 characters, of which no more than 100,000 can be billed characters. SSML tags are not counted as billed characters.</p>
+            aws_sdk_polly.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -674,6 +737,18 @@ class AsyncPollyClient:
             text: <p> Input text to synthesize. If you specify <code>ssml</code> as the <code>TextType</code>, follow the SSML format for the input text. </p>
             text_type: <p> Specifies whether the input text is plain text or SSML. The default value is plain text. For more information, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/ssml.html\">Using SSML</a>.</p>
             voice_id: <p> Voice ID to use for the synthesis. You can get a list of available voice IDs by calling the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation. </p>
+
+        Raises:
+            aws_sdk_polly.errors.engine_not_supported_exception.EngineNotSupportedException: <p>This engine is not compatible with the voice that you have designated. Choose a new voice that is compatible with the engine or change the engine and restart the operation.</p>
+            aws_sdk_polly.errors.invalid_sample_rate_exception.InvalidSampleRateException: <p>The specified sample rate is not valid.</p>
+            aws_sdk_polly.errors.invalid_ssml_exception.InvalidSsmlException: <p>The SSML you provided is invalid. Verify the SSML syntax, spelling of tags and values, and then try again.</p>
+            aws_sdk_polly.errors.language_not_supported_exception.LanguageNotSupportedException: <p>The language specified is not currently supported by Amazon Polly in this capacity.</p>
+            aws_sdk_polly.errors.lexicon_not_found_exception.LexiconNotFoundException: <p>Amazon Polly can't find the specified lexicon. This could be caused by a lexicon that is missing, its name is misspelled or specifying a lexicon that is in a different region.</p> <p>Verify that the lexicon exists, is in the region (see <a>ListLexicons</a>) and that you spelled its name is spelled correctly. Then try again.</p>
+            aws_sdk_polly.errors.marks_not_supported_for_format_exception.MarksNotSupportedForFormatException: <p>Speech marks are not supported for the <code>OutputFormat</code> selected. Speech marks are only available for content in <code>json</code> format.</p>
+            aws_sdk_polly.errors.service_failure_exception.ServiceFailureException: <p>An unknown condition has caused a service failure.</p>
+            aws_sdk_polly.errors.ssml_marks_not_supported_for_text_type_exception.SsmlMarksNotSupportedForTextTypeException: <p>SSML speech marks are not supported for plain text-type input.</p>
+            aws_sdk_polly.errors.text_length_exceeded_exception.TextLengthExceededException: <p>The value of the \"Text\" parameter is longer than the accepted limits. For the <code>SynthesizeSpeech</code> API, the limit for input text is a maximum of 6000 characters total, of which no more than 3000 can be billed characters. For the <code>StartSpeechSynthesisTask</code> API, the maximum is 200,000 characters, of which no more than 100,000 can be billed characters. SSML tags are not counted as billed characters.</p>
+            aws_sdk_polly.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To synthesize speech

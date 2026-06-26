@@ -79,6 +79,13 @@ class Assistant:
             description: <p>The description of the assistant.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
             server_side_encryption_configuration: <p>The configuration information for the customer managed key used for encryption. </p> <p>The customer managed key must have a policy that allows <code>kms:CreateGrant</code>, <code> kms:DescribeKey</code>, and <code>kms:Decrypt/kms:GenerateDataKey</code> permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow <code>kms:Decrypt</code>, <code>kms:GenerateDataKey*</code>, and <code>kms:DescribeKey</code> permissions to the <code>connect.amazonaws.com</code> service principal. </p> <p>For more information about setting up a customer managed key for Wisdom, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html\">Enable Amazon Connect Wisdom for your instance</a>.</p>
+
+        Raises:
+            aws_sdk_wisdom.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_wisdom.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
+            aws_sdk_wisdom.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use service quotas to request a service quota increase.</p>
+            aws_sdk_wisdom.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_wisdom.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -127,6 +134,12 @@ class Assistant:
 
         Args:
             assistant_id: <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+
+        Raises:
+            aws_sdk_wisdom.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_wisdom.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_wisdom.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_wisdom.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -164,6 +177,12 @@ class Assistant:
 
         Args:
             assistant_id: <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+
+        Raises:
+            aws_sdk_wisdom.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_wisdom.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_wisdom.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_wisdom.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -203,6 +222,11 @@ class Assistant:
         Args:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_wisdom.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_wisdom.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_wisdom.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -251,6 +275,12 @@ class Assistant:
             session_id: <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             wait_time_seconds: <p>The duration (in seconds) for which the call waits for a recommendation to be made available before returning. If a recommendation is available, the call returns sooner than <code>WaitTimeSeconds</code>. If no messages are available and the wait time expires, the call returns successfully with an empty list.</p>
+
+        Raises:
+            aws_sdk_wisdom.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_wisdom.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_wisdom.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_wisdom.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -297,6 +327,12 @@ class Assistant:
             assistant_id: <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
             session_id: <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
             recommendation_ids: <p>The identifiers of the recommendations.</p>
+
+        Raises:
+            aws_sdk_wisdom.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_wisdom.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_wisdom.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_wisdom.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -342,6 +378,13 @@ class Assistant:
             query_text: <p>The text to search for.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_wisdom.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_wisdom.errors.request_timeout_exception.RequestTimeoutException: <p>The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future.</p>
+            aws_sdk_wisdom.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_wisdom.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_wisdom.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -390,6 +433,12 @@ class Assistant:
             max_results: <p>The maximum number of results to return per page.</p>
             assistant_id: <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
             search_expression: <p>The search expression to filter results.</p>
+
+        Raises:
+            aws_sdk_wisdom.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_wisdom.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_wisdom.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_wisdom.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -449,6 +498,13 @@ class AsyncAssistant:
             description: <p>The description of the assistant.</p>
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
             server_side_encryption_configuration: <p>The configuration information for the customer managed key used for encryption. </p> <p>The customer managed key must have a policy that allows <code>kms:CreateGrant</code>, <code> kms:DescribeKey</code>, and <code>kms:Decrypt/kms:GenerateDataKey</code> permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow <code>kms:Decrypt</code>, <code>kms:GenerateDataKey*</code>, and <code>kms:DescribeKey</code> permissions to the <code>connect.amazonaws.com</code> service principal. </p> <p>For more information about setting up a customer managed key for Wisdom, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html\">Enable Amazon Connect Wisdom for your instance</a>.</p>
+
+        Raises:
+            aws_sdk_wisdom.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_wisdom.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource. For example, if you're using a <code>Create</code> API (such as <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.</p>
+            aws_sdk_wisdom.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>You've exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use service quotas to request a service quota increase.</p>
+            aws_sdk_wisdom.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_wisdom.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -498,6 +554,12 @@ class AsyncAssistant:
 
         Args:
             assistant_id: <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+
+        Raises:
+            aws_sdk_wisdom.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_wisdom.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_wisdom.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_wisdom.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -536,6 +598,12 @@ class AsyncAssistant:
 
         Args:
             assistant_id: <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+
+        Raises:
+            aws_sdk_wisdom.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_wisdom.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_wisdom.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_wisdom.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -576,6 +644,11 @@ class AsyncAssistant:
         Args:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_wisdom.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_wisdom.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_wisdom.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -625,6 +698,12 @@ class AsyncAssistant:
             session_id: <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             wait_time_seconds: <p>The duration (in seconds) for which the call waits for a recommendation to be made available before returning. If a recommendation is available, the call returns sooner than <code>WaitTimeSeconds</code>. If no messages are available and the wait time expires, the call returns successfully with an empty list.</p>
+
+        Raises:
+            aws_sdk_wisdom.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_wisdom.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_wisdom.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_wisdom.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -672,6 +751,12 @@ class AsyncAssistant:
             assistant_id: <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
             session_id: <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
             recommendation_ids: <p>The identifiers of the recommendations.</p>
+
+        Raises:
+            aws_sdk_wisdom.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_wisdom.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_wisdom.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_wisdom.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -718,6 +803,13 @@ class AsyncAssistant:
             query_text: <p>The text to search for.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_wisdom.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_wisdom.errors.request_timeout_exception.RequestTimeoutException: <p>The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future.</p>
+            aws_sdk_wisdom.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_wisdom.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_wisdom.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -767,6 +859,12 @@ class AsyncAssistant:
             max_results: <p>The maximum number of results to return per page.</p>
             assistant_id: <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
             search_expression: <p>The search expression to filter results.</p>
+
+        Raises:
+            aws_sdk_wisdom.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_wisdom.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource does not exist.</p>
+            aws_sdk_wisdom.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by a service.</p>
+            aws_sdk_wisdom.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

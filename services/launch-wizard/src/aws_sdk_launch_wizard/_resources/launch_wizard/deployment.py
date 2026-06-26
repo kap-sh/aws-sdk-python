@@ -71,6 +71,13 @@ class Deployment:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             tags: <p>The tags to add to the deployment.</p>
 
+        Raises:
+            aws_sdk_launch_wizard.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href=\"https://repost.aws/\">re:Post</a>.</p>
+            aws_sdk_launch_wizard.errors.resource_limit_exception.ResourceLimitException: <p>You have exceeded an Launch Wizard resource limit. For example, you might have too many deployments in progress.</p>
+            aws_sdk_launch_wizard.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified workload or deployment resource can't be found.</p>
+            aws_sdk_launch_wizard.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_launch_wizard.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Deploy a given workload with given settings.
 
@@ -122,6 +129,12 @@ class Deployment:
 
         Args:
             deployment_id: <p>The ID of the deployment.</p>
+
+        Raises:
+            aws_sdk_launch_wizard.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href=\"https://repost.aws/\">re:Post</a>.</p>
+            aws_sdk_launch_wizard.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified workload or deployment resource can't be found.</p>
+            aws_sdk_launch_wizard.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_launch_wizard.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get details about a given deployment.
@@ -179,6 +192,13 @@ class Deployment:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             force: <p>Forces the update even if validation warnings are present.</p>
 
+        Raises:
+            aws_sdk_launch_wizard.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href=\"https://repost.aws/\">re:Post</a>.</p>
+            aws_sdk_launch_wizard.errors.resource_limit_exception.ResourceLimitException: <p>You have exceeded an Launch Wizard resource limit. For example, you might have too many deployments in progress.</p>
+            aws_sdk_launch_wizard.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified workload or deployment resource can't be found.</p>
+            aws_sdk_launch_wizard.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_launch_wizard.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Edit deployment specifications.
 
@@ -233,6 +253,13 @@ class Deployment:
         Args:
             deployment_id: <p>The ID of the deployment.</p>
 
+        Raises:
+            aws_sdk_launch_wizard.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href=\"https://repost.aws/\">re:Post</a>.</p>
+            aws_sdk_launch_wizard.errors.resource_limit_exception.ResourceLimitException: <p>You have exceeded an Launch Wizard resource limit. For example, you might have too many deployments in progress.</p>
+            aws_sdk_launch_wizard.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified workload or deployment resource can't be found.</p>
+            aws_sdk_launch_wizard.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_launch_wizard.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete a deployment.
 
@@ -282,6 +309,11 @@ class Deployment:
             filters: <p>Filters to scope the results. The following filters are supported:</p> <ul> <li> <p> <code>WORKLOAD_NAME</code> - The name used in deployments.</p> </li> <li> <p> <code>DEPLOYMENT_STATUS</code> - <code>COMPLETED</code> | <code>CREATING</code> | <code>DELETE_IN_PROGRESS</code> | <code>DELETE_INITIATING</code> | <code>DELETE_FAILED</code> | <code>DELETED</code> | <code>FAILED</code> | <code>IN_PROGRESS</code> | <code>VALIDATING</code> </p> </li> </ul>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+
+        Raises:
+            aws_sdk_launch_wizard.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href=\"https://repost.aws/\">re:Post</a>.</p>
+            aws_sdk_launch_wizard.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_launch_wizard.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List deployments in the account with filters.
@@ -345,6 +377,13 @@ class AsyncDeployment:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             tags: <p>The tags to add to the deployment.</p>
 
+        Raises:
+            aws_sdk_launch_wizard.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href=\"https://repost.aws/\">re:Post</a>.</p>
+            aws_sdk_launch_wizard.errors.resource_limit_exception.ResourceLimitException: <p>You have exceeded an Launch Wizard resource limit. For example, you might have too many deployments in progress.</p>
+            aws_sdk_launch_wizard.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified workload or deployment resource can't be found.</p>
+            aws_sdk_launch_wizard.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_launch_wizard.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Deploy a given workload with given settings.
 
@@ -397,6 +436,12 @@ class AsyncDeployment:
 
         Args:
             deployment_id: <p>The ID of the deployment.</p>
+
+        Raises:
+            aws_sdk_launch_wizard.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href=\"https://repost.aws/\">re:Post</a>.</p>
+            aws_sdk_launch_wizard.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified workload or deployment resource can't be found.</p>
+            aws_sdk_launch_wizard.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_launch_wizard.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get details about a given deployment.
@@ -455,6 +500,13 @@ class AsyncDeployment:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             force: <p>Forces the update even if validation warnings are present.</p>
 
+        Raises:
+            aws_sdk_launch_wizard.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href=\"https://repost.aws/\">re:Post</a>.</p>
+            aws_sdk_launch_wizard.errors.resource_limit_exception.ResourceLimitException: <p>You have exceeded an Launch Wizard resource limit. For example, you might have too many deployments in progress.</p>
+            aws_sdk_launch_wizard.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified workload or deployment resource can't be found.</p>
+            aws_sdk_launch_wizard.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_launch_wizard.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Edit deployment specifications.
 
@@ -510,6 +562,13 @@ class AsyncDeployment:
         Args:
             deployment_id: <p>The ID of the deployment.</p>
 
+        Raises:
+            aws_sdk_launch_wizard.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href=\"https://repost.aws/\">re:Post</a>.</p>
+            aws_sdk_launch_wizard.errors.resource_limit_exception.ResourceLimitException: <p>You have exceeded an Launch Wizard resource limit. For example, you might have too many deployments in progress.</p>
+            aws_sdk_launch_wizard.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified workload or deployment resource can't be found.</p>
+            aws_sdk_launch_wizard.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_launch_wizard.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete a deployment.
 
@@ -560,6 +619,11 @@ class AsyncDeployment:
             filters: <p>Filters to scope the results. The following filters are supported:</p> <ul> <li> <p> <code>WORKLOAD_NAME</code> - The name used in deployments.</p> </li> <li> <p> <code>DEPLOYMENT_STATUS</code> - <code>COMPLETED</code> | <code>CREATING</code> | <code>DELETE_IN_PROGRESS</code> | <code>DELETE_INITIATING</code> | <code>DELETE_FAILED</code> | <code>DELETED</code> | <code>FAILED</code> | <code>IN_PROGRESS</code> | <code>VALIDATING</code> </p> </li> </ul>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+
+        Raises:
+            aws_sdk_launch_wizard.errors.internal_server_exception.InternalServerException: <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href=\"https://repost.aws/\">re:Post</a>.</p>
+            aws_sdk_launch_wizard.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_launch_wizard.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List deployments in the account with filters.

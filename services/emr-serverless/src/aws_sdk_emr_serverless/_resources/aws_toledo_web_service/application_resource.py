@@ -150,6 +150,13 @@ class ApplicationResource:
             scheduler_configuration: <p>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</p>
             identity_center_configuration: <p>The IAM Identity Center Configuration accepts the Identity Center instance parameter required to enable trusted identity propagation. This configuration allows identity propagation between integrated services and the Identity Center instance.</p>
             job_level_cost_allocation_configuration: <p>The configuration object that enables job level cost allocation.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -225,6 +232,12 @@ class ApplicationResource:
 
         Args:
             application_id: <p>The ID of the application that will be described.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -327,6 +340,12 @@ class ApplicationResource:
             scheduler_configuration: <p>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</p>
             identity_center_configuration: <p>Specifies the IAM Identity Center configuration used to enable or disable trusted identity propagation. When provided, this configuration determines how the application interacts with IAM Identity Center for user authentication and access control.</p>
             job_level_cost_allocation_configuration: <p>The configuration object that enables job level cost allocation.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -399,6 +418,12 @@ class ApplicationResource:
 
         Args:
             application_id: <p>The ID of the application that will be deleted.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -444,6 +469,11 @@ class ApplicationResource:
             next_token: <p>The token for the next set of application results.</p>
             max_results: <p>The maximum number of applications that can be listed.</p>
             states: <p>An optional filter for application states. Note that if this filter contains multiple states, the resulting list will be grouped by the state.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -490,6 +520,12 @@ class ApplicationResource:
             application_id: <p>The ID of the application that the resource belongs to.</p>
             resource_id: <p>The ID of the resource.</p>
             resource_type: <p>The type of resource to access the dashboard for. Currently, only <code>Session</code> is supported.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -529,6 +565,13 @@ class ApplicationResource:
 
         Args:
             application_id: <p>The ID of the application to start.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The maximum number of resources per account has been reached.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -568,6 +611,12 @@ class ApplicationResource:
 
         Args:
             application_id: <p>The ID of the application to stop.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -680,6 +729,13 @@ class AsyncApplicationResource:
             scheduler_configuration: <p>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</p>
             identity_center_configuration: <p>The IAM Identity Center Configuration accepts the Identity Center instance parameter required to enable trusted identity propagation. This configuration allows identity propagation between integrated services and the Identity Center instance.</p>
             job_level_cost_allocation_configuration: <p>The configuration object that enables job level cost allocation.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -756,6 +812,12 @@ class AsyncApplicationResource:
 
         Args:
             application_id: <p>The ID of the application that will be described.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -859,6 +921,12 @@ class AsyncApplicationResource:
             scheduler_configuration: <p>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</p>
             identity_center_configuration: <p>Specifies the IAM Identity Center configuration used to enable or disable trusted identity propagation. When provided, this configuration determines how the application interacts with IAM Identity Center for user authentication and access control.</p>
             job_level_cost_allocation_configuration: <p>The configuration object that enables job level cost allocation.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -932,6 +1000,12 @@ class AsyncApplicationResource:
 
         Args:
             application_id: <p>The ID of the application that will be deleted.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -978,6 +1052,11 @@ class AsyncApplicationResource:
             next_token: <p>The token for the next set of application results.</p>
             max_results: <p>The maximum number of applications that can be listed.</p>
             states: <p>An optional filter for application states. Note that if this filter contains multiple states, the resulting list will be grouped by the state.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1025,6 +1104,12 @@ class AsyncApplicationResource:
             application_id: <p>The ID of the application that the resource belongs to.</p>
             resource_id: <p>The ID of the resource.</p>
             resource_type: <p>The type of resource to access the dashboard for. Currently, only <code>Session</code> is supported.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1065,6 +1150,13 @@ class AsyncApplicationResource:
 
         Args:
             application_id: <p>The ID of the application to start.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The maximum number of resources per account has been reached.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1105,6 +1197,12 @@ class AsyncApplicationResource:
 
         Args:
             application_id: <p>The ID of the application to stop.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

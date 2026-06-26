@@ -90,6 +90,16 @@ class RelationshipResource:
             tags: <p>Key-value pairs to associate with the relationship.</p>
             requested_support_plan: <p>The support plan requested for this relationship.</p>
 
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_partnercentral_channel.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed a service quota limit.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Example for CreateRelationship
 
@@ -150,6 +160,14 @@ class RelationshipResource:
             catalog: <p>The catalog identifier for the relationship.</p>
             program_management_account_identifier: <p>The identifier of the program management account associated with the relationship.</p>
             identifier: <p>The unique identifier of the relationship to retrieve.</p>
+
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example for GetRelationship
@@ -213,6 +231,15 @@ class RelationshipResource:
             display_name: <p>The new display name for the relationship.</p>
             requested_support_plan: <p>The updated support plan for the relationship.</p>
 
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Example for UpdateRelationship
 
@@ -272,6 +299,15 @@ class RelationshipResource:
             identifier: <p>The unique identifier of the relationship to delete.</p>
             program_management_account_identifier: <p>The identifier of the program management account associated with the relationship.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example for DeleteRelationship
@@ -346,6 +382,14 @@ class RelationshipResource:
             program_management_account_identifiers: <p>Filter by program management account identifiers.</p>
             sort: <p>Sorting options for the results.</p>
             next_token: <p>Token for retrieving the next page of results.</p>
+
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example for ListRelationships
@@ -434,6 +478,16 @@ class AsyncRelationshipResource:
             tags: <p>Key-value pairs to associate with the relationship.</p>
             requested_support_plan: <p>The support plan requested for this relationship.</p>
 
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_partnercentral_channel.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed a service quota limit.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Example for CreateRelationship
 
@@ -495,6 +549,14 @@ class AsyncRelationshipResource:
             catalog: <p>The catalog identifier for the relationship.</p>
             program_management_account_identifier: <p>The identifier of the program management account associated with the relationship.</p>
             identifier: <p>The unique identifier of the relationship to retrieve.</p>
+
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example for GetRelationship
@@ -559,6 +621,15 @@ class AsyncRelationshipResource:
             display_name: <p>The new display name for the relationship.</p>
             requested_support_plan: <p>The updated support plan for the relationship.</p>
 
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Example for UpdateRelationship
 
@@ -619,6 +690,15 @@ class AsyncRelationshipResource:
             identifier: <p>The unique identifier of the relationship to delete.</p>
             program_management_account_identifier: <p>The identifier of the program management account associated with the relationship.</p>
             client_token: <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.conflict_exception.ConflictException: <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example for DeleteRelationship
@@ -694,6 +774,14 @@ class AsyncRelationshipResource:
             program_management_account_identifiers: <p>Filter by program management account identifiers.</p>
             sort: <p>Sorting options for the results.</p>
             next_token: <p>Token for retrieving the next page of results.</p>
+
+        Raises:
+            aws_sdk_partnercentral_channel.errors.access_denied_exception.AccessDeniedException: <p>The request was denied due to insufficient permissions.</p>
+            aws_sdk_partnercentral_channel.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred while processing the request.</p>
+            aws_sdk_partnercentral_channel.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_partnercentral_channel.errors.throttling_exception.ThrottlingException: <p>The request was throttled due to too many requests being sent in a short period.</p>
+            aws_sdk_partnercentral_channel.errors.validation_exception.ValidationException: <p>The request failed validation due to invalid input parameters.</p>
+            aws_sdk_partnercentral_channel.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Example for ListRelationships

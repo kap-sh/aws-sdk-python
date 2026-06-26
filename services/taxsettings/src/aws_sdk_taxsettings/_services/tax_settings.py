@@ -181,6 +181,12 @@ class TaxSettingsClient:
 
         Args:
             account_ids: <p>List of unique account identifiers. </p>
+
+        Raises:
+            aws_sdk_taxsettings.errors.conflict_exception.ConflictException: <p>The exception when the input is creating conflict with the given state.</p>
+            aws_sdk_taxsettings.errors.internal_server_exception.InternalServerException: <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+            aws_sdk_taxsettings.errors.validation_exception.ValidationException: <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+            aws_sdk_taxsettings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -218,6 +224,12 @@ class TaxSettingsClient:
 
         Args:
             account_ids: <p> List of unique account identifiers. </p>
+
+        Raises:
+            aws_sdk_taxsettings.errors.internal_server_exception.InternalServerException: <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+            aws_sdk_taxsettings.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception thrown when the input doesn't have a resource associated to it.</p>
+            aws_sdk_taxsettings.errors.validation_exception.ValidationException: <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+            aws_sdk_taxsettings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -257,6 +269,12 @@ class TaxSettingsClient:
         Args:
             account_ids: <p> List of unique account identifiers.</p>
             tax_registration_entry: <p>Your TRN information that will be stored to the accounts mentioned in <code>putEntries</code>. </p>
+
+        Raises:
+            aws_sdk_taxsettings.errors.conflict_exception.ConflictException: <p>The exception when the input is creating conflict with the given state.</p>
+            aws_sdk_taxsettings.errors.internal_server_exception.InternalServerException: <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+            aws_sdk_taxsettings.errors.validation_exception.ValidationException: <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+            aws_sdk_taxsettings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -295,6 +313,13 @@ class TaxSettingsClient:
 
         Args:
             authority_id: <p> The unique authority Id for the supplemental TRN information that needs to be deleted. </p>
+
+        Raises:
+            aws_sdk_taxsettings.errors.conflict_exception.ConflictException: <p>The exception when the input is creating conflict with the given state.</p>
+            aws_sdk_taxsettings.errors.internal_server_exception.InternalServerException: <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+            aws_sdk_taxsettings.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception thrown when the input doesn't have a resource associated to it.</p>
+            aws_sdk_taxsettings.errors.validation_exception.ValidationException: <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+            aws_sdk_taxsettings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -332,6 +357,13 @@ class TaxSettingsClient:
 
         Args:
             account_id: <p>Unique account identifier for the TRN information that needs to be deleted. If this isn't passed, the account ID corresponding to the credentials of the API caller will be used for this parameter.</p>
+
+        Raises:
+            aws_sdk_taxsettings.errors.conflict_exception.ConflictException: <p>The exception when the input is creating conflict with the given state.</p>
+            aws_sdk_taxsettings.errors.internal_server_exception.InternalServerException: <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+            aws_sdk_taxsettings.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception thrown when the input doesn't have a resource associated to it.</p>
+            aws_sdk_taxsettings.errors.validation_exception.ValidationException: <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+            aws_sdk_taxsettings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -363,7 +395,14 @@ class TaxSettingsClient:
     def get_tax_exemption_types(
         self, *, config_overrides: Optional[TaxSettingsClientConfig] = None
     ) -> "aws_sdk_taxsettings.types.get_tax_exemption_types_response.GetTaxExemptionTypesResponse":
-        """<p>Get supported tax exemption types. The IAM action is <code>tax:GetExemptions</code>. </p>"""
+        """<p>Get supported tax exemption types. The IAM action is <code>tax:GetExemptions</code>. </p>
+
+        Raises:
+            aws_sdk_taxsettings.errors.internal_server_exception.InternalServerException: <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+            aws_sdk_taxsettings.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception thrown when the input doesn't have a resource associated to it.</p>
+            aws_sdk_taxsettings.errors.validation_exception.ValidationException: <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+            aws_sdk_taxsettings.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_taxsettings.types.get_tax_exemption_types_request.GetTaxExemptionTypesRequest]",
@@ -392,7 +431,14 @@ class TaxSettingsClient:
     def get_tax_inheritance(
         self, *, config_overrides: Optional[TaxSettingsClientConfig] = None
     ) -> "aws_sdk_taxsettings.types.get_tax_inheritance_response.GetTaxInheritanceResponse":
-        """<p>The get account tax inheritance status. </p>"""
+        """<p>The get account tax inheritance status. </p>
+
+        Raises:
+            aws_sdk_taxsettings.errors.internal_server_exception.InternalServerException: <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+            aws_sdk_taxsettings.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception thrown when the input doesn't have a resource associated to it.</p>
+            aws_sdk_taxsettings.errors.validation_exception.ValidationException: <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+            aws_sdk_taxsettings.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_taxsettings.types.get_tax_inheritance_request.GetTaxInheritanceRequest]",
@@ -428,6 +474,12 @@ class TaxSettingsClient:
 
         Args:
             account_id: <p>Your unique account identifier.</p>
+
+        Raises:
+            aws_sdk_taxsettings.errors.internal_server_exception.InternalServerException: <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+            aws_sdk_taxsettings.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception thrown when the input doesn't have a resource associated to it.</p>
+            aws_sdk_taxsettings.errors.validation_exception.ValidationException: <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+            aws_sdk_taxsettings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -470,6 +522,11 @@ class TaxSettingsClient:
         Args:
             destination_s3_location: <p>The Amazon S3 bucket that you specify to download your tax documents to.</p>
             tax_document_metadata: <p>The metadata for your tax document.</p>
+
+        Raises:
+            aws_sdk_taxsettings.errors.internal_server_exception.InternalServerException: <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+            aws_sdk_taxsettings.errors.validation_exception.ValidationException: <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+            aws_sdk_taxsettings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -515,6 +572,12 @@ class TaxSettingsClient:
         Args:
             max_results: <p> The number of <code>taxRegistrations</code> results you want in one response. </p>
             next_token: <p> The token to retrieve the next set of results. </p>
+
+        Raises:
+            aws_sdk_taxsettings.errors.internal_server_exception.InternalServerException: <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+            aws_sdk_taxsettings.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception thrown when the input doesn't have a resource associated to it.</p>
+            aws_sdk_taxsettings.errors.validation_exception.ValidationException: <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+            aws_sdk_taxsettings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -586,6 +649,12 @@ class TaxSettingsClient:
         Args:
             max_results: <p>The number of results you want in one response. </p>
             next_token: <p>The token to retrieve the next set of results. </p>
+
+        Raises:
+            aws_sdk_taxsettings.errors.internal_server_exception.InternalServerException: <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+            aws_sdk_taxsettings.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception thrown when the input doesn't have a resource associated to it.</p>
+            aws_sdk_taxsettings.errors.validation_exception.ValidationException: <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+            aws_sdk_taxsettings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -657,6 +726,12 @@ class TaxSettingsClient:
         Args:
             max_results: <p>Number of <code>accountDetails</code> results you want in one response. </p>
             next_token: <p>The token to retrieve the next set of results. </p>
+
+        Raises:
+            aws_sdk_taxsettings.errors.internal_server_exception.InternalServerException: <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+            aws_sdk_taxsettings.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception thrown when the input doesn't have a resource associated to it.</p>
+            aws_sdk_taxsettings.errors.validation_exception.ValidationException: <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+            aws_sdk_taxsettings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -722,6 +797,12 @@ class TaxSettingsClient:
 
         Args:
             tax_registration_entry: <p> The supplemental TRN information that will be stored for the caller account ID. </p>
+
+        Raises:
+            aws_sdk_taxsettings.errors.conflict_exception.ConflictException: <p>The exception when the input is creating conflict with the given state.</p>
+            aws_sdk_taxsettings.errors.internal_server_exception.InternalServerException: <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+            aws_sdk_taxsettings.errors.validation_exception.ValidationException: <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+            aws_sdk_taxsettings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -763,6 +844,15 @@ class TaxSettingsClient:
         Args:
             account_ids: <p> The list of unique account identifiers. </p>
             exemption_type: <p>The exemption type. Use the supported tax exemption type description. </p>
+
+        Raises:
+            aws_sdk_taxsettings.errors.access_denied_exception.AccessDeniedException: <p>The access is denied for the Amazon Web Services Support API. </p>
+            aws_sdk_taxsettings.errors.attachment_upload_exception.AttachmentUploadException: <p>Failed to upload the tax exemption document to Amazon Web Services Support case. </p>
+            aws_sdk_taxsettings.errors.case_creation_limit_exceeded_exception.CaseCreationLimitExceededException: <p>You've exceeded the Amazon Web Services Support case creation limit for your account. </p>
+            aws_sdk_taxsettings.errors.internal_server_exception.InternalServerException: <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+            aws_sdk_taxsettings.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception thrown when the input doesn't have a resource associated to it.</p>
+            aws_sdk_taxsettings.errors.validation_exception.ValidationException: <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+            aws_sdk_taxsettings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -805,6 +895,13 @@ class TaxSettingsClient:
 
         Args:
             heritage_status: <p>The tax inheritance status. </p>
+
+        Raises:
+            aws_sdk_taxsettings.errors.conflict_exception.ConflictException: <p>The exception when the input is creating conflict with the given state.</p>
+            aws_sdk_taxsettings.errors.internal_server_exception.InternalServerException: <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+            aws_sdk_taxsettings.errors.resource_not_found_exception.ResourceNotFoundException: <p>The exception thrown when the input doesn't have a resource associated to it.</p>
+            aws_sdk_taxsettings.errors.validation_exception.ValidationException: <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+            aws_sdk_taxsettings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -845,6 +942,12 @@ class TaxSettingsClient:
         Args:
             account_id: <p>Your unique account identifier. </p>
             tax_registration_entry: <p> Your TRN information that will be stored to the account mentioned in <code>accountId</code>. </p>
+
+        Raises:
+            aws_sdk_taxsettings.errors.conflict_exception.ConflictException: <p>The exception when the input is creating conflict with the given state.</p>
+            aws_sdk_taxsettings.errors.internal_server_exception.InternalServerException: <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+            aws_sdk_taxsettings.errors.validation_exception.ValidationException: <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+            aws_sdk_taxsettings.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

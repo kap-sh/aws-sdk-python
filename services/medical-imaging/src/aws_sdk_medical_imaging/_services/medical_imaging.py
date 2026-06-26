@@ -203,6 +203,16 @@ class MedicalImagingClient:
             copy_image_set_information: <p>Copy image set information.</p>
             force: <p>Providing this parameter will force completion of the <code>CopyImageSet</code> operation, even if there are inconsistent Patient, Study, and/or Series level metadata elements between the <code>sourceImageSet</code> and <code>destinationImageSet</code>.</p>
             promote_to_primary: <p>Providing this parameter will configure the <code>CopyImageSet</code> operation to promote the given image set to the primary DICOM hierarchy. If successful, a new primary image set ID will be returned as the destination image set.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request caused a service quota to be exceeded.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -250,6 +260,15 @@ class MedicalImagingClient:
         Args:
             datastore_id: <p>The data store identifier.</p>
             image_set_id: <p>The image set identifier.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -290,6 +309,15 @@ class MedicalImagingClient:
         Args:
             datastore_id: <p>The data store identifier.</p>
             job_id: <p>The import job identifier.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -333,6 +361,17 @@ class MedicalImagingClient:
             datastore_id: <p>The data store identifier.</p>
             image_set_id: <p>The image set identifier.</p>
             image_frame_information: <p>Information about the image frame (pixel data) identifier.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.bad_request_exception.BadRequestException: <p>The request is invalid or malformed.</p>
+            aws_sdk_medical_imaging.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.not_acceptable_exception.NotAcceptableException: <p>The request content type or accept header is not supported.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -378,6 +417,15 @@ class MedicalImagingClient:
             datastore_id: <p>The data store identifier.</p>
             image_set_id: <p>The image set identifier.</p>
             version_id: <p>The image set version identifier.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -425,6 +473,15 @@ class MedicalImagingClient:
             datastore_id: <p>The data store identifier.</p>
             image_set_id: <p>The image set identifier.</p>
             version_id: <p>The image set version identifier.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -475,6 +532,15 @@ class MedicalImagingClient:
             job_status: <p>The filters for listing import jobs based on status.</p>
             next_token: <p>The pagination token used to request the list of import jobs on the next page.</p>
             max_results: <p>The max results count. The upper bound is determined by load testing.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -555,6 +621,15 @@ class MedicalImagingClient:
             image_set_id: <p>The image set identifier.</p>
             next_token: <p>The pagination token used to request the list of image set versions on the next page.</p>
             max_results: <p>The max results count.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -624,6 +699,14 @@ class MedicalImagingClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the medical imaging resource to list tags for.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -671,6 +754,15 @@ class MedicalImagingClient:
             search_criteria: <p>The search criteria that filters by applying a maximum of 1 item to <code>SearchByAttribute</code>.</p>
             max_results: <p>The maximum number of results that can be returned in a search.</p>
             next_token: <p>The token used for pagination of results returned in the response. Use the token returned from the previous request to continue results where the previous request ended.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -761,6 +853,16 @@ class MedicalImagingClient:
             output_s3_uri: <p>The output prefix of the S3 bucket to upload the results of the DICOM import job.</p>
             input_owner_account_id: <p>The account ID of the source S3 bucket owner.</p>
             import_configuration: <p>The import configuration for the import job.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request caused a service quota to be exceeded.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -810,6 +912,14 @@ class MedicalImagingClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the medical imaging resource that tags are being added to.</p>
             tags: <p>The user-specified key and value tag pairs added to a medical imaging resource.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -850,6 +960,14 @@ class MedicalImagingClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the medical imaging resource that tags are being removed from.</p>
             tag_keys: <p>The keys for the tags to be removed from the medical imaging resource.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -898,6 +1016,16 @@ class MedicalImagingClient:
             force: <p>Setting this flag will force the <code>UpdateImageSetMetadata</code> operation for the following attributes:</p> <ul> <li> <p> <code>Tag.StudyInstanceUID</code>, <code>Tag.SeriesInstanceUID</code>, <code>Tag.SOPInstanceUID</code>, and <code>Tag.StudyID</code> </p> </li> <li> <p>Adding, removing, or updating private tags for an individual SOP Instance</p> </li> </ul>
             include_study_image_sets: <p>Flag to apply the metadata updates to all image sets in the same Study as the requested image set ID.</p>
             update_image_set_metadata_updates: <p>Update image set metadata updates.</p>
+
+        Raises:
+            aws_sdk_medical_imaging.errors.access_denied_exception.AccessDeniedException: <p>The user does not have sufficient access to perform this action.</p>
+            aws_sdk_medical_imaging.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_medical_imaging.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred during processing of the request.</p>
+            aws_sdk_medical_imaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_medical_imaging.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request caused a service quota to be exceeded.</p>
+            aws_sdk_medical_imaging.errors.throttling_exception.ThrottlingException: <p>The request was denied due to throttling.</p>
+            aws_sdk_medical_imaging.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints set by the service.</p>
+            aws_sdk_medical_imaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

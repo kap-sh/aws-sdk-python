@@ -53,6 +53,14 @@ class ManagedDevice:
 
         Args:
             managed_device_id: <p>The ID of the device that you are checking the information of.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist.</p>
+            aws_sdk_snow_device_management.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -98,6 +106,13 @@ class ManagedDevice:
             job_id: <p>The ID of the job used to order the device.</p>
             max_results: <p>The maximum number of devices to list per page.</p>
             next_token: <p>A pagination token to continue to the next page of results.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -142,6 +157,14 @@ class ManagedDevice:
         Args:
             managed_device_id: <p>The ID of the managed device.</p>
             instance_ids: <p>A list of instance IDs associated with the managed device.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist.</p>
+            aws_sdk_snow_device_management.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -190,6 +213,14 @@ class ManagedDevice:
             type: <p>A structure used to filter the results by type of resource.</p>
             max_results: <p>The maximum number of resources per page.</p>
             next_token: <p>A pagination token to continue to the next page of results.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist.</p>
+            aws_sdk_snow_device_management.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -238,6 +269,14 @@ class AsyncManagedDevice:
 
         Args:
             managed_device_id: <p>The ID of the device that you are checking the information of.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist.</p>
+            aws_sdk_snow_device_management.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -284,6 +323,13 @@ class AsyncManagedDevice:
             job_id: <p>The ID of the job used to order the device.</p>
             max_results: <p>The maximum number of devices to list per page.</p>
             next_token: <p>A pagination token to continue to the next page of results.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -329,6 +375,14 @@ class AsyncManagedDevice:
         Args:
             managed_device_id: <p>The ID of the managed device.</p>
             instance_ids: <p>A list of instance IDs associated with the managed device.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist.</p>
+            aws_sdk_snow_device_management.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -378,6 +432,14 @@ class AsyncManagedDevice:
             type: <p>A structure used to filter the results by type of resource.</p>
             max_results: <p>The maximum number of resources per page.</p>
             next_token: <p>A pagination token to continue to the next page of results.</p>
+
+        Raises:
+            aws_sdk_snow_device_management.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_snow_device_management.errors.internal_server_exception.InternalServerException: <p>An unexpected error occurred while processing the request.</p>
+            aws_sdk_snow_device_management.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that doesn't exist.</p>
+            aws_sdk_snow_device_management.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_snow_device_management.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_snow_device_management.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

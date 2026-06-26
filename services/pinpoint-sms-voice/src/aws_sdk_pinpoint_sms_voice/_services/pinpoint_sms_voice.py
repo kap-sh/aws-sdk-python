@@ -156,6 +156,14 @@ class PinpointSMSVoiceClient:
 
         Args:
             configuration_set_name: The name that you want to give the configuration set.
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice.errors.already_exists_exception.AlreadyExistsException: The resource specified in your request already exists.
+            aws_sdk_pinpoint_sms_voice.errors.bad_request_exception.BadRequestException: The input you provided is invalid.
+            aws_sdk_pinpoint_sms_voice.errors.internal_service_error_exception.InternalServiceErrorException: The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
+            aws_sdk_pinpoint_sms_voice.errors.limit_exceeded_exception.LimitExceededException: There are too many instances of the specified resource type.
+            aws_sdk_pinpoint_sms_voice.errors.too_many_requests_exception.TooManyRequestsException: You've issued too many requests to the resource. Wait a few minutes, and then try again.
+            aws_sdk_pinpoint_sms_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -201,6 +209,15 @@ class PinpointSMSVoiceClient:
         Args:
             configuration_set_name: ConfigurationSetName
             event_destination_name: A name that identifies the event destination.
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice.errors.already_exists_exception.AlreadyExistsException: The resource specified in your request already exists.
+            aws_sdk_pinpoint_sms_voice.errors.bad_request_exception.BadRequestException: The input you provided is invalid.
+            aws_sdk_pinpoint_sms_voice.errors.internal_service_error_exception.InternalServiceErrorException: The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
+            aws_sdk_pinpoint_sms_voice.errors.limit_exceeded_exception.LimitExceededException: There are too many instances of the specified resource type.
+            aws_sdk_pinpoint_sms_voice.errors.not_found_exception.NotFoundException: The resource you attempted to access doesn't exist.
+            aws_sdk_pinpoint_sms_voice.errors.too_many_requests_exception.TooManyRequestsException: You've issued too many requests to the resource. Wait a few minutes, and then try again.
+            aws_sdk_pinpoint_sms_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -242,6 +259,13 @@ class PinpointSMSVoiceClient:
 
         Args:
             configuration_set_name: ConfigurationSetName
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice.errors.bad_request_exception.BadRequestException: The input you provided is invalid.
+            aws_sdk_pinpoint_sms_voice.errors.internal_service_error_exception.InternalServiceErrorException: The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
+            aws_sdk_pinpoint_sms_voice.errors.not_found_exception.NotFoundException: The resource you attempted to access doesn't exist.
+            aws_sdk_pinpoint_sms_voice.errors.too_many_requests_exception.TooManyRequestsException: You've issued too many requests to the resource. Wait a few minutes, and then try again.
+            aws_sdk_pinpoint_sms_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -281,6 +305,13 @@ class PinpointSMSVoiceClient:
         Args:
             configuration_set_name: ConfigurationSetName
             event_destination_name: EventDestinationName
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice.errors.bad_request_exception.BadRequestException: The input you provided is invalid.
+            aws_sdk_pinpoint_sms_voice.errors.internal_service_error_exception.InternalServiceErrorException: The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
+            aws_sdk_pinpoint_sms_voice.errors.not_found_exception.NotFoundException: The resource you attempted to access doesn't exist.
+            aws_sdk_pinpoint_sms_voice.errors.too_many_requests_exception.TooManyRequestsException: You've issued too many requests to the resource. Wait a few minutes, and then try again.
+            aws_sdk_pinpoint_sms_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -319,6 +350,13 @@ class PinpointSMSVoiceClient:
 
         Args:
             configuration_set_name: ConfigurationSetName
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice.errors.bad_request_exception.BadRequestException: The input you provided is invalid.
+            aws_sdk_pinpoint_sms_voice.errors.internal_service_error_exception.InternalServiceErrorException: The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
+            aws_sdk_pinpoint_sms_voice.errors.not_found_exception.NotFoundException: The resource you attempted to access doesn't exist.
+            aws_sdk_pinpoint_sms_voice.errors.too_many_requests_exception.TooManyRequestsException: You've issued too many requests to the resource. Wait a few minutes, and then try again.
+            aws_sdk_pinpoint_sms_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -362,6 +400,12 @@ class PinpointSMSVoiceClient:
         Args:
             next_token: A token returned from a previous call to the API that indicates the position in the list of results.
             page_size: Used to specify the number of items that should be returned in the response.
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice.errors.bad_request_exception.BadRequestException: The input you provided is invalid.
+            aws_sdk_pinpoint_sms_voice.errors.internal_service_error_exception.InternalServiceErrorException: The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
+            aws_sdk_pinpoint_sms_voice.errors.too_many_requests_exception.TooManyRequestsException: You've issued too many requests to the resource. Wait a few minutes, and then try again.
+            aws_sdk_pinpoint_sms_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -417,6 +461,12 @@ class PinpointSMSVoiceClient:
             configuration_set_name: The name of the configuration set that you want to use to send the message.
             destination_phone_number: The phone number that you want to send the voice message to.
             origination_phone_number: The phone number that Amazon Pinpoint should use to send the voice message. This isn't necessarily the phone number that appears on recipients' devices when they receive the message, because you can specify a CallerId parameter in the request.
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice.errors.bad_request_exception.BadRequestException: The input you provided is invalid.
+            aws_sdk_pinpoint_sms_voice.errors.internal_service_error_exception.InternalServiceErrorException: The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
+            aws_sdk_pinpoint_sms_voice.errors.too_many_requests_exception.TooManyRequestsException: You've issued too many requests to the resource. Wait a few minutes, and then try again.
+            aws_sdk_pinpoint_sms_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -468,6 +518,13 @@ class PinpointSMSVoiceClient:
         Args:
             configuration_set_name: ConfigurationSetName
             event_destination_name: EventDestinationName
+
+        Raises:
+            aws_sdk_pinpoint_sms_voice.errors.bad_request_exception.BadRequestException: The input you provided is invalid.
+            aws_sdk_pinpoint_sms_voice.errors.internal_service_error_exception.InternalServiceErrorException: The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
+            aws_sdk_pinpoint_sms_voice.errors.not_found_exception.NotFoundException: The resource you attempted to access doesn't exist.
+            aws_sdk_pinpoint_sms_voice.errors.too_many_requests_exception.TooManyRequestsException: You've issued too many requests to the resource. Wait a few minutes, and then try again.
+            aws_sdk_pinpoint_sms_voice.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

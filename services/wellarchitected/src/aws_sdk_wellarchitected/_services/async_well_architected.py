@@ -344,7 +344,17 @@ class AsyncWellArchitectedClient:
         *,
         config_overrides: Optional[AsyncWellArchitectedClientConfig] = None,
     ) -> None:
-        """<p>Associate a lens to a workload.</p> <p>Up to 10 lenses can be associated with a workload in a single API operation. A maximum of 20 lenses can be associated with a workload.</p> <note> <p> <b>Disclaimer</b> </p> <p>By accessing and/or applying custom lenses created by another Amazon Web Services user or account, you acknowledge that custom lenses created by other users and shared with you are Third Party Content as defined in the Amazon Web Services Customer Agreement. </p> </note>"""
+        """<p>Associate a lens to a workload.</p> <p>Up to 10 lenses can be associated with a workload in a single API operation. A maximum of 20 lenses can be associated with a workload.</p> <note> <p> <b>Disclaimer</b> </p> <p>By accessing and/or applying custom lenses created by another Amazon Web Services user or account, you acknowledge that custom lenses created by other users and shared with you are Third Party Content as defined in the Amazon Web Services Customer Agreement. </p> </note>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.associate_lenses_input.AssociateLensesInput]",
@@ -382,6 +392,15 @@ class AsyncWellArchitectedClient:
 
         Args:
             profile_arns: <p>The list of profile ARNs to associate with the workload.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -417,7 +436,18 @@ class AsyncWellArchitectedClient:
         *,
         config_overrides: Optional[AsyncWellArchitectedClientConfig] = None,
     ) -> "aws_sdk_wellarchitected.types.create_lens_share_output.CreateLensShareOutput":
-        r"""<p>Create a lens share.</p> <p>The owner of a lens can share it with other Amazon Web Services accounts, users, an organization, and organizational units (OUs) in the same Amazon Web Services Region. Lenses provided by Amazon Web Services (Amazon Web Services Official Content) cannot be shared.</p> <p> Shared access to a lens is not removed until the lens invitation is deleted.</p> <p>If you share a lens with an organization or OU, all accounts in the organization or OU are granted access to the lens.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-sharing.html\">Sharing a custom lens</a> in the <i>Well-Architected Tool User Guide</i>.</p> <note> <p> <b>Disclaimer</b> </p> <p>By sharing your custom lenses with other Amazon Web Services accounts, you acknowledge that Amazon Web Services will make your custom lenses available to those other accounts. Those other accounts may continue to access and use your shared custom lenses even if you delete the custom lenses from your own Amazon Web Services account or terminate your Amazon Web Services account.</p> </note>"""
+        r"""<p>Create a lens share.</p> <p>The owner of a lens can share it with other Amazon Web Services accounts, users, an organization, and organizational units (OUs) in the same Amazon Web Services Region. Lenses provided by Amazon Web Services (Amazon Web Services Official Content) cannot be shared.</p> <p> Shared access to a lens is not removed until the lens invitation is deleted.</p> <p>If you share a lens with an organization or OU, all accounts in the organization or OU are granted access to the lens.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-sharing.html\">Sharing a custom lens</a> in the <i>Well-Architected Tool User Guide</i>.</p> <note> <p> <b>Disclaimer</b> </p> <p>By sharing your custom lenses with other Amazon Web Services accounts, you acknowledge that Amazon Web Services will make your custom lenses available to those other accounts. Those other accounts may continue to access and use your shared custom lenses even if you delete the custom lenses from your own Amazon Web Services account or terminate your Amazon Web Services account.</p> </note>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The user has reached their resource quota.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.create_lens_share_input.CreateLensShareInput]",
@@ -463,6 +493,16 @@ class AsyncWellArchitectedClient:
         Args:
             lens_version: <p>The version of the lens being created.</p>
             is_major_version: <p>Set to true if this new major lens version.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The user has reached their resource quota.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -503,7 +543,18 @@ class AsyncWellArchitectedClient:
         *,
         config_overrides: Optional[AsyncWellArchitectedClientConfig] = None,
     ) -> "aws_sdk_wellarchitected.types.create_milestone_output.CreateMilestoneOutput":
-        """<p>Create a milestone for an existing workload.</p>"""
+        """<p>Create a milestone for an existing workload.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The user has reached their resource quota.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.create_milestone_input.CreateMilestoneInput]",
@@ -550,6 +601,15 @@ class AsyncWellArchitectedClient:
             profile_description: <p>The profile description.</p>
             profile_questions: <p>The profile questions.</p>
             tags: <p>The tags assigned to the profile.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The user has reached their resource quota.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -595,6 +655,16 @@ class AsyncWellArchitectedClient:
 
         Args:
             profile_arn: <p>The profile ARN.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The user has reached their resource quota.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -643,6 +713,16 @@ class AsyncWellArchitectedClient:
             description: <p>The review template description.</p>
             lenses: <p>Lenses applied to the review template.</p>
             tags: <p>The tags assigned to the review template.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The user has reached their resource quota.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -690,6 +770,16 @@ class AsyncWellArchitectedClient:
 
         Args:
             template_arn: <p>The review template ARN.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The user has reached their resource quota.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -780,6 +870,16 @@ class AsyncWellArchitectedClient:
             profile_arns: <p>The list of profile ARNs associated with the workload.</p>
             review_template_arns: <p>The list of review template ARNs to associate with the workload.</p>
             jira_configuration: <p>Jira configuration settings when creating a workload.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The user has reached their resource quota.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -851,7 +951,18 @@ class AsyncWellArchitectedClient:
         *,
         config_overrides: Optional[AsyncWellArchitectedClientConfig] = None,
     ) -> "aws_sdk_wellarchitected.types.create_workload_share_output.CreateWorkloadShareOutput":
-        r"""<p>Create a workload share.</p> <p>The owner of a workload can share it with other Amazon Web Services accounts and users in the same Amazon Web Services Region. Shared access to a workload is not removed until the workload invitation is deleted.</p> <p>If you share a workload with an organization or OU, all accounts in the organization or OU are granted access to the workload.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html\">Sharing a workload</a> in the <i>Well-Architected Tool User Guide</i>.</p>"""
+        r"""<p>Create a workload share.</p> <p>The owner of a workload can share it with other Amazon Web Services accounts and users in the same Amazon Web Services Region. Shared access to a workload is not removed until the workload invitation is deleted.</p> <p>If you share a workload with an organization or OU, all accounts in the organization or OU are granted access to the workload.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html\">Sharing a workload</a> in the <i>Well-Architected Tool User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The user has reached their resource quota.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.create_workload_share_input.CreateWorkloadShareInput]",
@@ -894,6 +1005,15 @@ class AsyncWellArchitectedClient:
 
         Args:
             lens_status: <p>The status of the lens to be deleted.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -930,7 +1050,17 @@ class AsyncWellArchitectedClient:
         *,
         config_overrides: Optional[AsyncWellArchitectedClientConfig] = None,
     ) -> None:
-        """<p>Delete a lens share.</p> <p>After the lens share is deleted, Amazon Web Services accounts, users, organizations, and organizational units (OUs) that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads.</p> <note> <p> <b>Disclaimer</b> </p> <p>By sharing your custom lenses with other Amazon Web Services accounts, you acknowledge that Amazon Web Services will make your custom lenses available to those other accounts. Those other accounts may continue to access and use your shared custom lenses even if you delete the custom lenses from your own Amazon Web Services account or terminate your Amazon Web Services account.</p> </note>"""
+        """<p>Delete a lens share.</p> <p>After the lens share is deleted, Amazon Web Services accounts, users, organizations, and organizational units (OUs) that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads.</p> <note> <p> <b>Disclaimer</b> </p> <p>By sharing your custom lenses with other Amazon Web Services accounts, you acknowledge that Amazon Web Services will make your custom lenses available to those other accounts. Those other accounts may continue to access and use your shared custom lenses even if you delete the custom lenses from your own Amazon Web Services account or terminate your Amazon Web Services account.</p> </note>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.delete_lens_share_input.DeleteLensShareInput]",
@@ -969,6 +1099,15 @@ class AsyncWellArchitectedClient:
 
         Args:
             profile_arn: <p>The profile ARN.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1008,6 +1147,15 @@ class AsyncWellArchitectedClient:
 
         Args:
             profile_arn: <p>The profile ARN.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1047,6 +1195,15 @@ class AsyncWellArchitectedClient:
 
         Args:
             template_arn: <p>The review template ARN.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1086,6 +1243,15 @@ class AsyncWellArchitectedClient:
 
         Args:
             template_arn: <p>The review template ARN.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1121,7 +1287,17 @@ class AsyncWellArchitectedClient:
         *,
         config_overrides: Optional[AsyncWellArchitectedClientConfig] = None,
     ) -> None:
-        """<p>Delete an existing workload.</p>"""
+        """<p>Delete an existing workload.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.delete_workload_input.DeleteWorkloadInput]",
@@ -1156,7 +1332,17 @@ class AsyncWellArchitectedClient:
         *,
         config_overrides: Optional[AsyncWellArchitectedClientConfig] = None,
     ) -> None:
-        """<p>Delete a workload share.</p>"""
+        """<p>Delete a workload share.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.delete_workload_share_input.DeleteWorkloadShareInput]",
@@ -1191,7 +1377,17 @@ class AsyncWellArchitectedClient:
         *,
         config_overrides: Optional[AsyncWellArchitectedClientConfig] = None,
     ) -> None:
-        """<p>Disassociate a lens from a workload.</p> <p>Up to 10 lenses can be disassociated from a workload in a single API operation.</p> <note> <p>The Amazon Web Services Well-Architected Framework lens (<code>wellarchitected</code>) cannot be removed from a workload.</p> </note>"""
+        """<p>Disassociate a lens from a workload.</p> <p>Up to 10 lenses can be disassociated from a workload in a single API operation.</p> <note> <p>The Amazon Web Services Well-Architected Framework lens (<code>wellarchitected</code>) cannot be removed from a workload.</p> </note>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.disassociate_lenses_input.DisassociateLensesInput]",
@@ -1229,6 +1425,15 @@ class AsyncWellArchitectedClient:
 
         Args:
             profile_arns: <p>The list of profile ARNs to disassociate from the workload.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1269,6 +1474,14 @@ class AsyncWellArchitectedClient:
 
         Args:
             lens_version: <p>The lens version to be exported.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1310,7 +1523,16 @@ class AsyncWellArchitectedClient:
             "aws_sdk_wellarchitected.types.milestone_number.MilestoneNumber"
         ] = None,
     ) -> "aws_sdk_wellarchitected.types.get_answer_output.GetAnswerOutput":
-        """<p>Get the answer to a specific question in a workload review.</p>"""
+        """<p>Get the answer to a specific question in a workload review.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.get_answer_input.GetAnswerInput]",
@@ -1363,6 +1585,14 @@ class AsyncWellArchitectedClient:
             format: <p>The format of the consolidated report.</p> <p>For <code>PDF</code>, <code>Base64String</code> is returned. For <code>JSON</code>, <code>Metrics</code> is returned.</p>
             include_shared_resources: <p>Set to <code>true</code> to have shared resources included in the report.</p>
             max_results: <p>The maximum number of results to return for this request.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1400,7 +1630,15 @@ class AsyncWellArchitectedClient:
     async def get_global_settings(
         self, *, config_overrides: Optional[AsyncWellArchitectedClientConfig] = None
     ) -> "aws_sdk_wellarchitected.types.get_global_settings_output.GetGlobalSettingsOutput":
-        """<p>Global settings for all workloads.</p>"""
+        """<p>Global settings for all workloads.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -1439,6 +1677,14 @@ class AsyncWellArchitectedClient:
 
         Args:
             lens_version: <p>The lens version to be retrieved.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1479,7 +1725,16 @@ class AsyncWellArchitectedClient:
             "aws_sdk_wellarchitected.types.milestone_number.MilestoneNumber"
         ] = None,
     ) -> "aws_sdk_wellarchitected.types.get_lens_review_output.GetLensReviewOutput":
-        """<p>Get lens review.</p>"""
+        """<p>Get lens review.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.get_lens_review_input.GetLensReviewInput]",
@@ -1520,7 +1775,16 @@ class AsyncWellArchitectedClient:
             "aws_sdk_wellarchitected.types.milestone_number.MilestoneNumber"
         ] = None,
     ) -> "aws_sdk_wellarchitected.types.get_lens_review_report_output.GetLensReviewReportOutput":
-        """<p>Get lens review report.</p>"""
+        """<p>Get lens review report.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.get_lens_review_report_input.GetLensReviewReportInput]",
@@ -1568,6 +1832,14 @@ class AsyncWellArchitectedClient:
         Args:
             base_lens_version: <p>The base version of the lens.</p>
             target_lens_version: <p>The lens version to target a difference for.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1607,7 +1879,16 @@ class AsyncWellArchitectedClient:
         *,
         config_overrides: Optional[AsyncWellArchitectedClientConfig] = None,
     ) -> "aws_sdk_wellarchitected.types.get_milestone_output.GetMilestoneOutput":
-        """<p>Get a milestone for an existing workload.</p>"""
+        """<p>Get a milestone for an existing workload.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.get_milestone_input.GetMilestoneInput]",
@@ -1650,6 +1931,14 @@ class AsyncWellArchitectedClient:
         Args:
             profile_arn: <p>The profile ARN.</p>
             profile_version: <p>The profile version.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1683,7 +1972,16 @@ class AsyncWellArchitectedClient:
     async def get_profile_template(
         self, *, config_overrides: Optional[AsyncWellArchitectedClientConfig] = None
     ) -> "aws_sdk_wellarchitected.types.get_profile_template_output.GetProfileTemplateOutput":
-        """<p>Get profile template.</p>"""
+        """<p>Get profile template.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.get_profile_template_input.GetProfileTemplateInput]",
@@ -1720,6 +2018,14 @@ class AsyncWellArchitectedClient:
 
         Args:
             template_arn: <p>The review template ARN.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1760,6 +2066,14 @@ class AsyncWellArchitectedClient:
 
         Args:
             template_arn: <p>The review template ARN.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1801,6 +2115,14 @@ class AsyncWellArchitectedClient:
 
         Args:
             template_arn: <p>The review template ARN.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1836,7 +2158,16 @@ class AsyncWellArchitectedClient:
         *,
         config_overrides: Optional[AsyncWellArchitectedClientConfig] = None,
     ) -> "aws_sdk_wellarchitected.types.get_workload_output.GetWorkloadOutput":
-        """<p>Get an existing workload.</p>"""
+        """<p>Get an existing workload.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.get_workload_input.GetWorkloadInput]",
@@ -1880,6 +2211,16 @@ class AsyncWellArchitectedClient:
         Args:
             json_string: <p>The JSON representation of a lens.</p>
             tags: <p>Tags to associate to a lens.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The user has reached their resource quota.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1938,6 +2279,14 @@ class AsyncWellArchitectedClient:
         Args:
             max_results: <p>The maximum number of results to return for this request.</p>
             question_priority: <p>The priority of the question.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1999,6 +2348,14 @@ class AsyncWellArchitectedClient:
 
         Args:
             lens_arn: <p>Well-Architected Lens ARN.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2055,6 +2412,14 @@ class AsyncWellArchitectedClient:
 
         Args:
             lens_arn: <p>Well-Architected Lens ARN.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2112,6 +2477,13 @@ class AsyncWellArchitectedClient:
         Args:
             lens_type: <p>The type of lenses to be returned.</p>
             lens_status: <p>The status of lenses to be returned.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2174,6 +2546,14 @@ class AsyncWellArchitectedClient:
         Args:
             max_results: <p>The maximum number of results to return for this request.</p>
             question_priority: <p>The priority of the question.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2228,7 +2608,16 @@ class AsyncWellArchitectedClient:
             "aws_sdk_wellarchitected.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_wellarchitected.types.list_lens_reviews_output.ListLensReviewsOutput":
-        """<p>List lens reviews for a particular workload.</p>"""
+        """<p>List lens reviews for a particular workload.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.list_lens_reviews_input.ListLensReviewsInput]",
@@ -2285,6 +2674,14 @@ class AsyncWellArchitectedClient:
         Args:
             shared_with_prefix: <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the lens is shared.</p>
             max_results: <p>The maximum number of results to return for this request.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2333,7 +2730,16 @@ class AsyncWellArchitectedClient:
             "aws_sdk_wellarchitected.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_wellarchitected.types.list_milestones_output.ListMilestonesOutput":
-        """<p>List all milestones for an existing workload.</p>"""
+        """<p>List all milestones for an existing workload.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.list_milestones_input.ListMilestonesInput]",
@@ -2387,6 +2793,13 @@ class AsyncWellArchitectedClient:
         Args:
             max_results: <p>The maximum number of results to return for this request.</p>
             resource_arn: <p>The ARN for the related resource for the notification.</p> <note> <p>Only one of <code>WorkloadID</code> or <code>ResourceARN</code> should be specified.</p> </note>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2436,7 +2849,15 @@ class AsyncWellArchitectedClient:
             "aws_sdk_wellarchitected.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_wellarchitected.types.list_profile_notifications_output.ListProfileNotificationsOutput":
-        """<p>List profile notifications.</p>"""
+        """<p>List profile notifications.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.list_profile_notifications_input.ListProfileNotificationsInput]",
@@ -2491,6 +2912,13 @@ class AsyncWellArchitectedClient:
         Args:
             profile_name_prefix: <p>An optional string added to the beginning of each profile name returned in the results.</p>
             profile_owner_type: <p>Profile owner type.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2550,6 +2978,14 @@ class AsyncWellArchitectedClient:
             profile_arn: <p>The profile ARN.</p>
             shared_with_prefix: <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the profile is shared.</p>
             max_results: <p>The maximum number of results to return for this request.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2605,6 +3041,14 @@ class AsyncWellArchitectedClient:
         Args:
             template_arn: <p>The ARN of the review template.</p>
             max_results: <p>The maximum number of results to return for this request.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2651,7 +3095,15 @@ class AsyncWellArchitectedClient:
             "aws_sdk_wellarchitected.types.max_results.MaxResults"
         ] = None,
     ) -> "aws_sdk_wellarchitected.types.list_review_templates_output.ListReviewTemplatesOutput":
-        """<p>List review templates.</p>"""
+        """<p>List review templates.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.list_review_templates_input.ListReviewTemplatesInput]",
@@ -2716,6 +3168,13 @@ class AsyncWellArchitectedClient:
             max_results: <p>The maximum number of results to return for this request.</p>
             profile_name_prefix: <p>An optional string added to the beginning of each profile name returned in the results.</p>
             template_name_prefix: <p>An optional string added to the beginning of each review template name returned in the results.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2763,7 +3222,13 @@ class AsyncWellArchitectedClient:
         *,
         config_overrides: Optional[AsyncWellArchitectedClientConfig] = None,
     ) -> "aws_sdk_wellarchitected.types.list_tags_for_resource_output.ListTagsForResourceOutput":
-        """<p>List the tags for a resource.</p> <note> <p>The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile ARN, or review template ARN.</p> </note>"""
+        """<p>List the tags for a resource.</p> <note> <p>The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile ARN, or review template ARN.</p> </note>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.list_tags_for_resource_input.ListTagsForResourceInput]",
@@ -2815,6 +3280,14 @@ class AsyncWellArchitectedClient:
             template_arn: <p>The review template ARN.</p>
             shared_with_prefix: <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the profile is shared.</p>
             max_results: <p>The maximum number of results to return for this request.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2869,6 +3342,13 @@ class AsyncWellArchitectedClient:
 
         Args:
             max_results: <p>The maximum number of results to return for this request.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2925,6 +3405,14 @@ class AsyncWellArchitectedClient:
         Args:
             shared_with_prefix: <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload is shared.</p>
             max_results: <p>The maximum number of results to return for this request.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2972,6 +3460,11 @@ class AsyncWellArchitectedClient:
 
         Args:
             tags: <p>The tags for the resource.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3012,6 +3505,11 @@ class AsyncWellArchitectedClient:
 
         Args:
             tag_keys: <p>A list of tag keys. Existing tags of the resource whose keys are members of this list are removed from the resource.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3067,6 +3565,15 @@ class AsyncWellArchitectedClient:
         Args:
             choice_updates: <p>A list of choices to update on a question in your workload. The String key corresponds to the choice ID to be updated.</p>
             reason: <p>The reason why a question is not applicable to your workload.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3127,6 +3634,14 @@ class AsyncWellArchitectedClient:
             organization_sharing_status: <p>The status of organization sharing settings.</p>
             discovery_integration_status: <p>The status of discovery support settings.</p>
             jira_configuration: <p>The status of Jira integration settings.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3170,6 +3685,15 @@ class AsyncWellArchitectedClient:
 
         Args:
             integrating_service: <p>Which integrated service to update.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3218,6 +3742,15 @@ class AsyncWellArchitectedClient:
 
         Args:
             jira_configuration: <p>Configuration of the Jira integration.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3271,6 +3804,15 @@ class AsyncWellArchitectedClient:
             profile_arn: <p>The profile ARN.</p>
             profile_description: <p>The profile description.</p>
             profile_questions: <p>Profile questions.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3330,6 +3872,15 @@ class AsyncWellArchitectedClient:
             description: <p>The review template description.</p>
             lenses_to_associate: <p>A list of lens aliases or ARNs to apply to the review template.</p>
             lenses_to_disassociate: <p>A list of lens aliases or ARNs to unapply to the review template. The <code>wellarchitected</code> lens cannot be unapplied.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3395,6 +3946,15 @@ class AsyncWellArchitectedClient:
             template_arn: <p>The review template ARN.</p>
             choice_updates: <p>A list of choices to be updated.</p>
             reason: <p>The update reason.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3450,6 +4010,15 @@ class AsyncWellArchitectedClient:
 
         Args:
             template_arn: <p>The review template ARN.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3494,6 +4063,15 @@ class AsyncWellArchitectedClient:
 
         Args:
             share_invitation_id: <p>The ID assigned to the share invitation.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3585,6 +4163,15 @@ class AsyncWellArchitectedClient:
             discovery_config: <p>Well-Architected discovery configuration settings to associate to the workload.</p>
             applications: <p>List of AppRegistry application ARNs to associate to the workload.</p>
             jira_configuration: <p>Configuration of the Jira integration.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3657,7 +4244,17 @@ class AsyncWellArchitectedClient:
         *,
         config_overrides: Optional[AsyncWellArchitectedClientConfig] = None,
     ) -> "aws_sdk_wellarchitected.types.update_workload_share_output.UpdateWorkloadShareOutput":
-        """<p>Update a workload share.</p>"""
+        """<p>Update a workload share.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.update_workload_share_input.UpdateWorkloadShareInput]",
@@ -3698,7 +4295,18 @@ class AsyncWellArchitectedClient:
             "aws_sdk_wellarchitected.types.client_request_token.ClientRequestToken"
         ] = None,
     ) -> None:
-        """<p>Upgrade lens review for a particular workload.</p>"""
+        """<p>Upgrade lens review for a particular workload.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The user has reached their resource quota.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_wellarchitected.types.upgrade_lens_review_input.UpgradeLensReviewInput]",
@@ -3745,6 +4353,16 @@ class AsyncWellArchitectedClient:
 
         Args:
             profile_arn: <p>The profile ARN.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The user has reached their resource quota.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3790,6 +4408,15 @@ class AsyncWellArchitectedClient:
 
         Args:
             template_arn: <p>The ARN of the review template.</p>
+
+        Raises:
+            aws_sdk_wellarchitected.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_wellarchitected.errors.conflict_exception.ConflictException: <p>The resource has already been processed, was deleted, or is too large.</p>
+            aws_sdk_wellarchitected.errors.internal_server_exception.InternalServerException: <p>There is a problem with the Well-Architected Tool API service.</p>
+            aws_sdk_wellarchitected.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found.</p>
+            aws_sdk_wellarchitected.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_wellarchitected.errors.validation_exception.ValidationException: <p>The user input is not valid.</p>
+            aws_sdk_wellarchitected.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

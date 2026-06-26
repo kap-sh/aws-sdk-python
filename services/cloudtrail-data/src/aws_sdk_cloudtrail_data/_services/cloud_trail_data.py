@@ -145,6 +145,15 @@ class CloudTrailDataClient:
             audit_events: <p>The JSON payload of events that you want to ingest. You can also point to the JSON event payload in a file.</p>
             channel_arn: <p>The ARN or ID (the ARN suffix) of a channel.</p>
             external_id: <p>A unique identifier that is conditionally required when the channel's resource policy includes an external ID. This value can be any string, such as a passphrase or account number.</p>
+
+        Raises:
+            aws_sdk_cloudtrail_data.errors.channel_insufficient_permission.ChannelInsufficientPermission: <p>The caller's account ID must be the same as the channel owner's account ID.</p>
+            aws_sdk_cloudtrail_data.errors.channel_not_found.ChannelNotFound: <p>The channel could not be found.</p>
+            aws_sdk_cloudtrail_data.errors.channel_unsupported_schema.ChannelUnsupportedSchema: <p>The schema type of the event is not supported.</p>
+            aws_sdk_cloudtrail_data.errors.duplicated_audit_event_id.DuplicatedAuditEventId: <p>Two or more entries in the request have the same event ID.</p>
+            aws_sdk_cloudtrail_data.errors.invalid_channel_arn.InvalidChannelARN: <p>The specified channel ARN is not a valid channel ARN.</p>
+            aws_sdk_cloudtrail_data.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation requested is not supported in this region or account.</p>
+            aws_sdk_cloudtrail_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

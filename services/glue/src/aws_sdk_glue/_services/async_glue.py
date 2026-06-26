@@ -929,6 +929,16 @@ class AsyncGlueClient:
             database_name: <p>The name of the metadata database in which the partition is to be created.</p>
             table_name: <p>The name of the metadata table in which the partition is to be created.</p>
             partition_input_list: <p>A list of <code>PartitionInput</code> structures that define the partitions to be created.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -975,6 +985,11 @@ class AsyncGlueClient:
         Args:
             catalog_id: <p>The ID of the Data Catalog in which the connections reside. If none is provided, the Amazon Web Services account ID is used by default.</p>
             connection_name_list: <p>A list of names of the connections to delete.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1023,6 +1038,13 @@ class AsyncGlueClient:
             database_name: <p>The name of the catalog database in which the table in question resides.</p>
             table_name: <p>The name of the table that contains the partitions to be deleted.</p>
             partitions_to_delete: <p>A list of <code>PartitionInput</code> structures that define the partitions to be deleted.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1075,6 +1097,15 @@ class AsyncGlueClient:
             database_name: <p>The name of the catalog database in which the tables to delete reside. For Hive compatibility, this name is entirely lowercase.</p>
             tables_to_delete: <p>A list of the table to delete.</p>
             transaction_id: <p>The transaction ID at which to delete the table contents.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_not_ready_exception.ResourceNotReadyException: <p>A resource was not ready for a transaction.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1126,6 +1157,13 @@ class AsyncGlueClient:
             database_name: <p>The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.</p>
             table_name: <p>The name of the table. For Hive compatibility, this name is entirely lowercase.</p>
             version_ids: <p>A list of the IDs of versions to be deleted. A <code>VersionId</code> is a string representation of an integer. Each version is incremented by 1.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1176,6 +1214,12 @@ class AsyncGlueClient:
             names: <p>A list of blueprint names.</p>
             include_blueprint: <p>Specifies whether or not to include the blueprint in the response.</p>
             include_parameter_spec: <p>Specifies whether or not to include the parameters, as a JSON string, for the blueprint in the response.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1218,6 +1262,11 @@ class AsyncGlueClient:
 
         Args:
             crawler_names: <p>A list of crawler names, which might be the names returned from the <code>ListCrawlers</code> operation.</p>
+
+        Raises:
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1256,6 +1305,12 @@ class AsyncGlueClient:
 
         Args:
             names: <p>A list of names of the custom patterns that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1294,6 +1349,12 @@ class AsyncGlueClient:
 
         Args:
             result_ids: <p>A list of unique result IDs for the data quality results.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1332,6 +1393,13 @@ class AsyncGlueClient:
 
         Args:
             dev_endpoint_names: <p>The list of <code>DevEndpoint</code> names, which might be the names returned from the <code>ListDevEndpoint</code> operation.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1370,6 +1438,12 @@ class AsyncGlueClient:
 
         Args:
             job_names: <p>A list of job names, which might be the names returned from the <code>ListJobs</code> operation.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1420,6 +1494,17 @@ class AsyncGlueClient:
             database_name: <p>The name of the catalog database where the partitions reside.</p>
             table_name: <p>The name of the partitions' table.</p>
             partitions_to_get: <p>A list of partition values identifying the partitions to retrieve.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.federation_source_retryable_exception.FederationSourceRetryableException: <p>A federation source failed, but the operation may be retried.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.invalid_state_exception.InvalidStateException: <p>An error that indicates your data is in an invalid state.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1466,6 +1551,14 @@ class AsyncGlueClient:
 
         Args:
             entries: <p>A list of <code>BatchGetTableOptimizerEntry</code> objects specifying the table optimizers to retrieve.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.throttling_exception.ThrottlingException: <p>The throttling threshhold was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1504,6 +1597,12 @@ class AsyncGlueClient:
 
         Args:
             trigger_names: <p>A list of trigger names, which may be the names returned from the <code>ListTriggers</code> operation.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1546,6 +1645,12 @@ class AsyncGlueClient:
         Args:
             names: <p>A list of workflow names, which may be the names returned from the <code>ListWorkflows</code> operation.</p>
             include_graph: <p>Specifies whether to include a graph when returning the workflow resource metadata.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1588,6 +1693,13 @@ class AsyncGlueClient:
         Args:
             inclusion_annotations: <p>A list of <code>DatapointInclusionAnnotation</code>'s. The InclusionAnnotations must contain a profileId and statisticId. If there are multiple InclusionAnnotations, the list must refer to a single statisticId across multiple profileIds.</p>
             client_token: <p>Client Token.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1630,6 +1742,12 @@ class AsyncGlueClient:
         Args:
             job_name: <p>The name of the job definition for which to stop job runs.</p>
             job_run_ids: <p>A list of the <code>JobRunIds</code> that should be stopped for that job definition.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1677,6 +1795,14 @@ class AsyncGlueClient:
             database_name: <p>The name of the metadata database in which the partition is to be updated.</p>
             table_name: <p>The name of the metadata table in which the partition is to be updated.</p>
             entries: <p>A list of up to 100 <code>BatchUpdatePartitionRequestEntry</code> objects to update.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1719,6 +1845,13 @@ class AsyncGlueClient:
 
         Args:
             run_id: <p>The unique run identifier associated with this run.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1757,6 +1890,13 @@ class AsyncGlueClient:
 
         Args:
             run_id: <p>The unique run identifier associated with this run.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1797,6 +1937,13 @@ class AsyncGlueClient:
         Args:
             transform_id: <p>The unique identifier of the machine learning transform.</p>
             task_run_id: <p>A unique identifier for the task run.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1842,6 +1989,15 @@ class AsyncGlueClient:
             session_id: <p>The Session ID of the statement to be cancelled.</p>
             id: <p>The ID of the statement to be cancelled.</p>
             request_origin: <p>The origin of the request to cancel the statement.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.illegal_session_state_exception.IllegalSessionStateException: <p>The session is in an invalid state to perform a requested operation.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1885,6 +2041,12 @@ class AsyncGlueClient:
         Args:
             data_format: <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
             schema_definition: <p>The definition of the schema that has to be validated.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1932,6 +2094,14 @@ class AsyncGlueClient:
             description: <p>A description of the blueprint.</p>
             blueprint_location: <p>Specifies a path in Amazon S3 where the blueprint is published.</p>
             tags: <p>The tags to be applied to this blueprint.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1979,6 +2149,20 @@ class AsyncGlueClient:
             name: <p>The name of the catalog to create.</p>
             catalog_input: <p>A <code>CatalogInput</code> object that defines the metadata for the catalog.</p>
             tags: <p>A map array of key-value pairs, not more than 50 pairs. Each key is a UTF-8 string, not less than 1 or more than 128 bytes long. Each value is a UTF-8 string, not more than 256 bytes long. The tags you assign to the catalog.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federated_resource_already_exists_exception.FederatedResourceAlreadyExistsException: <p>A federated resource already exists.</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2034,6 +2218,12 @@ class AsyncGlueClient:
             xml_classifier: <p>An <code>XMLClassifier</code> object specifying the classifier to create.</p>
             json_classifier: <p>A <code>JsonClassifier</code> object specifying the classifier to create.</p>
             csv_classifier: <p>A <code>CsvClassifier</code> object specifying the classifier to create.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2101,6 +2291,16 @@ class AsyncGlueClient:
             catalog_id: <p>The ID of the Data Catalog in which the database resides.</p>
             security_configuration: <p>Name of the security configuration that is used to encrypt CloudWatch logs.</p>
             tags: <p>A map of tags.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.column_statistics_task_running_exception.ColumnStatisticsTaskRunningException: <p>An exception thrown when you try to start another job while running a column stats generation job.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2159,6 +2359,14 @@ class AsyncGlueClient:
             catalog_id: <p>The ID of the Data Catalog in which to create the connection. If none is provided, the Amazon Web Services account ID is used by default.</p>
             connection_input: <p>A <code>ConnectionInput</code> object defining the connection to create.</p>
             tags: <p>The tags you assign to the connection.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2245,6 +2453,13 @@ class AsyncGlueClient:
             configuration: <p>Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html\">Setting crawler configuration options</a>.</p>
             crawler_security_configuration: <p>The name of the <code>SecurityConfiguration</code> structure to be used by this crawler.</p>
             tags: <p>The tags to use with this crawler request. You may use tags to limit access to the crawler. For more information about tags in Glue, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">Amazon Web Services Tags in Glue</a> in the developer guide.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2315,6 +2530,16 @@ class AsyncGlueClient:
             regex_string: <p>A regular expression string that is used for detecting sensitive data in a custom pattern.</p>
             context_words: <p>A list of context words. If none of these context words are found within the vicinity of the regular expression the data will not be detected as sensitive data.</p> <p>If no context words are passed only a regular expression is checked.</p>
             tags: <p>A list of tags applied to the custom entity type.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The same unique identifier was associated with two different records.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2364,6 +2589,19 @@ class AsyncGlueClient:
             catalog_id: <p>The ID of the Data Catalog in which to create the database. If none is provided, the Amazon Web Services account ID is used by default.</p>
             database_input: <p>The metadata for the database.</p>
             tags: <p>The tags you assign to the database.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.federated_resource_already_exists_exception.FederatedResourceAlreadyExistsException: <p>A federated resource already exists.</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.federation_source_retryable_exception.FederationSourceRetryableException: <p>A federation source failed, but the operation may be retried.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2424,6 +2662,14 @@ class AsyncGlueClient:
             target_table: <p>A target table associated with the data quality ruleset.</p>
             data_quality_security_configuration: <p>The name of the security configuration created with the data quality encryption option.</p>
             client_token: <p>Used for idempotency and is recommended to be set to a random ID (such as a UUID) to avoid creating or starting multiple instances of the same resource.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2519,6 +2765,17 @@ class AsyncGlueClient:
             security_configuration: <p>The name of the <code>SecurityConfiguration</code> structure to be used with this <code>DevEndpoint</code>.</p>
             tags: <p>The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more information about tags in Glue, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">Amazon Web Services Tags in Glue</a> in the developer guide.</p>
             arguments: <p>A map of arguments used to configure the <code>DevEndpoint</code>.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The same unique identifier was associated with two different records.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2592,6 +2849,15 @@ class AsyncGlueClient:
             instance_arn: <p>The Amazon Resource Name (ARN) of the Identity Center instance to be associated with the Glue configuration.</p>
             scopes: <p>A list of Identity Center scopes that define the permissions and access levels for the Glue configuration.</p>
             user_background_sessions_enabled: <p>Specifies whether users can run background sessions when using Identity Center authentication with Glue services.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2660,6 +2926,21 @@ class AsyncGlueClient:
             additional_encryption_context: <p>An optional set of non-secret key–value pairs that contains additional contextual information for encryption. This can only be provided if <code>KMSKeyId</code> is provided.</p>
             tags: <p>Metadata assigned to the resource consisting of a list of key-value pairs.</p>
             integration_config: <p>The configuration settings.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.conflict_exception.ConflictException: <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled. </p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.integration_conflict_operation_fault.IntegrationConflictOperationFault: <p>The requested operation conflicts with another operation.</p>
+            aws_sdk_glue.errors.integration_quota_exceeded_fault.IntegrationQuotaExceededFault: <p>The data processed through your integration exceeded your quota.</p>
+            aws_sdk_glue.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault: <p>The KMS key specified is not accessible.</p>
+            aws_sdk_glue.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2724,6 +3005,17 @@ class AsyncGlueClient:
             source_processing_properties: <p>The resource properties associated with the integration source.</p>
             target_processing_properties: <p>The resource properties associated with the integration target.</p>
             tags: <p>Metadata assigned to the resource consisting of a list of key-value pairs.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.conflict_exception.ConflictException: <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled. </p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2778,6 +3070,16 @@ class AsyncGlueClient:
             table_name: <p>The name of the table to be replicated.</p>
             source_table_config: <p>A structure for the source table configuration. See the <code>SourceTableConfig</code> structure to see list of supported source properties.</p>
             target_table_config: <p>A structure for the target table configuration.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2899,6 +3201,16 @@ class AsyncGlueClient:
             execution_class: <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p> <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p> <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
             source_control_details: <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>
             maintenance_window: <p>This field specifies a day of the week and hour for a maintenance window for streaming jobs. Glue periodically performs maintenance activities. During these maintenance windows, Glue will need to restart your streaming jobs.</p> <p>Glue will restart the job within 3 hours of the specified maintenance window. For instance, if you set up the maintenance window for Monday at 10:00AM GMT, your jobs will be restarted between 10:00AM GMT to 1:00PM GMT.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The same unique identifier was associated with two different records.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3019,6 +3331,16 @@ class AsyncGlueClient:
             max_retries: <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
             tags: <p>The tags to use with this machine learning transform. You may use tags to limit access to the machine learning transform. For more information about tags in Glue, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">Amazon Web Services Tags in Glue</a> in the developer guide.</p>
             transform_encryption: <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The same unique identifier was associated with two different records.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3086,6 +3408,16 @@ class AsyncGlueClient:
             database_name: <p>The name of the metadata database in which the partition is to be created.</p>
             table_name: <p>The name of the metadata table in which the partition is to be created.</p>
             partition_input: <p>A <code>PartitionInput</code> structure defining the partition to be created.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3136,6 +3468,16 @@ class AsyncGlueClient:
             database_name: <p>Specifies the name of a database in which you want to create a partition index.</p>
             table_name: <p>Specifies the name of a table in which you want to create a partition index.</p>
             partition_index: <p>Specifies a <code>PartitionIndex</code> structure to create a partition index in an existing table.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3184,6 +3526,15 @@ class AsyncGlueClient:
             registry_name: <p>Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark. No whitespace.</p>
             description: <p>A description of the registry. If description is not provided, there will not be any default value for this.</p>
             tags: <p>Amazon Web Services tags that contain a key value pair and may be searched by console, command line, or API.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3244,6 +3595,16 @@ class AsyncGlueClient:
             description: <p>An optional description of the schema. If description is not provided, there will not be any automatic default value for this.</p>
             tags: <p>Amazon Web Services tags that contain a key value pair and may be searched by console, command line, or API. If specified, follows the Amazon Web Services tags-on-create pattern.</p>
             schema_definition: <p>The schema definition using the <code>DataFormat</code> setting for <code>SchemaName</code>.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3297,6 +3658,12 @@ class AsyncGlueClient:
             dag_nodes: <p>A list of the nodes in the DAG.</p>
             dag_edges: <p>A list of the edges in the DAG.</p>
             language: <p>The programming language of the resulting code from the DAG.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3342,6 +3709,14 @@ class AsyncGlueClient:
         Args:
             name: <p>The name for the new security configuration.</p>
             encryption_configuration: <p>The encryption configuration for the new security configuration.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3427,6 +3802,18 @@ class AsyncGlueClient:
             tags: <p>The map of key value pairs (tags) belonging to the session.</p>
             request_origin: <p>The origin of the request. </p>
             session_type: <p>The type of session to create.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The same unique identifier was associated with two different records.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not available in the region.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3513,6 +3900,20 @@ class AsyncGlueClient:
             partition_indexes: <p>A list of partition indexes, <code>PartitionIndex</code> structures, to create in the table.</p>
             transaction_id: <p>The ID of the transaction.</p>
             open_table_format_input: <p>Specifies an <code>OpenTableFormatInput</code> structure when creating an open format table.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.federation_source_retryable_exception.FederationSourceRetryableException: <p>A federation source failed, but the operation may be retried.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_not_ready_exception.ResourceNotReadyException: <p>A resource was not ready for a transaction.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3571,6 +3972,16 @@ class AsyncGlueClient:
             table_name: <p>The name of the table.</p>
             type: <p>The type of table optimizer.</p>
             table_optimizer_configuration: <p>A <code>TableOptimizerConfiguration</code> object representing the configuration of a table optimizer.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.throttling_exception.ThrottlingException: <p>The throttling threshhold was exceeded.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3637,6 +4048,17 @@ class AsyncGlueClient:
             start_on_creation: <p>Set to <code>true</code> to start <code>SCHEDULED</code> and <code>CONDITIONAL</code> triggers when created. True is not supported for <code>ON_DEMAND</code> triggers.</p>
             tags: <p>The tags to use with this trigger. You may use tags to limit access to the trigger. For more information about tags in Glue, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">Amazon Web Services Tags in Glue</a> in the developer guide. </p>
             event_batching_condition: <p>Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The same unique identifier was associated with two different records.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3699,6 +4121,15 @@ class AsyncGlueClient:
             description: <p>A description of the usage profile.</p>
             configuration: <p>A <code>ProfileConfiguration</code> object specifying the job and session values for the profile.</p>
             tags: <p>A list of tags applied to the usage profile.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not available in the region.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3748,6 +4179,16 @@ class AsyncGlueClient:
             catalog_id: <p>The ID of the Data Catalog in which to create the function. If none is provided, the Amazon Web Services account ID is used by default.</p>
             database_name: <p>The name of the catalog database in which to create the function.</p>
             function_input: <p>A <code>FunctionInput</code> object that defines the function to create in the Data Catalog.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3803,6 +4244,15 @@ class AsyncGlueClient:
             default_run_properties: <p>A collection of properties to be used as part of each execution of the workflow.</p> <p>Run properties may be logged. Do not pass plaintext secrets as properties. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to use them within the workflow run.</p>
             tags: <p>The tags to be used with this workflow.</p>
             max_concurrent_runs: <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3849,6 +4299,12 @@ class AsyncGlueClient:
 
         Args:
             name: <p>The name of the blueprint to delete.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3887,6 +4343,17 @@ class AsyncGlueClient:
 
         Args:
             catalog_id: <p>The ID of the catalog.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3925,6 +4392,11 @@ class AsyncGlueClient:
 
         Args:
             name: <p>Name of the classifier to remove.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3973,6 +4445,14 @@ class AsyncGlueClient:
             table_name: <p>The name of the partitions' table.</p>
             partition_values: <p>A list of partition values identifying the partition.</p>
             column_name: <p>Name of the column.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4024,6 +4504,14 @@ class AsyncGlueClient:
             database_name: <p>The name of the catalog database where the partitions reside.</p>
             table_name: <p>The name of the partitions' table.</p>
             column_name: <p>The name of the column.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4068,6 +4556,12 @@ class AsyncGlueClient:
         Args:
             database_name: <p>The name of the database where the table resides.</p>
             table_name: <p>The name of the table for which to delete column statistics.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4111,6 +4605,11 @@ class AsyncGlueClient:
         Args:
             catalog_id: <p>The ID of the Data Catalog in which the connection resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
             connection_name: <p>The name of the connection to delete.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4151,6 +4650,15 @@ class AsyncGlueClient:
 
         Args:
             connection_type: <p>The name of the connection type to delete. Must reference an existing registered connection type.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4189,6 +4697,13 @@ class AsyncGlueClient:
 
         Args:
             name: <p>The name of the crawler to remove.</p>
+
+        Raises:
+            aws_sdk_glue.errors.crawler_running_exception.CrawlerRunningException: <p>The operation cannot be performed because the crawler is already running.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.scheduler_transitioning_exception.SchedulerTransitioningException: <p>The specified scheduler is transitioning.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4227,6 +4742,14 @@ class AsyncGlueClient:
 
         Args:
             name: <p>The name of the custom pattern that you want to delete.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4269,6 +4792,16 @@ class AsyncGlueClient:
         Args:
             catalog_id: <p>The ID of the Data Catalog in which the database resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
             name: <p>The name of the database to delete. For Hive compatibility, this must be all lowercase.</p>
+
+        Raises:
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.federation_source_retryable_exception.FederationSourceRetryableException: <p>A federation source failed, but the operation may be retried.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4309,6 +4842,13 @@ class AsyncGlueClient:
 
         Args:
             name: <p>A name for the data quality ruleset.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4347,6 +4887,13 @@ class AsyncGlueClient:
 
         Args:
             endpoint_name: <p>The name of the <code>DevEndpoint</code>.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4378,7 +4925,17 @@ class AsyncGlueClient:
     async def delete_glue_identity_center_configuration(
         self, *, config_overrides: Optional[AsyncGlueClientConfig] = None
     ) -> "aws_sdk_glue.types.delete_glue_identity_center_configuration_response.DeleteGlueIdentityCenterConfigurationResponse":
-        """<p>Deletes the existing Glue Identity Center configuration, removing the integration between Glue and Amazon Web Services IAM Identity Center.</p>"""
+        """<p>Deletes the existing Glue Identity Center configuration, removing the integration between Glue and Amazon Web Services IAM Identity Center.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_glue.types.delete_glue_identity_center_configuration_request.DeleteGlueIdentityCenterConfigurationRequest]",
@@ -4415,6 +4972,20 @@ class AsyncGlueClient:
 
         Args:
             integration_identifier: <p>The Amazon Resource Name (ARN) for the integration.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.conflict_exception.ConflictException: <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled. </p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.integration_conflict_operation_fault.IntegrationConflictOperationFault: <p>The requested operation conflicts with another operation.</p>
+            aws_sdk_glue.errors.integration_not_found_fault.IntegrationNotFoundFault: <p>The specified integration could not be found.</p>
+            aws_sdk_glue.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.invalid_integration_state_fault.InvalidIntegrationStateFault: <p>The integration is in an invalid state.</p>
+            aws_sdk_glue.errors.invalid_state_exception.InvalidStateException: <p>An error that indicates your data is in an invalid state.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4453,6 +5024,16 @@ class AsyncGlueClient:
 
         Args:
             resource_arn: <p>The connection ARN of the source, or the database ARN of the target.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4493,6 +5074,16 @@ class AsyncGlueClient:
         Args:
             resource_arn: <p>The connection ARN of the source, or the database ARN of the target.</p>
             table_name: <p>The name of the table to be replicated.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4532,6 +5123,12 @@ class AsyncGlueClient:
 
         Args:
             job_name: <p>The name of the job definition to delete.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4570,6 +5167,13 @@ class AsyncGlueClient:
 
         Args:
             transform_id: <p>The unique identifier of the transform to delete.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4616,6 +5220,13 @@ class AsyncGlueClient:
             database_name: <p>The name of the catalog database in which the table in question resides.</p>
             table_name: <p>The name of the table that contains the partition to be deleted.</p>
             partition_values: <p>The values that define the partition.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4666,6 +5277,15 @@ class AsyncGlueClient:
             database_name: <p>Specifies the name of a database from which you want to delete a partition index.</p>
             table_name: <p>Specifies the name of a table from which you want to delete a partition index.</p>
             index_name: <p>The name of the partition index to be deleted.</p>
+
+        Raises:
+            aws_sdk_glue.errors.conflict_exception.ConflictException: <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled. </p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4708,6 +5328,13 @@ class AsyncGlueClient:
 
         Args:
             registry_id: <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4752,6 +5379,14 @@ class AsyncGlueClient:
         Args:
             policy_hash_condition: <p>The hash value returned when this policy was set.</p>
             resource_arn: <p>The ARN of the Glue resource for the resource policy to be deleted.</p>
+
+        Raises:
+            aws_sdk_glue.errors.condition_check_failure_exception.ConditionCheckFailureException: <p>A specified condition was not satisfied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4793,6 +5428,13 @@ class AsyncGlueClient:
 
         Args:
             schema_id: <p>This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4833,6 +5475,13 @@ class AsyncGlueClient:
         Args:
             schema_id: <p>This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
             versions: <p>A version range may be supplied which may be of the format:</p> <ul> <li> <p>a single version number, 5</p> </li> <li> <p>a range, 5-8 : deletes versions 5, 6, 7, 8</p> </li> </ul>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4872,6 +5521,13 @@ class AsyncGlueClient:
 
         Args:
             name: <p>The name of the security configuration to delete.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4914,6 +5570,15 @@ class AsyncGlueClient:
         Args:
             id: <p>The ID of the session to be deleted.</p>
             request_origin: <p>The name of the origin of the delete session request.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.illegal_session_state_exception.IllegalSessionStateException: <p>The session is in an invalid state to perform a requested operation.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4964,6 +5629,17 @@ class AsyncGlueClient:
             database_name: <p>The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.</p>
             name: <p>The name of the table to be deleted. For Hive compatibility, this name is entirely lowercase.</p>
             transaction_id: <p>The transaction ID at which to delete the table contents.</p>
+
+        Raises:
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.federation_source_retryable_exception.FederationSourceRetryableException: <p>A federation source failed, but the operation may be retried.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_not_ready_exception.ResourceNotReadyException: <p>A resource was not ready for a transaction.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5013,6 +5689,14 @@ class AsyncGlueClient:
             database_name: <p>The name of the database in the catalog in which the table resides.</p>
             table_name: <p>The name of the table.</p>
             type: <p>The type of table optimizer.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.throttling_exception.ThrottlingException: <p>The throttling threshhold was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5062,6 +5746,13 @@ class AsyncGlueClient:
             database_name: <p>The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.</p>
             table_name: <p>The name of the table. For Hive compatibility, this name is entirely lowercase.</p>
             version_id: <p>The ID of the table version to be deleted. A <code>VersionID</code> is a string representation of an integer. Each version is incremented by 1.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5104,6 +5795,13 @@ class AsyncGlueClient:
 
         Args:
             name: <p>The name of the trigger to delete.</p>
+
+        Raises:
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5142,6 +5840,13 @@ class AsyncGlueClient:
 
         Args:
             name: <p>The name of the usage profile to delete.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not available in the region.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5186,6 +5891,13 @@ class AsyncGlueClient:
             catalog_id: <p>The ID of the Data Catalog where the function to be deleted is located. If none is supplied, the Amazon Web Services account ID is used by default.</p>
             database_name: <p>The name of the catalog database where the function is located.</p>
             function_name: <p>The name of the function definition to be deleted.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5227,6 +5939,13 @@ class AsyncGlueClient:
 
         Args:
             name: <p>Name of the workflow to be deleted.</p>
+
+        Raises:
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5265,6 +5984,13 @@ class AsyncGlueClient:
 
         Args:
             connection_type: <p>The name of the connection type to be described.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5315,6 +6041,16 @@ class AsyncGlueClient:
             entity_name: <p>The name of the entity that you want to describe from the connection type.</p>
             next_token: <p>A continuation token, included if this is a continuation call.</p>
             data_store_api_version: <p>The version of the API used for the data store.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5399,6 +6135,18 @@ class AsyncGlueClient:
             marker: <p>A token to specify where to start paginating. This is the marker from a previously truncated response.</p>
             max_records: <p>The total number of items to return in the output.</p>
             target_arn: <p>The Amazon Resource Name (ARN) of the target resource in the integration.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.integration_not_found_fault.IntegrationNotFoundFault: <p>The specified integration could not be found.</p>
+            aws_sdk_glue.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not available in the region.</p>
+            aws_sdk_glue.errors.target_resource_not_found.TargetResourceNotFound: <p>The target resource could not be found.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5458,6 +6206,16 @@ class AsyncGlueClient:
             marker: <p>A value that indicates the starting point for the next set of response records in a subsequent request.</p>
             max_records: <p>The total number of items to return in the output.</p>
             filters: <p>A list of key and values, to filter down the results. Supported keys are \"Status\", \"IntegrationName\", and \"SourceArn\". IntegrationName is limited to only one value.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.integration_not_found_fault.IntegrationNotFoundFault: <p>The specified integration could not be found.</p>
+            aws_sdk_glue.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5511,6 +6269,13 @@ class AsyncGlueClient:
             name: <p>The name of the blueprint.</p>
             include_blueprint: <p>Specifies whether or not to include the blueprint in the response.</p>
             include_parameter_spec: <p>Specifies whether or not to include the parameter specification.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5555,6 +6320,12 @@ class AsyncGlueClient:
         Args:
             blueprint_name: <p>The name of the blueprint.</p>
             run_id: <p>The run ID for the blueprint run you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5598,6 +6369,13 @@ class AsyncGlueClient:
             blueprint_name: <p>The name of the blueprint.</p>
             next_token: <p>A continuation token, if this is a continuation request.</p>
             max_results: <p>The maximum size of a list to return.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5640,6 +6418,17 @@ class AsyncGlueClient:
 
         Args:
             catalog_id: <p>The ID of the parent catalog in which the catalog resides. If none is provided, the Amazon Web Services Account Number is used by default.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.federation_source_retryable_exception.FederationSourceRetryableException: <p>A federation source failed, but the operation may be retried.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5680,6 +6469,11 @@ class AsyncGlueClient:
 
         Args:
             catalog_id: <p>The ID of the catalog to migrate. Currently, this should be the Amazon Web Services account ID.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5735,6 +6529,17 @@ class AsyncGlueClient:
             recursive: <p>Whether to list all catalogs across the catalog hierarchy, starting from the <code>ParentCatalogId</code>. Defaults to <code>false</code> . When <code>true</code>, all catalog objects in the <code>ParentCatalogID</code> hierarchy are enumerated in the response.</p>
             include_root: <p>Whether to list the default catalog in the account and region in the response. Defaults to <code>false</code>. When <code>true</code> and <code>ParentCatalogId = NULL | Amazon Web Services Account ID</code>, all catalogs and the default catalog are enumerated in the response.</p> <p>When the <code>ParentCatalogId</code> is not equal to null, and this attribute is passed as <code>false</code> or <code>true</code>, an <code>InvalidInputException</code> is thrown.</p>
             has_databases: <p>When <code>true</code>, the response only includes catalogs that can contain databases. Some catalogs are organizational containers that hold only other catalogs, not databases. When this parameter is set to <code>true</code>, those container-only catalogs are excluded, and only catalogs capable of containing databases are returned. Defaults to <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.federation_source_retryable_exception.FederationSourceRetryableException: <p>A federation source failed, but the operation may be retried.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5784,6 +6589,11 @@ class AsyncGlueClient:
 
         Args:
             name: <p>Name of the classifier to retrieve.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5824,6 +6634,10 @@ class AsyncGlueClient:
         Args:
             max_results: <p>The size of the list to return (optional).</p>
             next_token: <p>An optional continuation token.</p>
+
+        Raises:
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5875,6 +6689,14 @@ class AsyncGlueClient:
             table_name: <p>The name of the partitions' table.</p>
             partition_values: <p>A list of partition values identifying the partition.</p>
             column_names: <p>A list of the column names.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5926,6 +6748,14 @@ class AsyncGlueClient:
             database_name: <p>The name of the catalog database where the partitions reside.</p>
             table_name: <p>The name of the partitions' table.</p>
             column_names: <p>A list of the column names.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5968,6 +6798,12 @@ class AsyncGlueClient:
 
         Args:
             column_statistics_task_run_id: <p>The identifier for the particular column statistics task run.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6012,6 +6848,10 @@ class AsyncGlueClient:
             table_name: <p>The name of the table.</p>
             max_results: <p>The maximum size of the response.</p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
+
+        Raises:
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6057,6 +6897,12 @@ class AsyncGlueClient:
         Args:
             database_name: <p>The name of the database where the table resides.</p>
             table_name: <p>The name of the table for which to retrieve column statistics.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6106,6 +6952,13 @@ class AsyncGlueClient:
             name: <p>The name of the connection definition to retrieve.</p>
             hide_password: <p>Allows you to retrieve the connection metadata without returning the password. For instance, the Glue console uses this flag to retrieve the connection, and does not display the password. Set this parameter when the caller might not have permission to use the KMS key to decrypt the password, but it does have permission to access the rest of the connection properties.</p>
             apply_override_for_compute_environment: <p>For connections that may be used in multiple services, specifies returning properties for the specified compute environment.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6164,6 +7017,13 @@ class AsyncGlueClient:
             hide_password: <p>Allows you to retrieve the connection metadata without returning the password. For instance, the Glue console uses this flag to retrieve the connection, and does not display the password. Set this parameter when the caller might not have permission to use the KMS key to decrypt the password, but it does have permission to access the rest of the connection properties.</p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
             max_results: <p>The maximum number of connections to return in one response.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6211,6 +7071,11 @@ class AsyncGlueClient:
 
         Args:
             name: <p>The name of the crawler to retrieve metadata for.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6255,6 +7120,10 @@ class AsyncGlueClient:
             crawler_name_list: <p>A list of the names of crawlers about which to retrieve metrics.</p>
             max_results: <p>The maximum size of a list to return.</p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
+
+        Raises:
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6300,6 +7169,10 @@ class AsyncGlueClient:
         Args:
             max_results: <p>The number of crawlers to return on each call.</p>
             next_token: <p>A continuation token, if this is a continuation request.</p>
+
+        Raises:
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6343,6 +7216,14 @@ class AsyncGlueClient:
 
         Args:
             name: <p>The name of the custom pattern that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6387,6 +7268,14 @@ class AsyncGlueClient:
             resource_id: <p>The unique identifier of the resource for which to retrieve the dashboard URL.</p>
             resource_type: <p>The type of the resource. Valid values are <code>SESSION</code> and <code>JOB</code>.</p>
             request_origin: <p>The origin of the request. </p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not available in the region.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6432,6 +7321,16 @@ class AsyncGlueClient:
         Args:
             catalog_id: <p>The ID of the Data Catalog in which the database resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
             name: <p>The name of the database to retrieve. For Hive compatibility, this should be all lowercase.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.federation_source_retryable_exception.FederationSourceRetryableException: <p>A federation source failed, but the operation may be retried.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6488,6 +7387,16 @@ class AsyncGlueClient:
             max_results: <p>The maximum number of databases to return in one response.</p>
             resource_share_type: <p>Allows you to specify that you want to list the databases shared with your account. The allowable values are <code>FEDERATED</code>, <code>FOREIGN</code> or <code>ALL</code>. </p> <ul> <li> <p>If set to <code>FEDERATED</code>, will list the federated databases (referencing an external entity) shared with your account.</p> </li> <li> <p>If set to <code>FOREIGN</code>, will list the databases shared with your account. </p> </li> <li> <p>If set to <code>ALL</code>, will list the databases shared with your account, as well as the databases in yor local account. </p> </li> </ul>
             attributes_to_get: <p>Specifies the database fields returned by the <code>GetDatabases</code> call. This parameter doesn’t accept an empty list. The request must include the <code>NAME</code>.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.federation_source_retryable_exception.FederationSourceRetryableException: <p>A federation source failed, but the operation may be retried.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6537,6 +7446,12 @@ class AsyncGlueClient:
 
         Args:
             catalog_id: <p>The ID of the Data Catalog to retrieve the security configuration for. If none is provided, the Amazon Web Services account ID is used by default.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6576,6 +7491,12 @@ class AsyncGlueClient:
 
         Args:
             python_script: <p>The Python script to transform.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6619,6 +7540,13 @@ class AsyncGlueClient:
         Args:
             statistic_id: <p>The Statistic ID.</p>
             profile_id: <p>The Profile ID.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6661,6 +7589,13 @@ class AsyncGlueClient:
         Args:
             statistic_id: <p>The Statistic ID.</p>
             profile_id: <p>The Profile ID.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6700,6 +7635,13 @@ class AsyncGlueClient:
 
         Args:
             result_id: <p>A unique result ID for the data quality result.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6738,6 +7680,13 @@ class AsyncGlueClient:
 
         Args:
             run_id: <p>The unique run identifier associated with this run.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6776,6 +7725,13 @@ class AsyncGlueClient:
 
         Args:
             name: <p>The name of the ruleset.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6814,6 +7770,13 @@ class AsyncGlueClient:
 
         Args:
             run_id: <p>The unique run identifier associated with this run.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6852,6 +7815,13 @@ class AsyncGlueClient:
 
         Args:
             endpoint_name: <p>Name of the <code>DevEndpoint</code> to retrieve information for.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6892,6 +7862,13 @@ class AsyncGlueClient:
         Args:
             max_results: <p>The maximum size of information to return.</p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -6961,6 +7938,16 @@ class AsyncGlueClient:
             limit: <p>Limits the number of records fetched with the request.</p>
             order_by: <p>A parameter that orders the response preview data.</p>
             selected_fields: <p> List of fields that we want to fetch as part of preview data.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7009,7 +7996,17 @@ class AsyncGlueClient:
     async def get_glue_identity_center_configuration(
         self, *, config_overrides: Optional[AsyncGlueClientConfig] = None
     ) -> "aws_sdk_glue.types.get_glue_identity_center_configuration_response.GetGlueIdentityCenterConfigurationResponse":
-        """<p>Retrieves the current Glue Identity Center configuration details, including the associated Identity Center instance and application information.</p>"""
+        """<p>Retrieves the current Glue Identity Center configuration details, including the associated Identity Center instance and application information.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_glue.types.get_glue_identity_center_configuration_request.GetGlueIdentityCenterConfigurationRequest]",
@@ -7046,6 +8043,16 @@ class AsyncGlueClient:
 
         Args:
             resource_arn: <p>The connection ARN of the source, or the database ARN of the target.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7086,6 +8093,16 @@ class AsyncGlueClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the target table for which to retrieve integration table properties. Currently, this API only supports retrieving properties for target tables, and the provided ARN should be the ARN of the target table in the Glue Data Catalog. Support for retrieving integration table properties for source connections (using the connection ARN) is not yet implemented and will be added in a future release. </p>
             table_name: <p>The name of the table to be replicated.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7125,6 +8142,13 @@ class AsyncGlueClient:
 
         Args:
             job_name: <p>The name of the job definition to retrieve.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7165,6 +8189,14 @@ class AsyncGlueClient:
         Args:
             job_name: <p>The name of the job in question.</p>
             run_id: <p>The unique run identifier associated with this job run.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7211,6 +8243,13 @@ class AsyncGlueClient:
             job_name: <p>Name of the job definition being run.</p>
             run_id: <p>The ID of the job run.</p>
             predecessors_included: <p>True if a list of predecessor runs should be returned.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7258,6 +8297,13 @@ class AsyncGlueClient:
             job_name: <p>The name of the job definition for which to retrieve all job runs.</p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
             max_results: <p>The maximum size of the response.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7327,6 +8373,13 @@ class AsyncGlueClient:
         Args:
             next_token: <p>A continuation token, if this is a continuation call.</p>
             max_results: <p>The maximum size of the response.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7393,6 +8446,13 @@ class AsyncGlueClient:
             source: <p>Specifies the source table.</p>
             sinks: <p>A list of target tables.</p>
             location: <p>Parameters for the mapping.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7437,6 +8497,13 @@ class AsyncGlueClient:
         Args:
             catalog_id: <p>The ID of the Data Catalog where the table resides. If none is supplied, the account ID is used by default.</p>
             materialized_view_refresh_task_run_id: <p>The identifier for the particular materialized view refresh task run.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7480,6 +8547,13 @@ class AsyncGlueClient:
         Args:
             transform_id: <p>The unique identifier of the machine learning transform.</p>
             task_run_id: <p>The unique identifier of the task run.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7533,6 +8607,13 @@ class AsyncGlueClient:
             max_results: <p>The maximum number of results to return. </p>
             filter: <p>The filter criteria, in the <code>TaskRunFilterCriteria</code> structure, for the task run.</p>
             sort: <p>The sorting criteria, in the <code>TaskRunSortCriteria</code> structure, for the task run.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7579,6 +8660,13 @@ class AsyncGlueClient:
 
         Args:
             transform_id: <p>The unique identifier of the transform, generated at the time that the transform was created.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7629,6 +8717,13 @@ class AsyncGlueClient:
             max_results: <p>The maximum number of results to return.</p>
             filter: <p>The filter transformation criteria.</p>
             sort: <p>The sorting criteria.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7683,6 +8778,16 @@ class AsyncGlueClient:
             database_name: <p>The name of the catalog database where the partition resides.</p>
             table_name: <p>The name of the partition's table.</p>
             partition_values: <p>The values that define the partition.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.federation_source_retryable_exception.FederationSourceRetryableException: <p>A federation source failed, but the operation may be retried.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7737,6 +8842,14 @@ class AsyncGlueClient:
             database_name: <p>Specifies the name of a database from which you want to retrieve partition indexes.</p>
             table_name: <p>Specifies the name of a table for which you want to retrieve the partition indexes.</p>
             next_token: <p>A continuation token, included if this is a continuation call.</p>
+
+        Raises:
+            aws_sdk_glue.errors.conflict_exception.ConflictException: <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled. </p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7834,6 +8947,18 @@ class AsyncGlueClient:
             exclude_column_schema: <p>When true, specifies not returning the partition column schema. Useful when you are interested only in other partition attributes such as partition values or location. This approach avoids the problem of a large response by not returning duplicate data.</p>
             transaction_id: <p>The transaction ID at which to read the partition contents.</p>
             query_as_of_time: <p>The time as of when to read the partition contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.federation_source_retryable_exception.FederationSourceRetryableException: <p>A federation source failed, but the operation may be retried.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.invalid_state_exception.InvalidStateException: <p>An error that indicates your data is in an invalid state.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_not_ready_exception.ResourceNotReadyException: <p>A resource was not ready for a transaction.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7903,6 +9028,12 @@ class AsyncGlueClient:
             location: <p>The parameters for the mapping.</p>
             language: <p>The programming language of the code to perform the mapping.</p>
             additional_plan_options_map: <p>A map to hold additional optional key-value parameters.</p> <p>Currently, these key-value pairs are supported:</p> <ul> <li> <p> <code>inferSchema</code> — Specifies whether to set <code>inferSchema</code> to true or false for the default script generated by an Glue job. For example, to set <code>inferSchema</code> to true, pass the following key value pair:</p> <p> <code>--additional-plan-options-map '{\"inferSchema\":\"true\"}'</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7950,6 +9081,13 @@ class AsyncGlueClient:
 
         Args:
             registry_id: <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -7992,6 +9130,13 @@ class AsyncGlueClient:
         Args:
             next_token: <p>A continuation token, if this is a continuation request.</p>
             max_results: <p>The maximum size of a list to return.</p>
+
+        Raises:
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8056,6 +9201,13 @@ class AsyncGlueClient:
 
         Args:
             resource_arn: <p>The ARN of the Glue resource for which to retrieve the resource policy. If not supplied, the Data Catalog resource policy is returned. Use <code>GetResourcePolicies</code> to view all existing resource policies. For more information see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html\">Specifying Glue Resource ARNs</a>. </p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8095,6 +9247,13 @@ class AsyncGlueClient:
 
         Args:
             schema_id: <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> <ul> <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p> </li> <li> <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8135,6 +9294,13 @@ class AsyncGlueClient:
         Args:
             schema_id: <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> <ul> <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> <li> <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> </ul>
             schema_definition: <p>The definition of the schema for which schema details are required.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8182,6 +9348,13 @@ class AsyncGlueClient:
             schema_id: <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> <ul> <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p> </li> <li> <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p> </li> </ul>
             schema_version_id: <p>The <code>SchemaVersionId</code> of the schema version. This field is required for fetching by schema ID. Either this or the <code>SchemaId</code> wrapper has to be provided.</p>
             schema_version_number: <p>The version number of the schema.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8231,6 +9404,13 @@ class AsyncGlueClient:
             first_schema_version_number: <p>The first of the two schema versions to be compared.</p>
             second_schema_version_number: <p>The second of the two schema versions to be compared.</p>
             schema_diff_type: <p>Refers to <code>SYNTAX_DIFF</code>, which is the currently supported diff type.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8272,6 +9452,13 @@ class AsyncGlueClient:
 
         Args:
             name: <p>The name of the security configuration to retrieve.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8312,6 +9499,13 @@ class AsyncGlueClient:
         Args:
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8380,6 +9574,14 @@ class AsyncGlueClient:
         Args:
             id: <p>The ID of the session. </p>
             request_origin: <p>The origin of the request. </p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8420,6 +9622,16 @@ class AsyncGlueClient:
 
         Args:
             session_id: <p>The unique identifier of the interactive session.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.illegal_session_state_exception.IllegalSessionStateException: <p>The session is in an invalid state to perform a requested operation.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not available in the region.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8464,6 +9676,15 @@ class AsyncGlueClient:
             session_id: <p>The Session ID of the statement.</p>
             id: <p>The Id of the statement.</p>
             request_origin: <p>The origin of the request.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.illegal_session_state_exception.IllegalSessionStateException: <p>The session is in an invalid state to perform a requested operation.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8523,6 +9744,17 @@ class AsyncGlueClient:
             query_as_of_time: <p>The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>
             audit_context: <p>A structure containing the Lake Formation <a href=\"https://docs.aws.amazon.com/glue/latest/webapi/API_AuditContext.html\">audit context</a>.</p>
             include_status_details: <p>Specifies whether to include status details related to a request to create or update an Glue Data Catalog view.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.federation_source_retryable_exception.FederationSourceRetryableException: <p>A federation source failed, but the operation may be retried.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_not_ready_exception.ResourceNotReadyException: <p>A resource was not ready for a transaction.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8578,6 +9810,14 @@ class AsyncGlueClient:
             database_name: <p>The name of the database in the catalog in which the table resides.</p>
             table_name: <p>The name of the table.</p>
             type: <p>The type of table optimizer.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.throttling_exception.ThrottlingException: <p>The throttling threshhold was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8647,6 +9887,16 @@ class AsyncGlueClient:
             audit_context: <p>A structure containing the Lake Formation <a href=\"https://docs.aws.amazon.com/glue/latest/webapi/API_AuditContext.html\">audit context</a>.</p>
             include_status_details: <p>Specifies whether to include status details related to a request to create or update an Glue Data Catalog view.</p>
             attributes_to_get: <p> Specifies the table fields returned by the <code>GetTables</code> call. This parameter doesn’t accept an empty list. The request must include <code>NAME</code>.</p> <p>The following are the valid combinations of values:</p> <ul> <li> <p> <code>NAME</code> - Names of all tables in the database.</p> </li> <li> <p> <code>NAME</code>, <code>TABLE_TYPE</code> - Names of all tables and the table types.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.federation_source_retryable_exception.FederationSourceRetryableException: <p>A federation source failed, but the operation may be retried.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8712,6 +9962,14 @@ class AsyncGlueClient:
             database_name: <p>The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.</p>
             table_name: <p>The name of the table. For Hive compatibility, this name is entirely lowercase.</p>
             version_id: <p>The ID value of the table version to be retrieved. A <code>VersionID</code> is a string representation of an integer. Each version is incremented by 1. </p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8770,6 +10028,14 @@ class AsyncGlueClient:
             table_name: <p>The name of the table. For Hive compatibility, this name is entirely lowercase.</p>
             next_token: <p>A continuation token, if this is not the first call.</p>
             max_results: <p>The maximum number of table versions to return in one response.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8817,6 +10083,13 @@ class AsyncGlueClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for which to retrieve tags.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8855,6 +10128,13 @@ class AsyncGlueClient:
 
         Args:
             name: <p>The name of the trigger to retrieve.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8901,6 +10181,13 @@ class AsyncGlueClient:
             next_token: <p>A continuation token, if this is a continuation call.</p>
             dependent_job_name: <p>The name of the job to retrieve triggers for. The trigger that can start this job is returned, and if there is no such trigger, all triggers are returned.</p>
             max_results: <p>The maximum size of the response.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -8987,6 +10274,17 @@ class AsyncGlueClient:
             audit_context: <p>A structure containing Lake Formation audit context information.</p>
             supported_permission_types: <p>(Required) A list of supported permission types. </p>
             query_session_context: <p>A structure used as a protocol between query engines and Lake Formation or Glue. Contains both a Lake Formation generated authorization identifier and information from the request's authorization context.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.federation_source_retryable_exception.FederationSourceRetryableException: <p>A federation source failed, but the operation may be retried.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.permission_type_mismatch_exception.PermissionTypeMismatchException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9059,6 +10357,17 @@ class AsyncGlueClient:
             segment: <p>The segment of the table's partitions to scan in this request.</p>
             max_results: <p>The maximum number of partitions to return in a single response.</p>
             query_session_context: <p>A structure used as a protocol between query engines and Lake Formation or Glue. Contains both a Lake Formation generated authorization identifier and information from the request's authorization context.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.federation_source_retryable_exception.FederationSourceRetryableException: <p>A federation source failed, but the operation may be retried.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.permission_type_mismatch_exception.PermissionTypeMismatchException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9140,6 +10449,17 @@ class AsyncGlueClient:
             supported_dialect: <p>A structure specifying the dialect and dialect version used by the query engine.</p>
             permissions: <p>The Lake Formation data permissions of the caller on the table. Used to authorize the call when no view context is found.</p>
             query_session_context: <p>A structure used as a protocol between query engines and Lake Formation or Glue. Contains both a Lake Formation generated authorization identifier and information from the request's authorization context.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.federation_source_retryable_exception.FederationSourceRetryableException: <p>A federation source failed, but the operation may be retried.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.permission_type_mismatch_exception.PermissionTypeMismatchException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9195,6 +10515,14 @@ class AsyncGlueClient:
 
         Args:
             name: <p>The name of the usage profile to retrieve.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not available in the region.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9239,6 +10567,14 @@ class AsyncGlueClient:
             catalog_id: <p>The ID of the Data Catalog where the function to be retrieved is located. If none is provided, the Amazon Web Services account ID is used by default.</p>
             database_name: <p>The name of the catalog database where the function is located.</p>
             function_name: <p>The name of the function.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9294,6 +10630,14 @@ class AsyncGlueClient:
             function_type: <p>An optional function-type pattern string that filters the function definitions returned from Amazon Redshift Federated Permissions Catalog.</p> <p>Specify a value of <code>REGULAR_FUNCTION</code> or <code>STORED_PROCEDURE</code>. The <code>STORED_PROCEDURE</code> function type is only compatible with Amazon Redshift Federated Permissions Catalog. </p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
             max_results: <p>The maximum number of functions to return in one response.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9346,6 +10690,13 @@ class AsyncGlueClient:
         Args:
             name: <p>The name of the workflow to retrieve.</p>
             include_graph: <p>Specifies whether to include a graph when returning the workflow resource metadata.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9392,6 +10743,13 @@ class AsyncGlueClient:
             name: <p>Name of the workflow being run.</p>
             run_id: <p>The ID of the workflow run.</p>
             include_graph: <p>Specifies whether to include the workflow graph in response or not.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9435,6 +10793,13 @@ class AsyncGlueClient:
         Args:
             name: <p>Name of the workflow which was run.</p>
             run_id: <p>The ID of the workflow run whose run properties should be returned.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9482,6 +10847,13 @@ class AsyncGlueClient:
             include_graph: <p>Specifies whether to include the workflow graph in response or not.</p>
             next_token: <p>The maximum size of the response.</p>
             max_results: <p>The maximum number of workflow runs to be included in the response.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9557,6 +10929,11 @@ class AsyncGlueClient:
 
         Args:
             catalog_id: <p>The ID of the catalog to import. Currently, this should be the Amazon Web Services account ID.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9602,6 +10979,12 @@ class AsyncGlueClient:
             next_token: <p>A continuation token, if this is a continuation request.</p>
             max_results: <p>The maximum size of a list to return.</p>
             tags: <p>Filters the list by an Amazon Web Services resource tag.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9672,6 +11055,10 @@ class AsyncGlueClient:
         Args:
             max_results: <p>The maximum size of the response.</p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
+
+        Raises:
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9717,6 +11104,11 @@ class AsyncGlueClient:
         Args:
             max_results: <p>The maximum number of results to return.</p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9783,6 +11175,10 @@ class AsyncGlueClient:
             max_results: <p>The maximum size of a list to return.</p>
             next_token: <p>A continuation token, if this is a continuation request.</p>
             tags: <p>Specifies to return only these tagged resources.</p>
+
+        Raises:
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9834,6 +11230,12 @@ class AsyncGlueClient:
             max_results: <p>The maximum number of results to return. The default is 20, and maximum is 100.</p>
             filters: <p>Filters the crawls by the criteria you specify in a list of <code>CrawlsFilter</code> objects.</p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9884,6 +11286,12 @@ class AsyncGlueClient:
             next_token: <p>A paginated token to offset the results.</p>
             max_results: <p>The maximum number of results to return.</p>
             tags: <p>A list of key-value pair tags.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9935,6 +11343,12 @@ class AsyncGlueClient:
             filter: <p>The filter criteria.</p>
             next_token: <p>A paginated token to offset the results.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -9986,6 +11400,12 @@ class AsyncGlueClient:
             filter: <p>The filter criteria.</p>
             next_token: <p>A paginated token to offset the results.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10037,6 +11457,12 @@ class AsyncGlueClient:
             filter: <p>The filter criteria.</p>
             next_token: <p>A paginated token to offset the results.</p>
             max_results: <p>The maximum number of results to return.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10090,6 +11516,13 @@ class AsyncGlueClient:
             max_results: <p>The maximum number of results to return.</p>
             filter: <p>The filter criteria. </p>
             tags: <p>A list of key-value pair tags.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10147,6 +11580,11 @@ class AsyncGlueClient:
             timestamp_filter: <p>A timestamp filter.</p>
             max_results: <p>The maximum number of results to return in this request.</p>
             next_token: <p>A pagination token to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10206,6 +11644,12 @@ class AsyncGlueClient:
             timestamp_filter: <p>A timestamp filter.</p>
             max_results: <p>The maximum number of results to return in this request.</p>
             next_token: <p>A pagination token to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10257,6 +11701,13 @@ class AsyncGlueClient:
             next_token: <p>A continuation token, if this is a continuation request.</p>
             max_results: <p>The maximum size of a list to return.</p>
             tags: <p>Specifies to return only these tagged resources.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10314,6 +11765,16 @@ class AsyncGlueClient:
             parent_entity_name: <p>Name of the parent entity for which you want to list the children. This parameter takes a fully-qualified path of the entity in order to list the child entities.</p>
             next_token: <p>A continuation token, included if this is a continuation call.</p>
             data_store_api_version: <p>The API version of the SaaS connector.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10402,6 +11863,16 @@ class AsyncGlueClient:
             marker: <p>This is the pagination token for next page, initial value is <code>null</code>.</p>
             filters: <p>A list of filters, supported filter Key is <code>SourceArn</code> and <code>TargetArn</code>.</p>
             max_records: <p>This is total number of items to be evaluated.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10449,6 +11920,13 @@ class AsyncGlueClient:
             next_token: <p>A continuation token, if this is a continuation request.</p>
             max_results: <p>The maximum size of a list to return.</p>
             tags: <p>Specifies to return only these tagged resources.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10523,6 +12001,12 @@ class AsyncGlueClient:
             table_name: <p>The name of the table for which statistics is generated.</p>
             max_results: <p>The maximum size of the response.</p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10610,6 +12094,13 @@ class AsyncGlueClient:
             filter: <p>A <code>TransformFilterCriteria</code> used to filter the machine learning transforms.</p>
             sort: <p>A <code>TransformSortCriteria</code> used to sort the machine learning transforms.</p>
             tags: <p>Specifies to return only these tagged resources.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10663,6 +12154,12 @@ class AsyncGlueClient:
         Args:
             max_results: <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10737,6 +12234,13 @@ class AsyncGlueClient:
             registry_id: <p>A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
             max_results: <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10815,6 +12319,13 @@ class AsyncGlueClient:
             schema_id: <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> <ul> <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p> </li> <li> <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p> </li> </ul>
             max_results: <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10894,6 +12405,13 @@ class AsyncGlueClient:
             max_results: <p>The maximum number of results. </p>
             tags: <p>Tags belonging to the session. </p>
             request_origin: <p>The origin of the request. </p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -10947,6 +12465,15 @@ class AsyncGlueClient:
             session_id: <p>The Session ID of the statements.</p>
             request_origin: <p>The origin of the request to list statements.</p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.illegal_session_state_exception.IllegalSessionStateException: <p>The session is in an invalid state to perform a requested operation.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11003,6 +12530,15 @@ class AsyncGlueClient:
             type: <p>The type of table optimizer.</p>
             max_results: <p>The maximum number of optimizer runs to return on each call.</p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.throttling_exception.ThrottlingException: <p>The throttling threshhold was exceeded.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11091,6 +12627,13 @@ class AsyncGlueClient:
             dependent_job_name: <p> The name of the job for which to retrieve triggers. The trigger that can start this job is returned. If there is no such trigger, all triggers are returned.</p>
             max_results: <p>The maximum size of a list to return.</p>
             tags: <p>Specifies to return only these tagged resources.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11171,6 +12714,13 @@ class AsyncGlueClient:
         Args:
             next_token: <p>A continuation token, included if this is a continuation call.</p>
             max_results: <p>The maximum number of usage profiles to return in a single response.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not available in the region.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11241,6 +12791,12 @@ class AsyncGlueClient:
         Args:
             next_token: <p>A continuation token, if this is a continuation request.</p>
             max_results: <p>The maximum size of a list to return.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11317,6 +12873,20 @@ class AsyncGlueClient:
             data_filter: <p>Selects source tables for the integration using Maxwell filter syntax.</p>
             integration_config: <p>The configuration settings for the integration. Currently, only the RefreshInterval can be modified. </p>
             integration_name: <p>A unique name for an integration in Glue.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.conflict_exception.ConflictException: <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled. </p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.integration_conflict_operation_fault.IntegrationConflictOperationFault: <p>The requested operation conflicts with another operation.</p>
+            aws_sdk_glue.errors.integration_not_found_fault.IntegrationNotFoundFault: <p>The specified integration could not be found.</p>
+            aws_sdk_glue.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.invalid_integration_state_fault.InvalidIntegrationStateFault: <p>The integration is in an invalid state.</p>
+            aws_sdk_glue.errors.invalid_state_exception.InvalidStateException: <p>An error that indicates your data is in an invalid state.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11367,6 +12937,12 @@ class AsyncGlueClient:
         Args:
             catalog_id: <p>The ID of the Data Catalog to set the security configuration for. If none is provided, the Amazon Web Services account ID is used by default.</p>
             data_catalog_encryption_settings: <p>The security configuration to set.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11409,6 +12985,12 @@ class AsyncGlueClient:
         Args:
             profile_id: <p>The ID of the data quality monitoring profile to annotate.</p>
             inclusion_annotation: <p>The inclusion annotation value to apply to the profile.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11464,6 +13046,14 @@ class AsyncGlueClient:
             policy_hash_condition: <p>The hash value returned when the previous policy was set using <code>PutResourcePolicy</code>. Its purpose is to prevent concurrent modifications of a policy. Do not use this parameter if no previous policy has been set.</p>
             policy_exists_condition: <p>A value of <code>MUST_EXIST</code> is used to update a policy. A value of <code>NOT_EXIST</code> is used to create a new policy. If a value of <code>NONE</code> or a null value is used, the call does not depend on the existence of a policy.</p>
             enable_hybrid: <p>If <code>'TRUE'</code>, indicates that you are using both methods to grant cross-account access to Data Catalog resources:</p> <ul> <li> <p>By directly updating the resource policy with <code>PutResourePolicy</code> </p> </li> <li> <p>By using the <b>Grant permissions</b> command on the Amazon Web Services Management Console.</p> </li> </ul> <p>Must be set to <code>'TRUE'</code> if you have already used the Management Console to grant cross-account access, otherwise the call fails. Default is 'FALSE'.</p>
+
+        Raises:
+            aws_sdk_glue.errors.condition_check_failure_exception.ConditionCheckFailureException: <p>A specified condition was not satisfied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11520,6 +13110,14 @@ class AsyncGlueClient:
             schema_version_number: <p>The version number of the schema.</p>
             schema_version_id: <p>The unique version ID of the schema version.</p>
             metadata_key_value: <p>The metadata key's corresponding value.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11568,6 +13166,16 @@ class AsyncGlueClient:
             name: <p>Name of the workflow which was run.</p>
             run_id: <p>The ID of the workflow run for which the run properties should be updated.</p>
             run_properties: <p>The properties to put for the specified run.</p> <p>Run properties may be logged. Do not pass plaintext secrets as properties. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to use them within the workflow run.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11626,6 +13234,12 @@ class AsyncGlueClient:
             metadata_list: <p>Search key-value pairs for metadata, if they are not provided all the metadata information will be fetched.</p>
             max_results: <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
             next_token: <p>A continuation token, if this is a continuation call.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11687,6 +13301,15 @@ class AsyncGlueClient:
             connector_authentication_configuration: <p>Defines the supported authentication types and required properties for this connection type, including Basic, OAuth2, and Custom authentication methods.</p>
             rest_configuration: <p>Defines the HTTP request and response configuration, validation endpoint, and entity configurations for REST API interactions.</p>
             tags: <p>The tags you assign to the connection type.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11737,6 +13360,15 @@ class AsyncGlueClient:
         Args:
             schema_id: <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> <ul> <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p> </li> <li> <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p> </li> </ul>
             schema_definition: <p>The schema definition using the <code>DataFormat</code> setting for the <code>SchemaName</code>.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11786,6 +13418,12 @@ class AsyncGlueClient:
             schema_version_number: <p>The version number of the schema.</p>
             schema_version_id: <p>The unique version ID of the schema version.</p>
             metadata_key_value: <p>The value of the metadata key.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11832,6 +13470,13 @@ class AsyncGlueClient:
         Args:
             job_name: <p>The name of the job in question.</p>
             run_id: <p>The unique run identifier associated with this job run.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11876,6 +13521,15 @@ class AsyncGlueClient:
             name: <p>The name of the workflow to resume.</p>
             run_id: <p>The ID of the workflow run to resume.</p>
             node_ids: <p>A list of the node IDs for the nodes you want to restart. The nodes that are to be restarted must have a run attempt in the original run.</p>
+
+        Raises:
+            aws_sdk_glue.errors.concurrent_runs_exceeded_exception.ConcurrentRunsExceededException: <p>Too many jobs are being run concurrently.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.illegal_workflow_state_exception.IllegalWorkflowStateException: <p>The workflow is in an invalid state to perform a requested operation.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11922,6 +13576,19 @@ class AsyncGlueClient:
             session_id: <p>The Session Id of the statement to be run.</p>
             code: <p>The statement code to be run.</p>
             request_origin: <p>The origin of the request.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.illegal_session_state_exception.IllegalSessionStateException: <p>The session is in an invalid state to perform a requested operation.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not available in the region.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.session_busy_exception.SessionBusyException: <p>The session is currently busy processing another request and cannot accept new operations.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -11985,6 +13652,12 @@ class AsyncGlueClient:
             max_results: <p>The maximum number of tables to return in a single response.</p>
             resource_share_type: <p>Allows you to specify that you want to search the tables shared with your account. The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </p> <ul> <li> <p>If set to <code>FOREIGN</code>, will search the tables shared with your account. </p> </li> <li> <p>If set to <code>ALL</code>, will search the tables shared with your account, as well as the tables in yor local account. </p> </li> </ul>
             include_status_details: <p>Specifies whether to include status details related to a request to create or update an Glue Data Catalog view.</p>
+
+        Raises:
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12044,6 +13717,15 @@ class AsyncGlueClient:
             blueprint_name: <p>The name of the blueprint.</p>
             parameters: <p>Specifies the parameters as a <code>BlueprintParameters</code> object.</p>
             role_arn: <p>Specifies the IAM role used to create the workflow.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.illegal_blueprint_state_exception.IllegalBlueprintStateException: <p>The blueprint is in an invalid state to perform a requested operation.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12103,6 +13785,15 @@ class AsyncGlueClient:
             sample_size: <p>The percentage of rows used to generate statistics. If none is supplied, the entire table will be used to generate stats.</p>
             catalog_id: <p>The ID of the Data Catalog where the table reside. If none is supplied, the Amazon Web Services account ID is used by default.</p>
             security_configuration: <p>Name of the security configuration that is used to encrypt CloudWatch logs for the column stats task run.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.column_statistics_task_running_exception.ColumnStatisticsTaskRunningException: <p>An exception thrown when you try to start another job while running a column stats generation job.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12153,6 +13844,13 @@ class AsyncGlueClient:
         Args:
             database_name: <p>The name of the database where the table resides.</p>
             table_name: <p>The name of the table for which to start a column statistic task run schedule.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12192,6 +13890,12 @@ class AsyncGlueClient:
 
         Args:
             name: <p>Name of the crawler to start.</p>
+
+        Raises:
+            aws_sdk_glue.errors.crawler_running_exception.CrawlerRunningException: <p>The operation cannot be performed because the crawler is already running.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12230,6 +13934,14 @@ class AsyncGlueClient:
 
         Args:
             crawler_name: <p>Name of the crawler to schedule.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.no_schedule_exception.NoScheduleException: <p>There is no applicable schedule.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.scheduler_running_exception.SchedulerRunningException: <p>The specified scheduler is already running.</p>
+            aws_sdk_glue.errors.scheduler_transitioning_exception.SchedulerTransitioningException: <p>The specified scheduler is transitioning.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12286,6 +13998,13 @@ class AsyncGlueClient:
             created_ruleset_name: <p>A name for the ruleset.</p>
             data_quality_security_configuration: <p>The name of the security configuration created with the data quality encryption option.</p>
             client_token: <p>Used for idempotency and is recommended to be set to a random ID (such as a UUID) to avoid creating or starting multiple instances of the same resource.</p>
+
+        Raises:
+            aws_sdk_glue.errors.conflict_exception.ConflictException: <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled. </p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12357,6 +14076,14 @@ class AsyncGlueClient:
             additional_run_options: <p>Additional run options you can specify for an evaluation run.</p>
             ruleset_names: <p>A list of ruleset names.</p>
             additional_data_sources: <p>A map of reference strings to additional data sources you can specify for an evaluation run.</p>
+
+        Raises:
+            aws_sdk_glue.errors.conflict_exception.ConflictException: <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled. </p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12409,6 +14136,13 @@ class AsyncGlueClient:
         Args:
             transform_id: <p>The unique identifier of the machine learning transform.</p>
             output_s3_path: <p>The Amazon S3 path where you export the labels.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12454,6 +14188,14 @@ class AsyncGlueClient:
             transform_id: <p>The unique identifier of the machine learning transform.</p>
             input_s3_path: <p>The Amazon Simple Storage Service (Amazon S3) path from where you import the labels.</p>
             replace_all_labels: <p>Indicates whether to overwrite your existing labels.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12535,6 +14277,15 @@ class AsyncGlueClient:
             number_of_workers: <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
             execution_class: <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p> <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p> <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
             execution_role_session_policy: <p>This inline session policy to the StartJobRun API allows you to dynamically restrict the permissions of the specified execution role for the scope of the job, without requiring the creation of additional IAM roles.</p>
+
+        Raises:
+            aws_sdk_glue.errors.concurrent_runs_exceeded_exception.ConcurrentRunsExceededException: <p>Too many jobs are being run concurrently.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12605,6 +14356,15 @@ class AsyncGlueClient:
             database_name: <p>The name of the database where the table resides.</p>
             table_name: <p>The name of the table to generate run the materialized view refresh task.</p>
             full_refresh: <p>Specifies whether this is a full refresh of the task run.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.materialized_view_refresh_task_running_exception.MaterializedViewRefreshTaskRunningException: <p>Exception thrown when a task is already in running state.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12647,6 +14407,15 @@ class AsyncGlueClient:
 
         Args:
             transform_id: <p>The unique identifier of the machine learning transform.</p>
+
+        Raises:
+            aws_sdk_glue.errors.concurrent_runs_exceeded_exception.ConcurrentRunsExceededException: <p>Too many jobs are being run concurrently.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.ml_transform_not_ready_exception.MLTransformNotReadyException: <p>The machine learning transform is not ready to run.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12687,6 +14456,14 @@ class AsyncGlueClient:
         Args:
             transform_id: <p>The unique identifier of the machine learning transform.</p>
             output_s3_path: <p>The Amazon Simple Storage Service (Amazon S3) path where you generate the labeling set.</p>
+
+        Raises:
+            aws_sdk_glue.errors.concurrent_runs_exceeded_exception.ConcurrentRunsExceededException: <p>Too many jobs are being run concurrently.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12726,6 +14503,15 @@ class AsyncGlueClient:
 
         Args:
             name: <p>The name of the trigger to start.</p>
+
+        Raises:
+            aws_sdk_glue.errors.concurrent_runs_exceeded_exception.ConcurrentRunsExceededException: <p>Too many jobs are being run concurrently.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12768,6 +14554,15 @@ class AsyncGlueClient:
         Args:
             name: <p>The name of the workflow to start.</p>
             run_properties: <p>The workflow run properties for the new workflow run.</p> <p>Run properties may be logged. Do not pass plaintext secrets as properties. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to use them within the workflow run.</p>
+
+        Raises:
+            aws_sdk_glue.errors.concurrent_runs_exceeded_exception.ConcurrentRunsExceededException: <p>Too many jobs are being run concurrently.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12810,6 +14605,13 @@ class AsyncGlueClient:
         Args:
             database_name: <p>The name of the database where the table resides.</p>
             table_name: <p>The name of the table.</p>
+
+        Raises:
+            aws_sdk_glue.errors.column_statistics_task_not_running_exception.ColumnStatisticsTaskNotRunningException: <p>An exception thrown when you try to stop a task run when there is no task running.</p>
+            aws_sdk_glue.errors.column_statistics_task_stopping_exception.ColumnStatisticsTaskStoppingException: <p>An exception thrown when you try to stop a task run.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12851,6 +14653,12 @@ class AsyncGlueClient:
         Args:
             database_name: <p>The name of the database where the table resides.</p>
             table_name: <p>The name of the table for which to stop a column statistic task run schedule.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12890,6 +14698,13 @@ class AsyncGlueClient:
 
         Args:
             name: <p>Name of the crawler to stop.</p>
+
+        Raises:
+            aws_sdk_glue.errors.crawler_not_running_exception.CrawlerNotRunningException: <p>The specified crawler is not running.</p>
+            aws_sdk_glue.errors.crawler_stopping_exception.CrawlerStoppingException: <p>The specified crawler is stopping.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12930,6 +14745,13 @@ class AsyncGlueClient:
 
         Args:
             crawler_name: <p>Name of the crawler whose schedule state to set.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.scheduler_not_running_exception.SchedulerNotRunningException: <p>The specified scheduler is not running.</p>
+            aws_sdk_glue.errors.scheduler_transitioning_exception.SchedulerTransitioningException: <p>The specified scheduler is transitioning.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -12972,6 +14794,14 @@ class AsyncGlueClient:
             catalog_id: <p>The ID of the Data Catalog where the table reside. If none is supplied, the account ID is used by default.</p>
             database_name: <p>The name of the database where the table resides.</p>
             table_name: <p>The name of the table to generate statistics.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.materialized_view_refresh_task_not_running_exception.MaterializedViewRefreshTaskNotRunningException: <p>Exception thrown when stopping a task that is not in running state.</p>
+            aws_sdk_glue.errors.materialized_view_refresh_task_stopping_exception.MaterializedViewRefreshTaskStoppingException: <p>Exception thrown when a task is already in stopping state.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13016,6 +14846,15 @@ class AsyncGlueClient:
         Args:
             id: <p>The ID of the session to be stopped.</p>
             request_origin: <p>The origin of the request.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.illegal_session_state_exception.IllegalSessionStateException: <p>The session is in an invalid state to perform a requested operation.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13056,6 +14895,14 @@ class AsyncGlueClient:
 
         Args:
             name: <p>The name of the trigger to stop.</p>
+
+        Raises:
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13096,6 +14943,14 @@ class AsyncGlueClient:
         Args:
             name: <p>The name of the workflow to stop.</p>
             run_id: <p>The ID of the workflow run to stop.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.illegal_workflow_state_exception.IllegalWorkflowStateException: <p>The workflow is in an invalid state to perform a requested operation.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13137,6 +14992,13 @@ class AsyncGlueClient:
         Args:
             resource_arn: <p>The ARN of the Glue resource to which to add the tags. For more information about Glue resource ARNs, see the <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id\">Glue ARN string pattern</a>.</p>
             tags_to_add: <p>Tags to add to this resource.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13184,6 +15046,18 @@ class AsyncGlueClient:
             connection_name: <p>Optional. The name of the connection to test. If only name is provided, the operation will get the connection and use that for testing.</p>
             catalog_id: <p>The catalog ID where the connection resides.</p>
             test_connection_input: <p>A structure that is used to specify testing a connection to a service.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.conflict_exception.ConflictException: <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled. </p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13229,6 +15103,13 @@ class AsyncGlueClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource from which to remove the tags.</p>
             tags_to_remove: <p>Tags to remove from this resource.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13274,6 +15155,15 @@ class AsyncGlueClient:
             name: <p>The name of the blueprint.</p>
             description: <p>A description of the blueprint.</p>
             blueprint_location: <p>Specifies a path in Amazon S3 where the blueprint is published.</p>
+
+        Raises:
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.illegal_blueprint_state_exception.IllegalBlueprintStateException: <p>The blueprint is in an invalid state to perform a requested operation.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13317,6 +15207,17 @@ class AsyncGlueClient:
         Args:
             catalog_id: <p>The ID of the catalog.</p>
             catalog_input: <p>A <code>CatalogInput</code> object specifying the new properties of an existing catalog.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13370,6 +15271,13 @@ class AsyncGlueClient:
             xml_classifier: <p>An <code>XMLClassifier</code> object with updated fields.</p>
             json_classifier: <p>A <code>JsonClassifier</code> object with updated fields.</p>
             csv_classifier: <p>A <code>CsvClassifier</code> object with updated fields.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.version_mismatch_exception.VersionMismatchException: <p>There was a version conflict.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13425,6 +15333,14 @@ class AsyncGlueClient:
             table_name: <p>The name of the partitions' table.</p>
             partition_values: <p>A list of partition values identifying the partition.</p>
             column_statistics_list: <p>A list of the column statistics.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13476,6 +15392,14 @@ class AsyncGlueClient:
             database_name: <p>The name of the catalog database where the partitions reside.</p>
             table_name: <p>The name of the partitions' table.</p>
             column_statistics_list: <p>A list of the column statistics.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13538,6 +15462,14 @@ class AsyncGlueClient:
             sample_size: <p>The percentage of data to sample.</p>
             catalog_id: <p>The ID of the Data Catalog in which the database resides.</p>
             security_configuration: <p>Name of the security configuration that is used to encrypt CloudWatch logs.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.version_mismatch_exception.VersionMismatchException: <p>There was a version conflict.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13595,6 +15527,13 @@ class AsyncGlueClient:
             catalog_id: <p>The ID of the Data Catalog in which the connection resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
             name: <p>The name of the connection definition to update.</p>
             connection_input: <p>A <code>ConnectionInput</code> object that redefines the connection in question.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13678,6 +15617,14 @@ class AsyncGlueClient:
             lake_formation_configuration: <p>Specifies Lake Formation configuration settings for the crawler.</p>
             configuration: <p>Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html\">Setting crawler configuration options</a>.</p>
             crawler_security_configuration: <p>The name of the <code>SecurityConfiguration</code> structure to be used by this crawler.</p>
+
+        Raises:
+            aws_sdk_glue.errors.crawler_running_exception.CrawlerRunningException: <p>The operation cannot be performed because the crawler is already running.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.version_mismatch_exception.VersionMismatchException: <p>There was a version conflict.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13744,6 +15691,14 @@ class AsyncGlueClient:
         Args:
             crawler_name: <p>The name of the crawler whose schedule to update.</p>
             schedule: <p>The updated <code>cron</code> expression used to specify the schedule (see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.scheduler_transitioning_exception.SchedulerTransitioningException: <p>The specified scheduler is transitioning.</p>
+            aws_sdk_glue.errors.version_mismatch_exception.VersionMismatchException: <p>There was a version conflict.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13790,6 +15745,18 @@ class AsyncGlueClient:
             catalog_id: <p>The ID of the Data Catalog in which the metadata database resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
             name: <p>The name of the database to update in the catalog. For Hive compatibility, this is folded to lowercase.</p>
             database_input: <p>A <code>DatabaseInput</code> object specifying the new definition of the metadata database in the catalog.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.federation_source_retryable_exception.FederationSourceRetryableException: <p>A federation source failed, but the operation may be retried.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13839,6 +15806,16 @@ class AsyncGlueClient:
             name: <p>The name of the data quality ruleset.</p>
             description: <p>A description of the ruleset.</p>
             ruleset: <p>A Data Quality Definition Language (DQDL) ruleset. For more information, see the Glue developer guide.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>The same unique identifier was associated with two different records.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13903,6 +15880,14 @@ class AsyncGlueClient:
             update_etl_libraries: <p> <code>True</code> if the list of custom libraries to be loaded in the development endpoint needs to be updated, or <code>False</code> if otherwise.</p>
             delete_arguments: <p>The list of argument keys to be deleted from the map of arguments used to configure the <code>DevEndpoint</code>.</p>
             add_arguments: <p>The map of arguments to add the map of arguments used to configure the <code>DevEndpoint</code>.</p> <p>Valid arguments are:</p> <ul> <li> <p> <code>\"--enable-glue-datacatalog\": \"\"</code> </p> </li> </ul> <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -13961,6 +15946,15 @@ class AsyncGlueClient:
         Args:
             scopes: <p>A list of Identity Center scopes that define the updated permissions and access levels for the Glue configuration.</p>
             user_background_sessions_enabled: <p>Specifies whether users can run background sessions when using Identity Center authentication with Glue services.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14012,6 +16006,16 @@ class AsyncGlueClient:
             resource_arn: <p>The connection ARN of the source, or the database ARN of the target.</p>
             source_processing_properties: <p>The resource properties associated with the integration source.</p>
             target_processing_properties: <p>The resource properties associated with the integration target.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14064,6 +16068,16 @@ class AsyncGlueClient:
             table_name: <p>The name of the table to be replicated.</p>
             source_table_config: <p>A structure for the source table configuration.</p>
             target_table_config: <p>A structure for the target table configuration.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource could not be found.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14109,6 +16123,14 @@ class AsyncGlueClient:
         Args:
             job_name: <p>The name of the job definition to update.</p>
             job_update: <p>Specifies the values with which to update the job definition. Unspecified configuration is removed or reset to default values.</p>
+
+        Raises:
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14172,6 +16194,16 @@ class AsyncGlueClient:
             commit_id: <p>A commit ID for a commit in the remote repository.</p>
             auth_strategy: <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
             auth_token: <p>The value of the authorization token.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14259,6 +16291,14 @@ class AsyncGlueClient:
             number_of_workers: <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
             timeout: <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
             max_retries: <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14327,6 +16367,14 @@ class AsyncGlueClient:
             table_name: <p>The name of the table in which the partition to be updated is located.</p>
             partition_value_list: <p>List of partition key values that define the partition to update.</p>
             partition_input: <p>The new partition object to update the partition to.</p> <p>The <code>Values</code> property can't be changed. If you want to change the partition key values for a partition, delete and recreate the partition.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14372,6 +16420,14 @@ class AsyncGlueClient:
         Args:
             registry_id: <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
             description: <p>A description of the registry. If description is not provided, this field will not be updated.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14423,6 +16479,14 @@ class AsyncGlueClient:
             schema_version_number: <p>Version number required for check pointing. One of <code>VersionNumber</code> or <code>Compatibility</code> has to be provided.</p>
             compatibility: <p>The new compatibility setting for the schema.</p>
             description: <p>The new description for the schema.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14491,6 +16555,16 @@ class AsyncGlueClient:
             commit_id: <p>A commit ID for a commit in the remote repository.</p>
             auth_strategy: <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
             auth_token: <p>The value of the authorization token.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14574,6 +16648,20 @@ class AsyncGlueClient:
             view_update_action: <p>The operation to be performed when updating the view.</p>
             force: <p>A flag that can be set to true to ignore matching storage descriptor and subobject matching requirements.</p>
             update_open_table_format_input: <p>Input parameters for updating open table format tables in GlueData Catalog, serving as a wrapper for format-specific update operations such as Apache Iceberg.</p>
+
+        Raises:
+            aws_sdk_glue.errors.already_exists_exception.AlreadyExistsException: <p>A resource to be created or added already exists.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.federation_source_exception.FederationSourceException: <p>A federation source failed.</p>
+            aws_sdk_glue.errors.federation_source_retryable_exception.FederationSourceRetryableException: <p>A federation source failed, but the operation may be retried.</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.resource_not_ready_exception.ResourceNotReadyException: <p>A resource was not ready for a transaction.</p>
+            aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException: <p>A resource numerical limit was exceeded.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14638,6 +16726,16 @@ class AsyncGlueClient:
             table_name: <p>The name of the table.</p>
             type: <p>The type of table optimizer.</p>
             table_optimizer_configuration: <p>A <code>TableOptimizerConfiguration</code> object representing the configuration of a table optimizer.</p>
+
+        Raises:
+            aws_sdk_glue.errors.access_denied_exception.AccessDeniedException: <p>Access to a resource was denied.</p>
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.throttling_exception.ThrottlingException: <p>The throttling threshhold was exceeded.</p>
+            aws_sdk_glue.errors.validation_exception.ValidationException: <p>A value could not be validated.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14682,6 +16780,14 @@ class AsyncGlueClient:
         Args:
             name: <p>The name of the trigger to update.</p>
             trigger_update: <p>The new values with which to update the trigger.</p>
+
+        Raises:
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14727,6 +16833,15 @@ class AsyncGlueClient:
             name: <p>The name of the usage profile.</p>
             description: <p>A description of the usage profile.</p>
             configuration: <p>A <code>ProfileConfiguration</code> object specifying the job and session values for the profile.</p>
+
+        Raises:
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The operation is not available in the region.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14776,6 +16891,14 @@ class AsyncGlueClient:
             database_name: <p>The name of the catalog database where the function to be updated is located.</p>
             function_name: <p>The name of the function.</p>
             function_input: <p>A <code>FunctionInput</code> object that redefines the function in the Data Catalog.</p>
+
+        Raises:
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException: <p>An encryption operation failed.</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -14830,6 +16953,14 @@ class AsyncGlueClient:
             description: <p>The description of the workflow.</p>
             default_run_properties: <p>A collection of properties to be used as part of each execution of the workflow.</p> <p>Run properties may be logged. Do not pass plaintext secrets as properties. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to use them within the workflow run.</p>
             max_concurrent_runs: <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
+
+        Raises:
+            aws_sdk_glue.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Two processes are trying to modify a resource simultaneously.</p>
+            aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException: <p>A specified entity does not exist</p>
+            aws_sdk_glue.errors.internal_service_exception.InternalServiceException: <p>An internal service error occurred.</p>
+            aws_sdk_glue.errors.invalid_input_exception.InvalidInputException: <p>The input provided was not valid.</p>
+            aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException: <p>The operation timed out.</p>
+            aws_sdk_glue.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

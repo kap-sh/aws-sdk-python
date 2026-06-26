@@ -197,6 +197,14 @@ class AsyncrepostspaceClient:
             accessor_ids: <p>The user or group identifiers to add the role to.</p>
             channel_role: <p>The channel role to add to the users or groups.</p>
 
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             BatchAddChannelRoleToAccessors
 
@@ -246,6 +254,14 @@ class AsyncrepostspaceClient:
             space_id: <p>The unique ID of the private re:Post.</p>
             accessor_ids: <p>The user or group accessor identifiers to add the role to.</p>
             role: <p>The role to add to the users or groups.</p>
+
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             BatchAddRole
@@ -298,6 +314,14 @@ class AsyncrepostspaceClient:
             accessor_ids: <p>The users or groups identifiers to remove the role from.</p>
             channel_role: <p>The channel role to remove from the users or groups.</p>
 
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             BatchRemoveChannelRoleFromAccessors
 
@@ -347,6 +371,14 @@ class AsyncrepostspaceClient:
             space_id: <p>The unique ID of the private re:Post.</p>
             accessor_ids: <p>The user or group accessor identifiers to remove the role from.</p>
             role: <p>The role to remove from the users or groups.</p>
+
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             BatchRemoveRole
@@ -398,6 +430,16 @@ class AsyncrepostspaceClient:
             space_id: <p>The unique ID of the private re:Post.</p>
             channel_name: <p>The name for the channel. This must be unique per private re:Post.</p>
             channel_description: <p>A description for the channel. This is used only to help you identify this channel.</p>
+
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_repostspace.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             CreateChannel
@@ -462,6 +504,16 @@ class AsyncrepostspaceClient:
             tags: <p>The list of tags associated with the private re:Post.</p>
             role_arn: <p>The IAM role that grants permissions to the private re:Post to convert unanswered questions into AWS support tickets.</p>
             supported_email_domains: <p/>
+
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_repostspace.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Request would cause a service quota to be exceeded.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -512,6 +564,14 @@ class AsyncrepostspaceClient:
 
         Args:
             space_id: <p>The unique ID of the private re:Post.</p>
+
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -550,6 +610,14 @@ class AsyncrepostspaceClient:
         Args:
             space_id: <p>The ID of the private re:Post to remove the admin from.</p>
             admin_id: <p>The ID of the admin to remove.</p>
+
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -589,6 +657,14 @@ class AsyncrepostspaceClient:
         Args:
             space_id: <p>The unique ID of the private re:Post.</p>
             channel_id: <p>The unique ID of the private re:Post channel.</p>
+
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             GetChannel
@@ -633,6 +709,14 @@ class AsyncrepostspaceClient:
 
         Args:
             space_id: <p>The ID of the private re:Post.</p>
+
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -677,6 +761,13 @@ class AsyncrepostspaceClient:
             space_id: <p>The unique ID of the private re:Post.</p>
             next_token: <p>The token for the next set of channel to return. You receive this token from a previous ListChannels operation.</p>
             max_results: <p>The maximum number of channels to include in the results.</p>
+
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ListChannels
@@ -753,6 +844,13 @@ class AsyncrepostspaceClient:
         Args:
             next_token: <p>The token for the next set of private re:Posts to return. You receive this token from a previous ListSpaces operation.</p>
             max_results: <p>The maximum number of private re:Posts to include in the results.</p>
+
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -817,6 +915,14 @@ class AsyncrepostspaceClient:
 
         Args:
             resource_arn: <p>The ARN of the resource that the tags are associated with.</p>
+
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -857,6 +963,14 @@ class AsyncrepostspaceClient:
         Args:
             space_id: <p>The ID of the private re:Post.</p>
             admin_id: <p>The ID of the administrator.</p>
+
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -900,6 +1014,14 @@ class AsyncrepostspaceClient:
             accessor_ids: <p>The array of identifiers for the users and groups.</p>
             title: <p>The title of the invite.</p>
             body: <p>The body of the invite.</p>
+
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -941,6 +1063,14 @@ class AsyncrepostspaceClient:
         Args:
             resource_arn: <p>The ARN of the resource that the tag is associated with.</p>
             tags: <p>The list of tag keys and values that must be associated with the resource. You can associate tag keys only, tags (key and values) only, or a combination of tag keys and tags.</p>
+
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -982,6 +1112,14 @@ class AsyncrepostspaceClient:
         Args:
             resource_arn: <p>The ARN of the resource.</p>
             tag_keys: <p>The key values of the tag.</p>
+
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1029,6 +1167,15 @@ class AsyncrepostspaceClient:
             channel_id: <p>The unique ID of the private re:Post channel.</p>
             channel_name: <p>The name for the channel. This must be unique per private re:Post.</p>
             channel_description: <p>A description for the channel. This is used only to help you identify this channel.</p>
+
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             UpdateChannel
@@ -1088,6 +1235,15 @@ class AsyncrepostspaceClient:
             tier: <p>The pricing tier of this private re:Post.</p>
             role_arn: <p>The IAM role that grants permissions to the private re:Post to convert unanswered questions into AWS support tickets.</p>
             supported_email_domains: <p/>
+
+        Raises:
+            aws_sdk_repostspace.errors.access_denied_exception.AccessDeniedException: <p>User does not have sufficient access to perform this action.</p>
+            aws_sdk_repostspace.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_repostspace.errors.internal_server_exception.InternalServerException: <p>Unexpected error during processing of request.</p>
+            aws_sdk_repostspace.errors.resource_not_found_exception.ResourceNotFoundException: <p>Request references a resource which does not exist.</p>
+            aws_sdk_repostspace.errors.throttling_exception.ThrottlingException: <p>Request was denied due to request throttling.</p>
+            aws_sdk_repostspace.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_repostspace.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

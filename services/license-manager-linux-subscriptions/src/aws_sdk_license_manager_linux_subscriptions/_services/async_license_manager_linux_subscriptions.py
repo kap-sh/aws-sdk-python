@@ -182,6 +182,13 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
 
         Args:
             subscription_provider_arn: <p>The Amazon Resource Name (ARN) of the subscription provider resource to deregister.</p>
+
+        Raises:
+            aws_sdk_license_manager_linux_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to find the requested Amazon Web Services resource.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -222,6 +229,13 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
 
         Args:
             subscription_provider_arn: <p>The Amazon Resource Name (ARN) of the BYOL registration resource to get details for.</p>
+
+        Raises:
+            aws_sdk_license_manager_linux_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to find the requested Amazon Web Services resource.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -257,7 +271,14 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
             AsyncLicenseManagerLinuxSubscriptionsClientConfig
         ] = None,
     ) -> "aws_sdk_license_manager_linux_subscriptions.types.get_service_settings_response.GetServiceSettingsResponse":
-        """<p>Lists the Linux subscriptions service settings for your account.</p>"""
+        """<p>Lists the Linux subscriptions service settings for your account.</p>
+
+        Raises:
+            aws_sdk_license_manager_linux_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_license_manager_linux_subscriptions.types.get_service_settings_request.GetServiceSettingsRequest]",
@@ -304,6 +325,12 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
             filters: <p>An array of structures that you can use to filter the results by your specified criteria. For example, you can specify <code>Region</code> in the <code>Name</code>, with the <code>contains</code> operator to list all subscriptions that match a partial string in the <code>Value</code>, such as <code>us-west</code>.</p> <p>For each filter, you can specify one of the following values for the <code>Name</code> key to streamline results:</p> <ul> <li> <p> <code>AccountID</code> </p> </li> <li> <p> <code>AmiID</code> </p> </li> <li> <p> <code>DualSubscription</code> </p> </li> <li> <p> <code>InstanceID</code> </p> </li> <li> <p> <code>InstanceType</code> </p> </li> <li> <p> <code>ProductCode</code> </p> </li> <li> <p> <code>Region</code> </p> </li> <li> <p> <code>Status</code> </p> </li> <li> <p> <code>UsageOperation</code> </p> </li> </ul> <p>For each filter, you can use one of the following <code>Operator</code> values to define the behavior of the filter:</p> <ul> <li> <p> <code>contains</code> </p> </li> <li> <p> <code>equals</code> </p> </li> <li> <p> <code>Notequal</code> </p> </li> </ul>
             max_results: <p>The maximum items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_license_manager_linux_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -386,6 +413,12 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
             filters: <p>An array of structures that you can use to filter the results to those that match one or more sets of key-value pairs that you specify. For example, you can filter by the name of <code>Subscription</code> with an optional operator to see subscriptions that match, partially match, or don't match a certain subscription's name.</p> <p>The valid names for this filter are:</p> <ul> <li> <p> <code>Subscription</code> </p> </li> </ul> <p>The valid Operators for this filter are:</p> <ul> <li> <p> <code>contains</code> </p> </li> <li> <p> <code>equals</code> </p> </li> <li> <p> <code>Notequal</code> </p> </li> </ul>
             max_results: <p>The maximum items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_license_manager_linux_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -468,6 +501,12 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
             subscription_provider_sources: <p>To filter your results, specify which subscription providers to return in the list.</p>
             max_results: <p>The maximum items to return in a request.</p>
             next_token: <p>A token to specify where to start paginating. This is the nextToken from a previously truncated response.</p>
+
+        Raises:
+            aws_sdk_license_manager_linux_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -542,6 +581,12 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for which to list metadata tags.</p>
+
+        Raises:
+            aws_sdk_license_manager_linux_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to find the requested Amazon Web Services resource.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -588,6 +633,12 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
             subscription_provider_source: <p>The supported Linux subscription provider to register.</p>
             secret_arn: <p>The Amazon Resource Name (ARN) of the secret where you've stored your subscription provider's access token. For RHEL subscriptions managed through the Red Hat Subscription Manager (RHSM), the secret contains your Red Hat Offline token.</p>
             tags: <p>The metadata tags to assign to your registered Linux subscription provider resource.</p>
+
+        Raises:
+            aws_sdk_license_manager_linux_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -633,6 +684,12 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon Web Services resource to which to add the specified metadata tags.</p>
             tags: <p>The metadata tags to assign to the Amazon Web Services resource. Tags are formatted as key value pairs.</p>
+
+        Raises:
+            aws_sdk_license_manager_linux_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to find the requested Amazon Web Services resource.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -676,6 +733,11 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon Web Services resource to remove the metadata tags from.</p>
             tag_keys: <p>A list of metadata tag keys to remove from the requested resource.</p>
+
+        Raises:
+            aws_sdk_license_manager_linux_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to find the requested Amazon Web Services resource.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -721,6 +783,12 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
             linux_subscriptions_discovery: <p>Describes if the discovery of Linux subscriptions is enabled.</p>
             linux_subscriptions_discovery_settings: <p>The settings defined for Linux subscriptions discovery. The settings include if Organizations integration has been enabled, and which Regions data will be aggregated from.</p>
             allow_update: <p>Describes if updates are allowed to the service settings for Linux subscriptions. If you allow updates, you can aggregate Linux subscription data in more than one home Region.</p>
+
+        Raises:
+            aws_sdk_license_manager_linux_subscriptions.errors.internal_server_exception.InternalServerException: <p>An exception occurred with the service.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.validation_exception.ValidationException: <p>The provided input is not valid. Try your request again.</p>
+            aws_sdk_license_manager_linux_subscriptions.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

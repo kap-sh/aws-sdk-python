@@ -228,6 +228,17 @@ class AsyncKafkaConnectClient:
             service_execution_role_arn: <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.</p>
             worker_configuration: <p>Specifies which worker configuration to use with the connector.</p>
             tags: <p>The tags you want to attach to the connector.</p>
+
+        Raises:
+            aws_sdk_kafkaconnect.errors.bad_request_exception.BadRequestException: <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.conflict_exception.ConflictException: <p>HTTP Status Code 409: Conflict. A resource with this name already exists. Retry your request with another name.</p>
+            aws_sdk_kafkaconnect.errors.forbidden_exception.ForbiddenException: <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+            aws_sdk_kafkaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.not_found_exception.NotFoundException: <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+            aws_sdk_kafkaconnect.errors.unauthorized_exception.UnauthorizedException: <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+            aws_sdk_kafkaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -298,6 +309,17 @@ class AsyncKafkaConnectClient:
             location: <p>Information about the location of a custom plugin.</p>
             name: <p>The name of the custom plugin.</p>
             tags: <p>The tags you want to attach to the custom plugin.</p>
+
+        Raises:
+            aws_sdk_kafkaconnect.errors.bad_request_exception.BadRequestException: <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.conflict_exception.ConflictException: <p>HTTP Status Code 409: Conflict. A resource with this name already exists. Retry your request with another name.</p>
+            aws_sdk_kafkaconnect.errors.forbidden_exception.ForbiddenException: <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+            aws_sdk_kafkaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.not_found_exception.NotFoundException: <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+            aws_sdk_kafkaconnect.errors.unauthorized_exception.UnauthorizedException: <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+            aws_sdk_kafkaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -350,6 +372,17 @@ class AsyncKafkaConnectClient:
             name: <p>The name of the worker configuration.</p>
             properties_file_content: <p>Base64 encoded contents of connect-distributed.properties file.</p>
             tags: <p>The tags you want to attach to the worker configuration.</p>
+
+        Raises:
+            aws_sdk_kafkaconnect.errors.bad_request_exception.BadRequestException: <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.conflict_exception.ConflictException: <p>HTTP Status Code 409: Conflict. A resource with this name already exists. Retry your request with another name.</p>
+            aws_sdk_kafkaconnect.errors.forbidden_exception.ForbiddenException: <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+            aws_sdk_kafkaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.not_found_exception.NotFoundException: <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+            aws_sdk_kafkaconnect.errors.unauthorized_exception.UnauthorizedException: <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+            aws_sdk_kafkaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -397,6 +430,16 @@ class AsyncKafkaConnectClient:
         Args:
             connector_arn: <p>The Amazon Resource Name (ARN) of the connector that you want to delete.</p>
             current_version: <p>The current version of the connector that you want to delete.</p>
+
+        Raises:
+            aws_sdk_kafkaconnect.errors.bad_request_exception.BadRequestException: <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.forbidden_exception.ForbiddenException: <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+            aws_sdk_kafkaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.not_found_exception.NotFoundException: <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+            aws_sdk_kafkaconnect.errors.unauthorized_exception.UnauthorizedException: <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+            aws_sdk_kafkaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -437,6 +480,16 @@ class AsyncKafkaConnectClient:
 
         Args:
             custom_plugin_arn: <p>The Amazon Resource Name (ARN) of the custom plugin that you want to delete.</p>
+
+        Raises:
+            aws_sdk_kafkaconnect.errors.bad_request_exception.BadRequestException: <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.forbidden_exception.ForbiddenException: <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+            aws_sdk_kafkaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.not_found_exception.NotFoundException: <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+            aws_sdk_kafkaconnect.errors.unauthorized_exception.UnauthorizedException: <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+            aws_sdk_kafkaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -475,6 +528,16 @@ class AsyncKafkaConnectClient:
 
         Args:
             worker_configuration_arn: <p>The Amazon Resource Name (ARN) of the worker configuration that you want to delete.</p>
+
+        Raises:
+            aws_sdk_kafkaconnect.errors.bad_request_exception.BadRequestException: <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.forbidden_exception.ForbiddenException: <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+            aws_sdk_kafkaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.not_found_exception.NotFoundException: <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+            aws_sdk_kafkaconnect.errors.unauthorized_exception.UnauthorizedException: <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+            aws_sdk_kafkaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -513,6 +576,16 @@ class AsyncKafkaConnectClient:
 
         Args:
             connector_arn: <p>The Amazon Resource Name (ARN) of the connector that you want to describe.</p>
+
+        Raises:
+            aws_sdk_kafkaconnect.errors.bad_request_exception.BadRequestException: <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.forbidden_exception.ForbiddenException: <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+            aws_sdk_kafkaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.not_found_exception.NotFoundException: <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+            aws_sdk_kafkaconnect.errors.unauthorized_exception.UnauthorizedException: <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+            aws_sdk_kafkaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -551,6 +624,16 @@ class AsyncKafkaConnectClient:
 
         Args:
             connector_operation_arn: <p>ARN of the connector operation to be described.</p>
+
+        Raises:
+            aws_sdk_kafkaconnect.errors.bad_request_exception.BadRequestException: <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.forbidden_exception.ForbiddenException: <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+            aws_sdk_kafkaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.not_found_exception.NotFoundException: <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+            aws_sdk_kafkaconnect.errors.unauthorized_exception.UnauthorizedException: <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+            aws_sdk_kafkaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -589,6 +672,16 @@ class AsyncKafkaConnectClient:
 
         Args:
             custom_plugin_arn: <p>Returns information about a custom plugin.</p>
+
+        Raises:
+            aws_sdk_kafkaconnect.errors.bad_request_exception.BadRequestException: <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.forbidden_exception.ForbiddenException: <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+            aws_sdk_kafkaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.not_found_exception.NotFoundException: <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+            aws_sdk_kafkaconnect.errors.unauthorized_exception.UnauthorizedException: <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+            aws_sdk_kafkaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -627,6 +720,16 @@ class AsyncKafkaConnectClient:
 
         Args:
             worker_configuration_arn: <p>The Amazon Resource Name (ARN) of the worker configuration that you want to get information about.</p>
+
+        Raises:
+            aws_sdk_kafkaconnect.errors.bad_request_exception.BadRequestException: <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.forbidden_exception.ForbiddenException: <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+            aws_sdk_kafkaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.not_found_exception.NotFoundException: <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+            aws_sdk_kafkaconnect.errors.unauthorized_exception.UnauthorizedException: <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+            aws_sdk_kafkaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -671,6 +774,16 @@ class AsyncKafkaConnectClient:
             connector_arn: <p>The Amazon Resource Name (ARN) of the connector for which to list operations.</p>
             max_results: <p>Maximum number of connector operations to fetch in one get request.</p>
             next_token: <p>If the response is truncated, it includes a NextToken. Send this NextToken in a subsequent request to continue listing from where it left off.</p>
+
+        Raises:
+            aws_sdk_kafkaconnect.errors.bad_request_exception.BadRequestException: <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.forbidden_exception.ForbiddenException: <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+            aws_sdk_kafkaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.not_found_exception.NotFoundException: <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+            aws_sdk_kafkaconnect.errors.unauthorized_exception.UnauthorizedException: <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+            aws_sdk_kafkaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -746,6 +859,16 @@ class AsyncKafkaConnectClient:
             connector_name_prefix: <p>The name prefix that you want to use to search for and list connectors.</p>
             max_results: <p>The maximum number of connectors to list in one response.</p>
             next_token: <p>If the response of a ListConnectors operation is truncated, it will include a NextToken. Send this NextToken in a subsequent request to continue listing from where the previous operation left off.</p>
+
+        Raises:
+            aws_sdk_kafkaconnect.errors.bad_request_exception.BadRequestException: <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.forbidden_exception.ForbiddenException: <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+            aws_sdk_kafkaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.not_found_exception.NotFoundException: <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+            aws_sdk_kafkaconnect.errors.unauthorized_exception.UnauthorizedException: <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+            aws_sdk_kafkaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -822,6 +945,16 @@ class AsyncKafkaConnectClient:
             max_results: <p>The maximum number of custom plugins to list in one response.</p>
             next_token: <p>If the response of a ListCustomPlugins operation is truncated, it will include a NextToken. Send this NextToken in a subsequent request to continue listing from where the previous operation left off.</p>
             name_prefix: <p>Lists custom plugin names that start with the specified text string.</p>
+
+        Raises:
+            aws_sdk_kafkaconnect.errors.bad_request_exception.BadRequestException: <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.forbidden_exception.ForbiddenException: <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+            aws_sdk_kafkaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.not_found_exception.NotFoundException: <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+            aws_sdk_kafkaconnect.errors.unauthorized_exception.UnauthorizedException: <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+            aws_sdk_kafkaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -890,6 +1023,16 @@ class AsyncKafkaConnectClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource for which you want to list all attached tags.</p>
+
+        Raises:
+            aws_sdk_kafkaconnect.errors.bad_request_exception.BadRequestException: <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.forbidden_exception.ForbiddenException: <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+            aws_sdk_kafkaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.not_found_exception.NotFoundException: <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+            aws_sdk_kafkaconnect.errors.unauthorized_exception.UnauthorizedException: <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+            aws_sdk_kafkaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -934,6 +1077,16 @@ class AsyncKafkaConnectClient:
             max_results: <p>The maximum number of worker configurations to list in one response.</p>
             next_token: <p>If the response of a ListWorkerConfigurations operation is truncated, it will include a NextToken. Send this NextToken in a subsequent request to continue listing from where the previous operation left off.</p>
             name_prefix: <p>Lists worker configuration names that start with the specified text string.</p>
+
+        Raises:
+            aws_sdk_kafkaconnect.errors.bad_request_exception.BadRequestException: <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.forbidden_exception.ForbiddenException: <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+            aws_sdk_kafkaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.not_found_exception.NotFoundException: <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+            aws_sdk_kafkaconnect.errors.unauthorized_exception.UnauthorizedException: <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+            aws_sdk_kafkaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1004,6 +1157,17 @@ class AsyncKafkaConnectClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to which you want to attach tags.</p>
             tags: <p>The tags that you want to attach to the resource.</p>
+
+        Raises:
+            aws_sdk_kafkaconnect.errors.bad_request_exception.BadRequestException: <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.conflict_exception.ConflictException: <p>HTTP Status Code 409: Conflict. A resource with this name already exists. Retry your request with another name.</p>
+            aws_sdk_kafkaconnect.errors.forbidden_exception.ForbiddenException: <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+            aws_sdk_kafkaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.not_found_exception.NotFoundException: <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+            aws_sdk_kafkaconnect.errors.unauthorized_exception.UnauthorizedException: <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+            aws_sdk_kafkaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1045,6 +1209,16 @@ class AsyncKafkaConnectClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource from which you want to remove tags.</p>
             tag_keys: <p>The keys of the tags that you want to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_kafkaconnect.errors.bad_request_exception.BadRequestException: <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.forbidden_exception.ForbiddenException: <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+            aws_sdk_kafkaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.not_found_exception.NotFoundException: <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+            aws_sdk_kafkaconnect.errors.unauthorized_exception.UnauthorizedException: <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+            aws_sdk_kafkaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1094,6 +1268,16 @@ class AsyncKafkaConnectClient:
             connector_configuration: <p>A map of keys to values that represent the configuration for the connector.</p>
             connector_arn: <p>The Amazon Resource Name (ARN) of the connector that you want to update.</p>
             current_version: <p>The current version of the connector that you want to update.</p>
+
+        Raises:
+            aws_sdk_kafkaconnect.errors.bad_request_exception.BadRequestException: <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.forbidden_exception.ForbiddenException: <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+            aws_sdk_kafkaconnect.errors.internal_server_error_exception.InternalServerErrorException: <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.not_found_exception.NotFoundException: <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+            aws_sdk_kafkaconnect.errors.service_unavailable_exception.ServiceUnavailableException: <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+            aws_sdk_kafkaconnect.errors.too_many_requests_exception.TooManyRequestsException: <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+            aws_sdk_kafkaconnect.errors.unauthorized_exception.UnauthorizedException: <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+            aws_sdk_kafkaconnect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

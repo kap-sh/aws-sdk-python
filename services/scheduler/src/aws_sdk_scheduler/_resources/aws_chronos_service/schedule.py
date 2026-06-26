@@ -97,6 +97,15 @@ class Schedule:
             flexible_time_window: <p>Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.</p>
             client_token: <p> Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency. </p>
             action_after_completion: <p>Specifies the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>
+
+        Raises:
+            aws_sdk_scheduler.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            aws_sdk_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_scheduler.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -159,6 +168,13 @@ class Schedule:
         Args:
             name: <p>The name of the schedule to retrieve.</p>
             group_name: <p>The name of the schedule group associated with this schedule. If you omit this, EventBridge Scheduler assumes that the schedule is associated with the default group.</p>
+
+        Raises:
+            aws_sdk_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            aws_sdk_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -230,6 +246,14 @@ class Schedule:
             flexible_time_window: <p>Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.</p>
             client_token: <p> Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency. </p>
             action_after_completion: <p>Specifies the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>
+
+        Raises:
+            aws_sdk_scheduler.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            aws_sdk_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -296,6 +320,14 @@ class Schedule:
             name: <p>The name of the schedule to delete.</p>
             group_name: <p>The name of the schedule group associated with this schedule. If you omit this, the default schedule group is used.</p>
             client_token: <p> Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency. </p>
+
+        Raises:
+            aws_sdk_scheduler.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            aws_sdk_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -347,6 +379,13 @@ class Schedule:
             state: <p>If specified, only lists the schedules whose current state matches the given filter.</p>
             next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
             max_results: <p>If specified, limits the number of results returned by this operation. The operation also returns a <code>NextToken</code> which you can use in a subsequent operation to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            aws_sdk_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -430,6 +469,15 @@ class AsyncSchedule:
             flexible_time_window: <p>Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.</p>
             client_token: <p> Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency. </p>
             action_after_completion: <p>Specifies the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>
+
+        Raises:
+            aws_sdk_scheduler.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            aws_sdk_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_scheduler.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds a service quota.</p>
+            aws_sdk_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -493,6 +541,13 @@ class AsyncSchedule:
         Args:
             name: <p>The name of the schedule to retrieve.</p>
             group_name: <p>The name of the schedule group associated with this schedule. If you omit this, EventBridge Scheduler assumes that the schedule is associated with the default group.</p>
+
+        Raises:
+            aws_sdk_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            aws_sdk_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -565,6 +620,14 @@ class AsyncSchedule:
             flexible_time_window: <p>Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.</p>
             client_token: <p> Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency. </p>
             action_after_completion: <p>Specifies the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>
+
+        Raises:
+            aws_sdk_scheduler.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            aws_sdk_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -632,6 +695,14 @@ class AsyncSchedule:
             name: <p>The name of the schedule to delete.</p>
             group_name: <p>The name of the schedule group associated with this schedule. If you omit this, the default schedule group is used.</p>
             client_token: <p> Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency. </p>
+
+        Raises:
+            aws_sdk_scheduler.errors.conflict_exception.ConflictException: <p>Updating or deleting the resource can cause an inconsistent state.</p>
+            aws_sdk_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            aws_sdk_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -684,6 +755,13 @@ class AsyncSchedule:
             state: <p>If specified, only lists the schedules whose current state matches the given filter.</p>
             next_token: <p>The token returned by a previous call to retrieve the next set of results.</p>
             max_results: <p>If specified, limits the number of results returned by this operation. The operation also returns a <code>NextToken</code> which you can use in a subsequent operation to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_scheduler.errors.internal_server_exception.InternalServerException: <p>Unexpected error encountered while processing the request.</p>
+            aws_sdk_scheduler.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource which does not exist.</p>
+            aws_sdk_scheduler.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_scheduler.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_scheduler.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

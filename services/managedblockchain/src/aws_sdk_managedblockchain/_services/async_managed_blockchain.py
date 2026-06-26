@@ -229,6 +229,16 @@ class AsyncManagedBlockchainClient:
             accessor_type: <p>The type of accessor.</p> <note> <p>Currently, accessor type is restricted to <code>BILLING_TOKEN</code>.</p> </note>
             tags: <p>Tags to assign to the Accessor.</p> <p> Each tag consists of a key and an optional value. You can specify multiple key-value pairs in a single request with an overall maximum of 50 tags allowed per resource.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
             network_type: <p>The blockchain network that the <code>Accessor</code> token is created for.</p> <note> <ul> <li> <p>Use the actual <code>networkType</code> value for the blockchain network that you are creating the <code>Accessor</code> token for.</p> </li> <li> <p>With the shut down of the <i>Ethereum Goerli</i> and <i>Polygon Mumbai Testnet</i> networks the following <code>networkType</code> values are no longer available for selection and use.</p> <ul> <li> <p> <code>ETHEREUM_MAINNET_AND_GOERLI</code> </p> </li> <li> <p> <code>ETHEREUM_GOERLI</code> </p> </li> <li> <p> <code>POLYGON_MUMBAI</code> </p> </li> </ul> <p>However, your existing <code>Accessor</code> tokens with these <code>networkType</code> values will remain unchanged.</p> </li> </ul> </note>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>A resource request is issued for a resource that already exists.</p>
+            aws_sdk_managedblockchain.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The maximum number of resources of that type already exist. Ensure the resources requested are within the boundaries of the service edition and your account limits.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.too_many_tags_exception.TooManyTagsException: <p></p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -278,6 +288,18 @@ class AsyncManagedBlockchainClient:
             invitation_id: <p>The unique identifier of the invitation that is sent to the member to join the network.</p>
             network_id: <p>The unique identifier of the network in which the member is created.</p>
             member_configuration: <p>Member configuration parameters.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>A resource request is issued for a resource that already exists.</p>
+            aws_sdk_managedblockchain.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The maximum number of resources of that type already exist. Ensure the resources requested are within the boundaries of the service edition and your account limits.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The requested resource exists but isn't in a status that can complete the operation.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.too_many_tags_exception.TooManyTagsException: <p></p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -341,6 +363,16 @@ class AsyncManagedBlockchainClient:
             voting_policy: <p> The voting rules used by the network to determine if a proposal is approved. </p>
             member_configuration: <p>Configuration properties for the first member within the network.</p>
             tags: <p>Tags to assign to the network.</p> <p> Each tag consists of a key and an optional value. You can specify multiple key-value pairs in a single request with an overall maximum of 50 tags allowed per resource.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>A resource request is issued for a resource that already exists.</p>
+            aws_sdk_managedblockchain.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The maximum number of resources of that type already exist. Ensure the resources requested are within the boundaries of the service edition and your account limits.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.too_many_tags_exception.TooManyTagsException: <p></p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -402,6 +434,18 @@ class AsyncManagedBlockchainClient:
             member_id: <p>The unique identifier of the member that owns this node.</p> <p>Applies only to Hyperledger Fabric.</p>
             node_configuration: <p>The properties of a node configuration.</p>
             tags: <p>Tags to assign to the node.</p> <p> Each tag consists of a key and an optional value. You can specify multiple key-value pairs in a single request with an overall maximum of 50 tags allowed per resource.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>A resource request is issued for a resource that already exists.</p>
+            aws_sdk_managedblockchain.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The maximum number of resources of that type already exist. Ensure the resources requested are within the boundaries of the service edition and your account limits.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The requested resource exists but isn't in a status that can complete the operation.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.too_many_tags_exception.TooManyTagsException: <p></p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -460,6 +504,16 @@ class AsyncManagedBlockchainClient:
             actions: <p>The type of actions proposed, such as inviting a member or removing a member. The types of <code>Actions</code> in a proposal are mutually exclusive. For example, a proposal with <code>Invitations</code> actions cannot also contain <code>Removals</code> actions.</p>
             description: <p>A description for the proposal that is visible to voting members, for example, \"Proposal to add Example Corp. as member.\"</p>
             tags: <p>Tags to assign to the proposal.</p> <p> Each tag consists of a key and an optional value. You can specify multiple key-value pairs in a single request with an overall maximum of 50 tags allowed per resource.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The requested resource exists but isn't in a status that can complete the operation.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.too_many_tags_exception.TooManyTagsException: <p></p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -505,6 +559,14 @@ class AsyncManagedBlockchainClient:
 
         Args:
             accessor_id: <p>The unique identifier of the accessor.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -545,6 +607,15 @@ class AsyncManagedBlockchainClient:
         Args:
             network_id: <p>The unique identifier of the network from which the member is removed.</p>
             member_id: <p>The unique identifier of the member to remove.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The requested resource exists but isn't in a status that can complete the operation.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -590,6 +661,15 @@ class AsyncManagedBlockchainClient:
             network_id: <p>The unique identifier of the network that the node is on.</p> <p>Ethereum public networks have the following <code>NetworkId</code>s:</p> <ul> <li> <p> <code>n-ethereum-mainnet</code> </p> </li> </ul>
             member_id: <p>The unique identifier of the member that owns this node.</p> <p>Applies only to Hyperledger Fabric and is required for Hyperledger Fabric.</p>
             node_id: <p>The unique identifier of the node.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The requested resource exists but isn't in a status that can complete the operation.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -631,6 +711,14 @@ class AsyncManagedBlockchainClient:
 
         Args:
             accessor_id: <p>The unique identifier of the accessor.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -671,6 +759,14 @@ class AsyncManagedBlockchainClient:
         Args:
             network_id: <p>The unique identifier of the network to which the member belongs.</p>
             member_id: <p>The unique identifier of the member.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -710,6 +806,14 @@ class AsyncManagedBlockchainClient:
 
         Args:
             network_id: <p>The unique identifier of the network to get information about.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -754,6 +858,14 @@ class AsyncManagedBlockchainClient:
             network_id: <p>The unique identifier of the network that the node is on.</p>
             member_id: <p>The unique identifier of the member that owns the node.</p> <p>Applies only to Hyperledger Fabric and is required for Hyperledger Fabric.</p>
             node_id: <p>The unique identifier of the node.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -797,6 +909,14 @@ class AsyncManagedBlockchainClient:
         Args:
             network_id: <p>The unique identifier of the network for which the proposal is made.</p>
             proposal_id: <p>The unique identifier of the proposal.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -846,6 +966,13 @@ class AsyncManagedBlockchainClient:
             max_results: <p> The maximum number of accessors to list.</p>
             next_token: <p> The pagination token that indicates the next set of results to retrieve. </p>
             network_type: <p>The blockchain network that the <code>Accessor</code> token is created for.</p> <note> <p>Use the value <code>ETHEREUM_MAINNET_AND_GOERLI</code> for all existing <code>Accessors</code> tokens that were created before the <code>networkType</code> property was introduced.</p> </note>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -926,6 +1053,15 @@ class AsyncManagedBlockchainClient:
         Args:
             max_results: <p>The maximum number of invitations to return.</p>
             next_token: <p>The pagination token that indicates the next set of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_limit_exceeded_exception.ResourceLimitExceededException: <p>The maximum number of resources of that type already exist. Ensure the resources requested are within the boundaries of the service edition and your account limits.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -983,6 +1119,13 @@ class AsyncManagedBlockchainClient:
             is_owned: <p>An optional Boolean value. If provided, the request is limited either to members that the current Amazon Web Services account owns (<code>true</code>) or that other Amazon Web Services accountsn own (<code>false</code>). If omitted, all members are listed.</p>
             max_results: <p>The maximum number of members to return in the request.</p>
             next_token: <p>The pagination token that indicates the next set of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1047,6 +1190,13 @@ class AsyncManagedBlockchainClient:
             status: <p>An optional status specifier. If provided, only networks currently in this status are listed.</p> <p>Applies only to Hyperledger Fabric.</p>
             max_results: <p>The maximum number of networks to list.</p>
             next_token: <p>The pagination token that indicates the next set of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1110,6 +1260,13 @@ class AsyncManagedBlockchainClient:
             status: <p>An optional status specifier. If provided, only nodes currently in this status are listed.</p>
             max_results: <p>The maximum number of nodes to list.</p>
             next_token: <p>The pagination token that indicates the next set of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1164,6 +1321,14 @@ class AsyncManagedBlockchainClient:
             network_id: <p> The unique identifier of the network. </p>
             max_results: <p> The maximum number of proposals to return. </p>
             next_token: <p> The pagination token that indicates the next set of results to retrieve. </p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1216,6 +1381,13 @@ class AsyncManagedBlockchainClient:
             proposal_id: <p> The unique identifier of the proposal. </p>
             max_results: <p> The maximum number of votes to return. </p>
             next_token: <p> The pagination token that indicates the next set of results to retrieve. </p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1259,6 +1431,13 @@ class AsyncManagedBlockchainClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The requested resource exists but isn't in a status that can complete the operation.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1297,6 +1476,15 @@ class AsyncManagedBlockchainClient:
 
         Args:
             invitation_id: <p>The unique identifier of the invitation to reject.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.illegal_action_exception.IllegalActionException: <p></p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1337,6 +1525,14 @@ class AsyncManagedBlockchainClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
             tags: <p>The tags to assign to the specified resource. Tag values can be empty, for example, <code>\"MyTagKey\" : \"\"</code>. You can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The requested resource exists but isn't in a status that can complete the operation.</p>
+            aws_sdk_managedblockchain.errors.too_many_tags_exception.TooManyTagsException: <p></p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1380,6 +1576,13 @@ class AsyncManagedBlockchainClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
             tag_keys: <p>The tag keys.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The requested resource exists but isn't in a status that can complete the operation.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1425,6 +1628,14 @@ class AsyncManagedBlockchainClient:
             network_id: <p>The unique identifier of the Managed Blockchain network to which the member belongs.</p>
             member_id: <p>The unique identifier of the member.</p>
             log_publishing_configuration: <p>Configuration properties for publishing to Amazon CloudWatch Logs.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1476,6 +1687,14 @@ class AsyncManagedBlockchainClient:
             member_id: <p>The unique identifier of the member that owns the node.</p> <p>Applies only to Hyperledger Fabric.</p>
             node_id: <p>The unique identifier of the node.</p>
             log_publishing_configuration: <p>Configuration properties for publishing to Amazon CloudWatch Logs.</p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1525,6 +1744,15 @@ class AsyncManagedBlockchainClient:
             proposal_id: <p> The unique identifier of the proposal. </p>
             voter_member_id: <p>The unique identifier of the member casting the vote. </p>
             vote: <p> The value of the vote. </p>
+
+        Raises:
+            aws_sdk_managedblockchain.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this action.</p>
+            aws_sdk_managedblockchain.errors.illegal_action_exception.IllegalActionException: <p></p>
+            aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException: <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+            aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException: <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+            aws_sdk_managedblockchain.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.</p>
+            aws_sdk_managedblockchain.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

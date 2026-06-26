@@ -209,6 +209,13 @@ class AsyncAmplifyBackendClient:
             app_id: <p>The app ID.</p>
             backend_environment_name: <p>The name of the backend environment.</p>
             target_environment_name: <p>The name of the destination backend environment to be created.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -261,6 +268,13 @@ class AsyncAmplifyBackendClient:
             backend_environment_name: <p>The name of the backend environment.</p>
             resource_config: <p>The resource configuration for creating a backend.</p>
             resource_name: <p>The name of the resource.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -311,6 +325,13 @@ class AsyncAmplifyBackendClient:
             backend_environment_name: <p>The name of the backend environment.</p>
             resource_config: <p>The resource configuration for this request.</p>
             resource_name: <p>The name of this resource.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -358,6 +379,13 @@ class AsyncAmplifyBackendClient:
             backend_environment_name: <p>The name of the backend environment.</p>
             resource_config: <p>The resource configuration for this request object.</p>
             resource_name: <p>The name of this resource.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -403,6 +431,13 @@ class AsyncAmplifyBackendClient:
         Args:
             app_id: <p>The app ID.</p>
             backend_manager_app_id: <p>The app ID for the backend manager.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -449,6 +484,13 @@ class AsyncAmplifyBackendClient:
             backend_environment_name: <p>The name of the backend environment.</p>
             resource_config: <p>The resource configuration for creating backend storage.</p>
             resource_name: <p>The name of the storage resource.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -490,6 +532,13 @@ class AsyncAmplifyBackendClient:
 
         Args:
             app_id: <p>The app ID.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -530,6 +579,13 @@ class AsyncAmplifyBackendClient:
         Args:
             app_id: <p>The app ID.</p>
             backend_environment_name: <p>The name of the backend environment.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -577,6 +633,13 @@ class AsyncAmplifyBackendClient:
             backend_environment_name: <p>The name of the backend environment.</p>
             resource_config: <p>Defines the resource configuration for the data model in your Amplify project.</p>
             resource_name: <p>The name of this resource.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -623,6 +686,13 @@ class AsyncAmplifyBackendClient:
             app_id: <p>The app ID.</p>
             backend_environment_name: <p>The name of the backend environment.</p>
             resource_name: <p>The name of this resource.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -669,6 +739,13 @@ class AsyncAmplifyBackendClient:
             backend_environment_name: <p>The name of the backend environment.</p>
             resource_name: <p>The name of the storage resource.</p>
             service_name: <p>The name of the storage service.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -712,6 +789,13 @@ class AsyncAmplifyBackendClient:
         Args:
             app_id: <p>The app ID.</p>
             session_id: <p>The session ID.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -755,6 +839,13 @@ class AsyncAmplifyBackendClient:
             app_id: <p>The app ID.</p>
             backend_environment_name: <p>The name of the backend environment.</p>
             resource_name: <p>The name of this resource.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -799,6 +890,13 @@ class AsyncAmplifyBackendClient:
         Args:
             app_id: <p>The app ID.</p>
             backend_environment_name: <p>The name of the backend environment.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -847,6 +945,13 @@ class AsyncAmplifyBackendClient:
             backend_environment_name: <p>The name of the backend environment.</p>
             resource_config: <p>Defines the resource configuration for the data model in your Amplify project.</p>
             resource_name: <p>The name of this resource.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -893,6 +998,13 @@ class AsyncAmplifyBackendClient:
             app_id: <p>The app ID.</p>
             backend_environment_name: <p>The name of the backend environment.</p>
             resource_name: <p>The name of this resource.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -939,6 +1051,13 @@ class AsyncAmplifyBackendClient:
             app_id: <p>The app ID.</p>
             backend_environment_name: <p>The name of the backend environment.</p>
             resource_name: <p>The name of this resource.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -983,6 +1102,13 @@ class AsyncAmplifyBackendClient:
             app_id: <p>The app ID.</p>
             backend_environment_name: <p>The name of the backend environment.</p>
             job_id: <p>The ID for the job.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1027,6 +1153,13 @@ class AsyncAmplifyBackendClient:
             app_id: <p>The app ID.</p>
             backend_environment_name: <p>The name of the backend environment.</p>
             resource_name: <p>The name of the storage resource.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1069,6 +1202,13 @@ class AsyncAmplifyBackendClient:
         Args:
             app_id: <p>The app ID.</p>
             session_id: <p>The session ID.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1120,6 +1260,13 @@ class AsyncAmplifyBackendClient:
             native_client_id: <p>The ID of the Amazon Cognito native client.</p>
             user_pool_id: <p>The ID of the Amazon Cognito user pool.</p>
             web_client_id: <p>The ID of the Amazon Cognito web client.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1170,6 +1317,13 @@ class AsyncAmplifyBackendClient:
             backend_environment_name: <p>The name of the backend environment.</p>
             bucket_name: <p>The name of the S3 bucket.</p>
             service_name: <p>The name of the storage service.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1226,6 +1380,13 @@ class AsyncAmplifyBackendClient:
             next_token: <p>The token for the next set of results.</p>
             operation: <p>Filters the list of response objects to include only those with the specified operation name.</p>
             status: <p>Filters the list of response objects to include only those with the specified status.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1275,6 +1436,13 @@ class AsyncAmplifyBackendClient:
 
         Args:
             next_token: <p>Reserved for future use.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1318,6 +1486,13 @@ class AsyncAmplifyBackendClient:
         Args:
             app_id: <p>The app ID.</p>
             clean_amplify_app: <p>Cleans up the Amplify Console app if this value is set to true.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1358,6 +1533,13 @@ class AsyncAmplifyBackendClient:
 
         Args:
             app_id: <p>The app ID.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1404,6 +1586,13 @@ class AsyncAmplifyBackendClient:
             backend_environment_name: <p>The name of the backend environment.</p>
             resource_config: <p>Defines the resource configuration for the data model in your Amplify project.</p>
             resource_name: <p>The name of this resource.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1452,6 +1641,13 @@ class AsyncAmplifyBackendClient:
             backend_environment_name: <p>The name of the backend environment.</p>
             resource_config: <p>The resource configuration for this request object.</p>
             resource_name: <p>The name of this resource.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1497,6 +1693,13 @@ class AsyncAmplifyBackendClient:
         Args:
             app_id: <p>The app ID.</p>
             login_auth_config: <p>Describes the Amazon Cognito configuration for Admin UI access.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1545,6 +1748,13 @@ class AsyncAmplifyBackendClient:
             job_id: <p>The ID for the job.</p>
             operation: <p>Filters the list of response objects to include only those with the specified operation name.</p>
             status: <p>Filters the list of response objects to include only those with the specified status.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1595,6 +1805,13 @@ class AsyncAmplifyBackendClient:
             backend_environment_name: <p>The name of the backend environment.</p>
             resource_config: <p>The resource configuration for updating backend storage.</p>
             resource_name: <p>The name of the storage resource.</p>
+
+        Raises:
+            aws_sdk_amplifybackend.errors.bad_request_exception.BadRequestException: <p>An error returned if a request is not formed properly.</p>
+            aws_sdk_amplifybackend.errors.gateway_timeout_exception.GatewayTimeoutException: <p>An error returned if there's a temporary issue with the service.</p>
+            aws_sdk_amplifybackend.errors.not_found_exception.NotFoundException: <p>An error returned when a specific resource type is not found.</p>
+            aws_sdk_amplifybackend.errors.too_many_requests_exception.TooManyRequestsException: <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+            aws_sdk_amplifybackend.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -77,6 +77,12 @@ class GatewayResource:
             gateway_display_name: <p>The display name of the created gateway.</p>
             gateway_type: <p>The type of created gateway.</p>
             tags: <p>A list of up to 50 tags to assign to the gateway. Each tag is a key-value pair.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -118,6 +124,13 @@ class GatewayResource:
 
         Args:
             gateway_arn: <p>The Amazon Resource Name (ARN) of the gateway.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -157,6 +170,14 @@ class GatewayResource:
         Args:
             gateway_arn: <p>The Amazon Resource Name (ARN) of the gateway to update.</p>
             gateway_display_name: <p>The updated display name of the gateway.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.conflict_exception.ConflictException: <p>The operation cannot proceed because it is not supported.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -196,6 +217,13 @@ class GatewayResource:
 
         Args:
             gateway_arn: <p>The Amazon Resource Name (ARN) of the gateway to delete.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -239,6 +267,12 @@ class GatewayResource:
         Args:
             max_results: <p>The maximum number of gateways to list.</p>
             next_token: <p>The next item following a partial list of returned resources. For example, if a request is made to return <code>MaxResults</code> number of resources, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -281,6 +315,13 @@ class GatewayResource:
         Args:
             gateway_arn: <p>The Amazon Resource Name (ARN) of the gateway. Use the <code>ListGateways</code> operation to return a list of gateways for your account and Amazon Web Services Region.</p>
             server_arn: <p>The Amazon Resource Name (ARN) of the server that hosts your virtual machines.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.conflict_exception.ConflictException: <p>The operation cannot proceed because it is not supported.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -319,6 +360,14 @@ class GatewayResource:
 
         Args:
             gateway_arn: <p>The Amazon Resource Name (ARN) of the gateway to disassociate.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.conflict_exception.ConflictException: <p>The operation cannot proceed because it is not supported.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -368,6 +417,14 @@ class GatewayResource:
             minute_of_hour: <p>The minute of the hour to start maintenance on a gateway.</p>
             day_of_week: <p>The day of the week to start maintenance on a gateway.</p>
             day_of_month: <p>The day of the month start maintenance on a gateway.</p> <p>Valid values range from <code>Sunday</code> to <code>Saturday</code>.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.conflict_exception.ConflictException: <p>The operation cannot proceed because it is not supported.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -417,6 +474,14 @@ class GatewayResource:
             host: <p>The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).</p>
             username: <p>The username for the hypervisor.</p>
             password: <p>The password for the hypervisor.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.conflict_exception.ConflictException: <p>The operation cannot proceed because it is not supported.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -459,6 +524,13 @@ class GatewayResource:
 
         Args:
             gateway_arn: <p>The Amazon Resource Name (ARN) of the gateway to be updated.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -507,6 +579,12 @@ class AsyncGatewayResource:
             gateway_display_name: <p>The display name of the created gateway.</p>
             gateway_type: <p>The type of created gateway.</p>
             tags: <p>A list of up to 50 tags to assign to the gateway. Each tag is a key-value pair.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -549,6 +627,13 @@ class AsyncGatewayResource:
 
         Args:
             gateway_arn: <p>The Amazon Resource Name (ARN) of the gateway.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -589,6 +674,14 @@ class AsyncGatewayResource:
         Args:
             gateway_arn: <p>The Amazon Resource Name (ARN) of the gateway to update.</p>
             gateway_display_name: <p>The updated display name of the gateway.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.conflict_exception.ConflictException: <p>The operation cannot proceed because it is not supported.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -629,6 +722,13 @@ class AsyncGatewayResource:
 
         Args:
             gateway_arn: <p>The Amazon Resource Name (ARN) of the gateway to delete.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -673,6 +773,12 @@ class AsyncGatewayResource:
         Args:
             max_results: <p>The maximum number of gateways to list.</p>
             next_token: <p>The next item following a partial list of returned resources. For example, if a request is made to return <code>MaxResults</code> number of resources, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -716,6 +822,13 @@ class AsyncGatewayResource:
         Args:
             gateway_arn: <p>The Amazon Resource Name (ARN) of the gateway. Use the <code>ListGateways</code> operation to return a list of gateways for your account and Amazon Web Services Region.</p>
             server_arn: <p>The Amazon Resource Name (ARN) of the server that hosts your virtual machines.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.conflict_exception.ConflictException: <p>The operation cannot proceed because it is not supported.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -755,6 +868,14 @@ class AsyncGatewayResource:
 
         Args:
             gateway_arn: <p>The Amazon Resource Name (ARN) of the gateway to disassociate.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.conflict_exception.ConflictException: <p>The operation cannot proceed because it is not supported.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -805,6 +926,14 @@ class AsyncGatewayResource:
             minute_of_hour: <p>The minute of the hour to start maintenance on a gateway.</p>
             day_of_week: <p>The day of the week to start maintenance on a gateway.</p>
             day_of_month: <p>The day of the month start maintenance on a gateway.</p> <p>Valid values range from <code>Sunday</code> to <code>Saturday</code>.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.conflict_exception.ConflictException: <p>The operation cannot proceed because it is not supported.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -855,6 +984,14 @@ class AsyncGatewayResource:
             host: <p>The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).</p>
             username: <p>The username for the hypervisor.</p>
             password: <p>The password for the hypervisor.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.conflict_exception.ConflictException: <p>The operation cannot proceed because it is not supported.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -898,6 +1035,13 @@ class AsyncGatewayResource:
 
         Args:
             gateway_arn: <p>The Amazon Resource Name (ARN) of the gateway to be updated.</p>
+
+        Raises:
+            aws_sdk_backup_gateway.errors.internal_server_exception.InternalServerException: <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+            aws_sdk_backup_gateway.errors.throttling_exception.ThrottlingException: <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+            aws_sdk_backup_gateway.errors.validation_exception.ValidationException: <p>The operation did not succeed because a validation error occurred.</p>
+            aws_sdk_backup_gateway.errors.resource_not_found_exception.ResourceNotFoundException: <p>A resource that is required for the action wasn't found.</p>
+            aws_sdk_backup_gateway.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

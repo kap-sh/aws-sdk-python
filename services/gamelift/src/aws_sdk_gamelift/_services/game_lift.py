@@ -539,6 +539,13 @@ class GameLiftClient:
             ticket_id: <p>A unique identifier for a matchmaking ticket. The ticket must be in status <code>REQUIRES_ACCEPTANCE</code>; otherwise this request will fail.</p>
             player_ids: <p>A unique identifier for a player delivering the response. This parameter can include one or multiple player IDs.</p>
             acceptance_type: <p>Player response to the proposed match.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -590,6 +597,15 @@ class GameLiftClient:
             game_server_id: <p>A custom string that uniquely identifies the game server to claim. If this parameter is left empty, Amazon GameLift Servers FleetIQ searches for an available game server in the specified game server group.</p>
             game_server_data: <p>A set of custom game server properties, formatted as a single string value. This data is passed to a game client or service when it requests information on game servers. </p>
             filter_option: <p>Object that restricts how a claimed game server is chosen.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p> <p></p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.out_of_capacity_exception.OutOfCapacityException: <p>The specified game server group has no available game servers to fulfill a <code>ClaimGameServer</code> request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -641,6 +657,15 @@ class GameLiftClient:
             description: <p>A human-readable description of the alias.</p>
             routing_strategy: <p>The routing configuration, including routing type and fleet target, for the alias. </p>
             tags: <p>A list of labels to assign to the new alias resource. Tags are developer-defined key-value pairs. Tagging Amazon Web Services resources are useful for resource management, access management and cost allocation. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\"> Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p> <p></p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -703,6 +728,14 @@ class GameLiftClient:
             operating_system: <p>The operating system that your game server binaries run on. This value determines the type of fleet resources that you use for this build. If your game build contains multiple executables, they all must run on the same operating system. You must specify a valid operating system in this request. There is no default value. You can't change a build's operating system later.</p> <note> <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in the <a href=\"http://aws.amazon.com/amazon-linux-2/faqs/\">Amazon Linux 2 FAQs</a>. For game servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the game server build to server SDK 5.x, and then deploy to AL2023 instances. See <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html\"> Migrate to server SDK version 5.</a> </p> </note> <note> <p>Windows Server 2016 will reach end of support on 1/12/2027. For game servers that are hosted on Windows Server 2016 and use server SDK version 4.x for Amazon GameLift Servers, first update the game server build to server SDK 5.x, and then deploy to Windows Server 2022 instances. See <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html\"> Migrate to server SDK version 5.</a> </p> </note>
             tags: <p>A list of labels to assign to the new build resource. Tags are developer defined key-value pairs. Tagging Amazon Web Services resources are useful for resource management, access management and cost allocation. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\"> Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>. Once the resource is created, you can use <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_TagResource.html\">TagResource</a>, <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_UntagResource.html\">UntagResource</a>, and <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListTagsForResource.html\">ListTagsForResource</a> to add, remove, and view tags. The maximum tag limit may be lower than stated. See the Amazon Web Services General Reference for actual tagging limits.</p>
             server_sdk_version: <p>A server SDK version you used when integrating your game server build with Amazon GameLift Servers. For more information see <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-custom-intro.html\">Integrate games with custom game servers</a>. By default Amazon GameLift Servers sets this value to <code>4.0.2</code>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p> <p></p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -809,6 +842,16 @@ class GameLiftClient:
             log_configuration: <p>A method for collecting container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs. You can select from the following methods: </p> <ul> <li> <p> <code>CLOUDWATCH</code> -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group. </p> </li> <li> <p> <code>S3</code> -- Store logs in an Amazon S3 bucket that you define.</p> </li> <li> <p> <code>NONE</code> -- Don't collect container logs.</p> </li> </ul> <p>By default, this property is set to <code>CLOUDWATCH</code>. </p> <p>Amazon GameLift Servers requires permissions to send logs other Amazon Web Services services in your account. These permissions are included in the IAM fleet role for this container fleet (see <code>FleetRoleArn)</code>.</p>
             tags: <p>A list of labels to assign to the new fleet resource. Tags are developer-defined key-value pairs. Tagging Amazon Web Services resources are useful for resource management, access management and cost allocation. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\"> Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
             player_gateway_mode: <p>Configures player gateway for your fleet. Player gateway provides benefits such as DDoS protection by rate limiting and validating traﬃc before it reaches game servers, hiding game server IP addresses from players, and providing updated endpoints when relay endpoints become unhealthy.</p> <p> <b>How it works:</b> When enabled, game clients connect to relay endpoints instead of to your game servers. Player gateway validates player gateway tokens and routes traffic to the appropriate game server. Your game backend calls <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetPlayerConnectionDetails.html\">GetPlayerConnectionDetails</a> to retrieve relay endpoints and player gateway tokens for your game clients. To learn more about this topic, see <a href=\"https://docs.aws.amazon.com/gameliftservers/latest/developerguide/ddos-protection-intro.html\">DDoS protection with Amazon GameLift Servers player gateway</a>.</p> <p>Possible values include:</p> <ul> <li> <p> <code>DISABLED</code> (default) -- Game clients connect to the game server endpoint. Use this when you do not intend to integrate your game with player gateway.</p> </li> <li> <p> <code>ENABLED</code> -- Player gateway is available in fleet locations where it is supported. Your game backend can call <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetPlayerConnectionDetails.html\">GetPlayerConnectionDetails</a> to obtain a player gateway token and endpoints for game clients.</p> </li> <li> <p> <code>REQUIRED</code> -- Player gateway is available in fleet locations where it is supported, and the fleet can only use locations that support this feature. Attempting to add a remote location to your fleet which does not support player gateway will result in an <code>InvalidRequestException</code>.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_gamelift.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p> <p></p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -910,6 +953,16 @@ class GameLiftClient:
             operating_system: <p>The platform that all containers in the group use. Containers in a group must run on the same operating system.</p> <p>Default value: <code>AMAZON_LINUX_2023</code> </p> <note> <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in the <a href=\"http://aws.amazon.com/amazon-linux-2/faqs/\">Amazon Linux 2 FAQs</a>. For game servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the game server build to server SDK 5.x, and then deploy to AL2023 instances. See <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html\"> Migrate to server SDK version 5.</a> </p> </note>
             version_description: <p>A description for the initial version of this container group definition. </p>
             tags: <p>A list of labels to assign to the container group definition resource. Tags are developer-defined key-value pairs. Tagging Amazon Web Services resources are useful for resource management, access management and cost allocation. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\"> Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>. </p>
+
+        Raises:
+            aws_sdk_gamelift.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p> <p></p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1052,6 +1105,18 @@ class GameLiftClient:
             instance_role_credentials_provider: <p>Prompts Amazon GameLift Servers to generate a shared credentials file for the IAM role that's defined in <code>InstanceRoleArn</code>. The shared credentials file is stored on each fleet instance and refreshed as needed. Use shared credentials for applications that are deployed along with the game server executable, if the game server is integrated with server SDK version 5.x. For more information about using shared credentials, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html\"> Communicate with other Amazon Web Services resources from your fleets</a>.</p>
             player_gateway_mode: <p>Configures player gateway for your fleet. Player gateway provides benefits such as DDoS protection by rate limiting and validating traﬃc before it reaches game servers, hiding game server IP addresses from players, and providing updated endpoints when relay endpoints become unhealthy. Note, player gateway is only available for fleets using server SDK 5.x or later game server builds.</p> <p> <b>How it works:</b> When enabled, game clients connect to relay endpoints instead of to your game servers. Player gateway validates player gateway tokens and routes traffic to the appropriate game server. Your game backend calls <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetPlayerConnectionDetails.html\">GetPlayerConnectionDetails</a> to retrieve relay endpoints and player gateway tokens for your game clients. To learn more about this topic, see <a href=\"https://docs.aws.amazon.com/gameliftservers/latest/developerguide/ddos-protection-intro.html\">DDoS protection with Amazon GameLift Servers player gateway</a>.</p> <p>Possible values include:</p> <ul> <li> <p> <code>DISABLED</code> (default) -- Game clients connect to the game server endpoint. Use this when you do not intend to integrate your game with player gateway.</p> </li> <li> <p> <code>ENABLED</code> -- Player gateway is available in fleet locations where it is supported. Your game backend can call <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetPlayerConnectionDetails.html\">GetPlayerConnectionDetails</a> to obtain a player gateway token and endpoints for game clients.</p> </li> <li> <p> <code>REQUIRED</code> -- Player gateway is available in fleet locations where it is supported, and the fleet can only use locations that support this feature. Attempting to add a remote location to your fleet which does not support player gateway will result in an <code>InvalidRequestException</code>.</p> </li> </ul>
             player_gateway_configuration: <p>Configuration settings for player gateway. Use this to specify advanced options for how player gateway handles connections.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p> <p></p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.not_ready_exception.NotReadyException: <p> The operation failed because Amazon GameLift Servers has not yet finished validating this compute. We recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href=\"http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/\">exponential backoffs and jitter</a>. </p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1143,6 +1208,18 @@ class GameLiftClient:
         Args:
             fleet_id: <p>A unique identifier for the fleet to add locations to. You can use either the fleet ID or ARN value.</p>
             locations: <p>A list of locations to deploy additional instances to and manage as part of the fleet. You can add any Amazon GameLift Servers-supported Amazon Web Services Region as a remote location, in the form of an Amazon Web Services Region code such as <code>us-west-2</code>. </p>
+
+        Raises:
+            aws_sdk_gamelift.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p> <p></p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_fleet_status_exception.InvalidFleetStatusException: <p>The requested operation would cause a conflict with the current state of a resource associated with the request and/or the fleet. Resolve the conflict before retrying.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.not_ready_exception.NotReadyException: <p> The operation failed because Amazon GameLift Servers has not yet finished validating this compute. We recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href=\"http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/\">exponential backoffs and jitter</a>. </p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1207,6 +1284,14 @@ class GameLiftClient:
             game_server_protection_policy: <p>A flag that indicates whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion (see ). An exception to this is with Spot Instances, which can be terminated by Amazon Web Services regardless of protection status. This property is set to <code>NO_PROTECTION</code> by default.</p>
             vpc_subnets: <p>A list of virtual private cloud (VPC) subnets to use with instances in the game server group. By default, all Amazon GameLift Servers FleetIQ-supported Availability Zones are used. You can use this parameter to specify VPCs that you've set up. This property cannot be updated after the game server group is created, and the corresponding Auto Scaling group will always use the property value that is set with this request, even if the Auto Scaling group is updated directly.</p>
             tags: <p>A list of labels to assign to the new game server group resource. Tags are developer-defined key-value pairs. Tagging Amazon Web Services resources is useful for resource management, access management, and cost allocation. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\"> Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p> <p></p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1295,6 +1380,20 @@ class GameLiftClient:
             idempotency_token: <p>Custom string that uniquely identifies the new game session request. This is useful for ensuring that game session requests with the same idempotency token are processed only once. Subsequent requests with the same string return the original <code>GameSession</code> object, with an updated status. Maximum token length is 48 characters. If provided, this string is included in the new game session's ID. The value is always a full ARN in the following format: <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>. Idempotency tokens remain in use for 30 days after a game session has ended; game session objects are retained for this time period and then deleted.</p>
             game_session_data: <p>A set of custom game session properties, formatted as a single string value. This data is passed to a game server process with a request to start a new game session. For more information, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession\">Start a game session</a>.</p>
             location: <p>A fleet's remote location to place the new game session in. If this parameter is not set, the new game session is placed in the fleet's home Region. Specify a remote location with an Amazon Web Services Region code such as <code>us-west-2</code>. When using an Anywhere fleet, this parameter is required and must be set to the Anywhere fleet's custom location.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p> <p></p>
+            aws_sdk_gamelift.errors.fleet_capacity_exceeded_exception.FleetCapacityExceededException: <p>The specified fleet has no available instances to fulfill a <code>CreateGameSession</code> request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A game session with this custom ID string already exists in this fleet. Resolve this conflict before retrying this request.</p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_fleet_status_exception.InvalidFleetStatusException: <p>The requested operation would cause a conflict with the current state of a resource associated with the request and/or the fleet. Resolve the conflict before retrying.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.terminal_routing_strategy_exception.TerminalRoutingStrategyException: <p>The service is unable to resolve the routing for a particular alias because it has a terminal <code>RoutingStrategy</code> associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified. </p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1380,6 +1479,15 @@ class GameLiftClient:
             custom_event_data: <p>Information to be added to all events that are related to this game session queue.</p>
             notification_target: <p>An SNS topic ARN that is set up to receive game session placement notifications. See <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html\"> Setting up notifications for game session placement</a>.</p>
             tags: <p>A list of labels to assign to the new game session queue resource. Tags are developer-defined key-value pairs. Tagging Amazon Web Services resources are useful for resource management, access management and cost allocation. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\"> Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1435,6 +1543,15 @@ class GameLiftClient:
         Args:
             location_name: <p>A descriptive name for the custom location.</p>
             tags: <p>A list of labels to assign to the new resource. Tags are developer-defined key-value pairs. Tagging Amazon Web Services resources are useful for resource management, access management, and cost allocation. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\"> Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Rareference</i>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p> <p></p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1522,6 +1639,15 @@ class GameLiftClient:
             backfill_mode: <p>The method used to backfill game sessions that are created with this matchmaking configuration. Specify <code>MANUAL</code> when your game manages backfill requests manually or does not use the match backfill feature. Specify <code>AUTOMATIC</code> to have Amazon GameLift Servers create a backfill request whenever a game session has one or more open slots. Learn more about manual and automatic backfill in <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html\"> Backfill Existing Games with FlexMatch</a>. Automatic backfill is not available when <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
             flex_match_mode: <p>Indicates whether this matchmaking configuration is being used with Amazon GameLift Servers hosting or as a standalone matchmaking solution. </p> <ul> <li> <p> <b>STANDALONE</b> - FlexMatch forms matches and returns match information, including players and team assignments, in a <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html#match-events-matchmakingsucceeded\"> MatchmakingSucceeded</a> event.</p> </li> <li> <p> <b>WITH_QUEUE</b> - FlexMatch forms matches and uses the specified Amazon GameLift Servers queue to start a game session for the match. </p> </li> </ul>
             tags: <p>A list of labels to assign to the new matchmaking configuration resource. Tags are developer-defined key-value pairs. Tagging Amazon Web Services resources are useful for resource management, access management and cost allocation. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\"> Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1588,6 +1714,14 @@ class GameLiftClient:
             name: <p>A unique identifier for the matchmaking rule set. A matchmaking configuration identifies the rule set it uses by this name value. Note that the rule set name is different from the optional <code>name</code> field in the rule set body.</p>
             rule_set_body: <p>A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed in JSON, but most elements support a description field.</p>
             tags: <p>A list of labels to assign to the new matchmaking rule set resource. Tags are developer-defined key-value pairs. Tagging Amazon Web Services resources are useful for resource management, access management and cost allocation. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\"> Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1634,6 +1768,16 @@ class GameLiftClient:
             game_session_id: <p>An identifier for the game session that is unique across all regions to add a player to. The value is always a full ARN in the following format: <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
             player_id: <p>A unique identifier for a player. Player IDs are developer-defined.</p>
             player_data: <p>Developer-defined information related to a player. Amazon GameLift Servers does not use this data, so it can be formatted as needed for use in the game.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.game_session_full_exception.GameSessionFullException: <p>The game instance is currently full and cannot allow the requested player(s) to join. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_game_session_status_exception.InvalidGameSessionStatusException: <p>The requested operation would cause a conflict with the current state of a resource associated with the request and/or the game instance. Resolve the conflict before retrying.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.terminal_routing_strategy_exception.TerminalRoutingStrategyException: <p>The service is unable to resolve the routing for a particular alias because it has a terminal <code>RoutingStrategy</code> associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified. </p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1680,6 +1824,16 @@ class GameLiftClient:
             game_session_id: <p>An identifier for the game session that is unique across all regions to add players to. The value is always a full ARN in the following format: <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
             player_ids: <p>List of unique identifiers for the players to be added.</p>
             player_data_map: <p>Map of string pairs, each specifying a player ID and a set of developer-defined information related to the player. Amazon GameLift Servers does not use this data, so it can be formatted as needed for use in the game. Any player data strings for player IDs that are not included in the <code>PlayerIds</code> parameter are ignored. </p>
+
+        Raises:
+            aws_sdk_gamelift.errors.game_session_full_exception.GameSessionFullException: <p>The game instance is currently full and cannot allow the requested player(s) to join. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_game_session_status_exception.InvalidGameSessionStatusException: <p>The requested operation would cause a conflict with the current state of a resource associated with the request and/or the game instance. Resolve the conflict before retrying.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.terminal_routing_strategy_exception.TerminalRoutingStrategyException: <p>The service is unable to resolve the routing for a particular alias because it has a terminal <code>RoutingStrategy</code> associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified. </p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1738,6 +1892,14 @@ class GameLiftClient:
             zip_file: <p>A data object containing your Realtime scripts and dependencies as a zip file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.</p> <p>When using the Amazon Web Services CLI tool to create a script, this parameter is set to the zip file name. It must be prepended with the string \"fileb://\" to indicate that the file data is a binary object. For example: <code>--zip-file fileb://myRealtimeScript.zip</code>.</p>
             tags: <p>A list of labels to assign to the new script resource. Tags are developer-defined key-value pairs. Tagging Amazon Web Services resources are useful for resource management, access management and cost allocation. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\"> Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>. Once the resource is created, you can use <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_TagResource.html\">TagResource</a>, <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_UntagResource.html\">UntagResource</a>, and <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListTagsForResource.html\">ListTagsForResource</a> to add, remove, and view tags. The maximum tag limit may be lower than stated. See the Amazon Web Services General Reference for actual tagging limits.</p>
             node_js_version: <p>The Node.js version used for execution of your Realtime script. The valid values are <code>10.x | 24.x</code>. By default, <code>NodeJsVersion</code> is <code>10.x</code>. This value cannot be updated later. </p> <note> <p>Node.js 10 will reach end of support on September 30, 2026. See more details in the <a href=\"http://aws.amazon.com/gamelift/faq/nodejs10/\">Node.js 10 FAQs</a>. For migration guidance, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/realtimeguide/realtime-script.html#realtime-script-nodejs-migration\"> Migrating from Node.js 10 to 24</a>.</p> </note>
+
+        Raises:
+            aws_sdk_gamelift.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p> <p></p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1788,6 +1950,13 @@ class GameLiftClient:
         Args:
             game_lift_aws_account_id: <p>A unique identifier for the Amazon Web Services account that you use to manage your Amazon GameLift Servers fleet. You can find your Account ID in the Amazon Web Services Management Console under account settings.</p>
             peer_vpc_id: <p>A unique identifier for a VPC with resources to be accessed by your Amazon GameLift Servers fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the <a href=\"https://console.aws.amazon.com/vpc/\">VPC Dashboard</a> in the Amazon Web Services Management Console. Learn more about VPC peering in <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html\">VPC Peering with Amazon GameLift Servers Fleets</a>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1830,6 +1999,13 @@ class GameLiftClient:
             fleet_id: <p>A unique identifier for the fleet. You can use either the fleet ID or ARN value. This tells Amazon GameLift Servers which GameLift VPC to peer with. </p>
             peer_vpc_aws_account_id: <p>A unique identifier for the Amazon Web Services account with the VPC that you want to peer your Amazon GameLift Servers fleet with. You can find your Account ID in the Amazon Web Services Management Console under account settings.</p>
             peer_vpc_id: <p>A unique identifier for a VPC with resources to be accessed by your Amazon GameLift Servers fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the <a href=\"https://console.aws.amazon.com/vpc/\">VPC Dashboard</a> in the Amazon Web Services Management Console. Learn more about VPC peering in <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html\">VPC Peering with Amazon GameLift Servers Fleets</a>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1869,6 +2045,14 @@ class GameLiftClient:
 
         Args:
             alias_id: <p>A unique identifier of the alias that you want to delete. You can use either the alias ID or ARN value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1904,6 +2088,14 @@ class GameLiftClient:
 
         Args:
             build_id: <p>A unique identifier for the build to delete. You can use either the build ID or ARN value. </p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1939,6 +2131,15 @@ class GameLiftClient:
 
         Args:
             fleet_id: <p>A unique identifier for the container fleet to delete. You can use either the fleet ID or ARN value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1984,6 +2185,15 @@ class GameLiftClient:
             name: <p>The unique identifier for the container group definition to delete. You can use either the <code>Name</code> or <code>ARN</code> value.</p>
             version_number: <p>The specific version to delete.</p>
             version_count_to_retain: <p>The number of most recent versions to keep while deleting all older versions.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2025,6 +2235,15 @@ class GameLiftClient:
 
         Args:
             fleet_id: <p>A unique identifier for the fleet to be deleted. You can use either the fleet ID or ARN value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_fleet_status_exception.InvalidFleetStatusException: <p>The requested operation would cause a conflict with the current state of a resource associated with the request and/or the fleet. Resolve the conflict before retrying.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2062,6 +2281,14 @@ class GameLiftClient:
         Args:
             fleet_id: <p>A unique identifier for the fleet to delete locations for. You can use either the fleet ID or ARN value.</p>
             locations: <p>The list of fleet locations to delete. Specify locations in the form of an Amazon Web Services Region code, such as <code>us-west-2</code>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2104,6 +2331,13 @@ class GameLiftClient:
         Args:
             game_server_group_name: <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
             delete_option: <p>The type of delete to perform. Options include the following:</p> <ul> <li> <p> <code>SAFE_DELETE</code> – (default) Terminates the game server group and Amazon EC2 Auto Scaling group only when it has no game servers that are in <code>UTILIZED</code> status.</p> </li> <li> <p> <code>FORCE_DELETE</code> – Terminates the game server group, including all active game servers regardless of their utilization status, and the Amazon EC2 Auto Scaling group. </p> </li> <li> <p> <code>RETAIN</code> – Does a safe delete of the game server group but retains the Amazon EC2 Auto Scaling group as is.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2143,6 +2377,14 @@ class GameLiftClient:
 
         Args:
             name: <p>A descriptive label that is associated with game session queue. Queue names must be unique within each Region. You can use either the queue ID or ARN value. </p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2180,6 +2422,13 @@ class GameLiftClient:
 
         Args:
             location_name: <p>The location name of the custom location to be deleted.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2217,6 +2466,14 @@ class GameLiftClient:
 
         Args:
             name: <p>A unique identifier for the matchmaking configuration. You can use either the configuration name or ARN value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2254,6 +2511,14 @@ class GameLiftClient:
 
         Args:
             name: <p>A unique identifier for the matchmaking rule set to be deleted. (Note: The rule set name is different from the optional \"name\" field in the rule set body.) You can use either the rule set name or ARN value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2293,6 +2558,14 @@ class GameLiftClient:
         Args:
             name: <p>A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.</p>
             fleet_id: <p>A unique identifier for the fleet to be deleted. You can use either the fleet ID or ARN value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2329,6 +2602,14 @@ class GameLiftClient:
 
         Args:
             script_id: <p>A unique identifier for the Realtime script to delete. You can use either the script ID or ARN value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2366,6 +2647,13 @@ class GameLiftClient:
         Args:
             game_lift_aws_account_id: <p>A unique identifier for the Amazon Web Services account that you use to manage your Amazon GameLift Servers fleet. You can find your Account ID in the Amazon Web Services Management Console under account settings.</p>
             peer_vpc_id: <p>A unique identifier for a VPC with resources to be accessed by your Amazon GameLift Servers fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the <a href=\"https://console.aws.amazon.com/vpc/\">VPC Dashboard</a> in the Amazon Web Services Management Console. Learn more about VPC peering in <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html\">VPC Peering with Amazon GameLift Servers Fleets</a>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2406,6 +2694,13 @@ class GameLiftClient:
         Args:
             fleet_id: <p>A unique identifier for the fleet. This fleet specified must match the fleet referenced in the VPC peering connection record. You can use either the fleet ID or ARN value.</p>
             vpc_peering_connection_id: <p>A unique identifier for a VPC peering connection.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2446,6 +2741,13 @@ class GameLiftClient:
         Args:
             fleet_id: <p>A unique identifier for the fleet the compute resource is currently registered to.</p>
             compute_name: <p>The unique identifier of the compute resource to deregister. For an Anywhere fleet compute, use the registered compute name.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2486,6 +2788,13 @@ class GameLiftClient:
         Args:
             game_server_group_name: <p>A unique identifier for the game server group where the game server is running.</p>
             game_server_id: <p>A custom string that uniquely identifies the game server to deregister.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2522,6 +2831,13 @@ class GameLiftClient:
 
         Args:
             alias_id: <p>The unique identifier for the fleet alias that you want to retrieve. You can use either the alias ID or ARN value. </p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2559,6 +2875,13 @@ class GameLiftClient:
 
         Args:
             build_id: <p>A unique identifier for the build to retrieve properties for. You can use either the build ID or ARN value. </p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2598,6 +2921,14 @@ class GameLiftClient:
         Args:
             fleet_id: <p>A unique identifier for the fleet that the compute belongs to. You can use either the fleet ID or ARN value.</p>
             compute_name: <p>The unique identifier of the compute resource to retrieve properties for. For a managed container fleet or Anywhere fleet, use a compute name. For an EC2 fleet, use an instance ID. To retrieve a fleet's compute identifiers, call <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html\">ListCompute</a>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2636,6 +2967,14 @@ class GameLiftClient:
 
         Args:
             fleet_id: <p>A unique identifier for the container fleet to retrieve. You can use either the fleet ID or ARN value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2677,6 +3016,14 @@ class GameLiftClient:
         Args:
             name: <p>The unique identifier for the container group definition to retrieve properties for. You can use either the <code>Name</code> or <code>ARN</code> value.</p>
             version_number: <p>The specific version to retrieve.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2728,6 +3075,15 @@ class GameLiftClient:
             compute_name: <p>A unique identifier for the compute resource for which to retrieve port mappings. For a container fleet, a compute represents a game server container group running on a fleet instance. You can use either the compute name or ARN value.</p> <p>When <code>ContainerGroupType</code> is <code>GAME_SERVER</code>, this parameter is required.</p> <p>When <code>ContainerGroupType</code> is <code>PER_INSTANCE</code>, do not provide this parameter. If you provide a compute name with <code>PER_INSTANCE</code>, the request fails with an <code>InvalidRequestException</code>.</p>
             instance_id: <p>A unique identifier for the fleet instance to retrieve port mappings for.</p> <p>When <code>ContainerGroupType</code> is <code>PER_INSTANCE</code>, this parameter is required.</p> <p>When <code>ContainerGroupType</code> is <code>GAME_SERVER</code>, this parameter is optional. If you provide an instance ID, it must match the instance that's running the specified compute. If the instance ID doesn't match, the request fails with an <code>InvalidRequestException</code>.</p>
             container_name: <p>A container name to filter the results. When provided, the operation returns port mappings for the specified container only. If no container with the specified name exists in the container group, the request fails with a <code>NotFoundException</code>.</p> <p>If not provided, the operation returns port mappings for all containers in the container group.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2778,6 +3134,13 @@ class GameLiftClient:
         Args:
             ec2_instance_type: <p>Name of an Amazon EC2 instance type that is supported in Amazon GameLift Servers. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Do not specify a value for this parameter to retrieve limits for all instance types.</p>
             location: <p>The name of a remote location to request instance limits for, in the form of an Amazon Web Services Region code such as <code>us-west-2</code>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2828,6 +3191,13 @@ class GameLiftClient:
             fleet_ids: <p>A list of unique fleet identifiers to retrieve attributes for. You can use either the fleet ID or ARN value. To retrieve attributes for all current fleets, do not include this parameter. </p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2909,6 +3279,14 @@ class GameLiftClient:
             fleet_ids: <p>A unique identifier for the fleet to retrieve capacity information for. You can use either the fleet ID or ARN value. Leave this parameter empty to retrieve capacity information for all fleets.</p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2984,6 +3362,14 @@ class GameLiftClient:
         Args:
             fleet_id: <p>A unique identifier for the container fleet. You can use either the fleet ID or ARN value.</p>
             deployment_id: <p>A unique identifier for the deployment to return information for. </p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3037,6 +3423,14 @@ class GameLiftClient:
             end_time: <p>The most recent date to retrieve event logs for. If no end time is specified, this call returns entries from the specified start time up to the present. Format is a number expressed in Unix time as milliseconds (ex: \"1469498468.057\").</p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3123,6 +3517,14 @@ class GameLiftClient:
             locations: <p>A list of fleet locations to retrieve information for. Specify locations in the form of an Amazon Web Services Region code, such as <code>us-west-2</code>.</p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. This limit is not currently enforced.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3168,6 +3570,14 @@ class GameLiftClient:
         Args:
             fleet_id: <p>A unique identifier for the fleet to request location capacity for. You can use either the fleet ID or ARN value.</p>
             location: <p>The fleet location to retrieve capacity information for. Specify a location in the form of an Amazon Web Services Region code, such as <code>us-west-2</code>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3208,6 +3618,14 @@ class GameLiftClient:
         Args:
             fleet_id: <p>A unique identifier for the fleet to request location utilization for. You can use either the fleet ID or ARN value.</p>
             location: <p>The fleet location to retrieve utilization information for. Specify a location in the form of an Amazon Web Services Region code, such as <code>us-west-2</code>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3250,6 +3668,14 @@ class GameLiftClient:
         Args:
             fleet_id: <p>A unique identifier for the fleet to retrieve port settings for. You can use either the fleet ID or ARN value.</p>
             location: <p>A remote location to check for status of port setting updates. Use the Amazon Web Services Region code format, such as <code>us-west-2</code>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3299,6 +3725,13 @@ class GameLiftClient:
             fleet_ids: <p>A unique identifier for the fleet to retrieve utilization data for. You can use either the fleet ID or ARN value. To retrieve attributes for all current fleets, do not include this parameter. </p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3372,6 +3805,13 @@ class GameLiftClient:
         Args:
             game_server_group_name: <p>A unique identifier for the game server group where the game server is running.</p>
             game_server_id: <p>A custom string that uniquely identifies the game server information to be retrieved.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3410,6 +3850,13 @@ class GameLiftClient:
 
         Args:
             game_server_group_name: <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3459,6 +3906,13 @@ class GameLiftClient:
             instance_ids: <p>The Amazon EC2 instance IDs that you want to retrieve status on. Amazon EC2 instance IDs use a 17-character format, for example: <code>i-1234567890abcdef0</code>. To retrieve all instances in the game server group, leave this parameter empty. </p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3559,6 +4013,15 @@ class GameLiftClient:
             status_filter: <p>Game session status to filter results on. Possible game session statuses include <code>ACTIVE</code>, <code>TERMINATED</code>, <code>ACTIVATING</code> and <code>TERMINATING</code> (the last two are transitory). </p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.terminal_routing_strategy_exception.TerminalRoutingStrategyException: <p>The service is unable to resolve the routing for a particular alias because it has a terminal <code>RoutingStrategy</code> associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified. </p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3654,6 +4117,13 @@ class GameLiftClient:
 
         Args:
             placement_id: <p>A unique identifier for a game session placement to retrieve.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3701,6 +4171,13 @@ class GameLiftClient:
             names: <p>A list of queue names to retrieve information for. You can use either the queue ID or ARN value. To request settings for all queues, leave this parameter empty. </p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. You can request up to 50 results.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3798,6 +4275,15 @@ class GameLiftClient:
             status_filter: <p>Game session status to filter results on. You can filter on the following states: <code>ACTIVE</code>, <code>TERMINATED</code>, <code>ACTIVATING</code>, and <code>TERMINATING</code>. The last two are transitory and used for only very brief periods of time. </p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.terminal_routing_strategy_exception.TerminalRoutingStrategyException: <p>The service is unable to resolve the routing for a particular alias because it has a terminal <code>RoutingStrategy</code> associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified. </p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3907,6 +4393,14 @@ class GameLiftClient:
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
             location: <p>The name of a location to retrieve instance information for, in the form of an Amazon Web Services Region code such as <code>us-west-2</code>. </p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3985,6 +4479,12 @@ class GameLiftClient:
 
         Args:
             ticket_ids: <p>A unique identifier for a matchmaking ticket. You can include up to 10 ID values. </p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4036,6 +4536,12 @@ class GameLiftClient:
             rule_set_name: <p>A unique identifier for the matchmaking rule set. You can use either the rule set name or ARN value. Use this parameter to retrieve all matchmaking configurations that use this rule set.</p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. This parameter is limited to 10.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4121,6 +4627,13 @@ class GameLiftClient:
             names: <p>A list of one or more matchmaking rule set names to retrieve details for. (Note: The rule set name is different from the optional \"name\" field in the rule set body.) You can use either the rule set name or ARN value. </p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4210,6 +4723,13 @@ class GameLiftClient:
             player_session_status_filter: <p>Player session status to filter results on. Note that when a PlayerSessionId or PlayerId is provided in a DescribePlayerSessions request, then the PlayerSessionStatusFilter has no effect on the response.</p> <p>Possible player session statuses include the following:</p> <ul> <li> <p> <b>RESERVED</b> -- The player session request has been received, but the player has not yet connected to the server process and/or been validated. </p> </li> <li> <p> <b>ACTIVE</b> -- The player has been validated by the server process and is currently connected.</p> </li> <li> <p> <b>COMPLETED</b> -- The player connection has been dropped.</p> </li> <li> <p> <b>TIMEDOUT</b> -- A player session request was received, but the player did not connect and/or was not validated within the timeout limit (60 seconds).</p> </li> </ul>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. If a player session ID is specified, this parameter is ignored.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. If a player session ID is specified, this parameter is ignored.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4297,6 +4817,13 @@ class GameLiftClient:
 
         Args:
             fleet_id: <p>A unique identifier for the fleet to get the runtime configuration for. You can use either the fleet ID or ARN value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4350,6 +4877,14 @@ class GameLiftClient:
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
             location: <p> The fleet location. If you don't specify this value, the response contains the scaling policies of every location in the fleet. </p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4430,6 +4965,13 @@ class GameLiftClient:
 
         Args:
             script_id: <p>A unique identifier for the Realtime script to retrieve properties for. You can use either the script ID or ARN value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4460,7 +5002,14 @@ class GameLiftClient:
     def describe_vpc_peering_authorizations(
         self, *, config_overrides: Optional[GameLiftClientConfig] = None
     ) -> "aws_sdk_gamelift.types.describe_vpc_peering_authorizations_output.DescribeVpcPeeringAuthorizationsOutput":
-        r"""<p> <b>This API works with the following fleet types:</b> EC2</p> <p>Retrieves valid VPC peering authorizations that are pending for the Amazon Web Services account. This operation returns all VPC peering authorizations and requests for peering. This includes those initiated and received by this account. </p> <p> <b>Related actions</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>"""
+        r"""<p> <b>This API works with the following fleet types:</b> EC2</p> <p>Retrieves valid VPC peering authorizations that are pending for the Amazon Web Services account. This operation returns all VPC peering authorizations and requests for peering. This includes those initiated and received by this account. </p> <p> <b>Related actions</b> </p> <p> <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets\">All APIs by task</a> </p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_gamelift.types.describe_vpc_peering_authorizations_input.DescribeVpcPeeringAuthorizationsInput]",
@@ -4496,6 +5045,13 @@ class GameLiftClient:
 
         Args:
             fleet_id: <p>A unique identifier for the fleet. You can use either the fleet ID or ARN value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4536,6 +5092,14 @@ class GameLiftClient:
         Args:
             fleet_id: <p>A unique identifier for the fleet that holds the compute resource that you want to connect to. You can use either the fleet ID or ARN value.</p>
             compute_name: <p>A unique identifier for the compute resource that you want to connect to. For an EC2 fleet, use an instance ID. For a managed container fleet, use a compute name. You can retrieve a fleet's compute names by calling <a href=\"https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html\">ListCompute</a>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4578,6 +5142,14 @@ class GameLiftClient:
         Args:
             fleet_id: <p>A unique identifier for the fleet that the compute is registered to.</p>
             compute_name: <p>The name of the compute resource you are requesting the authentication token for. For an Anywhere fleet compute, use the registered compute name. For an EC2 fleet instance, use the instance ID.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4616,6 +5188,13 @@ class GameLiftClient:
 
         Args:
             game_session_id: <p>An identifier for the game session that is unique across all regions to get logs for. The value is always a full ARN in the following format: <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4655,6 +5234,13 @@ class GameLiftClient:
         Args:
             fleet_id: <p>A unique identifier for the fleet that contains the instance you want to access. You can request access to instances in EC2 fleets with the following statuses: <code>ACTIVATING</code>, <code>ACTIVE</code>, or <code>ERROR</code>. Use either a fleet ID or an ARN value. </p> <note> <p>You can access fleets in <code>ERROR</code> status for a short period of time before Amazon GameLift Servers deletes them.</p> </note>
             instance_id: <p>A unique identifier for the instance you want to access. You can access an instance in any status.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4695,6 +5281,16 @@ class GameLiftClient:
         Args:
             game_session_id: <p>An identifier for the game session that is unique across all regions for which to retrieve player connection details. The value is always a full ARN in the following format: <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
             player_ids: <p>List of unique identifiers for players. Connection details are returned for each player in this list.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_game_session_status_exception.InvalidGameSessionStatusException: <p>The requested operation would cause a conflict with the current state of a resource associated with the request and/or the game instance. Resolve the conflict before retrying.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4745,6 +5341,12 @@ class GameLiftClient:
             name: <p>A descriptive label that is associated with an alias. Alias names do not need to be unique.</p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4828,6 +5430,12 @@ class GameLiftClient:
             status: <p>Build status to filter results by. To retrieve all builds, leave this parameter empty.</p> <p>Possible build statuses include the following:</p> <ul> <li> <p> <b>INITIALIZED</b> -- A new build has been defined, but no files have been uploaded. You cannot create fleets for builds that are in this status. When a build is successfully created, the build status is set to this value. </p> </li> <li> <p> <b>READY</b> -- The game build has been successfully uploaded. You can now create new fleets for this build.</p> </li> <li> <p> <b>FAILED</b> -- The game build upload failed. You cannot create new fleets for this build. </p> </li> </ul>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4917,6 +5525,13 @@ class GameLiftClient:
             compute_status: <p>The status of computes in a managed container fleet, based on the success of the latest update deployment.</p> <ul> <li> <p> <code>ACTIVE</code> -- The compute is deployed with the correct container definitions. It is ready to process game servers and host game sessions.</p> </li> <li> <p> <code>IMPAIRED</code> -- An update deployment to the compute failed, and the compute is deployed with incorrect container definitions.</p> </li> </ul>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5015,6 +5630,13 @@ class GameLiftClient:
             container_group_definition_name: <p>The container group definition to filter the list on. Use this parameter to retrieve only those fleets that use the specified container group definition. You can specify the container group definition's name to get fleets with the latest versions. Alternatively, provide an ARN value to get fleets with a specific version number.</p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5096,6 +5718,13 @@ class GameLiftClient:
             container_group_type: <p>The type of container group to retrieve. Container group type determines how Amazon GameLift Servers deploys the container group on each fleet instance.</p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5175,6 +5804,14 @@ class GameLiftClient:
             name: <p>The unique identifier for the container group definition to retrieve properties for. You can use either the <code>Name</code> or <code>ARN</code> value.</p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5253,6 +5890,14 @@ class GameLiftClient:
             fleet_id: <p>A unique identifier for the container fleet. You can use either the fleet ID or ARN value.</p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5338,6 +5983,13 @@ class GameLiftClient:
             script_id: <p>A unique identifier for the Realtime script to request fleets for. Use this parameter to return only fleets using a specified script. Use either the script ID or ARN value.</p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5421,6 +6073,12 @@ class GameLiftClient:
         Args:
             limit: <p>The game server groups' limit.</p>
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5496,6 +6154,12 @@ class GameLiftClient:
             sort_order: <p>Indicates how to sort the returned data based on game server registration timestamp. Use <code>ASCENDING</code> to retrieve oldest game servers first, or use <code>DESCENDING</code> to retrieve newest game servers first. If this parameter is left empty, game servers are returned in no particular order.</p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5578,6 +6242,12 @@ class GameLiftClient:
             filters: <p>Filters the list for <code>AWS</code> or <code>CUSTOM</code> locations. Use this parameter to narrow down results to only Amazon Web Services-managed locations (Amazon EC2 or container) or only your custom locations (such as an Amazon GameLift Servers Anywhere fleet).</p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5655,6 +6325,12 @@ class GameLiftClient:
         Args:
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5720,6 +6396,14 @@ class GameLiftClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html\">ARN</a>) that uniquely identifies the Amazon GameLift Servers resource that you want to retrieve tags for. Amazon GameLift Servers includes resource ARNs in the data object for the resource. You can retrieve the ARN by calling a <code>List</code> or <code>Describe</code> operation for the resource type. </p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5783,6 +6467,14 @@ class GameLiftClient:
             metric_name: <p>Name of the Amazon GameLift Servers-defined metric that is used to trigger a scaling adjustment. For detailed descriptions of fleet metrics, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html\">Monitor Amazon GameLift Servers with Amazon CloudWatch</a>. </p> <ul> <li> <p> <b>ActivatingGameSessions</b> -- Game sessions in the process of being created.</p> </li> <li> <p> <b>ActiveGameSessions</b> -- Game sessions that are currently running.</p> </li> <li> <p> <b>ActiveInstances</b> -- Fleet instances that are currently running at least one game session.</p> </li> <li> <p> <b>AvailableGameSessions</b> -- Additional game sessions that fleet could host simultaneously, given current capacity.</p> </li> <li> <p> <b>AvailablePlayerSessions</b> -- Empty player slots in currently active game sessions. This includes game sessions that are not currently accepting players. Reserved player slots are not included.</p> </li> <li> <p> <b>CurrentPlayerSessions</b> -- Player slots in active game sessions that are being used by a player or are reserved for a player. </p> </li> <li> <p> <b>IdleInstances</b> -- Active instances that are currently hosting zero game sessions. </p> </li> <li> <p> <b>PercentAvailableGameSessions</b> -- Unused percentage of the total number of game sessions that a fleet could host simultaneously, given current capacity. Use this metric for a target-based scaling policy.</p> </li> <li> <p> <b>PercentIdleInstances</b> -- Percentage of the total number of active instances that are hosting zero game sessions.</p> </li> <li> <p> <b>QueueDepth</b> -- Pending game session placement requests, in any queue, where the current fleet is the top-priority destination.</p> </li> <li> <p> <b>WaitTime</b> -- Current wait time for pending game session placement requests, in any queue, where the current fleet is the top-priority destination. </p> </li> </ul>
             policy_type: <p>The type of scaling policy to create. For a target-based policy, set the parameter <i>MetricName</i> to 'PercentAvailableGameSessions' and specify a <i>TargetConfiguration</i>. For a rule-based policy set the following parameters: <i>MetricName</i>, <i>ComparisonOperator</i>, <i>Threshold</i>, <i>EvaluationPeriods</i>, <i>ScalingAdjustmentType</i>, and <i>ScalingAdjustment</i>.</p>
             target_configuration: <p>An object that contains settings for a target-based scaling policy.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5850,6 +6542,15 @@ class GameLiftClient:
             dns_name: <p>The DNS name of the compute resource. Amazon GameLift Servers requires either a DNS name or IP address.</p>
             ip_address: <p>The IP address of the compute resource. Amazon GameLift Servers requires either a DNS name or IP address. When registering an Anywhere fleet, an IP address is required.</p>
             location: <p>The name of a custom location to associate with the compute resource being registered. This parameter is required when registering a compute for an Anywhere fleet.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p> <p></p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.not_ready_exception.NotReadyException: <p> The operation failed because Amazon GameLift Servers has not yet finished validating this compute. We recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href=\"http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/\">exponential backoffs and jitter</a>. </p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5908,6 +6609,14 @@ class GameLiftClient:
             instance_id: <p>The unique identifier for the instance where the game server is running. This ID is available in the instance metadata. EC2 instance IDs use a 17-character format, for example: <code>i-1234567890abcdef0</code>.</p>
             connection_info: <p>Information that is needed to make inbound client connections to the game server. This might include the IP address and port, DNS name, and other information.</p>
             game_server_data: <p>A set of custom game server properties, formatted as a single string value. This data is passed to a game client or service when it requests information on game servers. </p>
+
+        Raises:
+            aws_sdk_gamelift.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p> <p></p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5951,6 +6660,13 @@ class GameLiftClient:
 
         Args:
             build_id: <p>A unique identifier for the build to get credentials for. You can use either the build ID or ARN value. </p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5988,6 +6704,14 @@ class GameLiftClient:
 
         Args:
             alias_id: <p>The unique identifier of the alias that you want to retrieve a fleet ID for. You can use either the alias ID or ARN value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.terminal_routing_strategy_exception.TerminalRoutingStrategyException: <p>The service is unable to resolve the routing for a particular alias because it has a terminal <code>RoutingStrategy</code> associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified. </p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6027,6 +6751,13 @@ class GameLiftClient:
         Args:
             game_server_group_name: <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
             resume_actions: <p>The activity to resume for this game server group.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6091,6 +6822,15 @@ class GameLiftClient:
             sort_expression: <p>Instructions on how to sort the search results. If no sort expression is included, the request returns results in random order. A sort expression consists of the following elements:</p> <ul> <li> <p> <b>Operand</b> -- Name of a game session attribute. Valid values are <code>gameSessionName</code>, <code>gameSessionId</code>, <code>gameSessionProperties</code>, <code>maximumSessions</code>, <code>creationTimeMillis</code>, <code>playerSessionCount</code>, <code>hasAvailablePlayerSessions</code>.</p> </li> <li> <p> <b>Order</b> -- Valid sort orders are <code>ASC</code> (ascending) and <code>DESC</code> (descending).</p> </li> </ul> <p>For example, this sort expression returns the oldest active sessions first: <code>\"SortExpression\": \"creationTimeMillis ASC\"</code>. Results with a null value for the sort operand are returned at the end of the list.</p>
             limit: <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. The maximum number of results returned is 20, even if this value is not set or is set higher than 20. </p>
             next_token: <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.terminal_routing_strategy_exception.TerminalRoutingStrategyException: <p>The service is unable to resolve the routing for a particular alias because it has a terminal <code>RoutingStrategy</code> associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified. </p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6192,6 +6932,14 @@ class GameLiftClient:
             fleet_id: <p>A unique identifier for the fleet to restart actions on. You can use either the fleet ID or ARN value.</p>
             actions: <p>List of actions to restart on the fleet.</p>
             location: <p>The fleet location to restart fleet actions for. Specify a location in the form of an Amazon Web Services Region code, such as <code>us-west-2</code>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6260,6 +7008,14 @@ class GameLiftClient:
             desired_player_sessions: <p>Set of information on each player to create a player session for.</p>
             game_session_data: <p>A set of custom game session properties, formatted as a single string value. This data is passed to a game server process with a request to start a new game session. For more information, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession\">Start a game session</a>.</p>
             priority_configuration_override: <p>A prioritized list of locations to use for the game session placement and instructions on how to use it. This list overrides a queue's prioritized location list for this game session placement request only. You can include Amazon Web Services Regions, local zones, and custom locations (for Anywhere fleets). You can choose to limit placements to locations on the override list only, or you can prioritize locations on the override list first and then fall back to the queue's other locations if needed. Choose a fallback strategy to use in the event that Amazon GameLift Servers fails to place a game session in any of the locations on the priority override list. </p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6321,6 +7077,13 @@ class GameLiftClient:
             configuration_name: <p>Name of the matchmaker to use for this request. You can use either the configuration name or ARN value. The ARN of the matchmaker that was used with the original game session is listed in the <code>GameSession</code> object, <code>MatchmakerData</code> property.</p>
             game_session_arn: <p>An identifier for the game session that is unique across all regions. The value is always a full ARN in the following format: <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>. When using FlexMatch as a standalone matchmaking solution, this parameter is not needed. </p>
             players: <p>Match information on all players that are currently assigned to the game session. This information is used by the matchmaker to find new players and add them to the existing game.</p> <p>You can include up to 199 <code>Players</code> in a <code>StartMatchBackfill</code> request.</p> <ul> <li> <p>PlayerID, PlayerAttributes, Team -- This information is maintained in the <code>GameSession</code> object, <code>MatchmakerData</code> property, for all players who are currently assigned to the game session. The matchmaker data is in JSON syntax, formatted as a string. For more details, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data\"> Match Data</a>. </p> <p>The backfill request must specify the team membership for every player. Do not specify team if you are not using backfill.</p> </li> <li> <p>LatencyInMs -- If the matchmaker uses player latency, include a latency value, in milliseconds, for the Region that the game session is currently in. Do not include latency values for any other Region.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6369,6 +7132,13 @@ class GameLiftClient:
             ticket_id: <p>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift Servers will generate one in the form of a UUID. Use this identifier to track the matchmaking ticket status and retrieve match results.</p>
             configuration_name: <p>Name of the matchmaking configuration to use for this request. Matchmaking configurations must exist in the same Region as this request. You can use either the configuration name or ARN value.</p>
             players: <p>Information on each player to be matched. This information must include a player ID, and may contain player attributes and latency data to be used in the matchmaking process. After a successful match, <code>Player</code> objects contain the name of the team the player is assigned to.</p> <p>You can include up to 10 <code>Players</code> in a <code>StartMatchmaking</code> request.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6415,6 +7185,14 @@ class GameLiftClient:
             fleet_id: <p>A unique identifier for the fleet to stop actions on. You can use either the fleet ID or ARN value.</p>
             actions: <p>List of actions to suspend on the fleet. </p>
             location: <p>The fleet location to stop fleet actions for. Specify a location in the form of an Amazon Web Services Region code, such as <code>us-west-2</code>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6455,6 +7233,13 @@ class GameLiftClient:
 
         Args:
             placement_id: <p>A unique identifier for a game session placement to stop.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6492,6 +7277,13 @@ class GameLiftClient:
 
         Args:
             ticket_id: <p>A unique identifier for a matchmaking ticket.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6531,6 +7323,13 @@ class GameLiftClient:
         Args:
             game_server_group_name: <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
             suspend_actions: <p>The activity to suspend for this game server group.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6571,6 +7370,14 @@ class GameLiftClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html\">ARN</a>) that uniquely identifies the Amazon GameLift Servers resource that you want to assign tags to. Amazon GameLift Servers includes resource ARNs in the data object for the resource. You can retrieve the ARN by calling a <code>List</code> or <code>Describe</code> operation for the resource type. </p>
             tags: <p>A list of one or more tags to assign to the specified Amazon GameLift Servers resource. Tags are developer-defined and structured as key-value pairs. The maximum tag limit may be lower than stated. See <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\"> Tagging Amazon Web Services Resources</a> for tagging limits.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6611,6 +7418,15 @@ class GameLiftClient:
         Args:
             game_session_id: <p>An identifier for the game session that is unique across all regions to be terminated. The value is always a full ARN in the following format: <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
             termination_mode: <p>The method to use to terminate the game session. Available methods include: </p> <ul> <li> <p> <code>TRIGGER_ON_PROCESS_TERMINATE</code> – Prompts the Amazon GameLift Servers service to send an <code>OnProcessTerminate()</code> callback to the server process and initiate the normal game session shutdown sequence. The <code>OnProcessTerminate</code> method, which is implemented in the game server code, must include a call to the server SDK action <code>ProcessEnding()</code>, which is how the server process signals to Amazon GameLift Servers that a game session is ending. If the server process doesn't call <code>ProcessEnding()</code>, the game session termination won't conclude successfully.</p> </li> <li> <p> <code>FORCE_TERMINATE</code> – Prompts the Amazon GameLift Servers service to stop the server process immediately. Amazon GameLift Servers takes action (depending on the type of fleet) to shut down the server process without the normal game session shutdown sequence. </p> <note> <p>This method is not available for game sessions that are running on Anywhere fleets unless the fleet is deployed with the Amazon GameLift Servers Agent. In this scenario, a force terminate request results in an invalid or bad request exception.</p> </note> </li> </ul>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_game_session_status_exception.InvalidGameSessionStatusException: <p>The requested operation would cause a conflict with the current state of a resource associated with the request and/or the game instance. Resolve the conflict before retrying.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.not_ready_exception.NotReadyException: <p> The operation failed because Amazon GameLift Servers has not yet finished validating this compute. We recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href=\"http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/\">exponential backoffs and jitter</a>. </p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6651,6 +7467,14 @@ class GameLiftClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html\">ARN</a>) that uniquely identifies the Amazon GameLift Servers resource that you want to remove tags from. Amazon GameLift Servers includes resource ARNs in the data object for the resource. You can retrieve the ARN by calling a <code>List</code> or <code>Describe</code> operation for the resource type. </p>
             tag_keys: <p>A list of one or more tag keys to remove from the specified Amazon GameLift Servers resource. </p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.tagging_failed_exception.TaggingFailedException: <p>The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6701,6 +7525,13 @@ class GameLiftClient:
             name: <p>A descriptive label that is associated with an alias. Alias names do not need to be unique.</p>
             description: <p>A human-readable description of the alias.</p>
             routing_strategy: <p>The routing configuration, including routing type and fleet target, for the alias.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6752,6 +7583,13 @@ class GameLiftClient:
             build_id: <p>A unique identifier for the build to update. You can use either the build ID or ARN value. </p>
             name: <p>A descriptive label that is associated with a build. Build names do not need to be unique. </p>
             version: <p>Version information that is associated with a build or script. Version strings do not need to be unique.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6845,6 +7683,16 @@ class GameLiftClient:
             game_session_creation_limit_policy: <p>A policy that limits the number of game sessions that each individual player can create on instances in this fleet. The limit applies for a specified span of time.</p>
             log_configuration: <p>The method for collecting container logs for the fleet. </p>
             remove_attributes: <p>If set, this update removes a fleet's per-instance container group definition. You can't remove a fleet's game server container group definition.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.not_ready_exception.NotReadyException: <p> The operation failed because Amazon GameLift Servers has not yet finished validating this compute. We recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href=\"http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/\">exponential backoffs and jitter</a>. </p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6950,6 +7798,15 @@ class GameLiftClient:
             version_description: <p>A description for this update to the container group definition. </p>
             source_version_number: <p>The container group definition version to update. The new version starts with values from the source version, and then updates values included in this request. </p>
             operating_system: <p>The platform that all containers in the group use. Containers in a group must run on the same operating system.</p> <note> <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in the <a href=\"http://aws.amazon.com/amazon-linux-2/faqs/\">Amazon Linux 2 FAQs</a>. For game servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the game server build to server SDK 5.x, and then deploy to AL2023 instances. See <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html\"> Migrate to server SDK version 5.</a> </p> </note>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7027,6 +7884,16 @@ class GameLiftClient:
             resource_creation_limit_policy: <p>Policy settings that limit the number of game sessions an individual player can create over a span of time. </p>
             metric_groups: <p>The name of a metric group to add this fleet to. Use a metric group in Amazon CloudWatch to aggregate the metrics from multiple fleets. Provide an existing metric group name, or create a new metric group by providing a new name. A fleet can only be in one metric group at a time.</p>
             anywhere_configuration: <p>Amazon GameLift Servers Anywhere configuration options.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p> <p></p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_fleet_status_exception.InvalidFleetStatusException: <p>The requested operation would cause a conflict with the current state of a resource associated with the request and/or the fleet. Resolve the conflict before retrying.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7096,6 +7963,17 @@ class GameLiftClient:
             max_size: <p>The maximum number of instances that are allowed in the specified fleet location. If this parameter is not set, the default is 1.</p>
             location: <p>The name of a remote location to update fleet capacity settings for, in the form of an Amazon Web Services Region code such as <code>us-west-2</code>.</p>
             managed_capacity_configuration: <p>Configuration for Amazon GameLift Servers-managed capacity scaling options.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p> <p></p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_fleet_status_exception.InvalidFleetStatusException: <p>The requested operation would cause a conflict with the current state of a resource associated with the request and/or the fleet. Resolve the conflict before retrying.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7151,6 +8029,16 @@ class GameLiftClient:
             fleet_id: <p>A unique identifier for the fleet to update port settings for. You can use either the fleet ID or ARN value.</p>
             inbound_permission_authorizations: <p>A collection of port settings to be added to the fleet resource.</p>
             inbound_permission_revocations: <p>A collection of port settings to be removed from the fleet resource.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p> <p></p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_fleet_status_exception.InvalidFleetStatusException: <p>The requested operation would cause a conflict with the current state of a resource associated with the request and/or the fleet. Resolve the conflict before retrying.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7208,6 +8096,13 @@ class GameLiftClient:
             game_server_data: <p>A set of custom game server properties, formatted as a single string value. This data is passed to a game client or service when it requests information on game servers. </p>
             utilization_status: <p>Indicates if the game server is available or is currently hosting gameplay. You can update a game server status from <code>AVAILABLE</code> to <code>UTILIZED</code>, but you can't change a the status from <code>UTILIZED</code> to <code>AVAILABLE</code>.</p>
             health_check: <p>Indicates health status of the game server. A request that includes this parameter updates the game server's <i>LastHealthCheckTime</i> timestamp. </p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7266,6 +8161,13 @@ class GameLiftClient:
             instance_definitions: <p>An updated list of Amazon EC2 instance types to use in the Auto Scaling group. The instance definitions must specify at least two different instance types that are supported by Amazon GameLift Servers FleetIQ. This updated list replaces the entire current list of instance definitions for the game server group. For more information on instance types, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">EC2 Instance Types</a> in the <i>Amazon EC2 User Guide</i>. You can optionally specify capacity weighting for each instance type. If no weight value is specified for an instance type, it is set to the default value \"1\". For more information about capacity weighting, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html\"> Instance Weighting for Amazon EC2 Auto Scaling</a> in the Amazon EC2 Auto Scaling User Guide.</p>
             game_server_protection_policy: <p>A flag that indicates whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion (see ). An exception to this is with Spot Instances, which can be terminated by Amazon Web Services regardless of protection status. This property is set to <code>NO_PROTECTION</code> by default.</p>
             balancing_strategy: <p>Indicates how Amazon GameLift Servers FleetIQ balances the use of Spot Instances and On-Demand Instances in the game server group. Method options include the following:</p> <ul> <li> <p> <code>SPOT_ONLY</code> - Only Spot Instances are used in the game server group. If Spot Instances are unavailable or not viable for game hosting, the game server group provides no hosting capacity until Spot Instances can again be used. Until then, no new instances are started, and the existing nonviable Spot Instances are terminated (after current gameplay ends) and are not replaced.</p> </li> <li> <p> <code>SPOT_PREFERRED</code> - (default value) Spot Instances are used whenever available in the game server group. If Spot Instances are unavailable, the game server group continues to provide hosting capacity by falling back to On-Demand Instances. Existing nonviable Spot Instances are terminated (after current gameplay ends) and are replaced with new On-Demand Instances.</p> </li> <li> <p> <code>ON_DEMAND_ONLY</code> - Only On-Demand Instances are used in the game server group. No Spot Instances are used, even when available, while this balancing strategy is in force.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7331,6 +8233,16 @@ class GameLiftClient:
             player_session_creation_policy: <p>A policy that determines whether the game session is accepting new players.</p>
             protection_policy: <p>Game session protection policy to apply to this game session only.</p> <ul> <li> <p> <code>NoProtection</code> -- The game session can be terminated during a scale-down event.</p> </li> <li> <p> <code>FullProtection</code> -- If the game session is in an <code>ACTIVE</code> status, it cannot be terminated during a scale-down event.</p> </li> </ul>
             game_properties: <p>A set of key-value pairs that can store custom data in a game session. For example: <code>{\"Key\": \"difficulty\", \"Value\": \"novice\"}</code>. You can use this parameter to modify game properties in an active game session. This action adds new properties and modifies existing properties. There is no way to delete properties. For an example, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-update\">Update the value of a game property</a>. </p> <note> <ul> <li> <p>Avoid using periods (\".\") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p> </li> <li> <p>If you use SearchGameSessions API, there is a limit of 500 game property keys across all game sessions and all fleets per region. If the limit is exceeded, there will potentially be game session entries missing from SearchGameSessions API results.</p> </li> </ul> </note>
+
+        Raises:
+            aws_sdk_gamelift.errors.conflict_exception.ConflictException: <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p> <p></p>
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_game_session_status_exception.InvalidGameSessionStatusException: <p>The requested operation would cause a conflict with the current state of a resource associated with the request and/or the game instance. Resolve the conflict before retrying.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.not_ready_exception.NotReadyException: <p> The operation failed because Amazon GameLift Servers has not yet finished validating this compute. We recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href=\"http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/\">exponential backoffs and jitter</a>. </p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7406,6 +8318,13 @@ class GameLiftClient:
             priority_configuration: <p>Custom settings to use when prioritizing destinations and locations for game session placements. This configuration replaces the FleetIQ default prioritization process. Priority types that are not explicitly named will be automatically applied at the end of the prioritization process. To remove an existing priority configuration, pass in an empty set.</p>
             custom_event_data: <p>Information to be added to all events that are related to this game session queue.</p>
             notification_target: <p>An SNS topic ARN that is set up to receive game session placement notifications. See <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html\"> Setting up notifications for game session placement</a>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7509,6 +8428,13 @@ class GameLiftClient:
             game_session_data: <p>A set of custom game session properties, formatted as a single string value. This data is passed to a game server process with a request to start a new game session. For more information, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession\">Start a game session</a>. This information is added to the game session that is created for a successful match. This parameter is not used if <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
             backfill_mode: <p>The method that is used to backfill game sessions created with this matchmaking configuration. Specify MANUAL when your game manages backfill requests manually or does not use the match backfill feature. Specify AUTOMATIC to have GameLift create a match backfill request whenever a game session has one or more open slots. Learn more about manual and automatic backfill in <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html\">Backfill Existing Games with FlexMatch</a>. Automatic backfill is not available when <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
             flex_match_mode: <p>Indicates whether this matchmaking configuration is being used with Amazon GameLift Servers hosting or as a standalone matchmaking solution. </p> <ul> <li> <p> <b>STANDALONE</b> - FlexMatch forms matches and returns match information, including players and team assignments, in a <a href=\"https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html#match-events-matchmakingsucceeded\"> MatchmakingSucceeded</a> event.</p> </li> <li> <p> <b>WITH_QUEUE</b> - FlexMatch forms matches and uses the specified Amazon GameLift Servers queue to start a game session for the match. </p> </li> </ul>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7574,6 +8500,15 @@ class GameLiftClient:
         Args:
             fleet_id: <p>A unique identifier for the fleet to update runtime configuration for. You can use either the fleet ID or ARN value.</p>
             runtime_configuration: <p>Instructions for launching server processes on fleet computes. Server processes run either a custom game build executable or a Amazon GameLift Servers Realtime script. The runtime configuration lists the types of server processes to run, how to launch them, and the number of processes to run concurrently.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_fleet_status_exception.InvalidFleetStatusException: <p>The requested operation would cause a conflict with the current state of a resource associated with the request and/or the fleet. Resolve the conflict before retrying.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.limit_exceeded_exception.LimitExceededException: <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7626,6 +8561,13 @@ class GameLiftClient:
             version: <p>Version information that is associated with a build or script. Version strings do not need to be unique.</p>
             storage_location: <p>The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the \"key\"), and a role ARN that allows Amazon GameLift Servers to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift Servers uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the <code>ObjectVersion</code> parameter to specify an earlier version. </p>
             zip_file: <p>A data object containing your Realtime scripts and dependencies as a zip file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.</p> <p>When using the Amazon Web Services CLI tool to create a script, this parameter is set to the zip file name. It must be prepended with the string \"fileb://\" to indicate that the file data is a binary object. For example: <code>--zip-file fileb://myRealtimeScript.zip</code>.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.not_found_exception.NotFoundException: <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
+            aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException: <p>The client failed authentication. Clients should not retry such requests.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7671,6 +8613,12 @@ class GameLiftClient:
 
         Args:
             rule_set_body: <p>A collection of matchmaking rules to validate, formatted as a JSON string.</p>
+
+        Raises:
+            aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException: <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
+            aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException: <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
+            aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException: <p>The requested operation is not supported in the Region specified.</p>
+            aws_sdk_gamelift.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

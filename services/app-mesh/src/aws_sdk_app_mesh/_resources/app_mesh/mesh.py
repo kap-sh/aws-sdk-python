@@ -57,6 +57,17 @@ class Mesh:
             spec: <p>The service mesh specification to apply.</p>
             tags: <p>Optional metadata that you can apply to the service mesh to assist with categorization and organization. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+
+        Raises:
+            aws_sdk_app_mesh.errors.bad_request_exception.BadRequestException: <p>The request syntax was malformed. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.conflict_exception.ConflictException: <p>The request contains a client token that was used for a previous update resource call with different specifications. Try the request again with a new client token.</p>
+            aws_sdk_app_mesh.errors.forbidden_exception.ForbiddenException: <p>You don't have permissions to perform this action.</p>
+            aws_sdk_app_mesh.errors.internal_server_error_exception.InternalServerErrorException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_app_mesh.errors.limit_exceeded_exception.LimitExceededException: <p>You have exceeded a service limit for your account. For more information, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/service-quotas.html\">Service Limits</a> in the <i>App Mesh User Guide</i>.</p>
+            aws_sdk_app_mesh.errors.not_found_exception.NotFoundException: <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the service.</p>
+            aws_sdk_app_mesh.errors.too_many_requests_exception.TooManyRequestsException: <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.</p>
+            aws_sdk_app_mesh.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -102,6 +113,15 @@ class Mesh:
         Args:
             mesh_name: <p>The name of the service mesh to describe.</p>
             mesh_owner: <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html\">Working with shared meshes</a>.</p>
+
+        Raises:
+            aws_sdk_app_mesh.errors.bad_request_exception.BadRequestException: <p>The request syntax was malformed. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.forbidden_exception.ForbiddenException: <p>You don't have permissions to perform this action.</p>
+            aws_sdk_app_mesh.errors.internal_server_error_exception.InternalServerErrorException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_app_mesh.errors.not_found_exception.NotFoundException: <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the service.</p>
+            aws_sdk_app_mesh.errors.too_many_requests_exception.TooManyRequestsException: <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.</p>
+            aws_sdk_app_mesh.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -145,6 +165,16 @@ class Mesh:
             mesh_name: <p>The name of the service mesh to update.</p>
             spec: <p>The service mesh specification to apply.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+
+        Raises:
+            aws_sdk_app_mesh.errors.bad_request_exception.BadRequestException: <p>The request syntax was malformed. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.conflict_exception.ConflictException: <p>The request contains a client token that was used for a previous update resource call with different specifications. Try the request again with a new client token.</p>
+            aws_sdk_app_mesh.errors.forbidden_exception.ForbiddenException: <p>You don't have permissions to perform this action.</p>
+            aws_sdk_app_mesh.errors.internal_server_error_exception.InternalServerErrorException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_app_mesh.errors.not_found_exception.NotFoundException: <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the service.</p>
+            aws_sdk_app_mesh.errors.too_many_requests_exception.TooManyRequestsException: <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.</p>
+            aws_sdk_app_mesh.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -186,6 +216,16 @@ class Mesh:
 
         Args:
             mesh_name: <p>The name of the service mesh to delete.</p>
+
+        Raises:
+            aws_sdk_app_mesh.errors.bad_request_exception.BadRequestException: <p>The request syntax was malformed. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.forbidden_exception.ForbiddenException: <p>You don't have permissions to perform this action.</p>
+            aws_sdk_app_mesh.errors.internal_server_error_exception.InternalServerErrorException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_app_mesh.errors.not_found_exception.NotFoundException: <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.resource_in_use_exception.ResourceInUseException: <p>You can't delete the specified resource because it's in use or required by another resource.</p>
+            aws_sdk_app_mesh.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the service.</p>
+            aws_sdk_app_mesh.errors.too_many_requests_exception.TooManyRequestsException: <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.</p>
+            aws_sdk_app_mesh.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -227,6 +267,15 @@ class Mesh:
         Args:
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListMeshes</code> request where <code>limit</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value.</p> <note> <p>This token should be treated as an opaque identifier that is used only to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
             limit: <p>The maximum number of results returned by <code>ListMeshes</code> in paginated output. When you use this parameter, <code>ListMeshes</code> returns only <code>limit</code> results in a single page along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another <code>ListMeshes</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If you don't use this parameter, <code>ListMeshes</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
+
+        Raises:
+            aws_sdk_app_mesh.errors.bad_request_exception.BadRequestException: <p>The request syntax was malformed. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.forbidden_exception.ForbiddenException: <p>You don't have permissions to perform this action.</p>
+            aws_sdk_app_mesh.errors.internal_server_error_exception.InternalServerErrorException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_app_mesh.errors.not_found_exception.NotFoundException: <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the service.</p>
+            aws_sdk_app_mesh.errors.too_many_requests_exception.TooManyRequestsException: <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.</p>
+            aws_sdk_app_mesh.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -278,6 +327,17 @@ class AsyncMesh:
             spec: <p>The service mesh specification to apply.</p>
             tags: <p>Optional metadata that you can apply to the service mesh to assist with categorization and organization. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+
+        Raises:
+            aws_sdk_app_mesh.errors.bad_request_exception.BadRequestException: <p>The request syntax was malformed. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.conflict_exception.ConflictException: <p>The request contains a client token that was used for a previous update resource call with different specifications. Try the request again with a new client token.</p>
+            aws_sdk_app_mesh.errors.forbidden_exception.ForbiddenException: <p>You don't have permissions to perform this action.</p>
+            aws_sdk_app_mesh.errors.internal_server_error_exception.InternalServerErrorException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_app_mesh.errors.limit_exceeded_exception.LimitExceededException: <p>You have exceeded a service limit for your account. For more information, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/service-quotas.html\">Service Limits</a> in the <i>App Mesh User Guide</i>.</p>
+            aws_sdk_app_mesh.errors.not_found_exception.NotFoundException: <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the service.</p>
+            aws_sdk_app_mesh.errors.too_many_requests_exception.TooManyRequestsException: <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.</p>
+            aws_sdk_app_mesh.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -324,6 +384,15 @@ class AsyncMesh:
         Args:
             mesh_name: <p>The name of the service mesh to describe.</p>
             mesh_owner: <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html\">Working with shared meshes</a>.</p>
+
+        Raises:
+            aws_sdk_app_mesh.errors.bad_request_exception.BadRequestException: <p>The request syntax was malformed. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.forbidden_exception.ForbiddenException: <p>You don't have permissions to perform this action.</p>
+            aws_sdk_app_mesh.errors.internal_server_error_exception.InternalServerErrorException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_app_mesh.errors.not_found_exception.NotFoundException: <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the service.</p>
+            aws_sdk_app_mesh.errors.too_many_requests_exception.TooManyRequestsException: <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.</p>
+            aws_sdk_app_mesh.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -368,6 +437,16 @@ class AsyncMesh:
             mesh_name: <p>The name of the service mesh to update.</p>
             spec: <p>The service mesh specification to apply.</p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+
+        Raises:
+            aws_sdk_app_mesh.errors.bad_request_exception.BadRequestException: <p>The request syntax was malformed. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.conflict_exception.ConflictException: <p>The request contains a client token that was used for a previous update resource call with different specifications. Try the request again with a new client token.</p>
+            aws_sdk_app_mesh.errors.forbidden_exception.ForbiddenException: <p>You don't have permissions to perform this action.</p>
+            aws_sdk_app_mesh.errors.internal_server_error_exception.InternalServerErrorException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_app_mesh.errors.not_found_exception.NotFoundException: <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the service.</p>
+            aws_sdk_app_mesh.errors.too_many_requests_exception.TooManyRequestsException: <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.</p>
+            aws_sdk_app_mesh.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -410,6 +489,16 @@ class AsyncMesh:
 
         Args:
             mesh_name: <p>The name of the service mesh to delete.</p>
+
+        Raises:
+            aws_sdk_app_mesh.errors.bad_request_exception.BadRequestException: <p>The request syntax was malformed. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.forbidden_exception.ForbiddenException: <p>You don't have permissions to perform this action.</p>
+            aws_sdk_app_mesh.errors.internal_server_error_exception.InternalServerErrorException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_app_mesh.errors.not_found_exception.NotFoundException: <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.resource_in_use_exception.ResourceInUseException: <p>You can't delete the specified resource because it's in use or required by another resource.</p>
+            aws_sdk_app_mesh.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the service.</p>
+            aws_sdk_app_mesh.errors.too_many_requests_exception.TooManyRequestsException: <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.</p>
+            aws_sdk_app_mesh.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -452,6 +541,15 @@ class AsyncMesh:
         Args:
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListMeshes</code> request where <code>limit</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value.</p> <note> <p>This token should be treated as an opaque identifier that is used only to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
             limit: <p>The maximum number of results returned by <code>ListMeshes</code> in paginated output. When you use this parameter, <code>ListMeshes</code> returns only <code>limit</code> results in a single page along with a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another <code>ListMeshes</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If you don't use this parameter, <code>ListMeshes</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
+
+        Raises:
+            aws_sdk_app_mesh.errors.bad_request_exception.BadRequestException: <p>The request syntax was malformed. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.forbidden_exception.ForbiddenException: <p>You don't have permissions to perform this action.</p>
+            aws_sdk_app_mesh.errors.internal_server_error_exception.InternalServerErrorException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_app_mesh.errors.not_found_exception.NotFoundException: <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+            aws_sdk_app_mesh.errors.service_unavailable_exception.ServiceUnavailableException: <p>The request has failed due to a temporary failure of the service.</p>
+            aws_sdk_app_mesh.errors.too_many_requests_exception.TooManyRequestsException: <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.</p>
+            aws_sdk_app_mesh.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

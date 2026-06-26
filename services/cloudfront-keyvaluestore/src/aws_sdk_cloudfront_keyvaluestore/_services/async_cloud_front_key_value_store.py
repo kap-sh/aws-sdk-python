@@ -152,6 +152,15 @@ class AsyncCloudFrontKeyValueStoreClient:
             key: <p>The key to delete.</p>
             if_match: <p>The current version (ETag) of the Key Value Store that you are deleting keys from, which you can get using DescribeKeyValueStore.</p>
 
+        Raises:
+            aws_sdk_cloudfront_keyvaluestore.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.conflict_exception.ConflictException: <p>Resource is not in expected state.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Limit exceeded.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.validation_exception.ValidationException: <p>Validation failed.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Delete 'key1' from the key value store with ARN 'arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58'
 
@@ -196,6 +205,13 @@ class AsyncCloudFrontKeyValueStoreClient:
 
         Args:
             kvs_arn: <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
+
+        Raises:
+            aws_sdk_cloudfront_keyvaluestore.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.conflict_exception.ConflictException: <p>Resource is not in expected state.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Describe the key value store with ARN 'arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58'
@@ -245,6 +261,13 @@ class AsyncCloudFrontKeyValueStoreClient:
             kvs_arn: <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
             key: <p>The key to get.</p>
 
+        Raises:
+            aws_sdk_cloudfront_keyvaluestore.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.conflict_exception.ConflictException: <p>Resource is not in expected state.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get 'key1' from the key value store with ARN 'arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58'
 
@@ -292,6 +315,14 @@ class AsyncCloudFrontKeyValueStoreClient:
             kvs_arn: <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
             next_token: <p>If nextToken is returned in the response, there are more results available. Make the next call using the returned token to retrieve the next page.</p>
             max_results: <p>Maximum number of results that are returned per call. The default is 10 and maximum allowed page is 50.</p>
+
+        Raises:
+            aws_sdk_cloudfront_keyvaluestore.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.conflict_exception.ConflictException: <p>Resource is not in expected state.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.validation_exception.ValidationException: <p>Validation failed.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List keys in the key value store with ARN 'arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58'
@@ -372,6 +403,15 @@ class AsyncCloudFrontKeyValueStoreClient:
             kvs_arn: <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
             if_match: <p>The current version (ETag) of the Key Value Store that you are putting keys into, which you can get using DescribeKeyValueStore.</p>
 
+        Raises:
+            aws_sdk_cloudfront_keyvaluestore.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.conflict_exception.ConflictException: <p>Resource is not in expected state.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Limit exceeded.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.validation_exception.ValidationException: <p>Validation failed.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Put 'key1' with 'value1' into the key value store with ARN 'arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58'
 
@@ -429,6 +469,15 @@ class AsyncCloudFrontKeyValueStoreClient:
             if_match: <p>The current version (ETag) of the Key Value Store that you are updating keys of, which you can get using DescribeKeyValueStore.</p>
             puts: <p>List of key value pairs to put.</p>
             deletes: <p>List of keys to delete.</p>
+
+        Raises:
+            aws_sdk_cloudfront_keyvaluestore.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.conflict_exception.ConflictException: <p>Resource is not in expected state.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.internal_server_exception.InternalServerException: <p>Internal server error.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Limit exceeded.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.validation_exception.ValidationException: <p>Validation failed.</p>
+            aws_sdk_cloudfront_keyvaluestore.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Put 2 keys into the key value store with ARN 'arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58'

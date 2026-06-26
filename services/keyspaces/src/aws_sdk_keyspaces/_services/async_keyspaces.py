@@ -204,6 +204,14 @@ class AsyncKeyspacesClient:
             keyspace_name: <p>The name of the keyspace to be created.</p>
             tags: <p>A list of key-value pair tags to be attached to the keyspace.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html\">Adding tags and labels to Amazon Keyspaces resources</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
             replication_specification: <p> The replication specification of the keyspace includes:</p> <ul> <li> <p> <code>replicationStrategy</code> - the required value is <code>SINGLE_REGION</code> or <code>MULTI_REGION</code>.</p> </li> <li> <p> <code>regionList</code> - if the <code>replicationStrategy</code> is <code>MULTI_REGION</code>, the <code>regionList</code> requires the current Region and at least one additional Amazon Web Services Region where the keyspace is going to be replicated in.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.conflict_exception.ConflictException: <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to perform an action and the same or a different action is already in progress, or if you try to create a resource that already exists. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -292,6 +300,15 @@ class AsyncKeyspacesClient:
             replica_specifications: <p>The optional Amazon Web Services Region specific settings of a multi-Region table. These settings overwrite the general settings of the table for the specified Region. </p> <p>For a multi-Region table in provisioned capacity mode, you can configure the table's read capacity differently for each Region's replica. The write capacity, however, remains synchronized between all replicas to ensure that there's enough capacity to replicate writes across all Regions. To define the read capacity for a table replica in a specific Region, you can do so by configuring the following parameters.</p> <ul> <li> <p> <code>region</code>: The Region where these settings are applied. (Required)</p> </li> <li> <p> <code>readCapacityUnits</code>: The provisioned read capacity units. (Optional)</p> </li> <li> <p> <code>readCapacityAutoScaling</code>: The read capacity auto scaling settings for the table. (Optional) </p> </li> </ul>
             cdc_specification: <p>The CDC stream settings of the table.</p>
             warm_throughput_specification: <p>Specifies the warm throughput settings for the table. Pre-warming a table helps you avoid capacity exceeded exceptions by pre-provisioning read and write capacity units to reduce cold start latency when your table receives traffic.</p> <p>For more information about pre-warming in Amazon Keyspaces, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/warm-throughput.html\">Pre-warm a table in Amazon Keyspaces</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.conflict_exception.ConflictException: <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to perform an action and the same or a different action is already in progress, or if you try to create a resource that already exists. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -360,6 +377,15 @@ class AsyncKeyspacesClient:
             keyspace_name: <p> The name of the keyspace. </p>
             type_name: <p> The name of the user-defined type. </p> <p>UDT names must contain 48 characters or less, must begin with an alphabetic character, and can only contain alpha-numeric characters and underscores. Amazon Keyspaces converts upper case characters automatically into lower case characters. </p> <p>Alternatively, you can declare a UDT name in double quotes. When declaring a UDT name inside double quotes, Amazon Keyspaces preserves upper casing and allows special characters.</p> <p>You can also use double quotes as part of the name when you create the UDT, but you must escape each double quote character with an additional double quote character.</p>
             field_definitions: <p> The field definitions, consisting of names and types, that define this type. </p>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.conflict_exception.ConflictException: <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to perform an action and the same or a different action is already in progress, or if you try to create a resource that already exists. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -400,6 +426,15 @@ class AsyncKeyspacesClient:
 
         Args:
             keyspace_name: <p>The name of the keyspace to be deleted.</p>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.conflict_exception.ConflictException: <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to perform an action and the same or a different action is already in progress, or if you try to create a resource that already exists. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -440,6 +475,15 @@ class AsyncKeyspacesClient:
         Args:
             keyspace_name: <p>The name of the keyspace of the to be deleted table.</p>
             table_name: <p>The name of the table to be deleted.</p>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.conflict_exception.ConflictException: <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to perform an action and the same or a different action is already in progress, or if you try to create a resource that already exists. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -481,6 +525,15 @@ class AsyncKeyspacesClient:
         Args:
             keyspace_name: <p> The name of the keyspace of the to be deleted type. </p>
             type_name: <p> The name of the type to be deleted. </p>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.conflict_exception.ConflictException: <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to perform an action and the same or a different action is already in progress, or if you try to create a resource that already exists. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -520,6 +573,14 @@ class AsyncKeyspacesClient:
 
         Args:
             keyspace_name: <p>The name of the keyspace.</p>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -560,6 +621,14 @@ class AsyncKeyspacesClient:
         Args:
             keyspace_name: <p>The name of the keyspace that the table is stored in.</p>
             table_name: <p>The name of the table.</p>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -601,6 +670,14 @@ class AsyncKeyspacesClient:
         Args:
             keyspace_name: <p>The name of the keyspace.</p>
             table_name: <p>The name of the table.</p>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -642,6 +719,14 @@ class AsyncKeyspacesClient:
         Args:
             keyspace_name: <p> The name of the keyspace that contains this type. </p>
             type_name: <p>The formatted name of the type. For example, if the name of the type was created without double quotes, Amazon Keyspaces saved the name in lower-case characters. If the name was created in double quotes, you must use double quotes to specify the type name. </p>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -683,6 +768,14 @@ class AsyncKeyspacesClient:
         Args:
             next_token: <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as argument of a subsequent API invocation.</p>
             max_results: <p>The total number of keyspaces to return in the output. If the total number of keyspaces available is more than the value specified, a <code>NextToken</code> is provided in the output. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -749,6 +842,14 @@ class AsyncKeyspacesClient:
             next_token: <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
             max_results: <p>The total number of tables to return in the output. If the total number of tables available is more than the value specified, a <code>NextToken</code> is provided in the output. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
             keyspace_name: <p>The name of the keyspace.</p>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -818,6 +919,14 @@ class AsyncKeyspacesClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon Keyspaces resource.</p>
             next_token: <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as argument of a subsequent API invocation.</p>
             max_results: <p>The total number of tags to return in the output. If the total number of tags available is more than the value specified, a <code>NextToken</code> is provided in the output. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -887,6 +996,14 @@ class AsyncKeyspacesClient:
             next_token: <p> The pagination token. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation. </p>
             max_results: <p> The total number of types to return in the output. If the total number of types available is more than the value specified, a <code>NextToken</code> is provided in the output. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation. </p>
             keyspace_name: <p> The name of the keyspace that contains the listed types. </p>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -984,6 +1101,15 @@ class AsyncKeyspacesClient:
             tags_override: <p>A list of key-value pair tags to be attached to the restored table. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html\">Adding tags and labels to Amazon Keyspaces resources</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
             auto_scaling_specification: <p>The optional auto scaling settings for the restored table in provisioned capacity mode. Specifies if the service can manage throughput capacity of a provisioned table automatically on your behalf. Amazon Keyspaces auto scaling helps you provision throughput capacity for variable workloads efficiently by increasing and decreasing your table's read and write capacity automatically in response to application traffic.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html\">Managing throughput capacity automatically with Amazon Keyspaces auto scaling</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
             replica_specifications: <p>The optional Region specific settings of a multi-Regional table.</p>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.conflict_exception.ConflictException: <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to perform an action and the same or a different action is already in progress, or if you try to create a resource that already exists. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1043,6 +1169,15 @@ class AsyncKeyspacesClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon Keyspaces resource to which to add tags.</p>
             tags: <p>The tags to be assigned to the Amazon Keyspaces resource.</p>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.conflict_exception.ConflictException: <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to perform an action and the same or a different action is already in progress, or if you try to create a resource that already exists. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1084,6 +1219,15 @@ class AsyncKeyspacesClient:
         Args:
             resource_arn: <p>The Amazon Keyspaces resource that the tags will be removed from. This value is an Amazon Resource Name (ARN).</p>
             tags: <p>A list of existing tags to be removed from the Amazon Keyspaces resource.</p>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.conflict_exception.ConflictException: <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to perform an action and the same or a different action is already in progress, or if you try to create a resource that already exists. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1127,6 +1271,15 @@ class AsyncKeyspacesClient:
 
         Args:
             keyspace_name: <p> The name of the keyspace. </p>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.conflict_exception.ConflictException: <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to perform an action and the same or a different action is already in progress, or if you try to create a resource that already exists. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1212,6 +1365,15 @@ class AsyncKeyspacesClient:
             replica_specifications: <p>The Region specific settings of a multi-Regional table.</p>
             cdc_specification: <p>The CDC stream settings of the table.</p>
             warm_throughput_specification: <p>Modifies the warm throughput settings for the table. You can update the read and write capacity units to adjust the pre-provisioned throughput.</p>
+
+        Raises:
+            aws_sdk_keyspaces.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access permissions to perform this action. </p>
+            aws_sdk_keyspaces.errors.conflict_exception.ConflictException: <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to perform an action and the same or a different action is already in progress, or if you try to create a resource that already exists. </p>
+            aws_sdk_keyspaces.errors.internal_server_exception.InternalServerException: <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_keyspaces.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+            aws_sdk_keyspaces.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href=\"https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html\">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+            aws_sdk_keyspaces.errors.validation_exception.ValidationException: <p>The operation failed due to an invalid or malformed request.</p>
+            aws_sdk_keyspaces.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

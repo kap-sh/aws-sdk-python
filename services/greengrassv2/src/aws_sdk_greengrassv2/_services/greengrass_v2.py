@@ -229,6 +229,11 @@ class GreengrassV2Client:
 
         Args:
             role_arn: <p>The Amazon Resource Name (ARN) of the service role to associate with IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -270,6 +275,14 @@ class GreengrassV2Client:
         Args:
             entries: <p>The list of client devices to associate.</p>
             core_device_thing_name: <p>The name of the core device. This is also the name of the IoT thing.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -313,6 +326,14 @@ class GreengrassV2Client:
         Args:
             entries: <p>The list of client devices to disassociate.</p>
             core_device_thing_name: <p>The name of the core device. This is also the name of the IoT thing.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -354,6 +375,15 @@ class GreengrassV2Client:
 
         Args:
             deployment_id: <p>The ID of the deployment.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -403,6 +433,16 @@ class GreengrassV2Client:
             lambda_function: <p>The parameters to create a component from a Lambda function.</p> <p>You must specify either <code>inlineRecipe</code> or <code>lambdaFunction</code>.</p>
             tags: <p>A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html\">Tag your resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
             client_token: <p>A unique, case-sensitive identifier that you can provide to ensure that the request is idempotent. Idempotency means that the request is successfully processed only once, even if you send the request multiple times. When a request succeeds, and you specify the same client token for subsequent successful requests, the IoT Greengrass V2 service returns the successful response that it caches from the previous request. IoT Greengrass V2 caches successful responses for idempotent requests for up to 8 hours.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.request_already_in_progress_exception.RequestAlreadyInProgressException: <p>The request is already in progress. This exception occurs when you use a client token for multiple requests while IoT Greengrass is still processing an earlier request that uses the same client token.</p>
+            aws_sdk_greengrassv2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Your request exceeds a service quota. For example, you might have the maximum number of components that you can create.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -475,6 +515,16 @@ class GreengrassV2Client:
             parent_target_arn: <p>The parent deployment's target <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> within a subdeployment.</p>
             tags: <p>A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html\">Tag your resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
             client_token: <p>A unique, case-sensitive identifier that you can provide to ensure that the request is idempotent. Idempotency means that the request is successfully processed only once, even if you send the request multiple times. When a request succeeds, and you specify the same client token for subsequent successful requests, the IoT Greengrass V2 service returns the successful response that it caches from the previous request. IoT Greengrass V2 caches successful responses for idempotent requests for up to 8 hours.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.request_already_in_progress_exception.RequestAlreadyInProgressException: <p>The request is already in progress. This exception occurs when you use a client token for multiple requests while IoT Greengrass is still processing an earlier request that uses the same client token.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -526,6 +576,15 @@ class GreengrassV2Client:
 
         Args:
             arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component version.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -561,6 +620,15 @@ class GreengrassV2Client:
 
         Args:
             core_device_thing_name: <p>The name of the core device. This is also the name of the IoT thing.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -596,6 +664,15 @@ class GreengrassV2Client:
 
         Args:
             deployment_id: <p>The ID of the deployment.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -631,6 +708,14 @@ class GreengrassV2Client:
 
         Args:
             arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component version.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -661,7 +746,12 @@ class GreengrassV2Client:
     def disassociate_service_role_from_account(
         self, *, config_overrides: Optional[GreengrassV2ClientConfig] = None
     ) -> "aws_sdk_greengrassv2.types.disassociate_service_role_from_account_response.DisassociateServiceRoleFromAccountResponse":
-        r"""<p>Disassociates the Greengrass service role from IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region. Without a service role, IoT Greengrass can't verify the identity of client devices or manage core device connectivity information. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html\">Greengrass service role</a> in the <i>IoT Greengrass Version 2 Developer Guide</i>.</p>"""
+        r"""<p>Disassociates the Greengrass service role from IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region. Without a service role, IoT Greengrass can't verify the identity of client devices or manage core device connectivity information. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html\">Greengrass service role</a> in the <i>IoT Greengrass Version 2 Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_greengrassv2.types.disassociate_service_role_from_account_request.DisassociateServiceRoleFromAccountRequest]",
@@ -701,6 +791,14 @@ class GreengrassV2Client:
         Args:
             recipe_output_format: <p>The format of the recipe.</p>
             arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component version.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -750,6 +848,14 @@ class GreengrassV2Client:
             artifact_name: <p>The name of the artifact.</p> <p>You can use the <a href=\"https://docs.aws.amazon.com/greengrass/v2/APIReference/API_GetComponent.html\">GetComponent</a> operation to download the component recipe, which includes the URI of the artifact. The artifact name is the section of the URI after the scheme. For example, in the artifact URI <code>greengrass:SomeArtifact.zip</code>, the artifact name is <code>SomeArtifact.zip</code>.</p>
             s3_endpoint_type: <p>Specifies the endpoint to use when getting Amazon S3 pre-signed URLs.</p> <p>All Amazon Web Services Regions except US East (N. Virginia) use <code>REGIONAL</code> in all cases. In the US East (N. Virginia) Region the default is <code>GLOBAL</code>, but you can change it to <code>REGIONAL</code> with this parameter.</p>
             iot_endpoint_type: <p>Determines if the Amazon S3 URL returned is a FIPS pre-signed URL endpoint. Specify <code>fips</code> if you want the returned Amazon S3 pre-signed URL to point to an Amazon S3 FIPS endpoint. If you don't specify a value, the default is <code>standard</code>.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -792,6 +898,11 @@ class GreengrassV2Client:
 
         Args:
             thing_name: <p>The name of the core device. This is also the name of the IoT thing.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -829,6 +940,14 @@ class GreengrassV2Client:
 
         Args:
             core_device_thing_name: <p>The name of the core device. This is also the name of the IoT thing.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -866,6 +985,14 @@ class GreengrassV2Client:
 
         Args:
             deployment_id: <p>The ID of the deployment.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -896,7 +1023,12 @@ class GreengrassV2Client:
     def get_service_role_for_account(
         self, *, config_overrides: Optional[GreengrassV2ClientConfig] = None
     ) -> "aws_sdk_greengrassv2.types.get_service_role_for_account_response.GetServiceRoleForAccountResponse":
-        r"""<p>Gets the service role associated with IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region. IoT Greengrass uses this role to verify the identity of client devices and manage core device connectivity information. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html\">Greengrass service role</a> in the <i>IoT Greengrass Version 2 Developer Guide</i>.</p>"""
+        r"""<p>Gets the service role associated with IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region. IoT Greengrass uses this role to verify the identity of client devices and manage core device connectivity information. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html\">Greengrass service role</a> in the <i>IoT Greengrass Version 2 Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_greengrassv2.types.get_service_role_for_account_request.GetServiceRoleForAccountRequest]",
@@ -940,6 +1072,14 @@ class GreengrassV2Client:
             core_device_thing_name: <p>The name of the core device. This is also the name of the IoT thing.</p>
             max_results: <p>The maximum number of results to be returned per paginated request.</p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1018,6 +1158,14 @@ class GreengrassV2Client:
             scope: <p>The scope of the components to list.</p> <p>Default: <code>PRIVATE</code> </p>
             max_results: <p>The maximum number of results to be returned per paginated request.</p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1097,6 +1245,14 @@ class GreengrassV2Client:
             arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component.</p>
             max_results: <p>The maximum number of results to be returned per paginated request.</p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1185,6 +1341,13 @@ class GreengrassV2Client:
             max_results: <p>The maximum number of results to be returned per paginated request.</p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
             runtime: <p>The runtime to be used by the core device. The runtime can be:</p> <ul> <li> <p> <code>aws_nucleus_classic</code> </p> </li> <li> <p> <code>aws_nucleus_lite</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1284,6 +1447,13 @@ class GreengrassV2Client:
             parent_target_arn: <p>The parent deployment's target <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> within a subdeployment.</p>
             max_results: <p>The maximum number of results to be returned per paginated request.</p> <p>Default: <code>50</code> </p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1373,6 +1543,14 @@ class GreengrassV2Client:
             core_device_thing_name: <p>The name of the core device. This is also the name of the IoT thing.</p>
             max_results: <p>The maximum number of results to be returned per paginated request.</p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1455,6 +1633,14 @@ class GreengrassV2Client:
             max_results: <p>The maximum number of results to be returned per paginated request.</p>
             next_token: <p>The token to be used for the next set of paginated results.</p>
             topology_filter: <p>The filter for the list of components. Choose from the following options:</p> <ul> <li> <p> <code>ALL</code> – The list includes all components installed on the core device.</p> </li> <li> <p> <code>ROOT</code> – The list includes only <i>root</i> components, which are components that you specify in a deployment. When you choose this option, the list doesn't include components that the core device installs as dependencies of other components.</p> </li> </ul> <p>Default: <code>ROOT</code> </p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1529,6 +1715,12 @@ class GreengrassV2Client:
 
         Args:
             resource_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1572,6 +1764,15 @@ class GreengrassV2Client:
         Args:
             platform: <p>The platform to use to resolve compatible components.</p>
             component_candidates: <p>The list of components to resolve.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.access_denied_exception.AccessDeniedException: <p>You don't have permission to perform the action.</p>
+            aws_sdk_greengrassv2.errors.conflict_exception.ConflictException: <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.throttling_exception.ThrottlingException: <p>Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1614,6 +1815,12 @@ class GreengrassV2Client:
         Args:
             resource_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource to tag.</p>
             tags: <p>A list of key-value pairs that contain metadata for the resource. For more information, see <a href=\"https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html\">Tag your resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1654,6 +1861,12 @@ class GreengrassV2Client:
         Args:
             resource_arn: <p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource to untag.</p>
             tag_keys: <p>A list of keys for tags to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource can't be found.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1694,6 +1907,11 @@ class GreengrassV2Client:
         Args:
             thing_name: <p>The name of the core device. This is also the name of the IoT thing.</p>
             connectivity_info: <p>The connectivity information for the core device.</p>
+
+        Raises:
+            aws_sdk_greengrassv2.errors.internal_server_exception.InternalServerException: <p>IoT Greengrass can't process your request right now. Try again later.</p>
+            aws_sdk_greengrassv2.errors.validation_exception.ValidationException: <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
+            aws_sdk_greengrassv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

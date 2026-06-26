@@ -153,6 +153,10 @@ class TimestreamInfluxDBClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the tagged resource.</p>
+
+        Raises:
+            aws_sdk_timestream_influxdb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found or does not exist.</p>
+            aws_sdk_timestream_influxdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -192,6 +196,11 @@ class TimestreamInfluxDBClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the tagged resource.</p>
             tags: <p>A list of tags used to categorize and track resources.</p>
+
+        Raises:
+            aws_sdk_timestream_influxdb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found or does not exist.</p>
+            aws_sdk_timestream_influxdb.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeds the service quota.</p>
+            aws_sdk_timestream_influxdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -230,6 +239,10 @@ class TimestreamInfluxDBClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the tagged resource.</p>
             tag_keys: <p>The keys used to identify the tags.</p>
+
+        Raises:
+            aws_sdk_timestream_influxdb.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource was not found or does not exist.</p>
+            aws_sdk_timestream_influxdb.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

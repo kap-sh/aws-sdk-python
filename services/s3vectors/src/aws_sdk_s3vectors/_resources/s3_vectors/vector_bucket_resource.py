@@ -67,6 +67,17 @@ class VectorBucketResource:
             vector_bucket_name: <p>The name of the vector bucket to create. </p>
             encryption_configuration: <p>The encryption configuration for the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically <code>AES256</code>. </p>
             tags: <p>An array of user-defined tags that you would like to apply to the vector bucket that you are creating. A tag is a key-value pair that you apply to your resources. Tags can help you organize and control access to resources. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html\">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p> <note> <p>You must have the <code>s3vectors:TagResource</code> permission in addition to <code>s3vectors:CreateVectorBucket</code> permission to create a vector bucket with tags.</p> </note>
+
+        Raises:
+            aws_sdk_s3vectors.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_s3vectors.errors.internal_server_exception.InternalServerException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3vectors.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out. Retry your request.</p>
+            aws_sdk_s3vectors.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3vectors.errors.validation_exception.ValidationException: <p>The requested action isn't valid.</p>
+            aws_sdk_s3vectors.errors.conflict_exception.ConflictException: <p>The request failed because a vector bucket name or a vector index name already exists. Vector bucket names must be unique within your Amazon Web Services account for each Amazon Web Services Region. Vector index names must be unique within your vector bucket. Choose a different vector bucket name or vector index name, and try again.</p>
+            aws_sdk_s3vectors.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Your request exceeds a service quota. </p>
+            aws_sdk_s3vectors.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+            aws_sdk_s3vectors.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -114,6 +125,17 @@ class VectorBucketResource:
         Args:
             vector_bucket_name: <p>The name of the vector bucket to delete.</p>
             vector_bucket_arn: <p>The ARN of the vector bucket to delete.</p>
+
+        Raises:
+            aws_sdk_s3vectors.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_s3vectors.errors.internal_server_exception.InternalServerException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3vectors.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out. Retry your request.</p>
+            aws_sdk_s3vectors.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3vectors.errors.validation_exception.ValidationException: <p>The requested action isn't valid.</p>
+            aws_sdk_s3vectors.errors.conflict_exception.ConflictException: <p>The request failed because a vector bucket name or a vector index name already exists. Vector bucket names must be unique within your Amazon Web Services account for each Amazon Web Services Region. Vector index names must be unique within your vector bucket. Choose a different vector bucket name or vector index name, and try again.</p>
+            aws_sdk_s3vectors.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource can't be found.</p>
+            aws_sdk_s3vectors.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+            aws_sdk_s3vectors.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -160,6 +182,16 @@ class VectorBucketResource:
         Args:
             vector_bucket_name: <p>The name of the vector bucket to delete the policy from.</p>
             vector_bucket_arn: <p>The ARN of the vector bucket to delete the policy from.</p>
+
+        Raises:
+            aws_sdk_s3vectors.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_s3vectors.errors.internal_server_exception.InternalServerException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3vectors.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out. Retry your request.</p>
+            aws_sdk_s3vectors.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3vectors.errors.validation_exception.ValidationException: <p>The requested action isn't valid.</p>
+            aws_sdk_s3vectors.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource can't be found.</p>
+            aws_sdk_s3vectors.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+            aws_sdk_s3vectors.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -206,6 +238,16 @@ class VectorBucketResource:
         Args:
             vector_bucket_name: <p>The name of the vector bucket to retrieve information about.</p>
             vector_bucket_arn: <p>The ARN of the vector bucket to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_s3vectors.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_s3vectors.errors.internal_server_exception.InternalServerException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3vectors.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out. Retry your request.</p>
+            aws_sdk_s3vectors.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3vectors.errors.validation_exception.ValidationException: <p>The requested action isn't valid.</p>
+            aws_sdk_s3vectors.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource can't be found.</p>
+            aws_sdk_s3vectors.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+            aws_sdk_s3vectors.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -252,6 +294,16 @@ class VectorBucketResource:
         Args:
             vector_bucket_name: <p>The name of the vector bucket.</p>
             vector_bucket_arn: <p>The ARN of the vector bucket.</p>
+
+        Raises:
+            aws_sdk_s3vectors.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_s3vectors.errors.internal_server_exception.InternalServerException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3vectors.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out. Retry your request.</p>
+            aws_sdk_s3vectors.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3vectors.errors.validation_exception.ValidationException: <p>The requested action isn't valid.</p>
+            aws_sdk_s3vectors.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource can't be found.</p>
+            aws_sdk_s3vectors.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+            aws_sdk_s3vectors.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -302,6 +354,15 @@ class VectorBucketResource:
             max_results: <p>The maximum number of vector buckets to be returned in the response. </p>
             next_token: <p>The previous pagination token. </p>
             prefix: <p>Limits the response to vector buckets that begin with the specified prefix.</p>
+
+        Raises:
+            aws_sdk_s3vectors.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_s3vectors.errors.internal_server_exception.InternalServerException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3vectors.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out. Retry your request.</p>
+            aws_sdk_s3vectors.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3vectors.errors.validation_exception.ValidationException: <p>The requested action isn't valid.</p>
+            aws_sdk_s3vectors.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+            aws_sdk_s3vectors.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -352,6 +413,16 @@ class VectorBucketResource:
             vector_bucket_name: <p>The name of the vector bucket.</p>
             vector_bucket_arn: <p>The Amazon Resource Name (ARN) of the vector bucket.</p>
             policy: <p>The <code>JSON</code> that defines the policy. For more information about bucket policies for S3 Vectors, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-bucket-policy.html\">Managing vector bucket policies</a> in the <i>Amazon S3 User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_s3vectors.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_s3vectors.errors.internal_server_exception.InternalServerException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3vectors.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out. Retry your request.</p>
+            aws_sdk_s3vectors.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3vectors.errors.validation_exception.ValidationException: <p>The requested action isn't valid.</p>
+            aws_sdk_s3vectors.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource can't be found.</p>
+            aws_sdk_s3vectors.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+            aws_sdk_s3vectors.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -404,6 +475,17 @@ class AsyncVectorBucketResource:
             vector_bucket_name: <p>The name of the vector bucket to create. </p>
             encryption_configuration: <p>The encryption configuration for the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically <code>AES256</code>. </p>
             tags: <p>An array of user-defined tags that you would like to apply to the vector bucket that you are creating. A tag is a key-value pair that you apply to your resources. Tags can help you organize and control access to resources. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html\">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p> <note> <p>You must have the <code>s3vectors:TagResource</code> permission in addition to <code>s3vectors:CreateVectorBucket</code> permission to create a vector bucket with tags.</p> </note>
+
+        Raises:
+            aws_sdk_s3vectors.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_s3vectors.errors.internal_server_exception.InternalServerException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3vectors.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out. Retry your request.</p>
+            aws_sdk_s3vectors.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3vectors.errors.validation_exception.ValidationException: <p>The requested action isn't valid.</p>
+            aws_sdk_s3vectors.errors.conflict_exception.ConflictException: <p>The request failed because a vector bucket name or a vector index name already exists. Vector bucket names must be unique within your Amazon Web Services account for each Amazon Web Services Region. Vector index names must be unique within your vector bucket. Choose a different vector bucket name or vector index name, and try again.</p>
+            aws_sdk_s3vectors.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Your request exceeds a service quota. </p>
+            aws_sdk_s3vectors.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+            aws_sdk_s3vectors.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -452,6 +534,17 @@ class AsyncVectorBucketResource:
         Args:
             vector_bucket_name: <p>The name of the vector bucket to delete.</p>
             vector_bucket_arn: <p>The ARN of the vector bucket to delete.</p>
+
+        Raises:
+            aws_sdk_s3vectors.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_s3vectors.errors.internal_server_exception.InternalServerException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3vectors.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out. Retry your request.</p>
+            aws_sdk_s3vectors.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3vectors.errors.validation_exception.ValidationException: <p>The requested action isn't valid.</p>
+            aws_sdk_s3vectors.errors.conflict_exception.ConflictException: <p>The request failed because a vector bucket name or a vector index name already exists. Vector bucket names must be unique within your Amazon Web Services account for each Amazon Web Services Region. Vector index names must be unique within your vector bucket. Choose a different vector bucket name or vector index name, and try again.</p>
+            aws_sdk_s3vectors.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource can't be found.</p>
+            aws_sdk_s3vectors.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+            aws_sdk_s3vectors.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -499,6 +592,16 @@ class AsyncVectorBucketResource:
         Args:
             vector_bucket_name: <p>The name of the vector bucket to delete the policy from.</p>
             vector_bucket_arn: <p>The ARN of the vector bucket to delete the policy from.</p>
+
+        Raises:
+            aws_sdk_s3vectors.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_s3vectors.errors.internal_server_exception.InternalServerException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3vectors.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out. Retry your request.</p>
+            aws_sdk_s3vectors.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3vectors.errors.validation_exception.ValidationException: <p>The requested action isn't valid.</p>
+            aws_sdk_s3vectors.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource can't be found.</p>
+            aws_sdk_s3vectors.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+            aws_sdk_s3vectors.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -546,6 +649,16 @@ class AsyncVectorBucketResource:
         Args:
             vector_bucket_name: <p>The name of the vector bucket to retrieve information about.</p>
             vector_bucket_arn: <p>The ARN of the vector bucket to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_s3vectors.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_s3vectors.errors.internal_server_exception.InternalServerException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3vectors.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out. Retry your request.</p>
+            aws_sdk_s3vectors.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3vectors.errors.validation_exception.ValidationException: <p>The requested action isn't valid.</p>
+            aws_sdk_s3vectors.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource can't be found.</p>
+            aws_sdk_s3vectors.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+            aws_sdk_s3vectors.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -593,6 +706,16 @@ class AsyncVectorBucketResource:
         Args:
             vector_bucket_name: <p>The name of the vector bucket.</p>
             vector_bucket_arn: <p>The ARN of the vector bucket.</p>
+
+        Raises:
+            aws_sdk_s3vectors.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_s3vectors.errors.internal_server_exception.InternalServerException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3vectors.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out. Retry your request.</p>
+            aws_sdk_s3vectors.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3vectors.errors.validation_exception.ValidationException: <p>The requested action isn't valid.</p>
+            aws_sdk_s3vectors.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource can't be found.</p>
+            aws_sdk_s3vectors.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+            aws_sdk_s3vectors.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -644,6 +767,15 @@ class AsyncVectorBucketResource:
             max_results: <p>The maximum number of vector buckets to be returned in the response. </p>
             next_token: <p>The previous pagination token. </p>
             prefix: <p>Limits the response to vector buckets that begin with the specified prefix.</p>
+
+        Raises:
+            aws_sdk_s3vectors.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_s3vectors.errors.internal_server_exception.InternalServerException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3vectors.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out. Retry your request.</p>
+            aws_sdk_s3vectors.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3vectors.errors.validation_exception.ValidationException: <p>The requested action isn't valid.</p>
+            aws_sdk_s3vectors.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+            aws_sdk_s3vectors.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -695,6 +827,16 @@ class AsyncVectorBucketResource:
             vector_bucket_name: <p>The name of the vector bucket.</p>
             vector_bucket_arn: <p>The Amazon Resource Name (ARN) of the vector bucket.</p>
             policy: <p>The <code>JSON</code> that defines the policy. For more information about bucket policies for S3 Vectors, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-bucket-policy.html\">Managing vector bucket policies</a> in the <i>Amazon S3 User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_s3vectors.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_s3vectors.errors.internal_server_exception.InternalServerException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3vectors.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out. Retry your request.</p>
+            aws_sdk_s3vectors.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3vectors.errors.validation_exception.ValidationException: <p>The requested action isn't valid.</p>
+            aws_sdk_s3vectors.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource can't be found.</p>
+            aws_sdk_s3vectors.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+            aws_sdk_s3vectors.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

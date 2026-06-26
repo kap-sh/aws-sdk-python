@@ -177,6 +177,15 @@ class ManagedBlockchainQueryClient:
 
         Args:
             get_token_balance_inputs: <p>An array of <code>BatchGetTokenBalanceInputItem</code> objects whose balance is being requested.</p>
+
+        Raises:
+            aws_sdk_managedblockchain_query.errors.access_denied_exception.AccessDeniedException: <p>The Amazon Web Services account doesn’t have access to this resource. </p>
+            aws_sdk_managedblockchain_query.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an internal error in the service.</p>
+            aws_sdk_managedblockchain_query.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_managedblockchain_query.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded for this resource.</p>
+            aws_sdk_managedblockchain_query.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is when you create resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources, if possible.</p>
+            aws_sdk_managedblockchain_query.errors.validation_exception.ValidationException: <p>The resource passed is invalid.</p>
+            aws_sdk_managedblockchain_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -215,6 +224,15 @@ class ManagedBlockchainQueryClient:
 
         Args:
             contract_identifier: <p>Contains the blockchain address and network information about the contract.</p>
+
+        Raises:
+            aws_sdk_managedblockchain_query.errors.access_denied_exception.AccessDeniedException: <p>The Amazon Web Services account doesn’t have access to this resource. </p>
+            aws_sdk_managedblockchain_query.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an internal error in the service.</p>
+            aws_sdk_managedblockchain_query.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_managedblockchain_query.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded for this resource.</p>
+            aws_sdk_managedblockchain_query.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is when you create resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources, if possible.</p>
+            aws_sdk_managedblockchain_query.errors.validation_exception.ValidationException: <p>The resource passed is invalid.</p>
+            aws_sdk_managedblockchain_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -258,6 +276,15 @@ class ManagedBlockchainQueryClient:
             token_identifier: <p>The container for the identifier for the token, including the unique token ID and its blockchain network.</p>
             owner_identifier: <p>The container for the identifier for the owner.</p>
             at_blockchain_instant: <p>The time for when the TokenBalance is requested or the current time if a time is not provided in the request.</p> <note> <p>This time will only be recorded up to the second.</p> </note>
+
+        Raises:
+            aws_sdk_managedblockchain_query.errors.access_denied_exception.AccessDeniedException: <p>The Amazon Web Services account doesn’t have access to this resource. </p>
+            aws_sdk_managedblockchain_query.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an internal error in the service.</p>
+            aws_sdk_managedblockchain_query.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_managedblockchain_query.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded for this resource.</p>
+            aws_sdk_managedblockchain_query.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is when you create resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources, if possible.</p>
+            aws_sdk_managedblockchain_query.errors.validation_exception.ValidationException: <p>The resource passed is invalid.</p>
+            aws_sdk_managedblockchain_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -306,6 +333,15 @@ class ManagedBlockchainQueryClient:
             transaction_hash: <p>The hash of a transaction. It is generated when a transaction is created.</p>
             transaction_id: <p>The identifier of a Bitcoin transaction. It is generated when a transaction is created.</p> <note> <p> <code>transactionId</code> is only supported on the Bitcoin networks.</p> </note>
             network: <p>The blockchain network where the transaction occurred.</p>
+
+        Raises:
+            aws_sdk_managedblockchain_query.errors.access_denied_exception.AccessDeniedException: <p>The Amazon Web Services account doesn’t have access to this resource. </p>
+            aws_sdk_managedblockchain_query.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an internal error in the service.</p>
+            aws_sdk_managedblockchain_query.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_managedblockchain_query.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded for this resource.</p>
+            aws_sdk_managedblockchain_query.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is when you create resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources, if possible.</p>
+            aws_sdk_managedblockchain_query.errors.validation_exception.ValidationException: <p>The resource passed is invalid.</p>
+            aws_sdk_managedblockchain_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -353,6 +389,14 @@ class ManagedBlockchainQueryClient:
             contract_filter: <p>Contains the filter parameter for the request.</p>
             next_token: <p> The pagination token that indicates the next set of results to retrieve.</p>
             max_results: <p>The maximum number of contracts to list.</p> <p>Default: <code>100</code> </p> <note> <p>Even if additional results can be retrieved, the request can return less results than <code>maxResults</code> or an empty array of results.</p> <p>To retrieve the next set of results, make another request with the returned <code>nextToken</code> value. The value of <code>nextToken</code> is <code>null</code> when there are no more results to return</p> </note>
+
+        Raises:
+            aws_sdk_managedblockchain_query.errors.access_denied_exception.AccessDeniedException: <p>The Amazon Web Services account doesn’t have access to this resource. </p>
+            aws_sdk_managedblockchain_query.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an internal error in the service.</p>
+            aws_sdk_managedblockchain_query.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded for this resource.</p>
+            aws_sdk_managedblockchain_query.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is when you create resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources, if possible.</p>
+            aws_sdk_managedblockchain_query.errors.validation_exception.ValidationException: <p>The resource passed is invalid.</p>
+            aws_sdk_managedblockchain_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -442,6 +486,14 @@ class ManagedBlockchainQueryClient:
             sort: <p>The order by which the results will be sorted.</p>
             next_token: <p>The pagination token that indicates the next set of results to retrieve.</p>
             max_results: <p>The maximum number of transaction events to list.</p> <p>Default: <code>100</code> </p> <note> <p>Even if additional results can be retrieved, the request can return less results than <code>maxResults</code> or an empty array of results.</p> <p>To retrieve the next set of results, make another request with the returned <code>nextToken</code> value. The value of <code>nextToken</code> is <code>null</code> when there are no more results to return</p> </note>
+
+        Raises:
+            aws_sdk_managedblockchain_query.errors.access_denied_exception.AccessDeniedException: <p>The Amazon Web Services account doesn’t have access to this resource. </p>
+            aws_sdk_managedblockchain_query.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an internal error in the service.</p>
+            aws_sdk_managedblockchain_query.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded for this resource.</p>
+            aws_sdk_managedblockchain_query.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is when you create resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources, if possible.</p>
+            aws_sdk_managedblockchain_query.errors.validation_exception.ValidationException: <p>The resource passed is invalid.</p>
+            aws_sdk_managedblockchain_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -545,6 +597,14 @@ class ManagedBlockchainQueryClient:
             token_filter: <p>The contract address or a token identifier on the blockchain network by which to filter the request. You must specify the <code>contractAddress</code> property of this container when listing tokens minted by a contract.</p> <note> <p>You must always specify the network property of this container when using this operation.</p> </note>
             next_token: <p>The pagination token that indicates the next set of results to retrieve.</p>
             max_results: <p>The maximum number of token balances to return.</p> <p>Default: <code>100</code> </p> <note> <p>Even if additional results can be retrieved, the request can return less results than <code>maxResults</code> or an empty array of results.</p> <p>To retrieve the next set of results, make another request with the returned <code>nextToken</code> value. The value of <code>nextToken</code> is <code>null</code> when there are no more results to return</p> </note>
+
+        Raises:
+            aws_sdk_managedblockchain_query.errors.access_denied_exception.AccessDeniedException: <p>The Amazon Web Services account doesn’t have access to this resource. </p>
+            aws_sdk_managedblockchain_query.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an internal error in the service.</p>
+            aws_sdk_managedblockchain_query.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded for this resource.</p>
+            aws_sdk_managedblockchain_query.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is when you create resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources, if possible.</p>
+            aws_sdk_managedblockchain_query.errors.validation_exception.ValidationException: <p>The resource passed is invalid.</p>
+            aws_sdk_managedblockchain_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -631,6 +691,14 @@ class ManagedBlockchainQueryClient:
             network: <p>The blockchain network where the transaction events occurred.</p>
             next_token: <p>The pagination token that indicates the next set of results to retrieve.</p>
             max_results: <p>The maximum number of transaction events to list.</p> <p>Default: <code>100</code> </p> <note> <p>Even if additional results can be retrieved, the request can return less results than <code>maxResults</code> or an empty array of results.</p> <p>To retrieve the next set of results, make another request with the returned <code>nextToken</code> value. The value of <code>nextToken</code> is <code>null</code> when there are no more results to return</p> </note>
+
+        Raises:
+            aws_sdk_managedblockchain_query.errors.access_denied_exception.AccessDeniedException: <p>The Amazon Web Services account doesn’t have access to this resource. </p>
+            aws_sdk_managedblockchain_query.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an internal error in the service.</p>
+            aws_sdk_managedblockchain_query.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded for this resource.</p>
+            aws_sdk_managedblockchain_query.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is when you create resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources, if possible.</p>
+            aws_sdk_managedblockchain_query.errors.validation_exception.ValidationException: <p>The resource passed is invalid.</p>
+            aws_sdk_managedblockchain_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -731,6 +799,14 @@ class ManagedBlockchainQueryClient:
             next_token: <p>The pagination token that indicates the next set of results to retrieve.</p>
             max_results: <p>The maximum number of transactions to list.</p> <p>Default: <code>100</code> </p> <note> <p>Even if additional results can be retrieved, the request can return less results than <code>maxResults</code> or an empty array of results.</p> <p>To retrieve the next set of results, make another request with the returned <code>nextToken</code> value. The value of <code>nextToken</code> is <code>null</code> when there are no more results to return</p> </note>
             confirmation_status_filter: <p>This filter is used to include transactions in the response that haven't reached <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality\"> <i>finality</i> </a>. Transactions that have reached finality are always part of the response.</p>
+
+        Raises:
+            aws_sdk_managedblockchain_query.errors.access_denied_exception.AccessDeniedException: <p>The Amazon Web Services account doesn’t have access to this resource. </p>
+            aws_sdk_managedblockchain_query.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an internal error in the service.</p>
+            aws_sdk_managedblockchain_query.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded for this resource.</p>
+            aws_sdk_managedblockchain_query.errors.throttling_exception.ThrottlingException: <p>The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is when you create resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources, if possible.</p>
+            aws_sdk_managedblockchain_query.errors.validation_exception.ValidationException: <p>The resource passed is invalid.</p>
+            aws_sdk_managedblockchain_query.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

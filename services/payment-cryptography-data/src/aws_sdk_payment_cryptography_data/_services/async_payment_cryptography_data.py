@@ -212,6 +212,14 @@ class AsyncPaymentCryptographyDataClient:
             cipher_text: <p>The ciphertext to decrypt.</p>
             decryption_attributes: <p>The encryption key type and attributes for ciphertext decryption.</p>
             wrapped_key: <p>The WrappedKeyBlock containing the encryption key for ciphertext decryption.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_payment_cryptography_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_payment_cryptography_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to an invalid resource error.</p>
+            aws_sdk_payment_cryptography_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_payment_cryptography_data.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p>
+            aws_sdk_payment_cryptography_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -264,6 +272,14 @@ class AsyncPaymentCryptographyDataClient:
             plain_text: <p>The plaintext to be encrypted.</p> <note> <p>For encryption using asymmetric keys, plaintext data length is constrained by encryption key strength that you define in <code>KeyAlgorithm</code> and padding type that you define in <code>AsymmetricEncryptionAttributes</code>. For more information, see <a href=\"https://docs.aws.amazon.com/payment-cryptography/latest/userguide/encrypt-data.html\">Encrypt data</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.</p> </note>
             encryption_attributes: <p>The encryption key type and attributes for plaintext encryption.</p>
             wrapped_key: <p>The WrappedKeyBlock containing the encryption key for plaintext encryption.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_payment_cryptography_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_payment_cryptography_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to an invalid resource error.</p>
+            aws_sdk_payment_cryptography_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_payment_cryptography_data.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p>
+            aws_sdk_payment_cryptography_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -310,6 +326,14 @@ class AsyncPaymentCryptographyDataClient:
             key_identifier: <p>The <code>keyARN</code> of sending KEK that Amazon Web Services Payment Cryptography uses for node-to-node initialization</p>
             kek_validation_type: <p>Defines whether to generate a KEK validation request or KEK validation response for node-to-node initialization.</p>
             random_key_send_variant_mask: <p>The key variant to use for generating a random key for KEK validation during node-to-node initialization.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_payment_cryptography_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_payment_cryptography_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to an invalid resource error.</p>
+            aws_sdk_payment_cryptography_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_payment_cryptography_data.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p>
+            aws_sdk_payment_cryptography_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -356,6 +380,14 @@ class AsyncPaymentCryptographyDataClient:
             transaction_data: <p>The transaction data that Amazon Web Services Payment Cryptography uses for ARQC generation. The same transaction data is used for ARQC verification by the issuer using <a>VerifyAuthRequestCryptogram</a>.</p>
             major_key_derivation_mode: <p>The method to use when deriving the major encryption key for ARQC generation within Amazon Web Services Payment Cryptography.</p>
             session_key_derivation_attributes: <p>The attributes and values to use for deriving a session key for ARQC generation within Amazon Web Services Payment Cryptography.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_payment_cryptography_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_payment_cryptography_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to an invalid resource error.</p>
+            aws_sdk_payment_cryptography_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_payment_cryptography_data.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p>
+            aws_sdk_payment_cryptography_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -405,6 +437,14 @@ class AsyncPaymentCryptographyDataClient:
             primary_account_number: <p>The Primary Account Number (PAN), a unique identifier for a payment credit or debit card that associates the card with a specific account holder.</p>
             generation_attributes: <p>The algorithm for generating CVV or CSC values for the card within Amazon Web Services Payment Cryptography.</p>
             validation_data_length: <p>The length of the CVV or CSC to be generated. The default value is 3.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_payment_cryptography_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_payment_cryptography_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to an invalid resource error.</p>
+            aws_sdk_payment_cryptography_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_payment_cryptography_data.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p>
+            aws_sdk_payment_cryptography_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -457,6 +497,14 @@ class AsyncPaymentCryptographyDataClient:
             message_data: <p>The data for which a MAC is under generation. This value must be hexBinary.</p>
             generation_attributes: <p>The attributes and data values to use for MAC generation within Amazon Web Services Payment Cryptography.</p>
             mac_length: <p>The length of a MAC under generation.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_payment_cryptography_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_payment_cryptography_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to an invalid resource error.</p>
+            aws_sdk_payment_cryptography_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_payment_cryptography_data.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p>
+            aws_sdk_payment_cryptography_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -511,6 +559,14 @@ class AsyncPaymentCryptographyDataClient:
             secure_messaging_confidentiality_key_identifier: <p>The <code>keyARN</code> of the issuer master key (IMK-SMC) used to protect the PIN block data in the issuer script response.</p>
             message_data: <p>The message data is the APDU command from the card reader or terminal. The target encrypted PIN block, after translation to ISO2 format, is appended to this message data to generate an issuer script response.</p>
             derivation_method_attributes: <p>The attributes and data values to derive payment card specific confidentiality and integrity keys.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_payment_cryptography_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_payment_cryptography_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to an invalid resource error.</p>
+            aws_sdk_payment_cryptography_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_payment_cryptography_data.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p>
+            aws_sdk_payment_cryptography_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -576,6 +632,14 @@ class AsyncPaymentCryptographyDataClient:
             pin_data_length: <p>The length of PIN under generation.</p>
             primary_account_number: <p>The Primary Account Number (PAN), a unique identifier for a payment credit or debit card that associates the card with a specific account holder.</p>
             pin_block_format: <p>The PIN encoding format for pin data generation as specified in ISO 9564. Amazon Web Services Payment Cryptography supports <code>ISO_Format_0</code>, <code>ISO_Format_3</code> and <code>ISO_Format_4</code>.</p> <p>The <code>ISO_Format_0</code> PIN block format is equivalent to the ANSI X9.8, VISA-1, and ECI-1 PIN block formats. It is similar to a VISA-4 PIN block format. It supports a PIN from 4 to 12 digits in length.</p> <p>The <code>ISO_Format_3</code> PIN block format is the same as <code>ISO_Format_0</code> except that the fill digits are random values from 10 to 15.</p> <p>The <code>ISO_Format_4</code> PIN block format is the only one supporting AES encryption.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_payment_cryptography_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_payment_cryptography_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to an invalid resource error.</p>
+            aws_sdk_payment_cryptography_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_payment_cryptography_data.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p>
+            aws_sdk_payment_cryptography_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -639,6 +703,14 @@ class AsyncPaymentCryptographyDataClient:
             outgoing_encryption_attributes: <p>The attributes and values for outgoing ciphertext data after encryption by Amazon Web Services Payment Cryptography.</p>
             incoming_wrapped_key: <p>The WrappedKeyBlock containing the encryption key of incoming ciphertext data.</p>
             outgoing_wrapped_key: <p>The WrappedKeyBlock containing the encryption key of outgoing ciphertext data after encryption by Amazon Web Services Payment Cryptography.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_payment_cryptography_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_payment_cryptography_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to an invalid resource error.</p>
+            aws_sdk_payment_cryptography_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_payment_cryptography_data.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p>
+            aws_sdk_payment_cryptography_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -691,6 +763,14 @@ class AsyncPaymentCryptographyDataClient:
             incoming_key_material: <p>Parameter information of the TR31WrappedKeyBlock containing the transaction key.</p>
             outgoing_key_material: <p>Parameter information of the wrapping key used to wrap the transaction key in the outgoing TR31WrappedKeyBlock.</p>
             key_check_value_algorithm: <p>The key check value (KCV) algorithm used for calculating the KCV of the derived key.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_payment_cryptography_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_payment_cryptography_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to an invalid resource error.</p>
+            aws_sdk_payment_cryptography_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_payment_cryptography_data.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p>
+            aws_sdk_payment_cryptography_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -760,6 +840,14 @@ class AsyncPaymentCryptographyDataClient:
             incoming_wrapped_key: <p>The WrappedKeyBlock containing the encryption key under which incoming PIN block data is encrypted.</p>
             outgoing_wrapped_key: <p>The WrappedKeyBlock containing the encryption key for encrypting outgoing PIN block data.</p>
             incoming_as2805_attributes: <p>The attributes and values to use for incoming AS2805 encryption key for PIN block translation.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_payment_cryptography_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_payment_cryptography_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to an invalid resource error.</p>
+            aws_sdk_payment_cryptography_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_payment_cryptography_data.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p>
+            aws_sdk_payment_cryptography_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -824,6 +912,15 @@ class AsyncPaymentCryptographyDataClient:
             major_key_derivation_mode: <p>The method to use when deriving the major encryption key for ARQC verification within Amazon Web Services Payment Cryptography. The same key derivation mode was used for ARQC generation outside of Amazon Web Services Payment Cryptography.</p>
             session_key_derivation_attributes: <p>The attributes and values to use for deriving a session key for ARQC verification within Amazon Web Services Payment Cryptography. The same attributes were used for ARQC generation outside of Amazon Web Services Payment Cryptography.</p>
             auth_response_attributes: <p>The attributes and values for auth request cryptogram verification. These parameters are required in case using ARPC Method 1 or Method 2 for ARQC verification.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_payment_cryptography_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_payment_cryptography_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to an invalid resource error.</p>
+            aws_sdk_payment_cryptography_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_payment_cryptography_data.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p>
+            aws_sdk_payment_cryptography_data.errors.verification_failed_exception.VerificationFailedException: <p>This request failed verification.</p>
+            aws_sdk_payment_cryptography_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -874,6 +971,15 @@ class AsyncPaymentCryptographyDataClient:
             primary_account_number: <p>The Primary Account Number (PAN), a unique identifier for a payment credit or debit card that associates the card with a specific account holder.</p>
             verification_attributes: <p>The algorithm to use for verification of card data within Amazon Web Services Payment Cryptography.</p>
             validation_data: <p>The CVV or CSC value for use for card data verification within Amazon Web Services Payment Cryptography.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_payment_cryptography_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_payment_cryptography_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to an invalid resource error.</p>
+            aws_sdk_payment_cryptography_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_payment_cryptography_data.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p>
+            aws_sdk_payment_cryptography_data.errors.verification_failed_exception.VerificationFailedException: <p>This request failed verification.</p>
+            aws_sdk_payment_cryptography_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -925,6 +1031,15 @@ class AsyncPaymentCryptographyDataClient:
             mac: <p>The MAC being verified.</p>
             verification_attributes: <p>The attributes and data values to use for MAC verification within Amazon Web Services Payment Cryptography.</p>
             mac_length: <p>The length of the MAC.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_payment_cryptography_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_payment_cryptography_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to an invalid resource error.</p>
+            aws_sdk_payment_cryptography_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_payment_cryptography_data.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p>
+            aws_sdk_payment_cryptography_data.errors.verification_failed_exception.VerificationFailedException: <p>This request failed verification.</p>
+            aws_sdk_payment_cryptography_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -991,6 +1106,15 @@ class AsyncPaymentCryptographyDataClient:
             pin_block_format: <p>The PIN encoding format for pin data generation as specified in ISO 9564. Amazon Web Services Payment Cryptography supports <code>ISO_Format_0</code> and <code>ISO_Format_3</code>.</p> <p>The <code>ISO_Format_0</code> PIN block format is equivalent to the ANSI X9.8, VISA-1, and ECI-1 PIN block formats. It is similar to a VISA-4 PIN block format. It supports a PIN from 4 to 12 digits in length.</p> <p>The <code>ISO_Format_3</code> PIN block format is the same as <code>ISO_Format_0</code> except that the fill digits are random values from 10 to 15.</p>
             pin_data_length: <p>The length of PIN being verified.</p>
             dukpt_attributes: <p>The attributes and values for the DUKPT encrypted PIN block data.</p>
+
+        Raises:
+            aws_sdk_payment_cryptography_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_payment_cryptography_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_payment_cryptography_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request was denied due to an invalid resource error.</p>
+            aws_sdk_payment_cryptography_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_payment_cryptography_data.errors.validation_exception.ValidationException: <p>The request was denied due to an invalid request error.</p>
+            aws_sdk_payment_cryptography_data.errors.verification_failed_exception.VerificationFailedException: <p>This request failed verification.</p>
+            aws_sdk_payment_cryptography_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -216,6 +216,16 @@ class VoiceIDClient:
             domain_id: <p>The identifier of the domain that contains the fraudster.</p>
             watchlist_id: <p>The identifier of the watchlist you want to associate with the fraudster.</p>
             fraudster_id: <p>The identifier of the fraudster to be associated with the watchlist.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.conflict_exception.ConflictException: <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded the service quota. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#voiceid-quotas\">Voice ID Service Quotas</a> and try your request again.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -265,6 +275,16 @@ class VoiceIDClient:
             name: <p>The name of the watchlist.</p>
             description: <p>A brief description of this watchlist.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.conflict_exception.ConflictException: <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded the service quota. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#voiceid-quotas\">Voice ID Service Quotas</a> and try your request again.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -309,6 +329,15 @@ class VoiceIDClient:
         Args:
             domain_id: <p>The identifier of the domain that contains the fraudster.</p>
             fraudster_id: <p>The identifier of the fraudster you want to delete.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.conflict_exception.ConflictException: <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -347,6 +376,15 @@ class VoiceIDClient:
         Args:
             domain_id: <p>The identifier of the domain that contains the speaker.</p>
             speaker_id: <p>The identifier of the speaker you want to delete.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.conflict_exception.ConflictException: <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -385,6 +423,15 @@ class VoiceIDClient:
         Args:
             domain_id: <p>The identifier of the domain that contains the watchlist.</p>
             watchlist_id: <p>The identifier of the watchlist to be deleted.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.conflict_exception.ConflictException: <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -423,6 +470,14 @@ class VoiceIDClient:
         Args:
             domain_id: <p>The identifier of the domain that contains the fraudster.</p>
             fraudster_id: <p>The identifier of the fraudster you are describing.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -463,6 +518,14 @@ class VoiceIDClient:
         Args:
             domain_id: <p>The identifier of the domain that contains the fraudster registration job.</p>
             job_id: <p>The identifier of the fraudster registration job you are describing.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -503,6 +566,14 @@ class VoiceIDClient:
         Args:
             domain_id: <p>The identifier of the domain that contains the speaker.</p>
             speaker_id: <p>The identifier of the speaker you are describing.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -543,6 +614,14 @@ class VoiceIDClient:
         Args:
             domain_id: <p>The identifier of the domain that contains the speaker enrollment job.</p>
             job_id: <p>The identifier of the speaker enrollment job you are describing.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -583,6 +662,14 @@ class VoiceIDClient:
         Args:
             domain_id: <p>The identifier of the domain that contains the watchlist.</p>
             watchlist_id: <p>The identifier of the watchlist that you are describing.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -625,6 +712,15 @@ class VoiceIDClient:
             domain_id: <p>The identifier of the domain that contains the fraudster.</p>
             watchlist_id: <p>The identifier of the watchlist that you want to disassociate from the fraudster.</p>
             fraudster_id: <p>The identifier of the fraudster to be disassociated from the watchlist.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.conflict_exception.ConflictException: <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -666,6 +762,15 @@ class VoiceIDClient:
         Args:
             domain_id: <p>The identifier of the domain where the session started.</p>
             session_name_or_id: <p>The session identifier, or name of the session, that you want to evaluate. In Voice ID integration, this is the Contact-Id.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.conflict_exception.ConflictException: <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -714,6 +819,14 @@ class VoiceIDClient:
             job_status: <p>Provides the status of your fraudster registration job.</p>
             max_results: <p>The maximum number of results that are returned per call. You can use <code>NextToken</code> to obtain more pages of results. The default is 100; the maximum allowed page size is also 100. </p>
             next_token: <p>If <code>NextToken</code> is returned, there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -796,6 +909,14 @@ class VoiceIDClient:
             watchlist_id: <p>The identifier of the watchlist. If provided, all fraudsters in the watchlist are listed. If not provided, all fraudsters in the domain are listed.</p>
             max_results: <p>The maximum number of results that are returned per call. You can use <code>NextToken</code> to obtain more pages of results. The default is 100; the maximum allowed page size is also 100. </p>
             next_token: <p>If <code>NextToken</code> is returned, there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. </p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -878,6 +999,14 @@ class VoiceIDClient:
             job_status: <p>Provides the status of your speaker enrollment Job.</p>
             max_results: <p>The maximum number of results that are returned per call. You can use <code>NextToken</code> to obtain more pages of results. The default is 100; the maximum allowed page size is also 100.</p>
             next_token: <p>If <code>NextToken</code> is returned, there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -956,6 +1085,14 @@ class VoiceIDClient:
             domain_id: <p>The identifier of the domain.</p>
             max_results: <p>The maximum number of results that are returned per call. You can use <code>NextToken</code> to obtain more pages of results. The default is 100; the maximum allowed page size is also 100. </p>
             next_token: <p>If <code>NextToken</code> is returned, there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1022,6 +1159,14 @@ class VoiceIDClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Voice ID resource for which you want to list the tags.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1065,6 +1210,14 @@ class VoiceIDClient:
             domain_id: <p>The identifier of the domain.</p>
             max_results: <p>The maximum number of results that are returned per call. You can use <code>NextToken</code> to obtain more pages of results. The default is 100; the maximum allowed page size is also 100. </p>
             next_token: <p>If <code>NextToken</code> is returned, there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. </p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1133,6 +1286,16 @@ class VoiceIDClient:
         Args:
             domain_id: <p>The identifier of the domain that contains the speaker.</p>
             speaker_id: <p>The identifier of the speaker you want opted-out.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.conflict_exception.ConflictException: <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded the service quota. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#voiceid-quotas\">Voice ID Service Quotas</a> and try your request again.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1187,6 +1350,16 @@ class VoiceIDClient:
             registration_config: <p>The registration config containing details such as the action to take when a duplicate fraudster is detected, and the similarity threshold to use for detecting a duplicate fraudster. </p>
             input_data_config: <p>The input data config containing an S3 URI for the input manifest file that contains the list of fraudster registration requests.</p>
             output_data_config: <p>The output data config containing the S3 location where Voice ID writes the job output file; you must also include a KMS key ID to encrypt the file.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.conflict_exception.ConflictException: <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded the service quota. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#voiceid-quotas\">Voice ID Service Quotas</a> and try your request again.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1249,6 +1422,16 @@ class VoiceIDClient:
             enrollment_config: <p>The enrollment config that contains details such as the action to take when a speaker is already enrolled in Voice ID or when a speaker is identified as a fraudster.</p>
             input_data_config: <p>The input data config containing the S3 location for the input manifest file that contains the list of speaker enrollment requests.</p>
             output_data_config: <p>The output data config containing the S3 location where Voice ID writes the job output file; you must also include a KMS key ID to encrypt the file.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.conflict_exception.ConflictException: <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request exceeded the service quota. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#voiceid-quotas\">Voice ID Service Quotas</a> and try your request again.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1297,6 +1480,15 @@ class VoiceIDClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Voice ID resource you want to tag.</p>
             tags: <p>The list of tags to assign to the specified resource.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.conflict_exception.ConflictException: <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1337,6 +1529,15 @@ class VoiceIDClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Voice ID resource you want to remove tags from.</p>
             tag_keys: <p>The list of tag keys you want to remove from the specified resource.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.conflict_exception.ConflictException: <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1383,6 +1584,15 @@ class VoiceIDClient:
             watchlist_id: <p>The identifier of the watchlist to be updated.</p>
             name: <p>The name of the watchlist.</p>
             description: <p>A brief description about this watchlist.</p>
+
+        Raises:
+            aws_sdk_voice_id.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action. Check the error message and try again.</p>
+            aws_sdk_voice_id.errors.conflict_exception.ConflictException: <p>The request failed due to a conflict. Check the <code>ConflictType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.internal_server_exception.InternalServerException: <p>The request failed due to an unknown error on the server side.</p>
+            aws_sdk_voice_id.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error message for more details.</p>
+            aws_sdk_voice_id.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling. Please slow down your request rate. Refer to <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas\"> Amazon Connect Voice ID Service API throttling quotas </a> and try your request again.</p>
+            aws_sdk_voice_id.errors.validation_exception.ValidationException: <p>The request failed one or more validations; check the error message for more details.</p>
+            aws_sdk_voice_id.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

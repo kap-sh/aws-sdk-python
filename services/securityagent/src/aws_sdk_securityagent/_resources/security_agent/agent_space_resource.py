@@ -77,6 +77,9 @@ class AgentSpaceResource:
             code_review_settings: <p>The code review settings for the agent space.</p>
             kms_key_id: <p>The identifier of the AWS KMS key to use for encrypting data in the agent space.</p>
             tags: <p>The tags to associate with the agent space.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -142,6 +145,9 @@ class AgentSpaceResource:
             aws_resources: <p>The updated AWS resources to associate with the agent space.</p>
             target_domain_ids: <p>The updated list of target domain identifiers to associate with the agent space.</p>
             code_review_settings: <p>The updated code review settings for the agent space.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -189,6 +195,9 @@ class AgentSpaceResource:
 
         Args:
             agent_space_id: <p>The unique identifier of the agent space to delete.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -230,6 +239,9 @@ class AgentSpaceResource:
         Args:
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -270,6 +282,9 @@ class AgentSpaceResource:
 
         Args:
             agent_space_ids: <p>The list of agent space identifiers to retrieve.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -330,6 +345,9 @@ class AsyncAgentSpaceResource:
             code_review_settings: <p>The code review settings for the agent space.</p>
             kms_key_id: <p>The identifier of the AWS KMS key to use for encrypting data in the agent space.</p>
             tags: <p>The tags to associate with the agent space.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -396,6 +414,9 @@ class AsyncAgentSpaceResource:
             aws_resources: <p>The updated AWS resources to associate with the agent space.</p>
             target_domain_ids: <p>The updated list of target domain identifiers to associate with the agent space.</p>
             code_review_settings: <p>The updated code review settings for the agent space.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -444,6 +465,9 @@ class AsyncAgentSpaceResource:
 
         Args:
             agent_space_id: <p>The unique identifier of the agent space to delete.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -486,6 +510,9 @@ class AsyncAgentSpaceResource:
         Args:
             next_token: <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
             max_results: <p>The maximum number of results to return in a single call.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -527,6 +554,9 @@ class AsyncAgentSpaceResource:
 
         Args:
             agent_space_ids: <p>The list of agent space identifiers to retrieve.</p>
+
+        Raises:
+            aws_sdk_securityagent.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

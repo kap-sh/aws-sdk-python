@@ -261,6 +261,13 @@ class FirehoseClient:
             snowflake_destination_configuration: <p>Configure Snowflake destination</p>
             iceberg_destination_configuration: <p> Configure Apache Iceberg Tables destination. </p>
             database_source_configuration: <p> The top level object for configuring streams with database as a source. </p> <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+
+        Raises:
+            aws_sdk_firehose.errors.invalid_argument_exception.InvalidArgumentException: <p>The specified input parameter has a value that is not valid.</p>
+            aws_sdk_firehose.errors.invalid_kms_resource_exception.InvalidKMSResourceException: <p>Firehose throws this exception when an attempt to put records or to start or stop Firehose stream encryption fails. This happens when the KMS service throws one of the following exception types: <code>AccessDeniedException</code>, <code>InvalidStateException</code>, <code>DisabledException</code>, or <code>NotFoundException</code>.</p>
+            aws_sdk_firehose.errors.limit_exceeded_exception.LimitExceededException: <p>You have already reached the limit for a requested resource.</p>
+            aws_sdk_firehose.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is already in use and not available for this operation.</p>
+            aws_sdk_firehose.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -358,6 +365,11 @@ class FirehoseClient:
         Args:
             delivery_stream_name: <p>The name of the Firehose stream.</p>
             allow_force_delete: <p>Set this to true if you want to delete the Firehose stream even if Firehose is unable to retire the grant for the CMK. Firehose might be unable to retire the grant due to a customer error, such as when the CMK or the grant are in an invalid state. If you force deletion, you can then use the <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html\">RevokeGrant</a> operation to revoke the grant you gave to Firehose. If a failure to retire the grant happens due to an Amazon Web Services KMS issue, Firehose keeps retrying the delete operation.</p> <p>The default value is false.</p>
+
+        Raises:
+            aws_sdk_firehose.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is already in use and not available for this operation.</p>
+            aws_sdk_firehose.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_firehose.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -405,6 +417,10 @@ class FirehoseClient:
             delivery_stream_name: <p>The name of the Firehose stream.</p>
             limit: <p>The limit on the number of destinations to return. You can have one destination per Firehose stream.</p>
             exclusive_start_destination_id: <p>The ID of the destination to start returning the destination information. Firehose supports one destination per Firehose stream.</p>
+
+        Raises:
+            aws_sdk_firehose.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_firehose.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -458,6 +474,9 @@ class FirehoseClient:
             limit: <p>The maximum number of Firehose streams to list. The default value is 10.</p>
             delivery_stream_type: <p>The Firehose stream type. This can be one of the following values:</p> <ul> <li> <p> <code>DirectPut</code>: Provider applications access the Firehose stream directly.</p> </li> <li> <p> <code>KinesisStreamAsSource</code>: The Firehose stream uses a Kinesis data stream as a source.</p> </li> </ul> <p>This parameter is optional. If this parameter is omitted, Firehose streams of all types are returned.</p>
             exclusive_start_delivery_stream_name: <p>The list of Firehose streams returned by this call to <code>ListDeliveryStreams</code> will start with the Firehose stream whose name comes alphabetically immediately after the name you specify in <code>ExclusiveStartDeliveryStreamName</code>.</p>
+
+        Raises:
+            aws_sdk_firehose.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -510,6 +529,12 @@ class FirehoseClient:
             delivery_stream_name: <p>The name of the Firehose stream whose tags you want to list.</p>
             exclusive_start_tag_key: <p>The key to use as the starting point for the list of tags. If you set this parameter, <code>ListTagsForDeliveryStream</code> gets all tags that occur after <code>ExclusiveStartTagKey</code>.</p>
             limit: <p>The number of tags to return. If this number is less than the total number of tags associated with the Firehose stream, <code>HasMoreTags</code> is set to <code>true</code> in the response. To list additional tags, set <code>ExclusiveStartTagKey</code> to the last key in the response. </p>
+
+        Raises:
+            aws_sdk_firehose.errors.invalid_argument_exception.InvalidArgumentException: <p>The specified input parameter has a value that is not valid.</p>
+            aws_sdk_firehose.errors.limit_exceeded_exception.LimitExceededException: <p>You have already reached the limit for a requested resource.</p>
+            aws_sdk_firehose.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_firehose.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -553,6 +578,14 @@ class FirehoseClient:
         Args:
             delivery_stream_name: <p>The name of the Firehose stream.</p>
             record: <p>The record.</p>
+
+        Raises:
+            aws_sdk_firehose.errors.invalid_argument_exception.InvalidArgumentException: <p>The specified input parameter has a value that is not valid.</p>
+            aws_sdk_firehose.errors.invalid_kms_resource_exception.InvalidKMSResourceException: <p>Firehose throws this exception when an attempt to put records or to start or stop Firehose stream encryption fails. This happens when the KMS service throws one of the following exception types: <code>AccessDeniedException</code>, <code>InvalidStateException</code>, <code>DisabledException</code>, or <code>NotFoundException</code>.</p>
+            aws_sdk_firehose.errors.invalid_source_exception.InvalidSourceException: <p>Only requests from CloudWatch Logs are supported when CloudWatch Logs decompression is enabled.</p>
+            aws_sdk_firehose.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_firehose.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation. If you continue to see the exception, throughput limits for the Firehose stream may have been exceeded. For more information about limits and how to request an increase, see <a href=\"https://docs.aws.amazon.com/firehose/latest/dev/limits.html\">Amazon Firehose Limits</a>.</p>
+            aws_sdk_firehose.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -593,6 +626,14 @@ class FirehoseClient:
         Args:
             delivery_stream_name: <p>The name of the Firehose stream.</p>
             records: <p>One or more records.</p>
+
+        Raises:
+            aws_sdk_firehose.errors.invalid_argument_exception.InvalidArgumentException: <p>The specified input parameter has a value that is not valid.</p>
+            aws_sdk_firehose.errors.invalid_kms_resource_exception.InvalidKMSResourceException: <p>Firehose throws this exception when an attempt to put records or to start or stop Firehose stream encryption fails. This happens when the KMS service throws one of the following exception types: <code>AccessDeniedException</code>, <code>InvalidStateException</code>, <code>DisabledException</code>, or <code>NotFoundException</code>.</p>
+            aws_sdk_firehose.errors.invalid_source_exception.InvalidSourceException: <p>Only requests from CloudWatch Logs are supported when CloudWatch Logs decompression is enabled.</p>
+            aws_sdk_firehose.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_firehose.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Back off and retry the operation. If you continue to see the exception, throughput limits for the Firehose stream may have been exceeded. For more information about limits and how to request an increase, see <a href=\"https://docs.aws.amazon.com/firehose/latest/dev/limits.html\">Amazon Firehose Limits</a>.</p>
+            aws_sdk_firehose.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -635,6 +676,14 @@ class FirehoseClient:
         Args:
             delivery_stream_name: <p>The name of the Firehose stream for which you want to enable server-side encryption (SSE).</p>
             delivery_stream_encryption_configuration_input: <p>Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE).</p>
+
+        Raises:
+            aws_sdk_firehose.errors.invalid_argument_exception.InvalidArgumentException: <p>The specified input parameter has a value that is not valid.</p>
+            aws_sdk_firehose.errors.invalid_kms_resource_exception.InvalidKMSResourceException: <p>Firehose throws this exception when an attempt to put records or to start or stop Firehose stream encryption fails. This happens when the KMS service throws one of the following exception types: <code>AccessDeniedException</code>, <code>InvalidStateException</code>, <code>DisabledException</code>, or <code>NotFoundException</code>.</p>
+            aws_sdk_firehose.errors.limit_exceeded_exception.LimitExceededException: <p>You have already reached the limit for a requested resource.</p>
+            aws_sdk_firehose.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is already in use and not available for this operation.</p>
+            aws_sdk_firehose.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_firehose.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -676,6 +725,13 @@ class FirehoseClient:
 
         Args:
             delivery_stream_name: <p>The name of the Firehose stream for which you want to disable server-side encryption (SSE).</p>
+
+        Raises:
+            aws_sdk_firehose.errors.invalid_argument_exception.InvalidArgumentException: <p>The specified input parameter has a value that is not valid.</p>
+            aws_sdk_firehose.errors.limit_exceeded_exception.LimitExceededException: <p>You have already reached the limit for a requested resource.</p>
+            aws_sdk_firehose.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is already in use and not available for this operation.</p>
+            aws_sdk_firehose.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_firehose.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -715,6 +771,13 @@ class FirehoseClient:
         Args:
             delivery_stream_name: <p>The name of the Firehose stream to which you want to add the tags.</p>
             tags: <p>A set of key-value pairs to use to create the tags.</p>
+
+        Raises:
+            aws_sdk_firehose.errors.invalid_argument_exception.InvalidArgumentException: <p>The specified input parameter has a value that is not valid.</p>
+            aws_sdk_firehose.errors.limit_exceeded_exception.LimitExceededException: <p>You have already reached the limit for a requested resource.</p>
+            aws_sdk_firehose.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is already in use and not available for this operation.</p>
+            aws_sdk_firehose.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_firehose.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -757,6 +820,13 @@ class FirehoseClient:
         Args:
             delivery_stream_name: <p>The name of the Firehose stream.</p>
             tag_keys: <p>A list of tag keys. Each corresponding tag is removed from the delivery stream.</p>
+
+        Raises:
+            aws_sdk_firehose.errors.invalid_argument_exception.InvalidArgumentException: <p>The specified input parameter has a value that is not valid.</p>
+            aws_sdk_firehose.errors.limit_exceeded_exception.LimitExceededException: <p>You have already reached the limit for a requested resource.</p>
+            aws_sdk_firehose.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is already in use and not available for this operation.</p>
+            aws_sdk_firehose.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_firehose.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -839,6 +909,13 @@ class FirehoseClient:
             amazon_open_search_serverless_destination_update: <p>Describes an update for a destination in the Serverless offering for Amazon OpenSearch Service.</p>
             snowflake_destination_update: <p>Update to the Snowflake destination configuration settings.</p>
             iceberg_destination_update: <p> Describes an update for a destination in Apache Iceberg Tables. </p>
+
+        Raises:
+            aws_sdk_firehose.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Another modification has already happened. Fetch <code>VersionId</code> again and use it to update the destination.</p>
+            aws_sdk_firehose.errors.invalid_argument_exception.InvalidArgumentException: <p>The specified input parameter has a value that is not valid.</p>
+            aws_sdk_firehose.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is already in use and not available for this operation.</p>
+            aws_sdk_firehose.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource could not be found.</p>
+            aws_sdk_firehose.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

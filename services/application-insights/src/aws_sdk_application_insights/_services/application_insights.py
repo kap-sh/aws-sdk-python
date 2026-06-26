@@ -239,6 +239,13 @@ class ApplicationInsightsClient:
             resource_group_name: <p>The name of the resource group.</p>
             component_name: <p>The name of the component.</p>
             workload_configuration: <p>The configuration settings of the workload. The value is the escaped JSON of the configuration.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is already created or in use.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -314,6 +321,15 @@ class ApplicationInsightsClient:
             auto_create: <p> Configures all of the resources in the resource group by applying the recommended configurations. </p>
             grouping_type: <p>Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to <code>ACCOUNT_BASED</code>. </p>
             attach_missing_permission: <p>If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.access_denied_exception.AccessDeniedException: <p> User does not have permissions to perform this action. </p>
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is already created or in use.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.tags_already_exist_exception.TagsAlreadyExistException: <p>Tags are already registered for the specified application ARN.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -374,6 +390,13 @@ class ApplicationInsightsClient:
             resource_group_name: <p>The name of the resource group.</p>
             component_name: <p>The name of the component.</p>
             resource_list: <p>The list of resource ARNs that belong to the component.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is already created or in use.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -421,6 +444,13 @@ class ApplicationInsightsClient:
             pattern_name: <p>The name of the log pattern.</p>
             pattern: <p>The log pattern. The pattern must be DFA compatible. Patterns that utilize forward lookahead or backreference constructions are not supported.</p>
             rank: <p>Rank of the log pattern. Must be a value between <code>1</code> and <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be last to get matched. When you configure custom log patterns from the console, a <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a <code>High</code> severity pattern translates to a <code>250,000</code> rank. Rank values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for Amazon Web Services provided patterns. </p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is already created or in use.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -462,6 +492,13 @@ class ApplicationInsightsClient:
 
         Args:
             resource_group_name: <p>The name of the resource group.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.bad_request_exception.BadRequestException: <p>The request is not understood by the server.</p>
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -501,6 +538,12 @@ class ApplicationInsightsClient:
         Args:
             resource_group_name: <p>The name of the resource group.</p>
             component_name: <p>The name of the component.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -543,6 +586,13 @@ class ApplicationInsightsClient:
             resource_group_name: <p>The name of the resource group.</p>
             pattern_set_name: <p>The name of the log pattern set.</p>
             pattern_name: <p>The name of the log pattern.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.bad_request_exception.BadRequestException: <p>The request is not understood by the server.</p>
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -586,6 +636,12 @@ class ApplicationInsightsClient:
         Args:
             resource_group_name: <p>The name of the resource group.</p>
             account_id: <p>The Amazon Web Services account ID for the resource group owner.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -631,6 +687,12 @@ class ApplicationInsightsClient:
             resource_group_name: <p>The name of the resource group.</p>
             component_name: <p>The name of the component.</p>
             account_id: <p>The Amazon Web Services account ID for the resource group owner.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -677,6 +739,12 @@ class ApplicationInsightsClient:
             resource_group_name: <p>The name of the resource group.</p>
             component_name: <p>The name of the component.</p>
             account_id: <p>The Amazon Web Services account ID for the resource group owner.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -729,6 +797,12 @@ class ApplicationInsightsClient:
             tier: <p>The tier of the application component.</p>
             workload_name: <p>The name of the workload. The name of the workload is required when the tier of the application component is <code>SAP_ASE_SINGLE_NODE</code> or <code>SAP_ASE_HIGH_AVAILABILITY</code>.</p>
             recommendation_type: <p>The recommended configuration type.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -780,6 +854,12 @@ class ApplicationInsightsClient:
             pattern_set_name: <p>The name of the log pattern set.</p>
             pattern_name: <p>The name of the log pattern.</p>
             account_id: <p>The Amazon Web Services account ID for the resource group owner.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -825,6 +905,12 @@ class ApplicationInsightsClient:
         Args:
             observation_id: <p>The ID of the observation.</p>
             account_id: <p>The Amazon Web Services account ID for the resource group owner.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -868,6 +954,12 @@ class ApplicationInsightsClient:
         Args:
             problem_id: <p>The ID of the problem.</p>
             account_id: <p>The Amazon Web Services account ID for the owner of the resource group affected by the problem.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -911,6 +1003,12 @@ class ApplicationInsightsClient:
         Args:
             problem_id: <p>The ID of the problem.</p>
             account_id: <p>The Amazon Web Services account ID for the resource group owner.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -958,6 +1056,12 @@ class ApplicationInsightsClient:
             component_name: <p>The name of the component.</p>
             workload_id: <p>The ID of the workload.</p>
             account_id: <p>The Amazon Web Services account ID for the workload owner.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1009,6 +1113,11 @@ class ApplicationInsightsClient:
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
             next_token: <p>The token to request the next page of results.</p>
             account_id: <p>The Amazon Web Services account ID for the resource group owner.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1063,6 +1172,12 @@ class ApplicationInsightsClient:
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
             next_token: <p>The token to request the next page of results.</p>
             account_id: <p>The Amazon Web Services account ID for the resource group owner.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1132,6 +1247,12 @@ class ApplicationInsightsClient:
             max_results: <p> The maximum number of results returned by <code>ListConfigurationHistory</code> in paginated output. When this parameter is used, <code>ListConfigurationHistory</code> returns only <code>MaxResults</code> in a single page along with a <code>NextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListConfigurationHistory</code> request with the returned <code>NextToken</code> value. If this parameter is not used, then <code>ListConfigurationHistory</code> returns all results. </p>
             next_token: <p>The <code>NextToken</code> value returned from a previous paginated <code>ListConfigurationHistory</code> request where <code>MaxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>NextToken</code> value. This value is <code>null</code> when there are no more results to return.</p>
             account_id: <p>The Amazon Web Services account ID for the resource group owner.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1198,6 +1319,12 @@ class ApplicationInsightsClient:
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
             next_token: <p>The token to request the next page of results.</p>
             account_id: <p>The Amazon Web Services account ID for the resource group owner.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1255,6 +1382,12 @@ class ApplicationInsightsClient:
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
             next_token: <p>The token to request the next page of results.</p>
             account_id: <p>The Amazon Web Services account ID for the resource group owner.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1330,6 +1463,12 @@ class ApplicationInsightsClient:
             next_token: <p>The token to request the next page of results.</p>
             component_name: <p> The name of the component. </p>
             visibility: <p>Specifies whether or not you can view the problem. If not specified, visible and ignored problems are returned.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1382,6 +1521,11 @@ class ApplicationInsightsClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the application that you want to retrieve tag information for.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1433,6 +1577,12 @@ class ApplicationInsightsClient:
             max_results: <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
             next_token: <p>The token to request the next page of results.</p>
             account_id: <p>The Amazon Web Services account ID of the owner of the workload.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1481,6 +1631,12 @@ class ApplicationInsightsClient:
             resource_group_name: <p>The name of the resource group.</p>
             component_name: <p>The name of the component.</p>
             workload_id: <p>The ID of the workload.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1522,6 +1678,12 @@ class ApplicationInsightsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the application that you want to add one or more tags to.</p>
             tags: <p>A list of tags that to add to the application. A tag consists of a required tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.too_many_tags_exception.TooManyTagsException: <p>The number of the provided tags is beyond the limit, or the number of total tags you are trying to attach to the specified resource exceeds the limit.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1562,6 +1724,11 @@ class ApplicationInsightsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the application that you want to remove one or more tags from.</p>
             tag_keys: <p>The tags (tag keys) that you want to remove from the resource. When you specify a tag key, the action removes both that key and its associated tag value.</p> <p>To remove more than one tag from the application, append the <code>TagKeys</code> parameter and argument for each additional tag to remove, separated by an ampersand. </p>
+
+        Raises:
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1628,6 +1795,12 @@ class ApplicationInsightsClient:
             remove_sns_topic: <p> Disassociates the SNS topic from the opsItem created for detected problems.</p>
             auto_config_enabled: <p> Turns auto-configuration on or off. </p>
             attach_missing_permission: <p>If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1689,6 +1862,13 @@ class ApplicationInsightsClient:
             component_name: <p>The name of the component.</p>
             new_component_name: <p>The new name of the component.</p>
             resource_list: <p>The list of resource ARNs that belong to the component.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is already created or in use.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1745,6 +1925,13 @@ class ApplicationInsightsClient:
             tier: <p>The tier of the application component.</p>
             component_configuration: <p>The configuration settings of the component. The value is the escaped JSON of the configuration. For more information about the JSON format, see <a href=\"https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/working-with-json.html\">Working with JSON</a>. You can send a request to <code>DescribeComponentConfigurationRecommendation</code> to see the recommended configuration for a component. For the complete format of the component configuration file, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config.html\">Component Configuration</a>.</p>
             auto_config_enabled: <p> Automatically configures the component by applying the recommended configurations. </p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is already created or in use.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1803,6 +1990,13 @@ class ApplicationInsightsClient:
             pattern_name: <p>The name of the log pattern.</p>
             pattern: <p>The log pattern. The pattern must be DFA compatible. Patterns that utilize forward lookahead or backreference constructions are not supported.</p>
             rank: <p>Rank of the log pattern. Must be a value between <code>1</code> and <code>1,000,000</code>. The patterns are sorted by rank, so we recommend that you set your highest priority patterns with the lowest rank. A pattern of rank <code>1</code> will be the first to get matched to a log line. A pattern of rank <code>1,000,000</code> will be last to get matched. When you configure custom log patterns from the console, a <code>Low</code> severity pattern translates to a <code>750,000</code> rank. A <code>Medium</code> severity pattern translates to a <code>500,000</code> rank. And a <code>High</code> severity pattern translates to a <code>250,000</code> rank. Rank values less than <code>1</code> or greater than <code>1,000,000</code> are reserved for Amazon Web Services provided patterns. </p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is already created or in use.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1854,6 +2048,12 @@ class ApplicationInsightsClient:
             problem_id: <p>The ID of the problem.</p>
             update_status: <p>The status of the problem. Arguments can be passed for only problems that show a status of <code>RECOVERING</code>.</p>
             visibility: <p>The visibility of a problem. When you pass a value of <code>IGNORED</code>, the problem is removed from the default view, and all notifications for the problem are suspended. When <code>VISIBLE</code> is passed, the <code>IGNORED</code> action is reversed.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1903,6 +2103,12 @@ class ApplicationInsightsClient:
             component_name: <p> The name of the component. </p>
             workload_id: <p>The ID of the workload.</p>
             workload_configuration: <p>The configuration settings of the workload. The value is the escaped JSON of the configuration.</p>
+
+        Raises:
+            aws_sdk_application_insights.errors.internal_server_exception.InternalServerException: <p>The server encountered an internal error and is unable to complete the request.</p>
+            aws_sdk_application_insights.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource does not exist in the customer account.</p>
+            aws_sdk_application_insights.errors.validation_exception.ValidationException: <p>The parameter is not valid.</p>
+            aws_sdk_application_insights.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

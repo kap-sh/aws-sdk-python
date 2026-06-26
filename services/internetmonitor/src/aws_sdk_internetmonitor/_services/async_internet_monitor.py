@@ -151,6 +151,14 @@ class AsyncInternetMonitorClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for a resource.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.bad_request_exception.BadRequestException: <p>A bad request was received.</p>
+            aws_sdk_internetmonitor.errors.internal_server_error_exception.InternalServerErrorException: <p>There was an internal server error.</p>
+            aws_sdk_internetmonitor.errors.not_found_exception.NotFoundException: <p>The request specifies something that doesn't exist.</p>
+            aws_sdk_internetmonitor.errors.too_many_requests_exception.TooManyRequestsException: <p>There were too many requests.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -191,6 +199,14 @@ class AsyncInternetMonitorClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for a tag that you add to a resource. Tags are supported only for monitors in Amazon CloudWatch Internet Monitor.</p>
             tags: <p>Tags that you add to a resource. You can add a maximum of 50 tags in Internet Monitor.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.bad_request_exception.BadRequestException: <p>A bad request was received.</p>
+            aws_sdk_internetmonitor.errors.internal_server_error_exception.InternalServerErrorException: <p>There was an internal server error.</p>
+            aws_sdk_internetmonitor.errors.not_found_exception.NotFoundException: <p>The request specifies something that doesn't exist.</p>
+            aws_sdk_internetmonitor.errors.too_many_requests_exception.TooManyRequestsException: <p>There were too many requests.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -232,6 +248,14 @@ class AsyncInternetMonitorClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) for a tag you remove a resource from.</p>
             tag_keys: <p>Tag keys that you remove from a resource.</p>
+
+        Raises:
+            aws_sdk_internetmonitor.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permission to perform this action.</p>
+            aws_sdk_internetmonitor.errors.bad_request_exception.BadRequestException: <p>A bad request was received.</p>
+            aws_sdk_internetmonitor.errors.internal_server_error_exception.InternalServerErrorException: <p>There was an internal server error.</p>
+            aws_sdk_internetmonitor.errors.not_found_exception.NotFoundException: <p>The request specifies something that doesn't exist.</p>
+            aws_sdk_internetmonitor.errors.too_many_requests_exception.TooManyRequestsException: <p>There were too many requests.</p>
+            aws_sdk_internetmonitor.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

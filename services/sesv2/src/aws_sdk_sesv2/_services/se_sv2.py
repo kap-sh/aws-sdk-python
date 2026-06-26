@@ -460,6 +460,13 @@ class SESv2Client:
 
         Args:
             queries: <p>A list of queries for metrics to be retrieved.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.internal_service_error_exception.InternalServiceErrorException: <p>The request couldn't be processed because an error occurred with the Amazon SES API v2.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -497,6 +504,12 @@ class SESv2Client:
 
         Args:
             job_id: <p>The export job ID.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Cancel export job
@@ -568,6 +581,15 @@ class SESv2Client:
             suppression_options: <p>An object that contains information about the suppression list preferences for the configuration set. You can optionally include a <code>SuppressionScope</code> to override the tenant or account suppression scope for emails sent using this configuration set.</p>
             vdm_options: <p>An object that defines the VDM options for emails that you send using the configuration set.</p>
             archiving_options: <p>An object that defines the MailManager archiving options for emails that you send using the configuration set.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.already_exists_exception.AlreadyExistsException: <p>The resource specified in your request already exists.</p>
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_sesv2.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -625,6 +647,14 @@ class SESv2Client:
             configuration_set_name: <p>The name of the configuration set .</p>
             event_destination_name: <p>A name that identifies the event destination within the configuration set.</p>
             event_destination: <p>An object that defines the event destination.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.already_exists_exception.AlreadyExistsException: <p>The resource specified in your request already exists.</p>
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -678,6 +708,13 @@ class SESv2Client:
             topic_preferences: <p>The contact's preferences for being opted-in to or opted-out of topics.</p>
             unsubscribe_all: <p>A boolean value status noting if the contact is unsubscribed from all contact list topics.</p>
             attributes_data: <p>The attribute data attached to a contact.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.already_exists_exception.AlreadyExistsException: <p>The resource specified in your request already exists.</p>
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -728,6 +765,13 @@ class SESv2Client:
             topics: <p>An interest group, theme, or label within a list. A contact list can have multiple topics.</p>
             description: <p>A description of what the contact list is about.</p>
             tags: <p>The tags associated with a contact list.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.already_exists_exception.AlreadyExistsException: <p>The resource specified in your request already exists.</p>
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -783,6 +827,14 @@ class SESv2Client:
             tags: <p>An array of objects that define the tags (keys and values) to associate with the custom verification email template.</p>
             success_redirection_url: <p>The URL that the recipient of the verification email is sent to if his or her address is successfully verified.</p>
             failure_redirection_url: <p>The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.already_exists_exception.AlreadyExistsException: <p>The resource specified in your request already exists.</p>
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -831,6 +883,14 @@ class SESv2Client:
             pool_name: <p>The name of the dedicated IP pool.</p>
             tags: <p>An object that defines the tags (keys and values) that you want to associate with the pool.</p>
             scaling_mode: <p>The type of scaling mode.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.already_exists_exception.AlreadyExistsException: <p>The resource specified in your request already exists.</p>
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_sesv2.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -878,6 +938,18 @@ class SESv2Client:
             from_email_address: <p>The email address that the predictive inbox placement test email was sent from.</p>
             content: <p>The HTML body of the message that you sent when you performed the predictive inbox placement test.</p>
             tags: <p>An array of objects that define the tags (keys and values) that you want to associate with the predictive inbox placement test.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.account_suspended_exception.AccountSuspendedException: <p>The message can't be sent because the account's ability to send email has been permanently restricted.</p>
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_sesv2.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_sesv2.errors.mail_from_domain_not_verified_exception.MailFromDomainNotVerifiedException: <p>The message can't be sent because the sending domain isn't verified.</p>
+            aws_sdk_sesv2.errors.message_rejected.MessageRejected: <p>The message can't be sent because it contains invalid content.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.sending_paused_exception.SendingPausedException: <p>The message can't be sent because the account's ability to send email is currently paused.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -932,6 +1004,15 @@ class SESv2Client:
             tags: <p>An array of objects that define the tags (keys and values) to associate with the email identity.</p>
             dkim_signing_attributes: <p>If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html\">Easy DKIM</a>.</p> <p>You can only specify this object if the email identity is a domain, as opposed to an address.</p>
             configuration_set_name: <p>The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence. </p>
+
+        Raises:
+            aws_sdk_sesv2.errors.already_exists_exception.AlreadyExistsException: <p>The resource specified in your request already exists.</p>
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_sesv2.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -979,6 +1060,14 @@ class SESv2Client:
             email_identity: <p>The email identity.</p>
             policy_name: <p>The name of the policy.</p> <p>The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.</p>
             policy: <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p> <p>For information about the syntax of sending authorization policies, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html\">Amazon SES Developer Guide</a>.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.already_exists_exception.AlreadyExistsException: <p>The resource specified in your request already exists.</p>
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1024,6 +1113,13 @@ class SESv2Client:
             template_name: <p>The name of the template.</p>
             template_content: <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
             tags: <p>An array of objects that define the tags (keys and values) to associate with the email template.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.already_exists_exception.AlreadyExistsException: <p>The resource specified in your request already exists.</p>
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1066,6 +1162,13 @@ class SESv2Client:
         Args:
             export_data_source: <p>The data source for the export job.</p>
             export_destination: <p>The destination for the export job.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1106,6 +1209,12 @@ class SESv2Client:
         Args:
             import_destination: <p>The destination for the import job.</p>
             import_data_source: <p>The data source for the import job.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1148,6 +1257,13 @@ class SESv2Client:
             endpoint_name: <p>The name of the multi-region endpoint (global-endpoint).</p>
             details: <p>Contains details of a multi-region endpoint (global-endpoint) being created.</p>
             tags: <p>An array of objects that define the tags (keys and values) to associate with the multi-region endpoint (global-endpoint).</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.already_exists_exception.AlreadyExistsException: <p>The resource specified in your request already exists.</p>
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1194,6 +1310,13 @@ class SESv2Client:
             tenant_name: <p>The name of the tenant to create. The name can contain up to 64 alphanumeric characters, including letters, numbers, hyphens (-) and underscores (_) only.</p>
             tags: <p>An array of objects that define the tags (keys and values) to associate with the tenant</p>
             suppression_attributes: <p>An object that contains information about the suppression list preferences for the tenant. Use this to configure tenant-level suppression at creation time.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.already_exists_exception.AlreadyExistsException: <p>The resource specified in your request already exists.</p>
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1237,6 +1360,13 @@ class SESv2Client:
         Args:
             tenant_name: <p>The name of the tenant to associate the resource with.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to associate with the tenant.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.already_exists_exception.AlreadyExistsException: <p>The resource specified in your request already exists.</p>
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1275,6 +1405,13 @@ class SESv2Client:
 
         Args:
             configuration_set_name: <p>The name of the configuration set.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1314,6 +1451,12 @@ class SESv2Client:
         Args:
             configuration_set_name: <p>The name of the configuration set that contains the event destination to delete.</p>
             event_destination_name: <p>The name of the event destination to delete.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1354,6 +1497,12 @@ class SESv2Client:
         Args:
             contact_list_name: <p>The name of the contact list from which the contact should be removed.</p>
             email_address: <p>The contact's email address.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1392,6 +1541,13 @@ class SESv2Client:
 
         Args:
             contact_list_name: <p>The name of the contact list.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1429,6 +1585,12 @@ class SESv2Client:
 
         Args:
             template_name: <p>The name of the custom verification email template that you want to delete.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1466,6 +1628,13 @@ class SESv2Client:
 
         Args:
             pool_name: <p>The name of the dedicated IP pool that you want to delete.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1505,6 +1674,13 @@ class SESv2Client:
 
         Args:
             email_identity: <p>The identity (that is, the email address or domain) to delete.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1544,6 +1720,12 @@ class SESv2Client:
         Args:
             email_identity: <p>The email identity.</p>
             policy_name: <p>The name of the policy.</p> <p>The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1584,6 +1766,12 @@ class SESv2Client:
 
         Args:
             template_name: <p>The name of the template to be deleted.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1621,6 +1809,13 @@ class SESv2Client:
 
         Args:
             endpoint_name: <p>The name of the multi-region endpoint (global-endpoint) to be deleted.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1660,6 +1855,12 @@ class SESv2Client:
         Args:
             email_address: <p>The suppressed email destination to remove from the suppression list for your account or for the specified tenant.</p>
             tenant_name: <p>The name of the tenant whose suppression list you want to remove the address from. If you omit this parameter, the address is removed from the account-level suppression list.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1699,6 +1900,12 @@ class SESv2Client:
 
         Args:
             tenant_name: <p>The name of the tenant to delete.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1738,6 +1945,12 @@ class SESv2Client:
         Args:
             tenant_name: <p>The name of the tenant to remove the resource association from.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to remove from the tenant association.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1769,7 +1982,13 @@ class SESv2Client:
     def get_account(
         self, *, config_overrides: Optional[SESv2ClientConfig] = None
     ) -> "aws_sdk_sesv2.types.get_account_response.GetAccountResponse":
-        """<p>Obtain information about the email-sending status and capabilities of your Amazon SES account in the current Amazon Web Services Region.</p>"""
+        """<p>Obtain information about the email-sending status and capabilities of your Amazon SES account in the current Amazon Web Services Region.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_sesv2.types.get_account_request.GetAccountRequest]",
@@ -1807,6 +2026,12 @@ class SESv2Client:
 
         Args:
             blacklist_item_names: <p>A list of IP addresses that you want to retrieve blacklist information about. You can only specify the dedicated IP addresses that you use to send email using Amazon SES or Amazon Pinpoint.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1846,6 +2071,12 @@ class SESv2Client:
 
         Args:
             configuration_set_name: <p>The name of the configuration set.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1883,6 +2114,12 @@ class SESv2Client:
 
         Args:
             configuration_set_name: <p>The name of the configuration set that contains the event destination.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1922,6 +2159,12 @@ class SESv2Client:
         Args:
             contact_list_name: <p>The name of the contact list to which the contact belongs.</p>
             email_address: <p>The contact's email address.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1960,6 +2203,12 @@ class SESv2Client:
 
         Args:
             contact_list_name: <p>The name of the contact list.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1997,6 +2246,12 @@ class SESv2Client:
 
         Args:
             template_name: <p>The name of the custom verification email template that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2034,6 +2289,12 @@ class SESv2Client:
 
         Args:
             ip: <p>The IP address that you want to obtain more information about. The value you specify has to be a dedicated IP address that's assocaited with your Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2073,6 +2334,12 @@ class SESv2Client:
 
         Args:
             pool_name: <p>The name of the dedicated IP pool to retrieve.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2114,6 +2381,12 @@ class SESv2Client:
             pool_name: <p>The name of the IP pool that the dedicated IP address is associated with.</p>
             next_token: <p>A token returned from a previous call to <code>GetDedicatedIps</code> to indicate the position of the dedicated IP pool in the list of IP pools.</p>
             page_size: <p>The number of results to show in a single call to <code>GetDedicatedIpsRequest</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2149,7 +2422,14 @@ class SESv2Client:
     def get_deliverability_dashboard_options(
         self, *, config_overrides: Optional[SESv2ClientConfig] = None
     ) -> "aws_sdk_sesv2.types.get_deliverability_dashboard_options_response.GetDeliverabilityDashboardOptionsResponse":
-        r"""<p>Retrieve information about the status of the Deliverability dashboard for your account. When the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and other metrics for the domains that you use to send email. You also gain the ability to perform predictive inbox placement tests.</p> <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more information about the features and cost of a Deliverability dashboard subscription, see <a href=\"http://aws.amazon.com/ses/pricing/\">Amazon SES Pricing</a>.</p>"""
+        r"""<p>Retrieve information about the status of the Deliverability dashboard for your account. When the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and other metrics for the domains that you use to send email. You also gain the ability to perform predictive inbox placement tests.</p> <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more information about the features and cost of a Deliverability dashboard subscription, see <a href=\"http://aws.amazon.com/ses/pricing/\">Amazon SES Pricing</a>.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_sesv2.types.get_deliverability_dashboard_options_request.GetDeliverabilityDashboardOptionsRequest]",
@@ -2185,6 +2465,12 @@ class SESv2Client:
 
         Args:
             report_id: <p>A unique string that identifies the predictive inbox placement test.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2222,6 +2508,12 @@ class SESv2Client:
 
         Args:
             campaign_id: <p>The unique identifier for the campaign. The Deliverability dashboard automatically generates and assigns this identifier to a campaign.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2263,6 +2555,12 @@ class SESv2Client:
             domain: <p>The domain that you want to obtain deliverability metrics for.</p>
             start_date: <p>The first day (in Unix time) that you want to obtain domain deliverability metrics for.</p>
             end_date: <p>The last day (in Unix time) that you want to obtain domain deliverability metrics for. The <code>EndDate</code> that you specify has to be less than or equal to 30 days after the <code>StartDate</code>.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2302,6 +2600,11 @@ class SESv2Client:
 
         Args:
             email_address: <p>The email address to analyze for validation insights.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Get Email Address Insights
@@ -2345,6 +2648,12 @@ class SESv2Client:
 
         Args:
             email_identity: <p>The email identity.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2382,6 +2691,12 @@ class SESv2Client:
 
         Args:
             email_identity: <p>The email identity.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2419,6 +2734,12 @@ class SESv2Client:
 
         Args:
             template_name: <p>The name of the template.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2456,6 +2777,12 @@ class SESv2Client:
 
         Args:
             job_id: <p>The export job ID.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2493,6 +2820,12 @@ class SESv2Client:
 
         Args:
             job_id: <p>The ID of the import job.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2530,6 +2863,12 @@ class SESv2Client:
 
         Args:
             message_id: <p> A <code>MessageId</code> is a unique identifier for a message, and is returned when sending emails through Amazon SES. </p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2567,6 +2906,12 @@ class SESv2Client:
 
         Args:
             endpoint_name: <p>The name of the multi-region endpoint (global-endpoint).</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2608,6 +2953,12 @@ class SESv2Client:
         Args:
             reputation_entity_reference: <p>The unique identifier for the reputation entity. For resource-type entities, this is the Amazon Resource Name (ARN) of the resource.</p>
             reputation_entity_type: <p>The type of reputation entity. Currently, only <code>RESOURCE</code> type entities are supported.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2648,6 +2999,12 @@ class SESv2Client:
         Args:
             email_address: <p>The email address that's on the suppression list for your account or for the specified tenant.</p>
             tenant_name: <p>The name of the tenant whose suppression list you want to query. If you omit this parameter, the operation targets the account-level suppression list.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2687,6 +3044,12 @@ class SESv2Client:
 
         Args:
             tenant_name: <p>The name of the tenant to retrieve information about.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2726,6 +3089,11 @@ class SESv2Client:
         Args:
             next_token: <p>A token returned from a previous call to <code>ListConfigurationSets</code> to indicate the position in the list of configuration sets.</p>
             page_size: <p>The number of results to show in a single call to <code>ListConfigurationSets</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2768,6 +3136,11 @@ class SESv2Client:
         Args:
             page_size: <p>Maximum number of contact lists to return at once. Use this parameter to paginate results. If additional contact lists exist beyond the specified limit, the <code>NextToken</code> element is sent in the response. Use the <code>NextToken</code> value in subsequent requests to retrieve additional lists.</p>
             next_token: <p>A string token indicating that there might be additional contact lists available to be listed. Use the token provided in the Response to use in the subsequent call to ListContactLists with the same parameters to retrieve the next page of contact lists.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2816,6 +3189,12 @@ class SESv2Client:
             filter: <p>A filter that can be applied to a list of contacts.</p>
             page_size: <p>The number of contacts that may be returned at once, which is dependent on if there are more or less contacts than the value of the PageSize. Use this parameter to paginate results. If additional contacts exist beyond the specified limit, the <code>NextToken</code> element is sent in the response. Use the <code>NextToken</code> value in subsequent requests to retrieve additional contacts.</p>
             next_token: <p>A string token indicating that there might be additional contacts available to be listed. Use the token provided in the Response to use in the subsequent call to ListContacts with the same parameters to retrieve the next page of contacts.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2861,6 +3240,11 @@ class SESv2Client:
         Args:
             next_token: <p>A token returned from a previous call to <code>ListCustomVerificationEmailTemplates</code> to indicate the position in the list of custom verification email templates.</p>
             page_size: <p>The number of results to show in a single call to <code>ListCustomVerificationEmailTemplates</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p> <p>The value you specify has to be at least 1, and can be no more than 50.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2903,6 +3287,11 @@ class SESv2Client:
         Args:
             next_token: <p>A token returned from a previous call to <code>ListDedicatedIpPools</code> to indicate the position in the list of dedicated IP pools.</p>
             page_size: <p>The number of results to show in a single call to <code>ListDedicatedIpPools</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2945,6 +3334,12 @@ class SESv2Client:
         Args:
             next_token: <p>A token returned from a previous call to <code>ListDeliverabilityTestReports</code> to indicate the position in the list of predictive inbox placement tests.</p>
             page_size: <p>The number of results to show in a single call to <code>ListDeliverabilityTestReports</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p> <p>The value you specify has to be at least 0, and can be no more than 1000.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2993,6 +3388,12 @@ class SESv2Client:
             subscribed_domain: <p>The domain to obtain deliverability data for.</p>
             next_token: <p>A token that’s returned from a previous call to the <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the position of a campaign in the list of campaigns.</p>
             page_size: <p>The maximum number of results to include in response to a single call to the <code>ListDomainDeliverabilityCampaigns</code> operation. If the number of results is larger than the number that you specify in this parameter, the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3040,6 +3441,11 @@ class SESv2Client:
         Args:
             next_token: <p>A token returned from a previous call to <code>ListEmailIdentities</code> to indicate the position in the list of identities.</p>
             page_size: <p>The number of results to show in a single call to <code>ListEmailIdentities</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p> <p>The value you specify has to be at least 0, and can be no more than 1000.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3082,6 +3488,11 @@ class SESv2Client:
         Args:
             next_token: <p>A token returned from a previous call to <code>ListEmailTemplates</code> to indicate the position in the list of email templates.</p>
             page_size: <p>The number of results to show in a single call to <code>ListEmailTemplates</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p> <p>The value you specify has to be at least 1, and can be no more than 100.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3130,6 +3541,11 @@ class SESv2Client:
             page_size: <p>Maximum number of export jobs to return at once. Use this parameter to paginate results. If additional export jobs exist beyond the specified limit, the <code>NextToken</code> element is sent in the response. Use the <code>NextToken</code> value in subsequent calls to <code>ListExportJobs</code> to retrieve additional export jobs.</p>
             export_source_type: <p>A value used to list export jobs that have a certain <code>ExportSourceType</code>.</p>
             job_status: <p>A value used to list export jobs that have a certain <code>JobStatus</code>.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3180,6 +3596,11 @@ class SESv2Client:
             import_destination_type: <p>The destination of the import job, which can be used to list import jobs that have a certain <code>ImportDestinationType</code>.</p>
             next_token: <p>A string token indicating that there might be additional import jobs available to be listed. Copy this token to a subsequent call to <code>ListImportJobs</code> with the same parameters to retrieve the next page of import jobs.</p>
             page_size: <p>Maximum number of import jobs to return at once. Use this parameter to paginate results. If additional import jobs exist beyond the specified limit, the <code>NextToken</code> element is sent in the response. Use the <code>NextToken</code> value in subsequent requests to retrieve additional addresses.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3224,6 +3645,11 @@ class SESv2Client:
         Args:
             next_token: <p>A token returned from a previous call to <code>ListMultiRegionEndpoints</code> to indicate the position in the list of multi-region endpoints (global-endpoints).</p>
             page_size: <p>The number of results to show in a single call to <code>ListMultiRegionEndpoints</code>. If the number of results is larger than the number you specified in this parameter, the response includes a <code>NextToken</code> element that you can use to retrieve the next page of results. </p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3293,6 +3719,12 @@ class SESv2Client:
             filter: <p>Filters applied when retrieving recommendations. Can eiter be an individual filter, or combinations of <code>STATUS</code> and <code>IMPACT</code> or <code>STATUS</code> and <code>TYPE</code> </p>
             next_token: <p>A token returned from a previous call to <code>ListRecommendations</code> to indicate the position in the list of recommendations.</p>
             page_size: <p>The number of results to show in a single call to <code>ListRecommendations</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p> <p>The value you specify has to be at least 1, and can be no more than 100.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3341,6 +3773,11 @@ class SESv2Client:
             filter: <p>An object that contains filters to apply when listing reputation entities. You can filter by entity type, reputation impact, sending status, or entity reference prefix.</p>
             next_token: <p>A token returned from a previous call to <code>ListReputationEntities</code> to indicate the position in the list of reputation entities.</p>
             page_size: <p>The number of results to show in a single call to <code>ListReputationEntities</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3414,6 +3851,12 @@ class SESv2Client:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to list associated tenants for.</p>
             page_size: <p>The number of results to show in a single call to <code>ListResourceTenants</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
             next_token: <p>A token returned from a previous call to <code>ListResourceTenants</code> to indicate the position in the list of resource tenants.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3492,6 +3935,13 @@ class SESv2Client:
             end_date: <p>Used to filter the list of suppressed email destinations so that it only includes addresses that were added to the list before a specific date.</p>
             next_token: <p>A token returned from a previous call to <code>ListSuppressedDestinations</code> to indicate the position in the list of suppressed email addresses.</p>
             page_size: <p>The number of results to show in a single call to <code>ListSuppressedDestinations</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The specified request includes an invalid or expired token.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3540,6 +3990,12 @@ class SESv2Client:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tag information for.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3587,6 +4043,12 @@ class SESv2Client:
             filter: <p>A map of filter keys and values for filtering the list of tenant resources. Currently, the only supported filter key is <code>RESOURCE_TYPE</code>.</p>
             page_size: <p>The number of results to show in a single call to <code>ListTenantResources</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
             next_token: <p>A token returned from a previous call to <code>ListTenantResources</code> to indicate the position in the list of tenant resources.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3659,6 +4121,11 @@ class SESv2Client:
         Args:
             next_token: <p>A token returned from a previous call to <code>ListTenants</code> to indicate the position in the list of tenants.</p>
             page_size: <p>The number of results to show in a single call to <code>ListTenants</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3720,6 +4187,11 @@ class SESv2Client:
 
         Args:
             auto_warmup_enabled: <p>Enables or disables the automatic warm-up feature for dedicated IP addresses that are associated with your Amazon SES account in the current Amazon Web Services Region. Set to <code>true</code> to enable the automatic warm-up feature, or set to <code>false</code> to disable it.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3776,6 +4248,12 @@ class SESv2Client:
             use_case_description: <p>A description of the types of email that you plan to send.</p>
             additional_contact_email_addresses: <p>Additional email addresses that you would like to be notified regarding Amazon SES matters.</p>
             production_access_enabled: <p>Indicates whether or not your account should have production access in the current Amazon Web Services Region.</p> <p>If the value is <code>false</code>, then your account is in the <i>sandbox</i>. When your account is in the sandbox, you can only send email to verified identities. </p> <p>If the value is <code>true</code>, then your account has production access. When your account has production access, you can send email to any address. The sending quota and maximum sending rate for your account vary based on your specific use case.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.conflict_exception.ConflictException: <p>If there is already an ongoing account details update under review.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3824,6 +4302,11 @@ class SESv2Client:
 
         Args:
             sending_enabled: <p>Enables or disables your account's ability to send email. Set to <code>true</code> to enable email sending, or set to <code>false</code> to disable email sending.</p> <note> <p>If Amazon Web Services paused your account's ability to send email, you can't use this operation to resume your account's ability to send email.</p> </note>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3868,6 +4351,11 @@ class SESv2Client:
         Args:
             suppressed_reasons: <p>A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. This list can contain any or all of the following:</p> <ul> <li> <p> <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a complaint.</p> </li> <li> <p> <code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a hard bounce.</p> </li> </ul>
             validation_attributes: <p>An object that contains additional suppression attributes for your account.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3908,6 +4396,11 @@ class SESv2Client:
 
         Args:
             vdm_attributes: <p>The VDM attributes that you wish to apply to your Amazon SES account.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3947,6 +4440,12 @@ class SESv2Client:
         Args:
             configuration_set_name: <p>The name of the configuration set to associate with a MailManager archive.</p>
             archive_arn: <p>The Amazon Resource Name (ARN) of the MailManager archive that the Amazon SES API v2 sends email to.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Used to associate an MailManager archive with a ConfigurationSet.
@@ -4002,6 +4501,12 @@ class SESv2Client:
             tls_policy: <p>Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only delivered if a TLS connection can be established. If the value is <code>Optional</code>, messages can be delivered in plain text if a TLS connection can't be established.</p>
             sending_pool_name: <p>The name of the dedicated IP pool to associate with the configuration set.</p>
             max_delivery_seconds: <p>The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes). </p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4049,6 +4554,12 @@ class SESv2Client:
         Args:
             configuration_set_name: <p>The name of the configuration set.</p>
             reputation_metrics_enabled: <p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration set. If <code>false</code>, tracking of reputation metrics is disabled for the configuration set.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4090,6 +4601,12 @@ class SESv2Client:
         Args:
             configuration_set_name: <p>The name of the configuration set to enable or disable email sending for.</p>
             sending_enabled: <p>If <code>true</code>, email sending is enabled for the configuration set. If <code>false</code>, email sending is disabled for the configuration set.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4141,6 +4658,12 @@ class SESv2Client:
             suppression_scope: <p>The suppression scope for the configuration set. This overrides the tenant or account suppression scope for emails sent using this configuration set. Can be one of the following:</p> <ul> <li> <p> <code>TENANT</code> – Use the tenant's suppression list.</p> </li> <li> <p> <code>ACCOUNT</code> – Use the account-level suppression list.</p> </li> </ul>
             suppressed_reasons: <p>A list that contains the reasons that email addresses are automatically added to the suppression list for your account or for a specific tenant. This list can contain any or all of the following:</p> <ul> <li> <p> <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression list for your account or for a specific tenant when a message sent to that address results in a complaint.</p> </li> <li> <p> <code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account or for a specific tenant when a message sent to that address results in a hard bounce.</p> </li> </ul>
             validation_options: <p>An object that contains information about the email address suppression preferences for the configuration set in the current Amazon Web Services Region.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4189,6 +4712,12 @@ class SESv2Client:
         Args:
             configuration_set_name: <p>The name of the configuration set.</p>
             custom_redirect_domain: <p>The domain to use to track open and click events.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4232,6 +4761,12 @@ class SESv2Client:
         Args:
             configuration_set_name: <p>The name of the configuration set.</p>
             vdm_options: <p>The VDM options to apply to the configuration set.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4273,6 +4808,12 @@ class SESv2Client:
         Args:
             ip: <p>The IP address that you want to move to the dedicated IP pool. The value you specify has to be a dedicated IP address that's associated with your Amazon Web Services account.</p>
             destination_pool_name: <p>The name of the IP pool that you want to add the dedicated IP address to. You have to specify an IP pool that already exists.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4313,6 +4854,13 @@ class SESv2Client:
         Args:
             pool_name: <p>The name of the dedicated IP pool.</p>
             scaling_mode: <p>The scaling mode to apply to the dedicated IP pool.</p> <note> <p>Changing the scaling mode from <code>MANAGED</code> to <code>STANDARD</code> is not supported.</p> </note>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Used to convert a dedicated IP pool to a different scaling mode.
@@ -4359,6 +4907,12 @@ class SESv2Client:
         Args:
             ip: <p>The dedicated IP address that you want to update the warm-up attributes for.</p>
             warmup_percentage: <p>The warm-up percentage that you want to associate with the dedicated IP address.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4401,6 +4955,14 @@ class SESv2Client:
         Args:
             dashboard_enabled: <p>Specifies whether to enable the Deliverability dashboard. To enable the dashboard, set this value to <code>true</code>.</p>
             subscribed_domains: <p>An array of objects, one for each verified domain that you use to send email and enabled the Deliverability dashboard for.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.already_exists_exception.AlreadyExistsException: <p>The resource specified in your request already exists.</p>
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4444,6 +5006,12 @@ class SESv2Client:
         Args:
             email_identity: <p>The email address or domain to associate with a configuration set.</p>
             configuration_set_name: <p>The configuration set to associate with an email identity.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4485,6 +5053,12 @@ class SESv2Client:
         Args:
             email_identity: <p>The email identity.</p>
             signing_enabled: <p>Sets the DKIM signing configuration for the identity.</p> <p>When you set this value <code>true</code>, then the messages that are sent from the identity are signed using DKIM. If you set this value to <code>false</code>, your messages are sent without DKIM signing.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4530,6 +5104,12 @@ class SESv2Client:
             email_identity: <p>The email identity.</p>
             signing_attributes_origin: <p>The method to use to configure DKIM for the identity. There are the following possible values:</p> <ul> <li> <p> <code>AWS_SES</code> – Configure DKIM for the identity by using <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html\">Easy DKIM</a>.</p> </li> <li> <p> <code>EXTERNAL</code> – Configure DKIM for the identity by using Bring Your Own DKIM (BYODKIM).</p> </li> </ul>
             signing_attributes: <p>An object that contains information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html\">Easy DKIM</a>.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4574,6 +5154,12 @@ class SESv2Client:
         Args:
             email_identity: <p>The email identity.</p>
             email_forwarding_enabled: <p>Sets the feedback forwarding configuration for the identity.</p> <p>If the value is <code>true</code>, you receive email notifications when bounce or complaint events occur. These notifications are sent to the address that you specified in the <code>Return-Path</code> header of the original email.</p> <p>You're required to have a method of tracking bounces and complaints. If you haven't set up another mechanism for receiving bounce or complaint notifications (for example, by setting up an event destination), you receive an email notification when these events occur (even if this setting is disabled).</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4621,6 +5207,12 @@ class SESv2Client:
             email_identity: <p>The verified email identity.</p>
             mail_from_domain: <p> The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM domain must meet the following criteria:</p> <ul> <li> <p>It has to be a subdomain of the verified identity.</p> </li> <li> <p>It can't be used to receive email.</p> </li> <li> <p>It can't be used in a \"From\" address if the MAIL FROM domain is a destination for feedback forwarding emails.</p> </li> </ul>
             behavior_on_mx_failure: <p>The action to take if the required MX record isn't found when you send an email. When you set this value to <code>UseDefaultValue</code>, the mail is sent using <i>amazonses.com</i> as the MAIL FROM domain. When you set this value to <code>RejectMessage</code>, the Amazon SES API v2 returns a <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the email.</p> <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code> states.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4666,6 +5258,12 @@ class SESv2Client:
             email_address: <p>The email address that should be added to the suppression list for your account or for the specified tenant.</p>
             reason: <p>The factors that should cause the email address to be added to the suppression list for your account or for the specified tenant.</p>
             tenant_name: <p>The name of the tenant whose suppression list you want to add the address to. If you omit this parameter, the address is added to the account-level suppression list.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4714,6 +5312,12 @@ class SESv2Client:
             tenant_name: <p>The name of the tenant to configure suppression list preferences for.</p>
             suppressed_reasons: <p>A list that contains the reasons that email addresses are automatically added to the suppression list for the tenant. This list can contain any or all of the following:</p> <ul> <li> <p> <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression list when a message sent to that address results in a complaint.</p> </li> <li> <p> <code>BOUNCE</code> – Amazon SES adds an email address to the suppression list when a message sent to that address results in a hard bounce.</p> </li> </ul>
             suppression_scope: <p>The suppression scope for the tenant. Specify <code>TENANT</code> to use the tenant's own suppression list, or <code>ACCOUNT</code> to use the account-level suppression list.</p> <note> <p>If you don't specify a suppression scope, the tenant defaults to <code>ACCOUNT</code> scope and uses the account-level suppression list.</p> </note>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4789,6 +5393,17 @@ class SESv2Client:
             configuration_set_name: <p>The name of the configuration set to use when sending the email.</p>
             endpoint_id: <p>The ID of the multi-region endpoint (global-endpoint).</p>
             tenant_name: <p>The name of the tenant through which this bulk email will be sent.</p> <note> <p> The email sending operation will only succeed if all referenced resources (identities, configuration sets, and templates) are associated with this tenant. </p> </note>
+
+        Raises:
+            aws_sdk_sesv2.errors.account_suspended_exception.AccountSuspendedException: <p>The message can't be sent because the account's ability to send email has been permanently restricted.</p>
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_sesv2.errors.mail_from_domain_not_verified_exception.MailFromDomainNotVerifiedException: <p>The message can't be sent because the sending domain isn't verified.</p>
+            aws_sdk_sesv2.errors.message_rejected.MessageRejected: <p>The message can't be sent because it contains invalid content.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.sending_paused_exception.SendingPausedException: <p>The message can't be sent because the account's ability to send email is currently paused.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4855,6 +5470,16 @@ class SESv2Client:
             email_address: <p>The email address to verify.</p>
             template_name: <p>The name of the custom verification email template to use when sending the verification email.</p>
             configuration_set_name: <p>Name of a configuration set to use when sending the verification email.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_sesv2.errors.mail_from_domain_not_verified_exception.MailFromDomainNotVerifiedException: <p>The message can't be sent because the sending domain isn't verified.</p>
+            aws_sdk_sesv2.errors.message_rejected.MessageRejected: <p>The message can't be sent because it contains invalid content.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.sending_paused_exception.SendingPausedException: <p>The message can't be sent because the account's ability to send email is currently paused.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4933,6 +5558,17 @@ class SESv2Client:
             endpoint_id: <p>The ID of the multi-region endpoint (global-endpoint).</p>
             tenant_name: <p>The name of the tenant through which this email will be sent.</p> <note> <p>The email sending operation will only succeed if all referenced resources (identities, configuration sets, and templates) are associated with this tenant. </p> </note>
             list_management_options: <p>An object used to specify a list or topic to which an email belongs, which will be used when a contact chooses to unsubscribe.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.account_suspended_exception.AccountSuspendedException: <p>The message can't be sent because the account's ability to send email has been permanently restricted.</p>
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.limit_exceeded_exception.LimitExceededException: <p>There are too many instances of the specified resource type.</p>
+            aws_sdk_sesv2.errors.mail_from_domain_not_verified_exception.MailFromDomainNotVerifiedException: <p>The message can't be sent because the sending domain isn't verified.</p>
+            aws_sdk_sesv2.errors.message_rejected.MessageRejected: <p>The message can't be sent because it contains invalid content.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.sending_paused_exception.SendingPausedException: <p>The message can't be sent because the account's ability to send email is currently paused.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4998,6 +5634,13 @@ class SESv2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to add one or more tags to.</p>
             tags: <p>A list of the tags that you want to add to the resource. A tag consists of a required tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5038,6 +5681,12 @@ class SESv2Client:
         Args:
             template_name: <p>The name of the template.</p>
             template_data: <p>A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5078,6 +5727,13 @@ class SESv2Client:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that you want to remove one or more tags from.</p>
             tag_keys: <p>The tags (tag keys) that you want to remove from the resource. When you specify a tag key, the action removes both that key and its associated tag value.</p> <p>To remove more than one tag from the resource, append the <code>TagKeys</code> parameter and argument for each additional tag to remove, separated by an ampersand. For example: <code>/v2/email/tags?ResourceArn=ResourceArn&TagKeys=Key1&TagKeys=Key2</code> </p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5120,6 +5776,12 @@ class SESv2Client:
             configuration_set_name: <p>The name of the configuration set that contains the event destination to modify.</p>
             event_destination_name: <p>The name of the event destination.</p>
             event_destination: <p>An object that defines the event destination.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5173,6 +5835,13 @@ class SESv2Client:
             topic_preferences: <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
             unsubscribe_all: <p>A boolean value status noting if the contact is unsubscribed from all contact list topics.</p>
             attributes_data: <p>The attribute data attached to a contact.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5221,6 +5890,13 @@ class SESv2Client:
             contact_list_name: <p>The name of the contact list.</p>
             topics: <p>An interest group, theme, or label within a list. A contact list can have multiple topics.</p>
             description: <p>A description of what the contact list is about.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The resource is being modified by another operation or thread.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5272,6 +5948,12 @@ class SESv2Client:
             template_content: <p>The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see <a href=\"https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom-faq\">Custom verification email frequently asked questions</a> in the <i>Amazon SES Developer Guide</i>.</p>
             success_redirection_url: <p>The URL that the recipient of the verification email is sent to if his or her address is successfully verified.</p>
             failure_redirection_url: <p>The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5318,6 +6000,12 @@ class SESv2Client:
             email_identity: <p>The email identity.</p>
             policy_name: <p>The name of the policy.</p> <p>The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.</p>
             policy: <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p> <p> For information about the syntax of sending authorization policies, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html\">Amazon SES Developer Guide</a>.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5361,6 +6049,12 @@ class SESv2Client:
         Args:
             template_name: <p>The name of the template.</p>
             template_content: <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.not_found_exception.NotFoundException: <p>The resource you attempted to access doesn't exist.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5403,6 +6097,12 @@ class SESv2Client:
             reputation_entity_type: <p>The type of reputation entity. Currently, only <code>RESOURCE</code> type entities are supported.</p>
             reputation_entity_reference: <p>The unique identifier for the reputation entity. For resource-type entities, this is the Amazon Resource Name (ARN) of the resource.</p>
             sending_status: <p>The new customer-managed sending status for the reputation entity. This can be one of the following:</p> <ul> <li> <p> <code>ENABLED</code> – Allow sending for this entity.</p> </li> <li> <p> <code>DISABLED</code> – Prevent sending for this entity.</p> </li> <li> <p> <code>REINSTATED</code> – Allow sending even if there are active reputation findings.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.conflict_exception.ConflictException: <p>If there is already an ongoing account details update under review.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5446,6 +6146,12 @@ class SESv2Client:
             reputation_entity_type: <p>The type of reputation entity. Currently, only <code>RESOURCE</code> type entities are supported.</p>
             reputation_entity_reference: <p>The unique identifier for the reputation entity. For resource-type entities, this is the Amazon Resource Name (ARN) of the resource.</p>
             reputation_entity_policy: <p>The Amazon Resource Name (ARN) of the reputation management policy to apply to this entity. This is an Amazon Web Services Amazon SES-managed policy.</p>
+
+        Raises:
+            aws_sdk_sesv2.errors.bad_request_exception.BadRequestException: <p>The input you provided is invalid.</p>
+            aws_sdk_sesv2.errors.conflict_exception.ConflictException: <p>If there is already an ongoing account details update under review.</p>
+            aws_sdk_sesv2.errors.too_many_requests_exception.TooManyRequestsException: <p>Too many requests have been made to the operation.</p>
+            aws_sdk_sesv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

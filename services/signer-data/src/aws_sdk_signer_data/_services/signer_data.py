@@ -147,6 +147,13 @@ class SignerDataClient:
             job_arn: <p>The ARN of the signing job that produced the signature.</p>
             certificate_hashes: <p>List of certificate hashes to check for revocation.</p>
 
+        Raises:
+            aws_sdk_signer_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_signer_data.errors.internal_service_error_exception.InternalServiceErrorException: <p>An internal service error occurred.</p>
+            aws_sdk_signer_data.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_signer_data.errors.validation_exception.ValidationException: <p>The request contains invalid parameters or is malformed.</p>
+            aws_sdk_signer_data.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Check revocation status for a signed artifact
             Checks if a signing profile, job, or certificate has been revoked for a given artifact.

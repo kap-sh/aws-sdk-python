@@ -230,6 +230,23 @@ class AsyncneptunedataClient:
 
         Args:
             query_id: <p>The unique identifier that identifies the query to be canceled.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Raised when a request attempts to modify data that is concurrently being modified by another process.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.failure_by_query_exception.FailureByQueryException: <p>Raised when a request fails.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.parsing_exception.ParsingException: <p>Raised when a parsing issue is encountered.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.time_limit_exceeded_exception.TimeLimitExceededException: <p>Raised when the an operation exceeds the time limit allowed for it.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -268,6 +285,22 @@ class AsyncneptunedataClient:
 
         Args:
             load_id: <p>The ID of the load job to be deleted.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.bulk_load_id_not_found_exception.BulkLoadIdNotFoundException: <p>Raised when a specified bulk-load job ID cannot be found.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.internal_failure_exception.InternalFailureException: <p>Raised when the processing of the request failed unexpectedly.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.load_url_access_denied_exception.LoadUrlAccessDeniedException: <p>Raised when access is denied to a specified load URL.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -310,6 +343,20 @@ class AsyncneptunedataClient:
             id: <p>The unique identifier of the data-processing job.</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
             clean: <p>If set to <code>TRUE</code>, this flag specifies that all Neptune ML S3 artifacts should be deleted when the job is stopped. The default is <code>FALSE</code>.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.ml_resource_not_found_exception.MLResourceNotFoundException: <p>Raised when a specified machine-learning resource could not be found.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -356,6 +403,20 @@ class AsyncneptunedataClient:
             id: <p>The unique identifier of the model-training job to be canceled.</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
             clean: <p>If set to <code>TRUE</code>, this flag specifies that all Amazon S3 artifacts should be deleted when the job is stopped. The default is <code>FALSE</code>.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.ml_resource_not_found_exception.MLResourceNotFoundException: <p>Raised when a specified machine-learning resource could not be found.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -402,6 +463,20 @@ class AsyncneptunedataClient:
             id: <p>The unique ID of the model transform job to be canceled.</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
             clean: <p>If this flag is set to <code>TRUE</code>, all Neptune ML S3 artifacts should be deleted when the job is stopped. The default is <code>FALSE</code>.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.ml_resource_not_found_exception.MLResourceNotFoundException: <p>Raised when a specified machine-learning resource could not be found.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -446,6 +521,24 @@ class AsyncneptunedataClient:
         Args:
             query_id: <p>The unique ID of the openCypher query to cancel.</p>
             silent: <p>If set to <code>TRUE</code>, causes the cancelation of the openCypher query to happen silently.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Raised when a request attempts to modify data that is concurrently being modified by another process.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.failure_by_query_exception.FailureByQueryException: <p>Raised when a request fails.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_numeric_data_exception.InvalidNumericDataException: <p>Raised when invalid numerical data is encountered when servicing a request.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.parsing_exception.ParsingException: <p>Raised when a parsing issue is encountered.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.time_limit_exceeded_exception.TimeLimitExceededException: <p>Raised when the an operation exceeds the time limit allowed for it.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -502,6 +595,20 @@ class AsyncneptunedataClient:
             instance_type: <p>The type of Neptune ML instance to use for online servicing. The default is <code>ml.m5.xlarge</code>. Choosing the ML instance for an inference endpoint depends on the task type, the graph size, and your budget.</p>
             instance_count: <p>The minimum number of Amazon EC2 instances to deploy to an endpoint for prediction. The default is 1</p>
             volume_encryption_kms_key: <p>The Amazon Key Management Service (Amazon KMS) key that SageMaker uses to encrypt data on the storage volume attached to the ML compute instances that run the training job. The default is None.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.ml_resource_not_found_exception.MLResourceNotFoundException: <p>Raised when a specified machine-learning resource could not be found.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -561,6 +668,20 @@ class AsyncneptunedataClient:
             id: <p>The unique identifier of the inference endpoint.</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role providing Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will be thrown.</p>
             clean: <p>If this flag is set to <code>TRUE</code>, all Neptune ML S3 artifacts should be deleted when the job is stopped. The default is <code>FALSE</code>.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.ml_resource_not_found_exception.MLResourceNotFoundException: <p>Raised when a specified machine-learning resource could not be found.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -596,7 +717,24 @@ class AsyncneptunedataClient:
     async def delete_propertygraph_statistics(
         self, *, config_overrides: Optional[AsyncneptunedataClientConfig] = None
     ) -> "aws_sdk_neptunedata.types.delete_propertygraph_statistics_output.DeletePropertygraphStatisticsOutput":
-        r"""<p>Deletes statistics for Gremlin and openCypher (property graph) data.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletestatistics\">neptune-db:DeleteStatistics</a> IAM action in that cluster.</p>"""
+        r"""<p>Deletes statistics for Gremlin and openCypher (property graph) data.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletestatistics\">neptune-db:DeleteStatistics</a> IAM action in that cluster.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.access_denied_exception.AccessDeniedException: <p>Raised in case of an authentication or authorization failure.</p>
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.read_only_violation_exception.ReadOnlyViolationException: <p>Raised when a request attempts to write to a read-only resource.</p>
+            aws_sdk_neptunedata.errors.statistics_not_available_exception.StatisticsNotAvailableException: <p>Raised when statistics needed to satisfy a request are not available.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -625,7 +763,24 @@ class AsyncneptunedataClient:
     async def delete_sparql_statistics(
         self, *, config_overrides: Optional[AsyncneptunedataClientConfig] = None
     ) -> "aws_sdk_neptunedata.types.delete_sparql_statistics_output.DeleteSparqlStatisticsOutput":
-        r"""<p>Deletes SPARQL statistics</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletestatistics\">neptune-db:DeleteStatistics</a> IAM action in that cluster.</p>"""
+        r"""<p>Deletes SPARQL statistics</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletestatistics\">neptune-db:DeleteStatistics</a> IAM action in that cluster.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.access_denied_exception.AccessDeniedException: <p>Raised in case of an authentication or authorization failure.</p>
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.read_only_violation_exception.ReadOnlyViolationException: <p>Raised when a request attempts to write to a read-only resource.</p>
+            aws_sdk_neptunedata.errors.statistics_not_available_exception.StatisticsNotAvailableException: <p>Raised when statistics needed to satisfy a request are not available.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -663,6 +818,22 @@ class AsyncneptunedataClient:
         Args:
             action: <p>The fast reset action. One of the following values:</p> <ul> <li> <p> <b> <code>initiateDatabaseReset</code> </b> - This action generates a unique token needed to actually perform the fast reset.</p> </li> <li> <p> <b> <code>performDatabaseReset</code> </b> - This action uses the token generated by the <code>initiateDatabaseReset</code> action to actually perform the fast reset.</p> <p/> </li> </ul>
             token: <p>The fast-reset token to initiate the reset.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.access_denied_exception.AccessDeniedException: <p>Raised in case of an authentication or authorization failure.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.method_not_allowed_exception.MethodNotAllowedException: <p>Raised when the HTTP method used by a request is not supported by the endpoint being used.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.read_only_violation_exception.ReadOnlyViolationException: <p>Raised when a request attempts to write to a read-only resource.</p>
+            aws_sdk_neptunedata.errors.server_shutdown_exception.ServerShutdownException: <p>Raised when the server shuts down while processing a request.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -703,6 +874,29 @@ class AsyncneptunedataClient:
 
         Args:
             gremlin_query: <p>The Gremlin explain query string.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.cancelled_by_user_exception.CancelledByUserException: <p>Raised when a user cancelled a request.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Raised when a request attempts to modify data that is concurrently being modified by another process.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.failure_by_query_exception.FailureByQueryException: <p>Raised when a request fails.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.malformed_query_exception.MalformedQueryException: <p>Raised when a query is submitted that is syntactically incorrect or does not pass additional validation.</p>
+            aws_sdk_neptunedata.errors.memory_limit_exceeded_exception.MemoryLimitExceededException: <p>Raised when a request fails because of insufficient memory resources. The request can be retried.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.parsing_exception.ParsingException: <p>Raised when a parsing issue is encountered.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.query_limit_exceeded_exception.QueryLimitExceededException: <p>Raised when the number of active queries exceeds what the server can process. The query in question can be retried when the system is less busy.</p>
+            aws_sdk_neptunedata.errors.query_limit_exception.QueryLimitException: <p>Raised when the size of a query exceeds the system limit.</p>
+            aws_sdk_neptunedata.errors.query_too_large_exception.QueryTooLargeException: <p>Raised when the body of a query is too large.</p>
+            aws_sdk_neptunedata.errors.time_limit_exceeded_exception.TimeLimitExceededException: <p>Raised when the an operation exceeds the time limit allowed for it.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -749,6 +943,29 @@ class AsyncneptunedataClient:
             chop: <p>If non-zero, causes the results string to be truncated at that number of characters. If set to zero, the string contains all the results.</p>
             serializer: <p>If non-null, the gathered results are returned in a serialized response message in the format specified by this parameter. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-profile-api.html\">Gremlin profile API in Neptune</a> for more information.</p>
             index_ops: <p>If this flag is set to <code>TRUE</code>, the results include a detailed report of all index operations that took place during query execution and serialization.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.cancelled_by_user_exception.CancelledByUserException: <p>Raised when a user cancelled a request.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Raised when a request attempts to modify data that is concurrently being modified by another process.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.failure_by_query_exception.FailureByQueryException: <p>Raised when a request fails.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.malformed_query_exception.MalformedQueryException: <p>Raised when a query is submitted that is syntactically incorrect or does not pass additional validation.</p>
+            aws_sdk_neptunedata.errors.memory_limit_exceeded_exception.MemoryLimitExceededException: <p>Raised when a request fails because of insufficient memory resources. The request can be retried.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.parsing_exception.ParsingException: <p>Raised when a parsing issue is encountered.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.query_limit_exceeded_exception.QueryLimitExceededException: <p>Raised when the number of active queries exceeds what the server can process. The query in question can be retried when the system is less busy.</p>
+            aws_sdk_neptunedata.errors.query_limit_exception.QueryLimitException: <p>Raised when the size of a query exceeds the system limit.</p>
+            aws_sdk_neptunedata.errors.query_too_large_exception.QueryTooLargeException: <p>Raised when the body of a query is too large.</p>
+            aws_sdk_neptunedata.errors.time_limit_exceeded_exception.TimeLimitExceededException: <p>Raised when the an operation exceeds the time limit allowed for it.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -797,6 +1014,29 @@ class AsyncneptunedataClient:
         Args:
             gremlin_query: <p>Using this API, you can run Gremlin queries in string format much as you can using the HTTP endpoint. The interface is compatible with whatever Gremlin version your DB cluster is using (see the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-gremlin-client.html#best-practices-gremlin-java-latest\">Tinkerpop client section</a> to determine which Gremlin releases your engine version supports).</p>
             serializer: <p>If non-null, the query results are returned in a serialized response message in the format specified by this parameter. See the <a href=\"https://tinkerpop.apache.org/docs/current/reference/#_graphson\">GraphSON</a> section in the TinkerPop documentation for a list of the formats that are currently supported.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.cancelled_by_user_exception.CancelledByUserException: <p>Raised when a user cancelled a request.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Raised when a request attempts to modify data that is concurrently being modified by another process.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.failure_by_query_exception.FailureByQueryException: <p>Raised when a request fails.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.malformed_query_exception.MalformedQueryException: <p>Raised when a query is submitted that is syntactically incorrect or does not pass additional validation.</p>
+            aws_sdk_neptunedata.errors.memory_limit_exceeded_exception.MemoryLimitExceededException: <p>Raised when a request fails because of insufficient memory resources. The request can be retried.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.parsing_exception.ParsingException: <p>Raised when a parsing issue is encountered.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.query_limit_exceeded_exception.QueryLimitExceededException: <p>Raised when the number of active queries exceeds what the server can process. The query in question can be retried when the system is less busy.</p>
+            aws_sdk_neptunedata.errors.query_limit_exception.QueryLimitException: <p>Raised when the size of a query exceeds the system limit.</p>
+            aws_sdk_neptunedata.errors.query_too_large_exception.QueryTooLargeException: <p>Raised when the body of a query is too large.</p>
+            aws_sdk_neptunedata.errors.time_limit_exceeded_exception.TimeLimitExceededException: <p>Raised when the an operation exceeds the time limit allowed for it.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -841,6 +1081,30 @@ class AsyncneptunedataClient:
             open_cypher_query: <p>The openCypher query string.</p>
             parameters: <p>The openCypher query parameters.</p>
             explain_mode: <p>The openCypher <code>explain</code> mode. Can be one of: <code>static</code>, <code>dynamic</code>, or <code>details</code>.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.cancelled_by_user_exception.CancelledByUserException: <p>Raised when a user cancelled a request.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Raised when a request attempts to modify data that is concurrently being modified by another process.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.failure_by_query_exception.FailureByQueryException: <p>Raised when a request fails.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_numeric_data_exception.InvalidNumericDataException: <p>Raised when invalid numerical data is encountered when servicing a request.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.malformed_query_exception.MalformedQueryException: <p>Raised when a query is submitted that is syntactically incorrect or does not pass additional validation.</p>
+            aws_sdk_neptunedata.errors.memory_limit_exceeded_exception.MemoryLimitExceededException: <p>Raised when a request fails because of insufficient memory resources. The request can be retried.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.parsing_exception.ParsingException: <p>Raised when a parsing issue is encountered.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.query_limit_exceeded_exception.QueryLimitExceededException: <p>Raised when the number of active queries exceeds what the server can process. The query in question can be retried when the system is less busy.</p>
+            aws_sdk_neptunedata.errors.query_limit_exception.QueryLimitException: <p>Raised when the size of a query exceeds the system limit.</p>
+            aws_sdk_neptunedata.errors.query_too_large_exception.QueryTooLargeException: <p>Raised when the body of a query is too large.</p>
+            aws_sdk_neptunedata.errors.time_limit_exceeded_exception.TimeLimitExceededException: <p>Raised when the an operation exceeds the time limit allowed for it.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -884,6 +1148,30 @@ class AsyncneptunedataClient:
         Args:
             open_cypher_query: <p>The openCypher query string to be executed.</p>
             parameters: <p>The openCypher query parameters for query execution. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/opencypher-parameterized-queries.html\">Examples of openCypher parameterized queries</a> for more information.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.cancelled_by_user_exception.CancelledByUserException: <p>Raised when a user cancelled a request.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Raised when a request attempts to modify data that is concurrently being modified by another process.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.failure_by_query_exception.FailureByQueryException: <p>Raised when a request fails.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_numeric_data_exception.InvalidNumericDataException: <p>Raised when invalid numerical data is encountered when servicing a request.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.malformed_query_exception.MalformedQueryException: <p>Raised when a query is submitted that is syntactically incorrect or does not pass additional validation.</p>
+            aws_sdk_neptunedata.errors.memory_limit_exceeded_exception.MemoryLimitExceededException: <p>Raised when a request fails because of insufficient memory resources. The request can be retried.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.parsing_exception.ParsingException: <p>Raised when a parsing issue is encountered.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.query_limit_exceeded_exception.QueryLimitExceededException: <p>Raised when the number of active queries exceeds what the server can process. The query in question can be retried when the system is less busy.</p>
+            aws_sdk_neptunedata.errors.query_limit_exception.QueryLimitException: <p>Raised when the size of a query exceeds the system limit.</p>
+            aws_sdk_neptunedata.errors.query_too_large_exception.QueryTooLargeException: <p>Raised when the body of a query is too large.</p>
+            aws_sdk_neptunedata.errors.time_limit_exceeded_exception.TimeLimitExceededException: <p>Raised when the an operation exceeds the time limit allowed for it.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -917,7 +1205,19 @@ class AsyncneptunedataClient:
     async def get_engine_status(
         self, *, config_overrides: Optional[AsyncneptunedataClientConfig] = None
     ) -> "aws_sdk_neptunedata.types.get_engine_status_output.GetEngineStatusOutput":
-        r"""<p>Retrieves the status of the graph database on the host.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getenginestatus\">neptune-db:GetEngineStatus</a> IAM action in that cluster.</p>"""
+        r"""<p>Retrieves the status of the graph database on the host.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getenginestatus\">neptune-db:GetEngineStatus</a> IAM action in that cluster.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.internal_failure_exception.InternalFailureException: <p>Raised when the processing of the request failed unexpectedly.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -953,6 +1253,25 @@ class AsyncneptunedataClient:
 
         Args:
             query_id: <p>The unique identifier that identifies the Gremlin query.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.access_denied_exception.AccessDeniedException: <p>Raised in case of an authentication or authorization failure.</p>
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Raised when a request attempts to modify data that is concurrently being modified by another process.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.failure_by_query_exception.FailureByQueryException: <p>Raised when a request fails.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.parsing_exception.ParsingException: <p>Raised when a parsing issue is encountered.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.read_only_violation_exception.ReadOnlyViolationException: <p>Raised when a request attempts to write to a read-only resource.</p>
+            aws_sdk_neptunedata.errors.time_limit_exceeded_exception.TimeLimitExceededException: <p>Raised when the an operation exceeds the time limit allowed for it.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1003,6 +1322,22 @@ class AsyncneptunedataClient:
             errors: <p>Flag indicating whether or not to include a list of errors encountered (<code>TRUE</code> or <code>FALSE</code>; the default is <code>FALSE</code>).</p> <p>The list of errors is paged. The <code>page</code> and <code>errorsPerPage</code> parameters allow you to page through all the errors.</p>
             page: <p>The error page number (a positive integer; the default is <code>1</code>). Only valid when the <code>errors</code> parameter is set to <code>TRUE</code>.</p>
             errors_per_page: <p>The number of errors returned in each page (a positive integer; the default is <code>10</code>). Only valid when the <code>errors</code> parameter set to <code>TRUE</code>.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.bulk_load_id_not_found_exception.BulkLoadIdNotFoundException: <p>Raised when a specified bulk-load job ID cannot be found.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.internal_failure_exception.InternalFailureException: <p>Raised when the processing of the request failed unexpectedly.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.load_url_access_denied_exception.LoadUrlAccessDeniedException: <p>Raised when access is denied to a specified load URL.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1051,6 +1386,20 @@ class AsyncneptunedataClient:
         Args:
             id: <p>The unique identifier of the data-processing job to be retrieved.</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.ml_resource_not_found_exception.MLResourceNotFoundException: <p>Raised when a specified machine-learning resource could not be found.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1093,6 +1442,20 @@ class AsyncneptunedataClient:
         Args:
             id: <p>The unique identifier of the inference endpoint.</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.ml_resource_not_found_exception.MLResourceNotFoundException: <p>Raised when a specified machine-learning resource could not be found.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1135,6 +1498,20 @@ class AsyncneptunedataClient:
         Args:
             id: <p>The unique identifier of the model-training job to retrieve.</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.ml_resource_not_found_exception.MLResourceNotFoundException: <p>Raised when a specified machine-learning resource could not be found.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1177,6 +1554,20 @@ class AsyncneptunedataClient:
         Args:
             id: <p>The unique identifier of the model-transform job to be reetrieved.</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.ml_resource_not_found_exception.MLResourceNotFoundException: <p>Raised when a specified machine-learning resource could not be found.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1217,6 +1608,26 @@ class AsyncneptunedataClient:
 
         Args:
             query_id: <p>The unique ID of the openCypher query for which to retrieve the query status.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.access_denied_exception.AccessDeniedException: <p>Raised in case of an authentication or authorization failure.</p>
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Raised when a request attempts to modify data that is concurrently being modified by another process.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.failure_by_query_exception.FailureByQueryException: <p>Raised when a request fails.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_numeric_data_exception.InvalidNumericDataException: <p>Raised when invalid numerical data is encountered when servicing a request.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.parsing_exception.ParsingException: <p>Raised when a parsing issue is encountered.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.read_only_violation_exception.ReadOnlyViolationException: <p>Raised when a request attempts to write to a read-only resource.</p>
+            aws_sdk_neptunedata.errors.time_limit_exceeded_exception.TimeLimitExceededException: <p>Raised when the an operation exceeds the time limit allowed for it.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1248,7 +1659,24 @@ class AsyncneptunedataClient:
     async def get_propertygraph_statistics(
         self, *, config_overrides: Optional[AsyncneptunedataClientConfig] = None
     ) -> "aws_sdk_neptunedata.types.get_propertygraph_statistics_output.GetPropertygraphStatisticsOutput":
-        r"""<p>Gets property graph statistics (Gremlin and openCypher).</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstatisticsstatus\">neptune-db:GetStatisticsStatus</a> IAM action in that cluster.</p>"""
+        r"""<p>Gets property graph statistics (Gremlin and openCypher).</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstatisticsstatus\">neptune-db:GetStatisticsStatus</a> IAM action in that cluster.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.access_denied_exception.AccessDeniedException: <p>Raised in case of an authentication or authorization failure.</p>
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.read_only_violation_exception.ReadOnlyViolationException: <p>Raised when a request attempts to write to a read-only resource.</p>
+            aws_sdk_neptunedata.errors.statistics_not_available_exception.StatisticsNotAvailableException: <p>Raised when statistics needed to satisfy a request are not available.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -1294,6 +1722,21 @@ class AsyncneptunedataClient:
             commit_num: <p>The commit number of the starting record to read from the change-log stream. This parameter is required when <code>iteratorType</code> is<code>AT_SEQUENCE_NUMBER</code> or <code>AFTER_SEQUENCE_NUMBER</code>, and ignored when <code>iteratorType</code> is <code>TRIM_HORIZON</code> or <code>LATEST</code>.</p>
             op_num: <p>The operation sequence number within the specified commit to start reading from in the change-log stream data. The default is <code>1</code>.</p>
             encoding: <p>If set to TRUE, Neptune compresses the response using gzip encoding.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.expired_stream_exception.ExpiredStreamException: <p>Raised when a request attempts to access an stream that has expired.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.memory_limit_exceeded_exception.MemoryLimitExceededException: <p>Raised when a request fails because of insufficient memory resources. The request can be retried.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.stream_records_not_found_exception.StreamRecordsNotFoundException: <p>Raised when stream records requested by a query cannot be found.</p>
+            aws_sdk_neptunedata.errors.throttling_exception.ThrottlingException: <p>Raised when the rate of requests exceeds the maximum throughput. Requests can be retried after encountering this exception.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1343,6 +1786,22 @@ class AsyncneptunedataClient:
 
         Args:
             mode: <p>Mode can take one of two values: <code>BASIC</code> (the default), and <code>DETAILED</code>.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.access_denied_exception.AccessDeniedException: <p>Raised in case of an authentication or authorization failure.</p>
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.read_only_violation_exception.ReadOnlyViolationException: <p>Raised when a request attempts to write to a read-only resource.</p>
+            aws_sdk_neptunedata.errors.statistics_not_available_exception.StatisticsNotAvailableException: <p>Raised when statistics needed to satisfy a request are not available.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1384,6 +1843,22 @@ class AsyncneptunedataClient:
 
         Args:
             mode: <p>Mode can take one of two values: <code>BASIC</code> (the default), and <code>DETAILED</code>.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.access_denied_exception.AccessDeniedException: <p>Raised in case of an authentication or authorization failure.</p>
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.read_only_violation_exception.ReadOnlyViolationException: <p>Raised when a request attempts to write to a read-only resource.</p>
+            aws_sdk_neptunedata.errors.statistics_not_available_exception.StatisticsNotAvailableException: <p>Raised when statistics needed to satisfy a request are not available.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1416,7 +1891,24 @@ class AsyncneptunedataClient:
     async def get_sparql_statistics(
         self, *, config_overrides: Optional[AsyncneptunedataClientConfig] = None
     ) -> "aws_sdk_neptunedata.types.get_sparql_statistics_output.GetSparqlStatisticsOutput":
-        """<p>Gets RDF statistics (SPARQL).</p>"""
+        """<p>Gets RDF statistics (SPARQL).</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.access_denied_exception.AccessDeniedException: <p>Raised in case of an authentication or authorization failure.</p>
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.read_only_violation_exception.ReadOnlyViolationException: <p>Raised when a request attempts to write to a read-only resource.</p>
+            aws_sdk_neptunedata.errors.statistics_not_available_exception.StatisticsNotAvailableException: <p>Raised when statistics needed to satisfy a request are not available.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[None]",
@@ -1462,6 +1954,21 @@ class AsyncneptunedataClient:
             commit_num: <p>The commit number of the starting record to read from the change-log stream. This parameter is required when <code>iteratorType</code> is<code>AT_SEQUENCE_NUMBER</code> or <code>AFTER_SEQUENCE_NUMBER</code>, and ignored when <code>iteratorType</code> is <code>TRIM_HORIZON</code> or <code>LATEST</code>.</p>
             op_num: <p>The operation sequence number within the specified commit to start reading from in the change-log stream data. The default is <code>1</code>.</p>
             encoding: <p>If set to TRUE, Neptune compresses the response using gzip encoding.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.expired_stream_exception.ExpiredStreamException: <p>Raised when a request attempts to access an stream that has expired.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.memory_limit_exceeded_exception.MemoryLimitExceededException: <p>Raised when a request fails because of insufficient memory resources. The request can be retried.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.stream_records_not_found_exception.StreamRecordsNotFoundException: <p>Raised when stream records requested by a query cannot be found.</p>
+            aws_sdk_neptunedata.errors.throttling_exception.ThrottlingException: <p>Raised when the rate of requests exceeds the maximum throughput. Requests can be retried after encountering this exception.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1511,6 +2018,25 @@ class AsyncneptunedataClient:
 
         Args:
             include_waiting: <p>If set to <code>TRUE</code>, the list returned includes waiting queries. The default is <code>FALSE</code>;</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.access_denied_exception.AccessDeniedException: <p>Raised in case of an authentication or authorization failure.</p>
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Raised when a request attempts to modify data that is concurrently being modified by another process.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.failure_by_query_exception.FailureByQueryException: <p>Raised when a request fails.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.parsing_exception.ParsingException: <p>Raised when a parsing issue is encountered.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.read_only_violation_exception.ReadOnlyViolationException: <p>Raised when a request attempts to write to a read-only resource.</p>
+            aws_sdk_neptunedata.errors.time_limit_exceeded_exception.TimeLimitExceededException: <p>Raised when the an operation exceeds the time limit allowed for it.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1554,6 +2080,21 @@ class AsyncneptunedataClient:
         Args:
             limit: <p>The number of load IDs to list. Must be a positive integer greater than zero and not more than <code>100</code> (which is the default).</p>
             include_queued_loads: <p>An optional parameter that can be used to exclude the load IDs of queued load requests when requesting a list of load IDs by setting the parameter to <code>FALSE</code>. The default value is <code>TRUE</code>.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.bulk_load_id_not_found_exception.BulkLoadIdNotFoundException: <p>Raised when a specified bulk-load job ID cannot be found.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.internal_failure_exception.InternalFailureException: <p>Raised when the processing of the request failed unexpectedly.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.load_url_access_denied_exception.LoadUrlAccessDeniedException: <p>Raised when access is denied to a specified load URL.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1599,6 +2140,20 @@ class AsyncneptunedataClient:
         Args:
             max_items: <p>The maximum number of items to return (from 1 to 1024; the default is 10).</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.ml_resource_not_found_exception.MLResourceNotFoundException: <p>Raised when a specified machine-learning resource could not be found.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1644,6 +2199,20 @@ class AsyncneptunedataClient:
         Args:
             max_items: <p>The maximum number of items to return (from 1 to 1024; the default is 10.</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.ml_resource_not_found_exception.MLResourceNotFoundException: <p>Raised when a specified machine-learning resource could not be found.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1689,6 +2258,20 @@ class AsyncneptunedataClient:
         Args:
             max_items: <p>The maximum number of items to return (from 1 to 1024; the default is 10).</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.ml_resource_not_found_exception.MLResourceNotFoundException: <p>Raised when a specified machine-learning resource could not be found.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1734,6 +2317,20 @@ class AsyncneptunedataClient:
         Args:
             max_items: <p>The maximum number of items to return (from 1 to 1024; the default is 10).</p>
             neptune_iam_role_arn: <p>The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.ml_resource_not_found_exception.MLResourceNotFoundException: <p>Raised when a specified machine-learning resource could not be found.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1775,6 +2372,26 @@ class AsyncneptunedataClient:
 
         Args:
             include_waiting: <p> When set to <code>TRUE</code> and other parameters are not present, causes status information to be returned for waiting queries as well as for running queries.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.access_denied_exception.AccessDeniedException: <p>Raised in case of an authentication or authorization failure.</p>
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.concurrent_modification_exception.ConcurrentModificationException: <p>Raised when a request attempts to modify data that is concurrently being modified by another process.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.failure_by_query_exception.FailureByQueryException: <p>Raised when a request fails.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_numeric_data_exception.InvalidNumericDataException: <p>Raised when invalid numerical data is encountered when servicing a request.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.parsing_exception.ParsingException: <p>Raised when a parsing issue is encountered.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.read_only_violation_exception.ReadOnlyViolationException: <p>Raised when a request attempts to write to a read-only resource.</p>
+            aws_sdk_neptunedata.errors.time_limit_exceeded_exception.TimeLimitExceededException: <p>Raised when the an operation exceeds the time limit allowed for it.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1816,6 +2433,22 @@ class AsyncneptunedataClient:
 
         Args:
             mode: <p>The statistics generation mode. One of: <code>DISABLE_AUTOCOMPUTE</code>, <code>ENABLE_AUTOCOMPUTE</code>, or <code>REFRESH</code>, the last of which manually triggers DFE statistics generation.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.access_denied_exception.AccessDeniedException: <p>Raised in case of an authentication or authorization failure.</p>
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.read_only_violation_exception.ReadOnlyViolationException: <p>Raised when a request attempts to write to a read-only resource.</p>
+            aws_sdk_neptunedata.errors.statistics_not_available_exception.StatisticsNotAvailableException: <p>Raised when statistics needed to satisfy a request are not available.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1857,6 +2490,22 @@ class AsyncneptunedataClient:
 
         Args:
             mode: <p>The statistics generation mode. One of: <code>DISABLE_AUTOCOMPUTE</code>, <code>ENABLE_AUTOCOMPUTE</code>, or <code>REFRESH</code>, the last of which manually triggers DFE statistics generation.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.access_denied_exception.AccessDeniedException: <p>Raised in case of an authentication or authorization failure.</p>
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.read_only_violation_exception.ReadOnlyViolationException: <p>Raised when a request attempts to write to a read-only resource.</p>
+            aws_sdk_neptunedata.errors.statistics_not_available_exception.StatisticsNotAvailableException: <p>Raised when statistics needed to satisfy a request are not available.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1926,6 +2575,23 @@ class AsyncneptunedataClient:
             dependencies: <p>This is an optional parameter that can make a queued load request contingent on the successful completion of one or more previous jobs in the queue.</p> <p>Neptune can queue up as many as 64 load requests at a time, if their <code>queueRequest</code> parameters are set to <code>\"TRUE\"</code>. The <code>dependencies</code> parameter lets you make execution of such a queued request dependent on the successful completion of one or more specified previous requests in the queue.</p> <p>For example, if load <code>Job-A</code> and <code>Job-B</code> are independent of each other, but load <code>Job-C</code> needs <code>Job-A</code> and <code>Job-B</code> to be finished before it begins, proceed as follows:</p> <ol> <li> <p>Submit <code>load-job-A</code> and <code>load-job-B</code> one after another in any order, and save their load-ids.</p> </li> <li> <p>Submit <code>load-job-C</code> with the load-ids of the two jobs in its <code>dependencies</code> field:</p> </li> </ol> <p>Because of the <code>dependencies</code> parameter, the bulk loader will not start <code>Job-C</code> until <code>Job-A</code> and <code>Job-B</code> have completed successfully. If either one of them fails, Job-C will not be executed, and its status will be set to <code>LOAD_FAILED_BECAUSE_DEPENDENCY_NOT_SATISFIED</code>.</p> <p>You can set up multiple levels of dependency in this way, so that the failure of one job will cause all requests that are directly or indirectly dependent on it to be cancelled.</p>
             user_provided_edge_ids: <p>This parameter is required only when loading openCypher data that contains relationship IDs. It must be included and set to <code>True</code> when openCypher relationship IDs are explicitly provided in the load data (recommended).</p> <p>When <code>userProvidedEdgeIds</code> is absent or set to <code>True</code>, an <code>:ID</code> column must be present in every relationship file in the load.</p> <p>When <code>userProvidedEdgeIds</code> is present and set to <code>False</code>, relationship files in the load <b>must not</b> contain an <code>:ID</code> column. Instead, the Neptune loader automatically generates an ID for each relationship.</p> <p>It's useful to provide relationship IDs explicitly so that the loader can resume loading after error in the CSV data have been fixed, without having to reload any relationships that have already been loaded. If relationship IDs have not been explicitly assigned, the loader cannot resume a failed load if any relationship file has had to be corrected, and must instead reload all the relationships.</p>
             edge_only_load: <p> <b> <code>edgeOnlyLoad</code> </b> - A flag that controls file processing order during bulk loading.</p> <p> <i>Allowed values</i>: <code>\"TRUE\"</code>, <code>\"FALSE\"</code>.</p> <p> <i>Default value</i>: <code>\"FALSE\"</code>.</p> <p>When this parameter is set to \"FALSE\", the loader automatically loads vertex files first, then edge files afterwards. It does this by first scanning all files to determine their contents (vertices or edges). When this parameter is set to \"TRUE\", the loader skips the initial scanning phase and immediately loads all files in the order they appear.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.bulk_load_id_not_found_exception.BulkLoadIdNotFoundException: <p>Raised when a specified bulk-load job ID cannot be found.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.internal_failure_exception.InternalFailureException: <p>Raised when the processing of the request failed unexpectedly.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.load_url_access_denied_exception.LoadUrlAccessDeniedException: <p>Raised when access is denied to a specified load URL.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.s3_exception.S3Exception: <p>Raised when there is a problem accessing Amazon S3.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2017,6 +2683,20 @@ class AsyncneptunedataClient:
             security_group_ids: <p>The VPC security group IDs. The default is None.</p>
             volume_encryption_kms_key: <p>The Amazon Key Management Service (Amazon KMS) key that SageMaker uses to encrypt data on the storage volume attached to the ML compute instances that run the training job. The default is None.</p>
             s3_output_encryption_kms_key: <p>The Amazon Key Management Service (Amazon KMS) key that SageMaker uses to encrypt the output of the processing job. The default is none.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.ml_resource_not_found_exception.MLResourceNotFoundException: <p>Raised when a specified machine-learning resource could not be found.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2122,6 +2802,20 @@ class AsyncneptunedataClient:
             s3_output_encryption_kms_key: <p>The Amazon Key Management Service (KMS) key that SageMaker uses to encrypt the output of the processing job. The default is none.</p>
             enable_managed_spot_training: <p>Optimizes the cost of training machine-learning models by using Amazon Elastic Compute Cloud spot instances. The default is <code>False</code>.</p>
             custom_model_training_parameters: <p>The configuration for custom model training. This is a JSON object.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.ml_resource_not_found_exception.MLResourceNotFoundException: <p>Raised when a specified machine-learning resource could not be found.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2227,6 +2921,20 @@ class AsyncneptunedataClient:
             security_group_ids: <p>The VPC security group IDs. The default is None.</p>
             volume_encryption_kms_key: <p>The Amazon Key Management Service (KMS) key that SageMaker uses to encrypt data on the storage volume attached to the ML compute instances that run the training job. The default is None.</p>
             s3_output_encryption_kms_key: <p>The Amazon Key Management Service (KMS) key that SageMaker uses to encrypt the output of the processing job. The default is none.</p>
+
+        Raises:
+            aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException: <p>Raised when a request is submitted that cannot be processed.</p>
+            aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException: <p>Raised when a request timed out in the client.</p>
+            aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException: <p>Raised when a value in a request field did not satisfy required constraints.</p>
+            aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException: <p>Raised when an argument in a request is not supported.</p>
+            aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException: <p>Raised when an argument in a request has an invalid value.</p>
+            aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException: <p>Raised when a parameter value is not valid.</p>
+            aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException: <p>Raised when a required parameter is missing.</p>
+            aws_sdk_neptunedata.errors.ml_resource_not_found_exception.MLResourceNotFoundException: <p>Raised when a specified machine-learning resource could not be found.</p>
+            aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException: <p>Raised when a precondition for processing a request is not satisfied.</p>
+            aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException: <p>Raised when the number of requests being processed exceeds the limit.</p>
+            aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException: <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+            aws_sdk_neptunedata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -322,6 +322,15 @@ class Asyncresiliencehubv2Client:
 
         Args:
             text: <p>The text content of the assertion.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota exceeded.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -363,7 +372,17 @@ class Asyncresiliencehubv2Client:
             "aws_sdk_resiliencehubv2.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_resiliencehubv2.types.create_input_source_response.CreateInputSourceResponse":
-        """<p>Creates an input source for a service.</p>"""
+        """<p>Creates an input source for a service.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota exceeded.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_resiliencehubv2.types.create_input_source_request.CreateInputSourceRequest]",
@@ -429,6 +448,15 @@ class Asyncresiliencehubv2Client:
             multi_az: <p>The multi-AZ disaster recovery targets for the resilience policy.</p>
             multi_region: <p>The multi-Region disaster recovery targets for the resilience policy.</p>
             data_recovery: <p>The data recovery targets for the resilience policy.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota exceeded.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -487,6 +515,15 @@ class Asyncresiliencehubv2Client:
 
         Args:
             report_type: <p>The type of report to generate.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.throttling_exception.ThrottlingException: <p>Too many requests — rate limit exceeded.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -552,6 +589,15 @@ class Asyncresiliencehubv2Client:
             associated_systems: <p>The systems to associate with the service.</p>
             regions: <p>The AWS Regions where the service operates.</p>
             permission_model: <p>The permission model for the service.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota exceeded.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -616,6 +662,15 @@ class Asyncresiliencehubv2Client:
 
         Args:
             criticality: <p>The criticality level of the service function.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota exceeded.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -663,6 +718,14 @@ class Asyncresiliencehubv2Client:
         Args:
             service_function_id: <p>The identifier of the service function to associate resources with.</p>
             resources: <p>The list of resources to associate with the service function.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -714,6 +777,15 @@ class Asyncresiliencehubv2Client:
 
         Args:
             sharing_enabled: <p>Indicates whether cross-account sharing is enabled for the system.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota exceeded.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -766,7 +838,17 @@ class Asyncresiliencehubv2Client:
             "aws_sdk_resiliencehubv2.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_resiliencehubv2.types.create_user_journey_response.CreateUserJourneyResponse":
-        """<p>Creates a user journey within a system.</p>"""
+        """<p>Creates a user journey within a system.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota exceeded.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_resiliencehubv2.types.create_user_journey_request.CreateUserJourneyRequest]",
@@ -812,6 +894,13 @@ class Asyncresiliencehubv2Client:
 
         Args:
             assertion_id: <p>The unique identifier of the assertion to delete.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -852,6 +941,13 @@ class Asyncresiliencehubv2Client:
 
         Args:
             input_source_id: <p>The identifier of the input source to delete.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -887,7 +983,16 @@ class Asyncresiliencehubv2Client:
         *,
         config_overrides: Optional[Asyncresiliencehubv2ClientConfig] = None,
     ) -> "aws_sdk_resiliencehubv2.types.delete_policy_response.DeletePolicyResponse":
-        """<p>Deletes a resilience policy.</p>"""
+        """<p>Deletes a resilience policy.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_resiliencehubv2.types.delete_policy_request.DeletePolicyRequest]",
@@ -921,7 +1026,16 @@ class Asyncresiliencehubv2Client:
         *,
         config_overrides: Optional[Asyncresiliencehubv2ClientConfig] = None,
     ) -> "aws_sdk_resiliencehubv2.types.delete_service_response.DeleteServiceResponse":
-        """<p>Deletes a service.</p>"""
+        """<p>Deletes a service.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_resiliencehubv2.types.delete_service_request.DeleteServiceRequest]",
@@ -960,6 +1074,14 @@ class Asyncresiliencehubv2Client:
 
         Args:
             service_function_id: <p>The identifier of the service function to delete.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1002,6 +1124,14 @@ class Asyncresiliencehubv2Client:
         Args:
             service_function_id: <p>The identifier of the service function to remove resources from.</p>
             resources: <p>The list of resources to remove from the service function.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1038,7 +1168,16 @@ class Asyncresiliencehubv2Client:
         *,
         config_overrides: Optional[Asyncresiliencehubv2ClientConfig] = None,
     ) -> "aws_sdk_resiliencehubv2.types.delete_system_response.DeleteSystemResponse":
-        """<p>Deletes a system.</p>"""
+        """<p>Deletes a system.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_resiliencehubv2.types.delete_system_request.DeleteSystemRequest]",
@@ -1077,6 +1216,14 @@ class Asyncresiliencehubv2Client:
 
         Args:
             user_journey_id: <p>The identifier of the user journey to delete.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1117,6 +1264,13 @@ class Asyncresiliencehubv2Client:
 
         Args:
             finding_id: <p>The unique identifier of the finding to retrieve.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1152,7 +1306,15 @@ class Asyncresiliencehubv2Client:
         *,
         config_overrides: Optional[Asyncresiliencehubv2ClientConfig] = None,
     ) -> "aws_sdk_resiliencehubv2.types.get_policy_response.GetPolicyResponse":
-        """<p>Retrieves a resilience policy by ARN.</p>"""
+        """<p>Retrieves a resilience policy by ARN.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_resiliencehubv2.types.get_policy_request.GetPolicyRequest]",
@@ -1186,7 +1348,15 @@ class Asyncresiliencehubv2Client:
         *,
         config_overrides: Optional[Asyncresiliencehubv2ClientConfig] = None,
     ) -> "aws_sdk_resiliencehubv2.types.get_service_response.GetServiceResponse":
-        """<p>Retrieves a service by ARN.</p>"""
+        """<p>Retrieves a service by ARN.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_resiliencehubv2.types.get_service_request.GetServiceRequest]",
@@ -1220,7 +1390,15 @@ class Asyncresiliencehubv2Client:
         *,
         config_overrides: Optional[Asyncresiliencehubv2ClientConfig] = None,
     ) -> "aws_sdk_resiliencehubv2.types.get_system_response.GetSystemResponse":
-        """<p>Retrieves a system by ARN.</p>"""
+        """<p>Retrieves a system by ARN.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_resiliencehubv2.types.get_system_request.GetSystemRequest]",
@@ -1261,6 +1439,13 @@ class Asyncresiliencehubv2Client:
 
         Args:
             user_journey_id: <p>The identifier of the user journey to retrieve.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1313,6 +1498,14 @@ class Asyncresiliencehubv2Client:
         Args:
             skip_manually_added_resources: <p>Whether to skip manually added resources during import.</p>
             associated_systems: <p>The systems to associate with the imported service.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1381,6 +1574,14 @@ class Asyncresiliencehubv2Client:
             availability_slo: <p>The availability SLO to set on the imported policy.</p>
             multi_az_disaster_recovery_approach: <p>The multi-AZ disaster recovery approach for the imported policy.</p>
             multi_region_disaster_recovery_approach: <p>The multi-Region disaster recovery approach for the imported policy.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1446,6 +1647,13 @@ class Asyncresiliencehubv2Client:
 
         Args:
             source: <p>Filter assertions by source type.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1534,6 +1742,13 @@ class Asyncresiliencehubv2Client:
             query_range_start_time: <p>The start time for the dependency query range.</p>
             query_range_end_time: <p>The end time for the dependency query range.</p>
             query_range_granularity: <p>The granularity for the dependency query range.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1620,7 +1835,15 @@ class Asyncresiliencehubv2Client:
             "aws_sdk_resiliencehubv2.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_resiliencehubv2.types.list_failure_mode_assessments_response.ListFailureModeAssessmentsResponse":
-        """<p>Lists failure mode assessments.</p>"""
+        """<p>Lists failure mode assessments.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_resiliencehubv2.types.list_failure_mode_assessments_request.ListFailureModeAssessmentsRequest]",
@@ -1706,6 +1929,13 @@ class Asyncresiliencehubv2Client:
             severity: <p>Filter findings by severity.</p>
             failure_category: <p>Filter findings by failure category.</p>
             status: <p>Filter findings by status.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1802,6 +2032,13 @@ class Asyncresiliencehubv2Client:
 
         Args:
             type: <p>Filter input sources by type.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1878,7 +2115,14 @@ class Asyncresiliencehubv2Client:
             "aws_sdk_resiliencehubv2.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_resiliencehubv2.types.list_policies_response.ListPoliciesResponse":
-        """<p>Lists resilience policies.</p>"""
+        """<p>Lists resilience policies.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_resiliencehubv2.types.list_policies_request.ListPoliciesRequest]",
@@ -1954,6 +2198,14 @@ class Asyncresiliencehubv2Client:
         Args:
             service_arn: <p>Optional. If not provided, lists all reports owned by the account.</p>
             report_type: <p>Filter reports by type.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.throttling_exception.ThrottlingException: <p>Too many requests — rate limit exceeded.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2043,6 +2295,13 @@ class Asyncresiliencehubv2Client:
         Args:
             service_function_id: <p>Filter resources by service function identifier.</p>
             aws_region: <p>Filter resources by AWS Region.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2139,6 +2398,13 @@ class Asyncresiliencehubv2Client:
             event_types: <p>Filter events by type.</p>
             start_time: <p>The start time for filtering events.</p>
             end_time: <p>The end time for filtering events.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2224,7 +2490,15 @@ class Asyncresiliencehubv2Client:
             "aws_sdk_resiliencehubv2.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_resiliencehubv2.types.list_service_functions_response.ListServiceFunctionsResponse":
-        """<p>Lists service functions for a service.</p>"""
+        """<p>Lists service functions for a service.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_resiliencehubv2.types.list_service_functions_request.ListServiceFunctionsRequest]",
@@ -2315,6 +2589,12 @@ class Asyncresiliencehubv2Client:
             ou_id: <p>Filter services by organizational unit (OU) identifier.</p>
             account_id: <p>Filter services by AWS account ID.</p>
             assessment_status: <p>Filter services by assessment status.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2413,7 +2693,14 @@ class Asyncresiliencehubv2Client:
             "aws_sdk_resiliencehubv2.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_resiliencehubv2.types.list_service_topology_edges_response.ListServiceTopologyEdgesResponse":
-        """<p>Lists topology edges for a service.</p>"""
+        """<p>Lists topology edges for a service.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_resiliencehubv2.types.list_service_topology_edges_request.ListServiceTopologyEdgesRequest]",
@@ -2495,6 +2782,13 @@ class Asyncresiliencehubv2Client:
             event_types: <p>Filter events by type.</p>
             start_time: <p>The start time for filtering events.</p>
             end_time: <p>The end time for filtering events.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2584,6 +2878,12 @@ class Asyncresiliencehubv2Client:
 
         Args:
             ou_id: <p>Filter systems by organizational unit (OU) identifier.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2650,7 +2950,16 @@ class Asyncresiliencehubv2Client:
         *,
         config_overrides: Optional[Asyncresiliencehubv2ClientConfig] = None,
     ) -> "aws_sdk_resiliencehubv2.types.list_tags_for_resource_response.ListTagsForResourceResponse":
-        """<p>Lists the tags for a resource.</p>"""
+        """<p>Lists the tags for a resource.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.throttling_exception.ThrottlingException: <p>Too many requests — rate limit exceeded.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_resiliencehubv2.types.list_tags_for_resource_request.ListTagsForResourceRequest]",
@@ -2690,7 +2999,15 @@ class Asyncresiliencehubv2Client:
             "aws_sdk_resiliencehubv2.types.next_token.NextToken"
         ] = None,
     ) -> "aws_sdk_resiliencehubv2.types.list_user_journeys_response.ListUserJourneysResponse":
-        """<p>Lists user journeys for a system.</p>"""
+        """<p>Lists user journeys for a system.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_resiliencehubv2.types.list_user_journeys_request.ListUserJourneysRequest]",
@@ -2758,7 +3075,17 @@ class Asyncresiliencehubv2Client:
             "aws_sdk_resiliencehubv2.types.client_token.ClientToken"
         ] = None,
     ) -> "aws_sdk_resiliencehubv2.types.start_failure_mode_assessment_response.StartFailureModeAssessmentResponse":
-        """<p>Start a failure mode assessment.</p>"""
+        """<p>Start a failure mode assessment.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.throttling_exception.ThrottlingException: <p>Too many requests — rate limit exceeded.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_resiliencehubv2.types.start_failure_mode_assessment_request.StartFailureModeAssessmentRequest]",
@@ -2795,7 +3122,16 @@ class Asyncresiliencehubv2Client:
         *,
         config_overrides: Optional[Asyncresiliencehubv2ClientConfig] = None,
     ) -> "aws_sdk_resiliencehubv2.types.tag_resource_response.TagResourceResponse":
-        """<p>Adds tags to a resource.</p>"""
+        """<p>Adds tags to a resource.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.throttling_exception.ThrottlingException: <p>Too many requests — rate limit exceeded.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_resiliencehubv2.types.tag_resource_request.TagResourceRequest]",
@@ -2835,6 +3171,14 @@ class Asyncresiliencehubv2Client:
 
         Args:
             tag_keys: <p>The tag keys to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.throttling_exception.ThrottlingException: <p>Too many requests — rate limit exceeded.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2879,6 +3223,14 @@ class Asyncresiliencehubv2Client:
         Args:
             assertion_id: <p>The unique identifier of the assertion to update.</p>
             text: <p>The updated text content of the assertion.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2927,6 +3279,14 @@ class Asyncresiliencehubv2Client:
             dependency_id: <p>The identifier of the dependency to update.</p>
             criticality: <p>The updated criticality level of the dependency.</p>
             comment: <p>A comment about the dependency.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2975,6 +3335,14 @@ class Asyncresiliencehubv2Client:
             finding_id: <p>The identifier of the finding to update.</p>
             status: <p>The new status for the finding.</p>
             comment: <p>A comment about the finding update.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3035,6 +3403,14 @@ class Asyncresiliencehubv2Client:
             multi_az: <p>The updated multi-AZ disaster recovery targets for the policy.</p>
             multi_region: <p>The updated multi-Region disaster recovery targets for the policy.</p>
             data_recovery: <p>The updated data recovery targets for the policy.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3104,6 +3480,15 @@ class Asyncresiliencehubv2Client:
             associated_systems: <p>The updated systems to associate with the service.</p>
             regions: <p>The updated AWS Regions where the service operates.</p>
             permission_model: <p>The updated permission model for the service.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Service quota exceeded.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3165,6 +3550,14 @@ class Asyncresiliencehubv2Client:
         Args:
             service_function_id: <p>The identifier of the service function to update.</p>
             criticality: <p>The updated criticality level of the service function.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3214,6 +3607,14 @@ class Asyncresiliencehubv2Client:
 
         Args:
             sharing_enabled: <p>Whether cross-account sharing is enabled for the system.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3262,6 +3663,14 @@ class Asyncresiliencehubv2Client:
 
         Args:
             user_journey_id: <p>The identifier of the user journey to update.</p>
+
+        Raises:
+            aws_sdk_resiliencehubv2.errors.access_denied_exception.AccessDeniedException: <p>Access denied — caller lacks required permissions.</p>
+            aws_sdk_resiliencehubv2.errors.conflict_exception.ConflictException: <p>Conflict — resource already exists.</p>
+            aws_sdk_resiliencehubv2.errors.internal_server_exception.InternalServerException: <p>Internal service error.</p>
+            aws_sdk_resiliencehubv2.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_resiliencehubv2.errors.validation_exception.ValidationException: <p>Validation error — invalid input parameters.</p>
+            aws_sdk_resiliencehubv2.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

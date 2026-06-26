@@ -148,6 +148,14 @@ class ConnectContactLensClient:
             contact_id: <p>The identifier of the contact.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_connect_contact_lens.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_connect_contact_lens.errors.internal_service_exception.InternalServiceException: <p>Request processing failed due to an error or failure with the service.</p>
+            aws_sdk_connect_contact_lens.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect_contact_lens.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect_contact_lens.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect_contact_lens.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

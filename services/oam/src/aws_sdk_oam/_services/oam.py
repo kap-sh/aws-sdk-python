@@ -191,6 +191,14 @@ class OAMClient:
             sink_identifier: <p>The ARN of the sink to use to create this link. You can use <a href=\"https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html\">ListSinks</a> to find the ARNs of sinks.</p> <p>For more information about sinks, see <a href=\"https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateSink.html\">CreateSink</a>.</p>
             tags: <p>Assigns one or more tags (key-value pairs) to the link. </p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>For more information about using tags to control access, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html\">Controlling access to Amazon Web Services resources using tags</a>.</p>
             link_configuration: <p>Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.</p>
+
+        Raises:
+            aws_sdk_oam.errors.conflict_exception.ConflictException: <p>A resource was in an inconsistent state during an update or a deletion.</p>
+            aws_sdk_oam.errors.internal_service_fault.InternalServiceFault: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_oam.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_oam.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>A required parameter is missing from the request.</p>
+            aws_sdk_oam.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_oam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -234,6 +242,14 @@ class OAMClient:
         Args:
             name: <p>A name for the sink.</p>
             tags: <p>Assigns one or more tags (key-value pairs) to the link. </p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>For more information about using tags to control access, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html\">Controlling access to Amazon Web Services resources using tags</a>.</p>
+
+        Raises:
+            aws_sdk_oam.errors.conflict_exception.ConflictException: <p>A resource was in an inconsistent state during an update or a deletion.</p>
+            aws_sdk_oam.errors.internal_service_fault.InternalServiceFault: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_oam.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_oam.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>A required parameter is missing from the request.</p>
+            aws_sdk_oam.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would cause a service quota to be exceeded.</p>
+            aws_sdk_oam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -271,6 +287,13 @@ class OAMClient:
 
         Args:
             identifier: <p>The ARN of the link to delete.</p>
+
+        Raises:
+            aws_sdk_oam.errors.internal_service_fault.InternalServiceFault: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_oam.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_oam.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>A required parameter is missing from the request.</p>
+            aws_sdk_oam.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_oam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -306,6 +329,14 @@ class OAMClient:
 
         Args:
             identifier: <p>The ARN of the sink to delete.</p>
+
+        Raises:
+            aws_sdk_oam.errors.conflict_exception.ConflictException: <p>A resource was in an inconsistent state during an update or a deletion.</p>
+            aws_sdk_oam.errors.internal_service_fault.InternalServiceFault: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_oam.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_oam.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>A required parameter is missing from the request.</p>
+            aws_sdk_oam.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_oam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -343,6 +374,13 @@ class OAMClient:
         Args:
             identifier: <p>The ARN of the link to retrieve information for.</p>
             include_tags: <p>Specifies whether to include the tags associated with the link in the response. When <code>IncludeTags</code> is set to <code>true</code> and the caller has the required permission, <code>oam:ListTagsForResource</code>, the API will return the tags for the specified resource. If the caller doesn't have the required permission, <code>oam:ListTagsForResource</code>, the API will raise an exception.</p> <p>The default value is <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_oam.errors.internal_service_fault.InternalServiceFault: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_oam.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_oam.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>A required parameter is missing from the request.</p>
+            aws_sdk_oam.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_oam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -382,6 +420,13 @@ class OAMClient:
         Args:
             identifier: <p>The ARN of the sink to retrieve information for.</p>
             include_tags: <p>Specifies whether to include the tags associated with the sink in the response. When <code>IncludeTags</code> is set to <code>true</code> and the caller has the required permission, <code>oam:ListTagsForResource</code>, the API will return the tags for the specified resource. If the caller doesn't have the required permission, <code>oam:ListTagsForResource</code>, the API will raise an exception.</p> <p>The default value is <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_oam.errors.internal_service_fault.InternalServiceFault: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_oam.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_oam.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>A required parameter is missing from the request.</p>
+            aws_sdk_oam.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_oam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -419,6 +464,13 @@ class OAMClient:
 
         Args:
             sink_identifier: <p>The ARN of the sink to retrieve the policy of.</p>
+
+        Raises:
+            aws_sdk_oam.errors.internal_service_fault.InternalServiceFault: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_oam.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_oam.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>A required parameter is missing from the request.</p>
+            aws_sdk_oam.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_oam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -462,6 +514,13 @@ class OAMClient:
             max_results: <p>Limits the number of returned links to the specified number.</p>
             next_token: <p>The token for the next set of items to return. You received this token from a previous call.</p>
             sink_identifier: <p>The ARN of the sink that you want to retrieve links for.</p>
+
+        Raises:
+            aws_sdk_oam.errors.internal_service_fault.InternalServiceFault: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_oam.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_oam.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>A required parameter is missing from the request.</p>
+            aws_sdk_oam.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_oam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -532,6 +591,12 @@ class OAMClient:
         Args:
             max_results: <p>Limits the number of returned links to the specified number.</p>
             next_token: <p>The token for the next set of items to return. You received this token from a previous call.</p>
+
+        Raises:
+            aws_sdk_oam.errors.internal_service_fault.InternalServiceFault: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_oam.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_oam.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_oam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -597,6 +662,12 @@ class OAMClient:
         Args:
             max_results: <p>Limits the number of returned links to the specified number.</p>
             next_token: <p>The token for the next set of items to return. You received this token from a previous call.</p>
+
+        Raises:
+            aws_sdk_oam.errors.internal_service_fault.InternalServiceFault: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_oam.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_oam.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_oam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -658,6 +729,11 @@ class OAMClient:
 
         Args:
             resource_arn: <p>The ARN of the resource that you want to view tags for.</p> <p>The ARN format of a sink is <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:sink/<i>sink-id</i> </code> </p> <p>The ARN format of a link is <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:link/<i>link-id</i> </code> </p> <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html\">CloudWatch Logs resources and operations</a>.</p> <important> <p>Unlike tagging permissions in other Amazon Web Services services, to retrieve the list of tags for links or sinks you must have the <code>oam:RequestTag</code> permission. The <code>aws:ReguestTag</code> permission does not allow you to tag and untag links and sinks.</p> </important>
+
+        Raises:
+            aws_sdk_oam.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_oam.errors.validation_exception.ValidationException: <p>The value of a parameter in the request caused an error.</p>
+            aws_sdk_oam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -697,6 +773,13 @@ class OAMClient:
         Args:
             sink_identifier: <p>The ARN of the sink to attach this policy to.</p>
             policy: <p>The JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.</p> <p>The policy must be in JSON string format with quotation marks escaped and no newlines.</p> <p>For examples of different types of policies, see the <b>Examples</b> section on this page.</p>
+
+        Raises:
+            aws_sdk_oam.errors.internal_service_fault.InternalServiceFault: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_oam.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_oam.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>A required parameter is missing from the request.</p>
+            aws_sdk_oam.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_oam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -737,6 +820,12 @@ class OAMClient:
         Args:
             resource_arn: <p>The ARN of the resource that you're adding tags to.</p> <p>The ARN format of a sink is <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:sink/<i>sink-id</i> </code> </p> <p>The ARN format of a link is <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:link/<i>link-id</i> </code> </p> <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html\">CloudWatch Logs resources and operations</a>.</p>
             tags: <p>The list of key-value pairs to associate with the resource.</p>
+
+        Raises:
+            aws_sdk_oam.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_oam.errors.too_many_tags_exception.TooManyTagsException: <p>A resource can have no more than 50 tags.</p>
+            aws_sdk_oam.errors.validation_exception.ValidationException: <p>The value of a parameter in the request caused an error.</p>
+            aws_sdk_oam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -777,6 +866,11 @@ class OAMClient:
         Args:
             resource_arn: <p>The ARN of the resource that you're removing tags from.</p> <p>The ARN format of a sink is <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:sink/<i>sink-id</i> </code> </p> <p>The ARN format of a link is <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:link/<i>link-id</i> </code> </p> <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html\">CloudWatch Logs resources and operations</a>.</p>
             tag_keys: <p>The list of tag keys to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_oam.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_oam.errors.validation_exception.ValidationException: <p>The value of a parameter in the request caused an error.</p>
+            aws_sdk_oam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -823,6 +917,13 @@ class OAMClient:
             resource_types: <p>An array of strings that define which types of data that the source account will send to the monitoring account.</p> <p>Your input here replaces the current set of data types that are shared.</p>
             link_configuration: <p>Use this structure to filter which metric namespaces and which log groups are to be shared from the source account to the monitoring account.</p>
             include_tags: <p>Specifies whether to include the tags associated with the link in the response after the update operation. When <code>IncludeTags</code> is set to <code>true</code> and the caller has the required permission, <code>oam:ListTagsForResource</code>, the API will return the tags for the specified resource. If the caller doesn't have the required permission, <code>oam:ListTagsForResource</code>, the API will raise an exception. </p> <p>The default value is <code>false</code>.</p>
+
+        Raises:
+            aws_sdk_oam.errors.internal_service_fault.InternalServiceFault: <p>Unexpected error while processing the request. Retry the request.</p>
+            aws_sdk_oam.errors.invalid_parameter_exception.InvalidParameterException: <p>A parameter is specified incorrectly.</p>
+            aws_sdk_oam.errors.missing_required_parameter_exception.MissingRequiredParameterException: <p>A required parameter is missing from the request.</p>
+            aws_sdk_oam.errors.resource_not_found_exception.ResourceNotFoundException: <p>The request references a resource that does not exist.</p>
+            aws_sdk_oam.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

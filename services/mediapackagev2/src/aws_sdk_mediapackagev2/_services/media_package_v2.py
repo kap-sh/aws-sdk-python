@@ -146,6 +146,10 @@ class MediaPackageV2Client:
         Args:
             resource_arn: <p>The ARN of the CloudWatch resource that you want to view tags for.</p>
 
+        Raises:
+            aws_sdk_mediapackagev2.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service.</p>
+            aws_sdk_mediapackagev2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             List all tags for a resource
 
@@ -190,6 +194,10 @@ class MediaPackageV2Client:
             resource_arn: <p>The ARN of the MediaPackage resource that you're adding tags to.</p>
             tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
 
+        Raises:
+            aws_sdk_mediapackagev2.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service.</p>
+            aws_sdk_mediapackagev2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Add tags to a resource
 
@@ -232,6 +240,10 @@ class MediaPackageV2Client:
         Args:
             resource_arn: <p>The ARN of the MediaPackage resource that you're removing tags from.</p>
             tag_keys: <p>The list of tag keys to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_mediapackagev2.errors.validation_exception.ValidationException: <p>The input failed to meet the constraints specified by the AWS service.</p>
+            aws_sdk_mediapackagev2.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Remove tags from a resource

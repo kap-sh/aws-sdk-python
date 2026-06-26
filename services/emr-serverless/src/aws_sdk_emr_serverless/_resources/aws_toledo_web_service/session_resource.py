@@ -76,6 +76,14 @@ class SessionResource:
             tags: <p>The tags to assign to the session.</p>
             idle_timeout_minutes: <p>The idle timeout in minutes for the session. After the session remains idle for this duration, Amazon EMR Serverless automatically terminates it.</p>
             name: <p>The optional name for the session.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The maximum number of resources per account has been reached.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -125,6 +133,12 @@ class SessionResource:
         Args:
             application_id: <p>The ID of the application that the session belongs to.</p>
             session_id: <p>The ID of the session.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -165,6 +179,12 @@ class SessionResource:
         Args:
             application_id: <p>The ID of the application that the session belongs to.</p>
             session_id: <p>The ID of the session to terminate.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -217,6 +237,12 @@ class SessionResource:
             states: <p>An optional filter for session states. Note that if this filter contains multiple states, the resulting list will be grouped by the state.</p>
             created_at_after: <p>The lower bound of the option to filter by creation date and time.</p>
             created_at_before: <p>The upper bound of the option to filter by creation date and time.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -266,6 +292,12 @@ class SessionResource:
         Args:
             application_id: <p>The ID of the application that the session belongs to.</p>
             session_id: <p>The ID of the session.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -325,6 +357,14 @@ class AsyncSessionResource:
             tags: <p>The tags to assign to the session.</p>
             idle_timeout_minutes: <p>The idle timeout in minutes for the session. After the session remains idle for this duration, Amazon EMR Serverless automatically terminates it.</p>
             name: <p>The optional name for the session.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.conflict_exception.ConflictException: <p>The request could not be processed because of conflict in the current state of the resource.</p>
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The maximum number of resources per account has been reached.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -375,6 +415,12 @@ class AsyncSessionResource:
         Args:
             application_id: <p>The ID of the application that the session belongs to.</p>
             session_id: <p>The ID of the session.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -416,6 +462,12 @@ class AsyncSessionResource:
         Args:
             application_id: <p>The ID of the application that the session belongs to.</p>
             session_id: <p>The ID of the session to terminate.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -469,6 +521,12 @@ class AsyncSessionResource:
             states: <p>An optional filter for session states. Note that if this filter contains multiple states, the resulting list will be grouped by the state.</p>
             created_at_after: <p>The lower bound of the option to filter by creation date and time.</p>
             created_at_before: <p>The upper bound of the option to filter by creation date and time.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -519,6 +577,12 @@ class AsyncSessionResource:
         Args:
             application_id: <p>The ID of the application that the session belongs to.</p>
             session_id: <p>The ID of the session.</p>
+
+        Raises:
+            aws_sdk_emr_serverless.errors.internal_server_exception.InternalServerException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_emr_serverless.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_emr_serverless.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_emr_serverless.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

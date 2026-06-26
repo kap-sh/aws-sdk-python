@@ -205,6 +205,17 @@ class TimestreamWriteClient:
             target_database_name: <p>Target Timestream database for a batch load task.</p>
             target_table_name: <p>Target Timestream table for a batch load task.</p>
             record_version: <p></p>
+
+        Raises:
+            aws_sdk_timestream_write.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this action.</p>
+            aws_sdk_timestream_write.errors.conflict_exception.ConflictException: <p>Timestream was unable to process this request because it contains resource that already exists.</p>
+            aws_sdk_timestream_write.errors.internal_server_exception.InternalServerException: <p> Timestream was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint was not valid.</p>
+            aws_sdk_timestream_write.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.</p>
+            aws_sdk_timestream_write.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The instance quota of resource exceeded for this account.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.validation_exception.ValidationException: <p> An invalid or malformed request.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -259,6 +270,16 @@ class TimestreamWriteClient:
             database_name: <p>The name of the Timestream database.</p>
             kms_key_id: <p>The KMS key for the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk\">Amazon Web Services managed keys</a>.</p>
             tags: <p> A list of key-value pairs to label the table. </p>
+
+        Raises:
+            aws_sdk_timestream_write.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this action.</p>
+            aws_sdk_timestream_write.errors.conflict_exception.ConflictException: <p>Timestream was unable to process this request because it contains resource that already exists.</p>
+            aws_sdk_timestream_write.errors.internal_server_exception.InternalServerException: <p> Timestream was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint was not valid.</p>
+            aws_sdk_timestream_write.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The instance quota of resource exceeded for this account.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.validation_exception.ValidationException: <p> An invalid or malformed request.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -314,6 +335,17 @@ class TimestreamWriteClient:
             tags: <p> A list of key-value pairs to label the table. </p>
             magnetic_store_write_properties: <p>Contains properties to set on the table when enabling magnetic store writes.</p>
             schema: <p> The schema of the table. </p>
+
+        Raises:
+            aws_sdk_timestream_write.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this action.</p>
+            aws_sdk_timestream_write.errors.conflict_exception.ConflictException: <p>Timestream was unable to process this request because it contains resource that already exists.</p>
+            aws_sdk_timestream_write.errors.internal_server_exception.InternalServerException: <p> Timestream was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint was not valid.</p>
+            aws_sdk_timestream_write.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.</p>
+            aws_sdk_timestream_write.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The instance quota of resource exceeded for this account.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.validation_exception.ValidationException: <p> An invalid or malformed request.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -360,6 +392,15 @@ class TimestreamWriteClient:
 
         Args:
             database_name: <p>The name of the Timestream database to be deleted.</p>
+
+        Raises:
+            aws_sdk_timestream_write.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this action.</p>
+            aws_sdk_timestream_write.errors.internal_server_exception.InternalServerException: <p> Timestream was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint was not valid.</p>
+            aws_sdk_timestream_write.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.validation_exception.ValidationException: <p> An invalid or malformed request.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -397,6 +438,15 @@ class TimestreamWriteClient:
         Args:
             database_name: <p>The name of the database where the Timestream database is to be deleted.</p>
             table_name: <p>The name of the Timestream table to be deleted.</p>
+
+        Raises:
+            aws_sdk_timestream_write.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this action.</p>
+            aws_sdk_timestream_write.errors.internal_server_exception.InternalServerException: <p> Timestream was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint was not valid.</p>
+            aws_sdk_timestream_write.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.validation_exception.ValidationException: <p> An invalid or malformed request.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -433,6 +483,14 @@ class TimestreamWriteClient:
 
         Args:
             task_id: <p>The ID of the batch load task.</p>
+
+        Raises:
+            aws_sdk_timestream_write.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this action.</p>
+            aws_sdk_timestream_write.errors.internal_server_exception.InternalServerException: <p> Timestream was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint was not valid.</p>
+            aws_sdk_timestream_write.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -470,6 +528,15 @@ class TimestreamWriteClient:
 
         Args:
             database_name: <p>The name of the Timestream database.</p>
+
+        Raises:
+            aws_sdk_timestream_write.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this action.</p>
+            aws_sdk_timestream_write.errors.internal_server_exception.InternalServerException: <p> Timestream was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint was not valid.</p>
+            aws_sdk_timestream_write.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.validation_exception.ValidationException: <p> An invalid or malformed request.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -500,7 +567,14 @@ class TimestreamWriteClient:
     def describe_endpoints(
         self, *, config_overrides: Optional[TimestreamWriteClientConfig] = None
     ) -> "aws_sdk_timestream_write.types.describe_endpoints_response.DescribeEndpointsResponse":
-        r"""<p>Returns a list of available endpoints to make Timestream API calls against. This API operation is available through both the Write and Query APIs.</p> <p>Because the Timestream SDKs are designed to transparently work with the service’s architecture, including the management and mapping of the service endpoints, <i>we don't recommend that you use this API operation unless</i>:</p> <ul> <li> <p>You are using <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/VPCEndpoints\">VPC endpoints (Amazon Web Services PrivateLink) with Timestream</a> </p> </li> <li> <p>Your application uses a programming language that does not yet have SDK support</p> </li> <li> <p>You require better control over the client-side implementation</p> </li> </ul> <p>For detailed information on how and when to use and implement DescribeEndpoints, see <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/Using.API.html#Using-API.endpoint-discovery\">The Endpoint Discovery Pattern</a>.</p>"""
+        r"""<p>Returns a list of available endpoints to make Timestream API calls against. This API operation is available through both the Write and Query APIs.</p> <p>Because the Timestream SDKs are designed to transparently work with the service’s architecture, including the management and mapping of the service endpoints, <i>we don't recommend that you use this API operation unless</i>:</p> <ul> <li> <p>You are using <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/VPCEndpoints\">VPC endpoints (Amazon Web Services PrivateLink) with Timestream</a> </p> </li> <li> <p>Your application uses a programming language that does not yet have SDK support</p> </li> <li> <p>You require better control over the client-side implementation</p> </li> </ul> <p>For detailed information on how and when to use and implement DescribeEndpoints, see <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/Using.API.html#Using-API.endpoint-discovery\">The Endpoint Discovery Pattern</a>.</p>
+
+        Raises:
+            aws_sdk_timestream_write.errors.internal_server_exception.InternalServerException: <p> Timestream was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.validation_exception.ValidationException: <p> An invalid or malformed request.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_timestream_write.types.describe_endpoints_request.DescribeEndpointsRequest]",
@@ -538,6 +612,15 @@ class TimestreamWriteClient:
         Args:
             database_name: <p>The name of the Timestream database.</p>
             table_name: <p>The name of the Timestream table.</p>
+
+        Raises:
+            aws_sdk_timestream_write.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this action.</p>
+            aws_sdk_timestream_write.errors.internal_server_exception.InternalServerException: <p> Timestream was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint was not valid.</p>
+            aws_sdk_timestream_write.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.validation_exception.ValidationException: <p> An invalid or malformed request.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -584,6 +667,14 @@ class TimestreamWriteClient:
             next_token: <p>A token to specify where to start paginating. This is the NextToken from a previously truncated response.</p>
             max_results: <p>The total number of items to return in the output. If the total number of items available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
             task_status: <p>Status of the batch load task.</p>
+
+        Raises:
+            aws_sdk_timestream_write.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this action.</p>
+            aws_sdk_timestream_write.errors.internal_server_exception.InternalServerException: <p> Timestream was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint was not valid.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.validation_exception.ValidationException: <p> An invalid or malformed request.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -630,6 +721,14 @@ class TimestreamWriteClient:
         Args:
             next_token: <p>The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
             max_results: <p>The total number of items to return in the output. If the total number of items available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
+
+        Raises:
+            aws_sdk_timestream_write.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this action.</p>
+            aws_sdk_timestream_write.errors.internal_server_exception.InternalServerException: <p> Timestream was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint was not valid.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.validation_exception.ValidationException: <p> An invalid or malformed request.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -678,6 +777,15 @@ class TimestreamWriteClient:
             database_name: <p>The name of the Timestream database.</p>
             next_token: <p>The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
             max_results: <p>The total number of items to return in the output. If the total number of items available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
+
+        Raises:
+            aws_sdk_timestream_write.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this action.</p>
+            aws_sdk_timestream_write.errors.internal_server_exception.InternalServerException: <p> Timestream was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint was not valid.</p>
+            aws_sdk_timestream_write.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.validation_exception.ValidationException: <p> An invalid or malformed request.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -720,6 +828,13 @@ class TimestreamWriteClient:
 
         Args:
             resource_arn: <p> The Timestream resource with tags to be listed. This value is an Amazon Resource Name (ARN). </p>
+
+        Raises:
+            aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint was not valid.</p>
+            aws_sdk_timestream_write.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.validation_exception.ValidationException: <p> An invalid or malformed request.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -757,6 +872,15 @@ class TimestreamWriteClient:
 
         Args:
             task_id: <p>The ID of the batch load task to resume.</p>
+
+        Raises:
+            aws_sdk_timestream_write.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this action.</p>
+            aws_sdk_timestream_write.errors.internal_server_exception.InternalServerException: <p> Timestream was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint was not valid.</p>
+            aws_sdk_timestream_write.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.validation_exception.ValidationException: <p> An invalid or malformed request.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -796,6 +920,14 @@ class TimestreamWriteClient:
         Args:
             resource_arn: <p> Identifies the Timestream resource to which tags should be added. This value is an Amazon Resource Name (ARN). </p>
             tags: <p> The tags to be assigned to the Timestream resource. </p>
+
+        Raises:
+            aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint was not valid.</p>
+            aws_sdk_timestream_write.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.</p>
+            aws_sdk_timestream_write.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The instance quota of resource exceeded for this account.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.validation_exception.ValidationException: <p> An invalid or malformed request.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -836,6 +968,14 @@ class TimestreamWriteClient:
         Args:
             resource_arn: <p> The Timestream resource that the tags will be removed from. This value is an Amazon Resource Name (ARN). </p>
             tag_keys: <p> A list of tags keys. Existing tags of the resource whose keys are members of this list will be removed from the Timestream resource. </p>
+
+        Raises:
+            aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint was not valid.</p>
+            aws_sdk_timestream_write.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.</p>
+            aws_sdk_timestream_write.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The instance quota of resource exceeded for this account.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.validation_exception.ValidationException: <p> An invalid or malformed request.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -878,6 +1018,16 @@ class TimestreamWriteClient:
         Args:
             database_name: <p> The name of the database. </p>
             kms_key_id: <p> The identifier of the new KMS key (<code>KmsKeyId</code>) to be used to encrypt the data stored in the database. If the <code>KmsKeyId</code> currently registered with the database is the same as the <code>KmsKeyId</code> in the request, there will not be any update. </p> <p>You can specify the <code>KmsKeyId</code> using any of the following:</p> <ul> <li> <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code> </p> </li> <li> <p>Key ARN: <code>arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code> </p> </li> <li> <p>Alias name: <code>alias/ExampleAlias</code> </p> </li> <li> <p>Alias ARN: <code>arn:aws:kms:us-east-1:111122223333:alias/ExampleAlias</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_timestream_write.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this action.</p>
+            aws_sdk_timestream_write.errors.internal_server_exception.InternalServerException: <p> Timestream was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint was not valid.</p>
+            aws_sdk_timestream_write.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.</p>
+            aws_sdk_timestream_write.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The instance quota of resource exceeded for this account.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.validation_exception.ValidationException: <p> An invalid or malformed request.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -928,6 +1078,15 @@ class TimestreamWriteClient:
             retention_properties: <p>The retention duration of the memory store and the magnetic store.</p>
             magnetic_store_write_properties: <p>Contains properties to set on the table when enabling magnetic store writes.</p>
             schema: <p> The schema of the table. </p>
+
+        Raises:
+            aws_sdk_timestream_write.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this action.</p>
+            aws_sdk_timestream_write.errors.internal_server_exception.InternalServerException: <p> Timestream was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint was not valid.</p>
+            aws_sdk_timestream_write.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.validation_exception.ValidationException: <p> An invalid or malformed request.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -980,6 +1139,16 @@ class TimestreamWriteClient:
             table_name: <p>The name of the Timestream table.</p>
             common_attributes: <p>A record that contains the common measure, dimension, time, and version attributes shared across all the records in the request. The measure and dimension attributes specified will be merged with the measure and dimension attributes in the records object when the data is written into Timestream. Dimensions may not overlap, or a <code>ValidationException</code> will be thrown. In other words, a record must contain dimensions with unique names. </p>
             records: <p>An array of records that contain the unique measure, dimension, time, and version attributes for each time-series data point. </p>
+
+        Raises:
+            aws_sdk_timestream_write.errors.access_denied_exception.AccessDeniedException: <p>You are not authorized to perform this action.</p>
+            aws_sdk_timestream_write.errors.internal_server_exception.InternalServerException: <p> Timestream was unable to fully process this request because of an internal server error.</p>
+            aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException: <p>The requested endpoint was not valid.</p>
+            aws_sdk_timestream_write.errors.rejected_records_exception.RejectedRecordsException: <p> WriteRecords would throw this exception in the following cases: </p> <ul> <li> <p>Records with duplicate data where there are multiple records with the same dimensions, timestamps, and measure names but: </p> <ul> <li> <p>Measure values are different</p> </li> <li> <p>Version is not present in the request <i>or</i> the value of version in the new record is equal to or lower than the existing value</p> </li> </ul> <p> In this case, if Timestream rejects data, the <code>ExistingVersion</code> field in the <code>RejectedRecords</code> response will indicate the current record’s version. To force an update, you can resend the request with a version for the record set to a value greater than the <code>ExistingVersion</code>.</p> </li> <li> <p> Records with timestamps that lie outside the retention duration of the memory store. </p> </li> <li> <p> Records with dimensions or measures that exceed the Timestream defined limits. </p> </li> </ul> <p> For more information, see <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html\">Quotas</a> in the Amazon Timestream Developer Guide. </p>
+            aws_sdk_timestream_write.errors.resource_not_found_exception.ResourceNotFoundException: <p>The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.</p>
+            aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException: <p> Too many requests were made by a user and they exceeded the service quotas. The request was throttled.</p>
+            aws_sdk_timestream_write.errors.validation_exception.ValidationException: <p> An invalid or malformed request.</p>
+            aws_sdk_timestream_write.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

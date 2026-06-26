@@ -35,7 +35,14 @@ class LoggingResource:
     def delete_model_invocation_logging_configuration(
         self, *, config_overrides: Optional[BedrockClientConfig] = None
     ) -> "aws_sdk_bedrock.types.delete_model_invocation_logging_configuration_response.DeleteModelInvocationLoggingConfigurationResponse":
-        """<p>Delete the invocation logging. </p>"""
+        """<p>Delete the invocation logging. </p>
+
+        Raises:
+            aws_sdk_bedrock.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_bedrock.types.delete_model_invocation_logging_configuration_request.DeleteModelInvocationLoggingConfigurationRequest]",
@@ -64,7 +71,14 @@ class LoggingResource:
     def get_model_invocation_logging_configuration(
         self, *, config_overrides: Optional[BedrockClientConfig] = None
     ) -> "aws_sdk_bedrock.types.get_model_invocation_logging_configuration_response.GetModelInvocationLoggingConfigurationResponse":
-        """<p>Get the current configuration values for model invocation logging.</p>"""
+        """<p>Get the current configuration values for model invocation logging.</p>
+
+        Raises:
+            aws_sdk_bedrock.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_bedrock.types.get_model_invocation_logging_configuration_request.GetModelInvocationLoggingConfigurationRequest]",
@@ -100,6 +114,13 @@ class LoggingResource:
 
         Args:
             logging_config: <p>The logging configuration values to set.</p>
+
+        Raises:
+            aws_sdk_bedrock.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -135,7 +156,14 @@ class AsyncLoggingResource:
     async def delete_model_invocation_logging_configuration(
         self, *, config_overrides: Optional[AsyncBedrockClientConfig] = None
     ) -> "aws_sdk_bedrock.types.delete_model_invocation_logging_configuration_response.DeleteModelInvocationLoggingConfigurationResponse":
-        """<p>Delete the invocation logging. </p>"""
+        """<p>Delete the invocation logging. </p>
+
+        Raises:
+            aws_sdk_bedrock.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_bedrock.types.delete_model_invocation_logging_configuration_request.DeleteModelInvocationLoggingConfigurationRequest]",
@@ -165,7 +193,14 @@ class AsyncLoggingResource:
     async def get_model_invocation_logging_configuration(
         self, *, config_overrides: Optional[AsyncBedrockClientConfig] = None
     ) -> "aws_sdk_bedrock.types.get_model_invocation_logging_configuration_response.GetModelInvocationLoggingConfigurationResponse":
-        """<p>Get the current configuration values for model invocation logging.</p>"""
+        """<p>Get the current configuration values for model invocation logging.</p>
+
+        Raises:
+            aws_sdk_bedrock.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_bedrock.types.get_model_invocation_logging_configuration_request.GetModelInvocationLoggingConfigurationRequest]",
@@ -202,6 +237,13 @@ class AsyncLoggingResource:
 
         Args:
             logging_config: <p>The logging configuration values to set.</p>
+
+        Raises:
+            aws_sdk_bedrock.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

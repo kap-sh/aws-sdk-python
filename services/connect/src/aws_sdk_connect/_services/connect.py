@@ -1282,6 +1282,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             evaluation_form_id: <p>The unique identifier for the evaluation form.</p>
             evaluation_form_version: <p>The version of the evaluation form to activate. If the version property is not provided, the latest version of the evaluation form is activated.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1327,6 +1335,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             data_set_id: <p>The identifier of the dataset to associate with the target account.</p>
             target_account_id: <p>The identifier of the target account. Use to associate a dataset to a different account than the one containing the Connect Customer instance. If not specified, by default this value is the Amazon Web Services account that has the Connect Customer instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1371,6 +1387,16 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             origin: <p>The domain to add to your allow list.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1414,6 +1440,16 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             lex_v2_bot: <p>The Amazon Lex V2 bot to associate with the instance.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1459,6 +1495,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             contact_id: <p>The identifier of the contact in this instance of Connect Customer. </p>
             user_id: <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1504,6 +1549,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             language_code: <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html\">What is Amazon Transcribe?</a> </p>
             vocabulary_id: <p>The identifier of the custom vocabulary. If this is empty, the default is set to none.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1550,6 +1603,17 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             alias_configuration: <p>Configuration object that specifies which email address will serve as the alias. The specified email address must already exist in the Connect Customer instance and cannot already be configured as an alias or have an alias of its own.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.idempotency_exception.IdempotencyException: <p>An entity with the same name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1597,6 +1661,15 @@ class ConnectClient:
             resource_id: <p>The identifier of the resource.</p> <ul> <li> <p>Amazon Web Services End User Messaging SMS phone number ARN when using <code>SMS_PHONE_NUMBER</code> </p> </li> <li> <p>Amazon Web Services End User Messaging Social phone number ARN when using <code>WHATSAPP_MESSAGING_PHONE_NUMBER</code> </p> </li> </ul>
             flow_id: <p>The identifier of the flow.</p>
             resource_type: <p>A valid resource type.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1641,6 +1714,16 @@ class ConnectClient:
             instance_id: <p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             hours_of_operation_id: <p>The identifier of the child hours of operation.</p>
             parent_hours_of_operation_configs: <p>The Amazon Resource Names (ARNs) of the parent hours of operation resources to associate with the child hours of operation resource.</p>
+
+        Raises:
+            aws_sdk_connect.errors.conditional_operation_failed_exception.ConditionalOperationFailedException: <p>Request processing failed because dependent condition failed.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1684,6 +1767,15 @@ class ConnectClient:
             resource_type: <p>A valid resource type. To <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/enable-contact-analysis-segment-streams.html\">enable streaming for real-time analysis of contacts</a>, use the following types:</p> <ul> <li> <p>For chat contacts, use <code>REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS</code>.</p> </li> <li> <p>For voice contacts, use <code>REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS</code>.</p> </li> </ul> <note> <p> <code>REAL_TIME_CONTACT_ANALYSIS_SEGMENTS</code> is deprecated, but it is still supported and will apply only to VOICE channel contacts. Use <code>REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS</code> for voice contacts moving forward.</p> <p>If you have previously associated a stream with <code>REAL_TIME_CONTACT_ANALYSIS_SEGMENTS</code>, no action is needed to update the stream to <code>REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS</code>.</p> </note>
             storage_config: <p>A valid storage type.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1729,6 +1821,16 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             function_arn: <p>The Amazon Resource Name (ARN) for the Lambda function being associated. Maximum number of characters allowed is 140.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1771,6 +1873,16 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             lex_bot: <p>The Amazon Lex bot to associate with the instance.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1813,6 +1925,14 @@ class ConnectClient:
             phone_number_id: <p>A unique identifier for the phone number.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             contact_flow_id: <p>The identifier of the flow.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1856,6 +1976,16 @@ class ConnectClient:
             queue_id: <p>The identifier for the queue.</p>
             email_addresses_config: <p>Configuration list containing the email addresses to associate with the queue. Each configuration specifies an email address ID that should be linked to this queue for routing purposes.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1899,6 +2029,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             queue_id: <p>The identifier for the queue.</p>
             quick_connect_ids: <p>The quick connects to associate with this queue.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1946,6 +2085,14 @@ class ConnectClient:
             routing_profile_id: <p>The identifier of the routing profile.</p>
             queue_configs: <p>The queues to associate with this routing profile.</p>
             manual_assignment_queue_configs: <p>The manual assignment queues to associate with this routing profile.</p> <p>Note: Use this config for chat, email, and task contacts. It does not support voice contacts.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1990,6 +2137,16 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             key: <p>A valid security key in PEM format as a String.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2036,6 +2193,16 @@ class ConnectClient:
             security_profiles: <p> List of Security Profile Object. </p>
             entity_type: <p> Only supported type is AI_AGENT. </p>
             entity_arn: <p> Arn of a Q in Connect AI Agent. </p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conditional_operation_failed_exception.ConditionalOperationFailedException: <p>Request processing failed because dependent condition failed.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2078,6 +2245,15 @@ class ConnectClient:
             traffic_distribution_group_id: <p>The identifier of the traffic distribution group. This can be the ID or the ARN of the traffic distribution group.</p>
             user_id: <p>The identifier of the user account. This can be the ID or the ARN of the user. </p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2121,6 +2297,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN of the instance).</p>
             user_id: <p>The identifier of the user account.</p>
             user_proficiencies: <p>The proficiencies to associate with the user.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2164,6 +2348,16 @@ class ConnectClient:
             instance_id: <p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             workspace_id: <p>The identifier of the workspace.</p>
             resource_arns: <p>The Amazon Resource Names (ARNs) of the resources to associate with the workspace. Valid resource types are users and routing profiles.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2209,6 +2403,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             data_set_ids: <p>An array of dataset identifiers to associate.</p>
             target_account_id: <p>The identifier of the target account. Use to associate a dataset to a different account than the one containing the Connect Customer instance. If not specified, by default this value is the Amazon Web Services account that has the Connect Customer instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2253,6 +2455,18 @@ class ConnectClient:
             instance_id: <p>The unique identifier for the Amazon Connect instance.</p>
             data_table_id: <p>The unique identifier for the data table. Must also accept the table ARN with or without a version alias. If no alias is provided, the default behavior is identical to providing the $LATEST alias.</p>
             values: <p>A list of values to create. Each value must specify the attribute name and optionally primary values if the table has primary attributes.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conflict_exception.ConflictException: <p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2296,6 +2510,16 @@ class ConnectClient:
             instance_id: <p>The unique identifier for the Amazon Connect instance.</p>
             data_table_id: <p>The unique identifier for the data table. Must also accept the table ARN with or without a version alias.</p>
             values: <p>A list of value identifiers to delete, each specifying primary values, attribute name, and lock version information.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conflict_exception.ConflictException: <p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2339,6 +2563,15 @@ class ConnectClient:
             instance_id: <p>The unique identifier for the Amazon Connect instance.</p>
             data_table_id: <p>The unique identifier for the data table. Must also accept the table ARN with or without a version alias.</p>
             values: <p>A list of value identifiers to retrieve, each specifying primary values and attribute names.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2384,6 +2617,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             data_set_ids: <p>An array of associated dataset identifiers to remove.</p>
             target_account_id: <p>The identifier of the target account. Use to disassociate a dataset from a different account than the one containing the Connect Customer instance. If not specified, by default this value is the Amazon Web Services account that has the Connect Customer instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2428,6 +2669,14 @@ class ConnectClient:
             file_ids: <p>The unique identifiers of the attached file resource.</p>
             instance_id: <p>The unique identifier of the Connect instance.</p>
             associated_resource_arn: <p>The resource to which the attached file is (being) uploaded to. The supported resources are <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/cases.html\">Cases</a> and <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html\">Email</a>.</p> <note> <p>This value must be a valid ARN.</p> </note>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2473,6 +2722,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             resource_ids: <p>A list of resource identifiers to retrieve flow associations.</p> <ul> <li> <p>Amazon Web Services End User Messaging SMS phone number ARN when using <code>SMS_PHONE_NUMBER</code> </p> </li> <li> <p>Amazon Web Services End User Messaging Social phone number ARN when using <code>WHATSAPP_MESSAGING_PHONE_NUMBER</code> </p> </li> </ul>
             resource_type: <p>The type of resource association.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2517,6 +2775,15 @@ class ConnectClient:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             contact_data_request_list: <p>List of individual contact requests.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.idempotency_exception.IdempotencyException: <p>An entity with the same name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2561,6 +2828,16 @@ class ConnectClient:
             instance_id: <p>The unique identifier for the Amazon Connect instance.</p>
             data_table_id: <p>The unique identifier for the data table. Must also accept the table ARN with or without a version alias.</p>
             values: <p>A list of values to update, each including the current lock version to ensure optimistic locking.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conflict_exception.ConflictException: <p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2612,6 +2889,15 @@ class ConnectClient:
             phone_number_description: <p>The description of the phone number.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p> <p>Pattern: <code>^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$</code> </p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.idempotency_exception.IdempotencyException: <p>An entity with the same name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2663,6 +2949,14 @@ class ConnectClient:
             instance_id: <p>The unique identifier of the Connect Customer instance.</p>
             file_id: <p>The unique identifier of the attached file resource.</p>
             associated_resource_arn: <p>The resource to which the attached file is (being) uploaded to. The supported resources are <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/cases.html\">Cases</a> and <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html\">Email</a>.</p> <note> <p>This value must be a valid ARN.</p> </note>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2716,6 +3010,16 @@ class ConnectClient:
             state: <p>The state of the status.</p>
             display_order: <p>The display order of the status.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2797,6 +3101,18 @@ class ConnectClient:
             description: <p>A description of the contact.</p>
             segment_attributes: <p>A set of system defined key-value pairs stored on individual contact segments (unique contact ID) using an attribute map. The attributes are standard Connect Customer attributes. They can be accessed in flows.</p> <p>Attribute keys can include only alphanumeric, -, and _.</p> <p>This field can be used to set Segment Contact Expiry as a duration in minutes.</p> <note> <p>To set contact expiry, a ValueMap must be specified containing the integer number of minutes the contact will be active for before expiring, with <code>SegmentAttributes</code> like { <code> \"connect:ContactExpiry\": {\"ValueMap\" : { \"ExpiryDuration\": { \"ValueInteger\": 135}}}}</code>. </p> </note>
             previous_contact_id: <p>The ID of the previous contact when creating a transfer contact. This value can be provided only for external audio contacts. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html\">Integrate Connect Customer Contact Lens with external voice systems</a> in the <i>Connect Customer Administrator Guide</i>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conflict_exception.ConflictException: <p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>
+            aws_sdk_connect.errors.idempotency_exception.IdempotencyException: <p>An entity with the same name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2874,6 +3190,17 @@ class ConnectClient:
             content: <p>The JSON string that represents the content of the flow. For an example, see <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html\">Example flow in Connect Customer Flow language</a>. </p> <p>Length Constraints: Minimum length of 1. Maximum length of 256000.</p>
             status: <p>Indicates the flow status as either <code>SAVED</code> or <code>PUBLISHED</code>. The <code>PUBLISHED</code> status will initiate validation on the content. the <code>SAVED</code> status does not initiate validation of the content. <code>SAVED</code> | <code>PUBLISHED</code>.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_contact_flow_exception.InvalidContactFlowException: <p>The flow is not valid.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2940,6 +3267,19 @@ class ConnectClient:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
             settings: <p>The configuration settings for the flow module.</p>
             external_invocation_configuration: <p>The external invocation configuration for the flow module.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.idempotency_exception.IdempotencyException: <p>An entity with the same name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_contact_flow_module_exception.InvalidContactFlowModuleException: <p>The problems with the module. Please fix before trying again.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3001,6 +3341,17 @@ class ConnectClient:
             contact_flow_module_id: <p>The identifier of the flow module.</p>
             contact_flow_module_version: <p>The version of the flow module.</p>
             alias_name: <p>The name of the alias.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3053,6 +3404,16 @@ class ConnectClient:
             description: <p>The description of the flow module version.</p>
             contact_flow_module_id: <p>The identifier of the flow module.</p>
             flow_module_content_sha256: <p>Indicates the checksum value of the flow module content.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3117,6 +3478,16 @@ class ConnectClient:
             contact_flow_version: <p>The identifier of the flow version.</p>
             last_modified_time: <p>The Amazon Web Services Region where this resource was last modified.</p>
             last_modified_region: <p>The Amazon Web Services Region where this resource was last modified.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3179,6 +3550,18 @@ class ConnectClient:
             value_lock_level: <p>The data level that concurrent value edits are locked on. One of DATA_TABLE, PRIMARY_VALUE, ATTRIBUTE, VALUE, and NONE. NONE is the default if unspecified. This determines how concurrent edits are handled when multiple users attempt to modify values simultaneously.</p>
             status: <p>The status of the data table. One of PUBLISHED or SAVED. Required parameter that determines the initial state of the table.</p>
             tags: <p>Key value pairs for attribute based access control (TBAC or ABAC). Optional tags to apply to the data table for organization and access control purposes.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conflict_exception.ConflictException: <p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3238,6 +3621,18 @@ class ConnectClient:
             description: <p>An optional description for the attribute. Must conform to Connect human readable string specification and have 0-250 characters. Whitespace trimmed before persisting.</p>
             primary: <p>Optional boolean that defaults to false. Determines if the value is used to identify a record in the table. Values for primary attributes must not be expressions.</p>
             validation: <p>Optional validation rules for the attribute. Borrows heavily from JSON Schema - Draft 2020-12. The maximum length of arrays within validations and depth of validations is 5. There are default limits that apply to all types. Customer specified limits in excess of the default limits are not permitted.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conflict_exception.ConflictException: <p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3298,6 +3693,19 @@ class ConnectClient:
             display_name: <p>The display name of email address</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.idempotency_exception.IdempotencyException: <p>An entity with the same name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3378,6 +3786,15 @@ class ConnectClient:
             review_configuration: <p>Configuration information about evaluation reviews.</p>
             target_configuration: <p>Configuration that specifies the target for the evaluation form.</p>
             language_configuration: <p>Configuration for language settings of the evaluation form.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3451,6 +3868,17 @@ class ConnectClient:
             config: <p>Configuration information for the hours of operation: day, start time, and end time.</p>
             parent_hours_of_operation_configs: <p>Configuration for parent hours of operations. Eg: ResourceArn. </p> <p>For more information about parent hours of operations, see <a href=\"https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html\">Link overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3521,6 +3949,16 @@ class ConnectClient:
             effective_till: <p>The date until when the hours of operation override is effective.</p>
             recurrence_config: <p>Configuration for a recurring event.</p>
             override_type: <p>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</p> <p>For more information about how override types are applied, see <a href=\"https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html\">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3583,6 +4021,14 @@ class ConnectClient:
             inbound_calls_enabled: <p>Your contact center handles incoming contacts.</p>
             outbound_calls_enabled: <p>Your contact center allows outbound calls.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, <code>{ \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }</code>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3644,6 +4090,14 @@ class ConnectClient:
             source_application_name: <p>The name of the external application. This field is only required for the EVENT integration type.</p>
             source_type: <p>The type of the data source. This field is only required for the EVENT integration type.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3710,6 +4164,16 @@ class ConnectClient:
             content: <p>The localized content of the notification. A map where keys are locale codes and values are the notification text in that locale. Content supports links. Maximum 250 characters per locale.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, <code>{ \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }</code>.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3765,6 +4229,15 @@ class ConnectClient:
             contact_id: <p>The identifier of the contact in this instance of Connect Customer. Supports contacts in the CHAT channel and VOICE (WebRTC) channels. For WebRTC calls, this should be the initial contact ID that was generated when the contact was first created (from the StartWebRTCContact API) in the VOICE channel</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
             participant_details: <p>Information identifying the participant.</p> <important> <p>The only valid value for <code>ParticipantRole</code> is <code>CUSTOM_BOT</code> for chat contact and <code>CUSTOMER</code> for voice contact.</p> </important>
+
+        Raises:
+            aws_sdk_connect.errors.conflict_exception.ConflictException: <p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3814,6 +4287,15 @@ class ConnectClient:
             rehydration_type: <p>The contactId chosen for rehydration depends on the type chosen.</p> <ul> <li> <p> <code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past chat contact of the specified past ended chat session. To use this type, provide the <code>initialContactId</code> of the past ended chat session in the <code>sourceContactId</code> field. In this type, Connect Customer determines what the most recent chat contact on the past ended chat session and uses it to start a persistent chat. </p> </li> <li> <p> <code>FROM_SEGMENT</code>: Rehydrates a chat from the specified past chat contact provided in the <code>sourceContactId</code> field. </p> </li> </ul> <p>The actual contactId used for rehydration is provided in the response of this API.</p> <p>To illustrate how to use rehydration type, consider the following example: A customer starts a chat session. Agent a1 accepts the chat and a conversation starts between the customer and Agent a1. This first contact creates a contact ID <b>C1</b>. Agent a1 then transfers the chat to Agent a2. This creates another contact ID <b>C2</b>. At this point Agent a2 ends the chat. The customer is forwarded to the disconnect flow for a post chat survey that creates another contact ID <b>C3</b>. After the chat survey, the chat session ends. Later, the customer returns and wants to resume their past chat session. At this point, the customer can have following use cases: </p> <ul> <li> <p> <b>Use Case 1</b>: The customer wants to continue the past chat session but they want to hide the post chat survey. For this they will use the following configuration:</p> <ul> <li> <p> <b>Configuration</b> </p> <ul> <li> <p>SourceContactId = \"C2\"</p> </li> <li> <p>RehydrationType = \"FROM_SEGMENT\"</p> </li> </ul> </li> <li> <p> <b>Expected behavior</b> </p> <ul> <li> <p>This starts a persistent chat session from the specified past ended contact (C2). Transcripts of past chat sessions C2 and C1 are accessible in the current persistent chat session. Note that chat segment C3 is dropped from the persistent chat session.</p> </li> </ul> </li> </ul> </li> <li> <p> <b>Use Case 2</b>: The customer wants to continue the past chat session and see the transcript of the entire past engagement, including the post chat survey. For this they will use the following configuration:</p> <ul> <li> <p> <b>Configuration</b> </p> <ul> <li> <p>SourceContactId = \"C1\"</p> </li> <li> <p>RehydrationType = \"ENTIRE_PAST_SESSION\"</p> </li> </ul> </li> <li> <p> <b>Expected behavior</b> </p> <ul> <li> <p>This starts a persistent chat session from the most recently ended chat contact (C3). Transcripts of past chat sessions C3, C2 and C1 are accessible in the current persistent chat session.</p> </li> </ul> </li> </ul> </li> </ul>
             source_contact_id: <p>The contactId from which a persistent chat session must be started.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3870,6 +4352,16 @@ class ConnectClient:
             values: <p> The values of the predefined attribute. </p>
             purposes: <p>Values that enable you to categorize your predefined attributes. You can use them in custom UI elements across the Connect Customer admin website.</p>
             attribute_configuration: <p>Custom metadata that is associated to predefined attributes to control behavior in upstream services, such as controlling how a predefined attribute should be displayed in the Connect Customer admin website.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3922,6 +4414,15 @@ class ConnectClient:
             description: <p>The description of the prompt.</p>
             s3_uri: <p>The URI for the S3 bucket where the prompt is stored. You can provide S3 pre-signed URLs returned by the <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_GetPromptFile.html\">GetPromptFile</a> API instead of providing S3 URIs.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3975,6 +4476,15 @@ class ConnectClient:
             device_token: <p>The push notification token issued by the Apple or Google gateways.</p>
             device_type: <p>The device type to use when sending the message.</p>
             contact_configuration: <p>The contact configuration for push notification registration.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4048,6 +4558,16 @@ class ConnectClient:
             quick_connect_ids: <p>The quick connects available to agents who are working the queue.</p>
             email_addresses_config: <p>Configuration list containing the email addresses to associate with the queue during creation. Each configuration specifies an email address ID that agents can select when handling email contacts in this queue.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4113,6 +4633,16 @@ class ConnectClient:
             description: <p>The description of the quick connect.</p>
             quick_connect_config: <p>Configuration settings for the quick connect.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4178,6 +4708,16 @@ class ConnectClient:
             media_concurrencies: <p>The channels that agents can handle in the Contact Control Panel (CCP) for this routing profile.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
             agent_availability_timer: <p>Whether agents with this routing profile will have their routing order calculated based on <i>longest idle time</i> or <i>time since their last inbound contact</i>. </p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4239,6 +4779,16 @@ class ConnectClient:
             actions: <p>A list of actions to be run when the rule is triggered.</p>
             publish_status: <p>The publish status of the rule.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4323,6 +4873,16 @@ class ConnectClient:
             allowed_access_control_hierarchy_group_id: <p>The identifier of the hierarchy group that a security profile uses to restrict access to resources in Connect Customer.</p>
             allowed_flow_modules: <p> A list of Flow Modules an AI Agent can invoke as a tool. </p>
             granular_access_control_configuration: <p>The granular access control configuration for the security profile, including data table permissions.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4417,6 +4977,15 @@ class ConnectClient:
             status: <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it. Tasks can only be created from <code>ACTIVE</code> templates. If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created. </p>
             fields: <p>Fields that are part of the template.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.property_validation_exception.PropertyValidationException: <p>The property is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4502,6 +5071,20 @@ class ConnectClient:
             tags: <p>The tags used to organize, track, or control access for this resource.</p>
             last_modified_time: <p>The time at which the resource was last modified.</p>
             last_modified_region: <p>The region in which the resource was last modified</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.idempotency_exception.IdempotencyException: <p>An entity with the same name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.invalid_test_case_exception.InvalidTestCaseException: <p>The test is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4567,6 +5150,17 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance that has been replicated. You can find the <code>instanceId</code> in the ARN of the instance.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The resource is not ready.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4617,6 +5211,14 @@ class ConnectClient:
             integration_association_id: <p>The identifier for the integration association.</p>
             use_case_type: <p>The type of use case to associate to the integration association. Each integration association can have only one of each use case type.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4704,6 +5306,16 @@ class ConnectClient:
             persistent_connection_configs: <p>The list of persistent connection configuration settings for each channel.</p>
             voice_enhancement_configs: <p>The list of voice enhancement configuration settings for each channel.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4774,6 +5386,16 @@ class ConnectClient:
             parent_group_id: <p>The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4832,6 +5454,18 @@ class ConnectClient:
             description: <p>The description of the view.</p>
             name: <p>The name of the view.</p>
             tags: <p>The tags associated with the view resource (not specific to view version).These tags can be used to organize, track, or control access for this resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_in_use_exception.ResourceInUseException: <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.too_many_requests_exception.TooManyRequestsException: <p>Displayed when rate-related API limits are exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4888,6 +5522,17 @@ class ConnectClient:
             view_id: <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
             version_description: <p>The description for the version being published.</p>
             view_content_sha256: <p>Indicates the checksum value of the latest published view content.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_in_use_exception.ResourceInUseException: <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.too_many_requests_exception.TooManyRequestsException: <p>Displayed when rate-related API limits are exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4940,6 +5585,16 @@ class ConnectClient:
             language_code: <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html\">What is Amazon Transcribe?</a> </p>
             content: <p>The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with <code>Phrase</code>, <code>IPA</code>, <code>SoundsLike</code>, and <code>DisplayAs</code> fields. Separate the fields with TAB characters. The size limit is 50KB. For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table\">Create a custom vocabulary using a table</a>.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -4996,6 +5651,18 @@ class ConnectClient:
             theme: <p>The theme configuration for the workspace, including colors and styling.</p>
             title: <p>The title displayed for the workspace.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, <code>{ \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }</code>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5052,6 +5719,19 @@ class ConnectClient:
             page: <p>The page identifier. Valid system pages include <code>HOME</code> and <code>AGENT_EXPERIENCE</code>. Custom pages cannot use the <code>aws:</code> or <code>connect:</code> prefixes.</p>
             slug: <p>The URL-friendly identifier for the page.</p>
             input_data: <p>A JSON string containing input parameters for the view, validated against the view's input schema.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5100,6 +5780,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             evaluation_form_id: <p>The unique identifier for the evaluation form.</p>
             evaluation_form_version: <p>A version of the evaluation form. If the version property is not provided, the latest version of the evaluation form is deactivated.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5145,6 +5833,14 @@ class ConnectClient:
             instance_id: <p>The unique identifier of the Connect instance.</p>
             file_id: <p>The unique identifier of the attached file resource.</p>
             associated_resource_arn: <p>The resource to which the attached file is (being) uploaded to. <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html\">Cases</a> are the only current supported resource.</p> <note> <p>This value must be a valid ARN.</p> </note>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5186,6 +5882,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             evaluation_id: <p>A unique identifier for the contact evaluation.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5224,6 +5928,15 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             contact_flow_id: <p>The identifier of the flow.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5264,6 +5977,15 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             contact_flow_module_id: <p>The identifier of the flow module.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5306,6 +6028,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             contact_flow_module_id: <p>The identifier of the flow module.</p>
             alias_id: <p>The identifier of the alias.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5349,6 +6080,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             contact_flow_module_id: <p>The identifier of the flow module.</p>
             contact_flow_module_version: <p>The version of the flow module to delete.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5392,6 +6132,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             contact_flow_id: <p>The identifier of the flow.</p>
             contact_flow_version: <p>The identifier of the flow version.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5433,6 +6182,16 @@ class ConnectClient:
         Args:
             instance_id: <p>The unique identifier for the Amazon Connect instance.</p>
             data_table_id: <p>The unique identifier for the data table to delete. Must also accept the table ARN. Fails with an error if the version is provided and is not $LATEST.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conflict_exception.ConflictException: <p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5475,6 +6234,16 @@ class ConnectClient:
             instance_id: <p>The unique identifier for the Amazon Connect instance.</p>
             data_table_id: <p>The unique identifier for the data table.</p>
             attribute_name: <p>The name of the attribute to delete.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conflict_exception.ConflictException: <p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5518,6 +6287,16 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             email_address_id: <p>The identifier of the email address.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5562,6 +6341,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             evaluation_form_id: <p>The unique identifier for the evaluation form.</p>
             evaluation_form_version: <p>The unique identifier for the evaluation form.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5602,6 +6389,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             hours_of_operation_id: <p>The identifier for the hours of operation.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5642,6 +6437,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance.</p>
             hours_of_operation_id: <p>The identifier for the hours of operation.</p>
             hours_of_operation_override_id: <p>The identifier for the hours of operation override.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5681,6 +6484,12 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5720,6 +6529,13 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             integration_association_id: <p>The identifier for the integration association.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5760,6 +6576,15 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             notification_id: <p>The unique identifier for the notification to delete.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5800,6 +6625,15 @@ class ConnectClient:
         Args:
             instance_id: <p> The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>
             name: <p> The name of the predefined attribute.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_in_use_exception.ResourceInUseException: <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5838,6 +6672,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             prompt_id: <p>A unique identifier for the prompt.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5878,6 +6720,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             registration_id: <p>The identifier for the registration.</p>
             contact_id: <p>The identifier of the contact within the Connect Customer instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5919,6 +6769,15 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             queue_id: <p>The identifier for the queue.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_in_use_exception.ResourceInUseException: <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5957,6 +6816,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             quick_connect_id: <p>The identifier for the quick connect.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -5995,6 +6862,15 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             routing_profile_id: <p>The identifier of the routing profile.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_in_use_exception.ResourceInUseException: <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6033,6 +6909,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             rule_id: <p>A unique identifier for the rule.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6071,6 +6955,16 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             security_profile_id: <p>The identifier for the security profle.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_in_use_exception.ResourceInUseException: <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6111,6 +7005,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             task_template_id: <p>A unique identifier for the task template.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6151,6 +7053,15 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Amazon Connect instance.</p>
             test_case_id: <p>The identifier of the test case to delete.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6189,6 +7100,14 @@ class ConnectClient:
 
         Args:
             traffic_distribution_group_id: <p>The identifier of the traffic distribution group. This can be the ID or the ARN of the traffic distribution group.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_in_use_exception.ResourceInUseException: <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6230,6 +7149,13 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             integration_association_id: <p>The identifier for the integration association.</p>
             use_case_id: <p>The identifier for the use case.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6269,6 +7195,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             user_id: <p>The identifier of the user.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6307,6 +7241,15 @@ class ConnectClient:
         Args:
             hierarchy_group_id: <p>The identifier of the hierarchy group.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_in_use_exception.ResourceInUseException: <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6345,6 +7288,16 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance.</p>
             view_id: <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_in_use_exception.ResourceInUseException: <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.too_many_requests_exception.TooManyRequestsException: <p>Displayed when rate-related API limits are exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6387,6 +7340,16 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance.</p>
             view_id: <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
             view_version: <p>The version number of the view.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_in_use_exception.ResourceInUseException: <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.too_many_requests_exception.TooManyRequestsException: <p>Displayed when rate-related API limits are exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6428,6 +7391,15 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             vocabulary_id: <p>The identifier of the custom vocabulary.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_in_use_exception.ResourceInUseException: <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6468,6 +7440,15 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             workspace_id: <p>The identifier of the workspace.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6510,6 +7491,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             workspace_id: <p>The identifier of the workspace.</p>
             media_type: <p>The type of media to delete. Valid values are: <code>IMAGE_LOGO_FAVICON</code> and <code>IMAGE_LOGO_HORIZONTAL</code>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6553,6 +7542,16 @@ class ConnectClient:
             instance_id: <p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             workspace_id: <p>The identifier of the workspace.</p>
             page: <p>The page identifier.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6594,6 +7593,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             agent_status_id: <p>The identifier for the agent status.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6634,6 +7641,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             attachment_scope: <p>The scope of the attachment. Valid values are <code>EMAIL</code>, <code>CHAT</code>, <code>CASE</code>, and <code>TASK</code>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6674,6 +7689,14 @@ class ConnectClient:
         Args:
             authentication_profile_id: <p>A unique identifier for the authentication profile. </p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6714,6 +7737,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             contact_id: <p>The identifier of the contact.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6754,6 +7785,13 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             evaluation_id: <p>A unique identifier for the contact evaluation.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6794,6 +7832,15 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance.</p>
             contact_flow_id: <p>The identifier of the flow.</p>
+
+        Raises:
+            aws_sdk_connect.errors.contact_flow_not_published_exception.ContactFlowNotPublishedException: <p>The flow has not been published.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6834,6 +7881,15 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             contact_flow_module_id: <p>The identifier of the flow module.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6876,6 +7932,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             contact_flow_module_id: <p>The identifier of the flow module.</p>
             alias_id: <p>The identifier of the alias.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6917,6 +7982,15 @@ class ConnectClient:
         Args:
             instance_id: <p>The unique identifier for the Amazon Connect instance.</p>
             data_table_id: <p>The unique identifier for the data table. Must also accept the table ARN with or without a version alias. If no alias is provided, the default behavior is identical to providing the $LATEST alias.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -6959,6 +8033,15 @@ class ConnectClient:
             instance_id: <p>The unique identifier for the Amazon Connect instance.</p>
             data_table_id: <p>The unique identifier for the data table. Must also accept the table ARN with or without a version alias.</p>
             attribute_name: <p>The name of the attribute to retrieve detailed information for.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7000,6 +8083,15 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             email_address_id: <p>The identifier of the email address.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7044,6 +8136,13 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             evaluation_form_id: <p>A unique identifier for the contact evaluation.</p>
             evaluation_form_version: <p>A version of the evaluation form.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7086,6 +8185,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             hours_of_operation_id: <p>The identifier for the hours of operation.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7128,6 +8235,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance.</p>
             hours_of_operation_id: <p>The identifier for the hours of operation.</p>
             hours_of_operation_override_id: <p>The identifier for the hours of operation override.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7167,6 +8282,12 @@ class ConnectClient:
 
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7206,6 +8327,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             attribute_type: <p>The type of attribute.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7248,6 +8377,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             association_id: <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
             resource_type: <p>A valid resource type.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7289,6 +8426,15 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             notification_id: <p>The unique identifier for the notification.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7327,6 +8473,14 @@ class ConnectClient:
 
         Args:
             phone_number_id: <p>A unique identifier for the phone number.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7366,6 +8520,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>
             name: <p>The name of the predefined attribute.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7406,6 +8568,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             prompt_id: <p>A unique identifier for the prompt.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7446,6 +8616,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             queue_id: <p>The identifier for the queue.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7486,6 +8664,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             quick_connect_id: <p>The identifier for the quick connect.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7526,6 +8712,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             routing_profile_id: <p>The identifier of the routing profile.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7566,6 +8760,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             rule_id: <p>A unique identifier for the rule.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7606,6 +8808,14 @@ class ConnectClient:
         Args:
             security_profile_id: <p>The identifier for the security profle.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7650,6 +8860,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Amazon Connect instance.</p>
             test_case_id: <p>The identifier of the test case.</p>
             status: <p>The status of the test case version to retrieve. If not specified, returns the published version if available, otherwise returns the saved version.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7690,6 +8909,14 @@ class ConnectClient:
 
         Args:
             traffic_distribution_group_id: <p>The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7729,6 +8956,14 @@ class ConnectClient:
         Args:
             user_id: <p>The identifier of the user account.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7769,6 +9004,14 @@ class ConnectClient:
         Args:
             hierarchy_group_id: <p>The identifier of the hierarchy group.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7807,6 +9050,14 @@ class ConnectClient:
 
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7846,6 +9097,15 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance.</p>
             view_id: <p>The ViewId of the view. This must be an ARN for Amazon Web Services managed views.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.too_many_requests_exception.TooManyRequestsException: <p>Displayed when rate-related API limits are exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7888,6 +9148,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             vocabulary_id: <p>The identifier of the custom vocabulary.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7928,6 +9196,15 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             workspace_id: <p>The identifier of the workspace.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -7972,6 +9249,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             data_set_id: <p>The identifier of the dataset to remove.</p>
             target_account_id: <p>The identifier of the target account. Use to associate a dataset to a different account than the one containing the Connect Customer instance. If not specified, by default this value is the Amazon Web Services account that has the Connect Customer instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8014,6 +9299,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             origin: <p>The domain URL of the integrated application.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8057,6 +9350,13 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             lex_v2_bot: <p>The Amazon Lex V2 bot to disassociate from the instance.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8104,6 +9404,16 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             alias_configuration: <p>Configuration object that specifies which alias relationship to remove. The alias association must currently exist between the primary email address and the specified alias email address.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8149,6 +9459,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             resource_id: <p>The identifier of the resource.</p> <ul> <li> <p>Amazon Web Services End User Messaging SMS phone number ARN when using <code>SMS_PHONE_NUMBER</code> </p> </li> <li> <p>Amazon Web Services End User Messaging Social phone number ARN when using <code>WHATSAPP_MESSAGING_PHONE_NUMBER</code> </p> </li> </ul>
             resource_type: <p>A valid resource type.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8192,6 +9511,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             hours_of_operation_id: <p>The identifier of the child hours of operation.</p>
             parent_hours_of_operation_ids: <p>The Amazon Resource Names (ARNs) of the parent hours of operation resources to disassociate with the child hours of operation resource.</p>
+
+        Raises:
+            aws_sdk_connect.errors.conditional_operation_failed_exception.ConditionalOperationFailedException: <p>Request processing failed because dependent condition failed.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8235,6 +9563,14 @@ class ConnectClient:
             association_id: <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
             resource_type: <p>A valid resource type.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8278,6 +9614,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance..</p>
             function_arn: <p>The Amazon Resource Name (ARN) of the Lambda function being disassociated.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8322,6 +9666,14 @@ class ConnectClient:
             bot_name: <p>The name of the Amazon Lex bot. Maximum character limit of 50.</p>
             lex_region: <p>The Amazon Web Services Region in which the Amazon Lex bot has been created.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8363,6 +9715,14 @@ class ConnectClient:
         Args:
             phone_number_id: <p>A unique identifier for the phone number.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8405,6 +9765,15 @@ class ConnectClient:
             queue_id: <p>The identifier for the queue.</p>
             email_addresses_id: <p>List of email address identifiers to disassociate from the queue. These are the unique identifiers of email addresses that should no longer be routed to this queue.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8448,6 +9817,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             queue_id: <p>The identifier for the queue.</p>
             quick_connect_ids: <p>The quick connects to disassociate from the queue.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8495,6 +9872,14 @@ class ConnectClient:
             routing_profile_id: <p>The identifier of the routing profile.</p>
             queue_references: <p>The queues to disassociate from this routing profile.</p>
             manual_assignment_queue_references: <p>The manual assignment queues to disassociate with this routing profile.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8541,6 +9926,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             association_id: <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8585,6 +9978,16 @@ class ConnectClient:
             security_profiles: <p> List of Security Profile Object. </p>
             entity_type: <p> Only supported type is AI_AGENT. </p>
             entity_arn: <p> ARN of a Q in Connect AI Agent. </p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conditional_operation_failed_exception.ConditionalOperationFailedException: <p>Request processing failed because dependent condition failed.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8627,6 +10030,15 @@ class ConnectClient:
             traffic_distribution_group_id: <p>The identifier of the traffic distribution group. This can be the ID or the ARN of the traffic distribution group.</p>
             user_id: <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8670,6 +10082,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>
             user_id: <p>The identifier of the user account.</p>
             user_proficiencies: <p>The proficiencies to disassociate from the user.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8711,6 +10131,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             workspace_id: <p>The identifier of the workspace.</p>
             resource_arns: <p>The Amazon Resource Names (ARNs) of the resources to disassociate from the workspace.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8756,6 +10185,15 @@ class ConnectClient:
             user_id: <p>The identifier of the user account.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance.</p>
             contact_id: <p>The identifier of the contact.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8807,6 +10245,15 @@ class ConnectClient:
             time_zone: <p>Optional IANA timezone identifier to use when resolving time based dynamic values. Defaults to the data table time zone if not provided.</p>
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             max_results: <p>The maximum number of data table values to return in one page of results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8860,6 +10307,14 @@ class ConnectClient:
             file_id: <p>The unique identifier of the attached file resource.</p>
             url_expiry_in_seconds: <p>Optional override for the expiry of the pre-signed S3 URL in seconds. The default value is 300.</p>
             associated_resource_arn: <p>The resource to which the attached file is (being) uploaded to. The supported resources are <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/cases.html\">Cases</a> and <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html\">Email</a>.</p> <note> <p>This value must be a valid ARN.</p> </note>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8903,6 +10358,12 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance.</p>
             initial_contact_id: <p>The identifier of the initial contact.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -8945,6 +10406,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             contact_id: <p>The identifier of the contact in this instance of Connect Customer. </p>
             metrics: <p>A list of contact level metrics to retrieve.Supported metrics include POSITION_IN_QUEUE (the contact's current position in the queue) and ESTIMATED_WAIT_TIME (the predicted time in seconds until the contact is connected to an agent)</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9000,6 +10470,14 @@ class ConnectClient:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p> <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use the token must use the same request parameters as the request that generated the token.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             sort_criteria: <p>The way to sort the resulting response based on metrics. You can enter one sort criteria. By default resources are sorted based on <code>AGENTS_ONLINE</code>, <code>DESCENDING</code>. The metric collection is sorted based on the input metrics.</p> <p>Note the following:</p> <ul> <li> <p>Sorting on <code>SLOTS_ACTIVE</code> and <code>SLOTS_AVAILABLE</code> is not supported.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9055,6 +10533,14 @@ class ConnectClient:
             filters: <p>The filters to apply to returned user data. You can filter up to the following limits:</p> <ul> <li> <p>Queues: 100</p> </li> <li> <p>Routing profiles: 100</p> </li> <li> <p>Agents: 100</p> </li> <li> <p>Contact states: 9</p> </li> <li> <p>User hierarchy groups: 1</p> </li> </ul> <p> The user data is retrieved for only the specified values/resources in the filter. A maximum of one filter can be passed from queues, routing profiles, agents, and user hierarchy groups. </p> <p>Currently tagging is only supported on the resources that are passed in the filter.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9103,6 +10589,14 @@ class ConnectClient:
             hours_of_operation_id: <p>The identifier for the hours of operation.</p>
             from_date: <p>The date from when the hours of operation are listed.</p>
             to_date: <p>The date until when the hours of operation are listed.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9145,6 +10639,15 @@ class ConnectClient:
 
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.user_not_found_exception.UserNotFoundException: <p>No user with the specified credentials was found in the Connect Customer instance.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9188,6 +10691,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             resource_id: <p>The identifier of the resource.</p> <ul> <li> <p>Amazon Web Services End User Messaging SMS phone number ARN when using <code>SMS_PHONE_NUMBER</code> </p> </li> <li> <p>Amazon Web Services End User Messaging Social phone number ARN when using <code>WHATSAPP_MESSAGING_PHONE_NUMBER</code> </p> </li> </ul>
             resource_type: <p>A valid resource type.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9243,6 +10755,14 @@ class ConnectClient:
             historical_metrics: <p>The metrics to retrieve. Specify the name, unit, and statistic for each metric. The following historical metrics are available. For a description of each metric, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html\">Metrics definition</a> in the <i>Connect Customer Administrator Guide</i>.</p> <note> <p>This API does not support a contacts incoming metric (there's no CONTACTS_INCOMING metric missing from the documented list). </p> </note> <dl> <dt>ABANDON_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-queue-abandon-time\">Average queue abandon time</a> </p> </dd> <dt>AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#after-contact-work-time\">After contact work time</a> </p> </dd> <dt>API_CONTACTS_HANDLED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#api-contacts-handled\">API contacts handled</a> </p> </dd> <dt>AVG_HOLD_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-customer-hold-time\">Average customer hold time</a> </p> </dd> <dt>CALLBACK_CONTACTS_HANDLED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#callback-contacts-handled\">Callback contacts handled</a> </p> </dd> <dt>CONTACTS_ABANDONED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-abandoned\">Contacts abandoned</a> </p> </dd> <dt>CONTACTS_AGENT_HUNG_UP_FIRST</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-agent-hung-up-first\">Contacts agent hung up first</a> </p> </dd> <dt>CONTACTS_CONSULTED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-consulted\">Contacts consulted</a> </p> </dd> <dt>CONTACTS_HANDLED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-handled\">Contacts handled</a> </p> </dd> <dt>CONTACTS_HANDLED_INCOMING</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-handled-incoming\">Contacts handled incoming</a> </p> </dd> <dt>CONTACTS_HANDLED_OUTBOUND</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-handled-outbound\">Contacts handled outbound</a> </p> </dd> <dt>CONTACTS_HOLD_ABANDONS</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-hold-disconnect\">Contacts hold disconnect</a> </p> </dd> <dt>CONTACTS_MISSED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#agent-non-response\">AGENT_NON_RESPONSE</a> </p> </dd> <dt>CONTACTS_QUEUED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-queued\">Contacts queued</a> </p> </dd> <dt>CONTACTS_TRANSFERRED_IN</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-transferred-in\">Contacts transferred in</a> </p> </dd> <dt>CONTACTS_TRANSFERRED_IN_FROM_QUEUE</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-transferred-out-queue\">Contacts transferred out queue</a> </p> </dd> <dt>CONTACTS_TRANSFERRED_OUT</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-transferred-out\">Contacts transferred out</a> </p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-transferred-out-queue\">Contacts transferred out queue</a> </p> </dd> <dt>HANDLE_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-handle-time\">Average handle time</a> </p> </dd> <dt>INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-interaction-and-customer-hold-time\">Average agent interaction and customer hold time</a> </p> </dd> <dt>INTERACTION_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#aaverage-agent-interaction-time\">Average agent interaction time</a> </p> </dd> <dt>OCCUPANCY</dt> <dd> <p>Unit: PERCENT</p> <p>Statistic: AVG</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#occupancy\">Occupancy</a> </p> </dd> <dt>QUEUE_ANSWER_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html##average-queue-answer-time\">Average queue answer time</a> </p> </dd> <dt>QUEUED_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: MAX</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#minimum-flow-time\">Minimum flow time</a> </p> </dd> <dt>SERVICE_LEVEL</dt> <dd> <p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p> <p>Unit: PERCENT</p> <p>Statistic: AVG</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \"Less than\"). </p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-queue-abandon-time\">Average queue abandon time</a> </p> </dd> </dl>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9312,6 +10832,14 @@ class ConnectClient:
             metrics: <p>The metrics to retrieve. Specify the name or metricId, groupings, and filters for each metric. The following historical metrics are available. For a description of each metric, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html\">Metrics definition</a> in the <i>Connect Customer Administrator Guide</i>.</p> <note> <p>MetricId should be used to reference custom metrics or out of the box metrics as Arn. If using MetricId, the limit is 20 MetricId per request.</p> </note> <dl> <dt>ABANDONMENT_RATE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#abandonment-rate\">Abandonment rate</a> </p> </dd> <dt>AGENT_ADHERENT_TIME</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#adherent-time\">Adherent time</a> </p> </dd> <dt>AGENT_ANSWER_RATE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#agent-answer-rate\">Agent answer rate</a> </p> </dd> <dt>AGENT_NON_ADHERENT_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#non-adherent-time\">Non-adherent time</a> </p> </dd> <dt>AGENT_NON_RESPONSE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy </p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#agent-non-response\">Agent non-response</a> </p> </dd> <dt>AGENT_NON_RESPONSE_WITHOUT_CUSTOMER_ABANDONS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <p>Data for this metric is available starting from October 1, 2023 0:00:00 GMT.</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#agent-non-response-without-customer-abandons\">Agent non-response without customer abandons</a> </p> </dd> <dt>AGENT_OCCUPANCY</dt> <dd> <p>Unit: Percentage</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy </p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#occupancy\">Occupancy</a> </p> </dd> <dt>AGENT_SCHEDULE_ADHERENCE</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#adherence\">Adherence</a> </p> </dd> <dt>AGENT_SCHEDULED_TIME</dt> <dd> <p>This metric is available only in Amazon Web Services Regions where <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region\">Forecasting, capacity planning, and scheduling</a> is available.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#scheduled-time\">Scheduled time</a> </p> </dd> <dt>AVG_ABANDON_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-queue-abandon-time\">Average queue abandon time</a> </p> </dd> <dt>AVG_ACTIVE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-active-time\">Average active time</a> </p> </dd> <dt>AVG_AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#after-contact-work-time\">Average after contact work time</a> </p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_AGENT_CONCURRENCY</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-concurrency\">Average agent concurrency</a> </p> </dd> <dt>AVG_AGENT_CONNECTING_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-api-connecting-time\">Average agent API connecting time</a> </p> <note> <p>The <code>Negate</code> key in metric-level filters is not applicable for this metric.</p> </note> </dd> <dt>AVG_AGENT_PAUSE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-pause-time\">Average agent pause time</a> </p> </dd> <dt>AVG_BOT_CONVERSATION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot version, Bot locale, Flows resource ID, Flows module resource ID, Flow type, Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows resource ID</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#average-bot-conversation-time\">Average bot conversation time</a> </p> </dd> <dt>AVG_BOT_CONVERSATION_TURNS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot version, Bot locale, Flows resource ID, Flows module resource ID, Flow type, Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows resource ID</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#average-bot-conversation-turns\">Average bot conversation turns</a> </p> </dd> <dt>AVG_CASE_RELATED_CONTACTS</dt> <dd> <p>Unit: Count</p> <p>Required filter key: CASE_TEMPLATE_ARN</p> <p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-contacts-per-case\">Average contacts per case</a> </p> </dd> <dt>AVG_CASE_RESOLUTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Required filter key: CASE_TEMPLATE_ARN</p> <p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-case-resolution-time\">Average case resolution time</a> </p> </dd> <dt>AVG_CONTACT_DURATION</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-contact-duration\">Average contact duration</a> </p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_CONTACT_FIRST_RESPONSE_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#agent-average-contact-first-response-wait-time\">Agent average contact first response wait time</a> </p> </dd> <dt>AVG_CONVERSATION_CLOSE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-conversation-close-time\">Average conversation close time</a> </p> </dd> <dt>AVG_CONVERSATION_DURATION</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-conversation-duration\">Average conversation duration</a> </p> </dd> <dt>AVG_DIALS_PER_MINUTE</dt> <dd> <p>This metric is available only for outbound campaigns that use the agent assisted voice and automated voice delivery modes.</p> <p>Unit: Count</p> <p>Valid groupings and filters: Agent, Campaign, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-dials-per-minute\">Average dials per minute</a> </p> </dd> <dt>AVG_EVALUATION_SCORE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID, Evaluation Section ID, Evaluation Question ID, Evaluation Source, Form Version, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-evaluation-score\">Average evaluation score</a> </p> </dd> <dt>AVG_FIRST_RESPONSE_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-first-response-time\">Average agent first response time</a> </p> </dd> <dt>AVG_FLOW_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module resource ID, Flows next resource ID, Flows next resource queue ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-flow-time\">Average flow time</a> </p> </dd> <dt>AVG_GREETING_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-greeting-time\">Average agent greeting time</a> </p> </dd> <dt>AVG_HANDLE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, AI Use Case, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-handle-time\">Average handle time</a> </p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>ACTIVE_AI_AGENTS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#active-ai-agents\">Active AI Agents</a> </p> </dd> <dt>AI_HANDOFF_RATE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoff-rate\">AI Handoff Rate</a> </p> </dd> <dt>AI_HANDOFFS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-handoffs\">AI Handoff Count</a> </p> </dd> <dt>AI_AGENT_INVOCATION_SUCCESS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-invocation-success\">AI Agent Invocation Success</a> </p> <note> <p>AI Agent Name Version is not a valid filter but a valid grouping.</p> </note> </dd> <dt>AI_AGENT_INVOCATION_SUCCESS_RATE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-invocation-success-rate\">AI Agent Invocation Success Rate</a> </p> <note> <p>AI Agent Name Version is not a valid filter but a valid grouping.</p> </note> </dd> <dt>AI_AGENT_INVOCATIONS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Type, AI Agent Name Version, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-invocations\">AI Agent Invocation Count</a> </p> <note> <p>AI Agent Name Version is not a valid filter but a valid grouping.</p> </note> </dd> <dt>AI_AGENT_RESPONSE_HELPFUL</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-response-helpful\">AI Agent Response Helpful</a> </p> <note> <p>AI Agent Name Version is not a valid filter but a valid grouping.</p> </note> </dd> <dt>AI_AGENT_RESPONSE_NOT_HELPFUL</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-agent-response-not-helpful\">AI Agent Response Not Helpful</a> </p> <note> <p>AI Agent Name Version is not a valid filter but a valid grouping.</p> </note> </dd> <dt>AI_RESPONSE_COMPLETION_RATE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-response-completion-rate\">AI Response Completion Rate</a> </p> </dd> <dt>AI_INVOLVED_CONTACTS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-involved-contacts\">AI Involved Contacts</a> </p> </dd> <dt>AI_PROMPT_INVOCATION_SUCCESS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Prompt, AI Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-prompt-invocation-success\">AI Prompt Invocation Success</a> </p> <note> <p>AI Agent Name Version is not a valid filter but a valid grouping.</p> </note> </dd> <dt>AI_PROMPT_INVOCATION_SUCCESS_RATE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Prompt, AI Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-prompt-invocation-success-rate\">AI Prompt Invocation Success Rate</a> </p> <note> <p>AI Agent Name Version is not a valid filter but a valid grouping.</p> </note> </dd> <dt>AI_PROMPT_INVOCATIONS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Prompt, AI Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-prompt-invocations\">AI Prompt Invocations</a> </p> <note> <p>AI Agent Name Version is not a valid filter but a valid grouping.</p> </note> </dd> <dt>AI_TOOL_INVOCATION_SUCCESS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-invocation-success\">AI Tool Invocation Success</a> </p> <note> <p>AI Agent Name Version is not a valid filter but a valid grouping.</p> </note> </dd> <dt>AI_TOOL_INVOCATION_SUCCESS_RATE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-invocation-success-rate\">AI Tool Invocation Success Rate</a> </p> <note> <p>AI Agent Name Version is not a valid filter but a valid grouping.</p> </note> </dd> <dt>AI_TOOL_INVOCATIONS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-invocations\">AI Tool Invocations</a> </p> <note> <p>AI Agent Name Version is not a valid filter but a valid grouping.</p> </note> </dd> <dt>AVG_AI_AGENT_CONVERSATION_TURNS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile </p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-ai-agent-conversation-turns\">Average AI Agent Conversation Turns</a> </p> <note> <p>AI Agent Name Version is not a valid filter but a valid grouping.</p> </note> </dd> <dt>AVG_AI_CONVERSATION_TURNS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-ai-conversation-turns\">Average AI Conversation Turns</a> </p> </dd> <dt>AVG_AI_PROMPT_INVOCATION_LATENCY</dt> <dd> <p>Unit: Milliseconds</p> <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Prompt, AI Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-ai-prompt-invocation-latency\">Average AI Prompt Invocation Latency</a> </p> <note> <p>AI Agent Name Version is not a valid filter but a valid grouping.</p> </note> </dd> <dt>AVG_AI_TOOL_INVOCATION_LATENCY</dt> <dd> <p>Unit: Milliseconds</p> <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-ai-tool-invocation-latency\">Average AI Tool Invocation Latency</a> </p> <note> <p>AI Agent Name Version is not a valid filter but a valid grouping.</p> </note> </dd> <dt>AI_TOOL_PARAMETER_ACCURACY</dt> <dd> <p>Unit: Double</p> <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-parameter-accuracy\">AI Tool Parameter Accuracy</a> </p> <note> <p>AI Agent Name Version is not a valid filter but a valid grouping.</p> </note> </dd> <dt>AI_TOOL_SELECTION_ACCURACY</dt> <dd> <p>Unit: Double</p> <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-selection-accuracy\">AI Tool Selection Accuracy</a> </p> <note> <p>AI Agent Name Version is not a valid filter but a valid grouping.</p> </note> </dd> <dt>AI_TOOL_UTILIZATION_ACCURACY</dt> <dd> <p>Unit: Double</p> <p>Valid groupings and filters: AI Agent, AI Agent ID, AI Agent Name, AI Agent Name Version, AI Agent Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#ai-tool-utilization-accuracy\">AI Tool Utilization Accuracy</a> </p> <note> <p>AI Agent Name Version is not a valid filter but a valid grouping.</p> </note> </dd> <dt>COMPLETENESS_SCORE</dt> <dd> <p>Unit: Double</p> <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#completeness-score\">Completeness Score</a> </p> </dd> <dt>FAITHFULNESS_SCORE</dt> <dd> <p>Unit: Double</p> <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#faithfulness-score\">Faithfulness Score</a> </p> </dd> <dt>GOAL_SUCCESS_RATE</dt> <dd> <p>Unit: Double</p> <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile, Session ID</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#goal-success-rate\">Goal Success Rate</a> </p> </dd> <dt>KNOWLEDGE_CONTENT_REFERENCES</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Type, AI Use Case, Channel, Knowledge Base Name, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#knowledge-content-references\">Knowledge Content References</a> </p> </dd> <dt>PROACTIVE_INTENT_ENGAGEMENT_RATE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-engagement-rate\">Proactive Intent Engagement Rate</a> </p> </dd> <dt>PROACTIVE_INTENT_RESPONSE_RATE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-response-rate\">Proactive Intent Response Rate</a> </p> </dd> <dt>PROACTIVE_INTENTS_ANSWERED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-answered\">Proactive Intents Answered</a> </p> </dd> <dt>PROACTIVE_INTENTS_DETECTED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-detected\">Proactive Intents Detected</a> </p> </dd> <dt>PROACTIVE_INTENTS_ENGAGED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: AI Agent ID, AI Agent Name, AI Agent Type, AI Use Case, Channel, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#proactive-intents-engaged\">Proactive Intents Engaged</a> </p> </dd> <dt>AVG_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-customer-hold-time\">Average customer hold time</a> </p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_HOLD_TIME_ALL_CONTACTS</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-customer-hold-time-all-contacts\">Average customer hold time all contacts</a> </p> </dd> <dt>AVG_HOLDS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-holds\">Average holds</a> </p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-interaction-and-customer-hold-time\">Average agent interaction and customer hold time</a> </p> </dd> <dt>AVG_INTERACTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-interaction-time\">Average agent interaction time</a> </p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_INTERRUPTIONS_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-interruptions\">Average agent interruptions</a> </p> </dd> <dt>AVG_INTERRUPTION_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-interruption-time\">Average agent interruption time</a> </p> </dd> <dt>AVG_MESSAGE_LENGTH_AGENT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-message-length\">Average agent message length</a> </p> </dd> <dt>AVG_MESSAGE_LENGTH_CUSTOMER</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-customer-message-length\">Average customer message length</a> </p> </dd> <dt>AVG_MESSAGES</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-messages\">Average messages</a> </p> </dd> <dt>AVG_MESSAGES_AGENT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-messages\">Average agent messages</a> </p> </dd> <dt>AVG_MESSAGES_BOT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-bot-messages\">Average bot messages</a> </p> </dd> <dt>AVG_MESSAGES_CUSTOMER</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-customer-messages\">Average customer messages</a> </p> </dd> <dt>AVG_NON_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-non-talk-time\">Average non-talk time</a> </p> </dd> <dt>AVG_QUEUE_ANSWER_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-queue-answer-time\">Average queue answer time</a> </p> <p>Valid metric level filters: <code>INITIATION_METHOD</code>, <code>FEATURE</code>, <code>DISCONNECT_REASON</code> </p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>AVG_QUEUE_ANSWER_TIME_CUSTOMER_FIRST_CALLBACK</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect, Agent Hierarchy</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-queue-answer-time-customer-first-callback\">Avg. queue answer time - customer first callback</a> </p> </dd> <dt>AVG_RESPONSE_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-response-time-agent\">Average agent response time</a> </p> </dd> <dt>AVG_RESPONSE_TIME_CUSTOMER</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-customer-time-agent\">Average customer response time</a> </p> </dd> <dt>AVG_RESOLUTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-resolution-time\">Average resolution time</a> </p> </dd> <dt>AVG_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-talk-time\">Average talk time</a> </p> </dd> <dt>AVG_TALK_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-talk-time\">Average agent talk time</a> </p> </dd> <dt>AVG_TALK_TIME_CUSTOMER</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-customer-talk-time\">Average customer talk time</a> </p> </dd> <dt>AVG_WAIT_TIME_AFTER_CUSTOMER_CONNECTION</dt> <dd> <p>This metric is available only for outbound campaigns that use the agent assisted voice and automated voice delivery modes.</p> <p>Unit: Seconds</p> <p>Valid groupings and filters: Campaign</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-wait-time-after-customer-connection\">Average wait time after customer connection</a> </p> </dd> <dt>AVG_WAIT_TIME_AFTER_CUSTOMER_FIRST_CALLBACK_CONNECTION</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect, Agent Hierarchy</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-wait-time-after-customer-connection-customer-first-callback\">Avg. wait time after customer connection - customer first callback</a> </p> </dd> <dt>AVG_WEIGHTED_EVALUATION_SCORE</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form Id, Evaluation Section ID, Evaluation Question ID, Evaluation Source, Form Version, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-weighted-evaluation-score\">Average weighted evaluation score</a> </p> </dd> <dt>BOT_CONVERSATIONS_COMPLETED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot version, Bot locale, Flows resource ID, Flows module resource ID, Flow type, Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows resource ID</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#bot-conversations-completed\">Bot conversations completed</a> </p> </dd> <dt>BOT_INTENTS_COMPLETED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot version, Bot locale, Bot intent name, Flows resource ID, Flows module resource ID, Flow type, Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows resource ID</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#bot-intents-completed\">Bot intents completed</a> </p> </dd> <dt>CAMPAIGN_CONTACTS_ABANDONED_AFTER_X</dt> <dd> <p>This metric is available only for outbound campaigns using the agent assisted voice and automated voice delivery modes.</p> <p>Unit: Count</p> <p>Valid groupings and filters: Agent, Campaign</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>GT</code> (for <i>Greater than</i>).</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#campaign-contacts-abandoned-after-x\">Campaign contacts abandoned after X</a> </p> </dd> <dt>CAMPAIGN_CONTACTS_ABANDONED_AFTER_X_RATE</dt> <dd> <p>This metric is available only for outbound campaigns using the agent assisted voice and automated voice delivery modes.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Agent, Campaign</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>GT</code> (for <i>Greater than</i>).</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#campaign-contacts-abandoned-after-x-rate\">Campaign contacts abandoned after X rate</a> </p> </dd> <dt>CAMPAIGN_INTERACTIONS</dt> <dd> <p>This metric is available only for outbound campaigns using the email delivery mode. </p> <p>Unit: Count</p> <p>Valid metric filter key: CAMPAIGN_INTERACTION_EVENT_TYPE</p> <p>Valid groupings and filters: Campaign</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#campaign-interactions\">Campaign interactions</a> </p> </dd> <dt>CAMPAIGN_PROGRESS_RATE</dt> <dd> <p>This metric is only available for outbound campaigns initiated using a customer segment. It is not available for event triggered campaigns.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Campaign, Campaign Execution Timestamp</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#campaign-progress-rate\">Campaign progress rate</a> </p> </dd> <dt>CAMPAIGN_SEND_ATTEMPTS</dt> <dd> <p>This metric is available only for outbound campaigns.</p> <p>Unit: Count</p> <p>Valid groupings and filters: Campaign, Channel, contact/segmentAttributes/connect:Subtype </p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#campaign-send-attempts\">Campaign send attempts</a> </p> </dd> <dt>CAMPAIGN_SEND_EXCLUSIONS</dt> <dd> <p>This metric is available only for outbound campaigns.</p> <p>Valid metric filter key: CAMPAIGN_EXCLUDED_EVENT_TYPE</p> <p>Unit: Count</p> <p>Valid groupings and filters: Campaign, Campaign Excluded Event Type, Campaign Execution Timestamp</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#campaign-send-exclusions\">Campaign send exclusions</a> </p> </dd> <dt>CASES_CREATED</dt> <dd> <p>Unit: Count</p> <p>Required filter key: CASE_TEMPLATE_ARN</p> <p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#cases-created\">Cases created</a> </p> </dd> <dt>CONTACTS_CREATED</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-created\">Contacts created</a> </p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_HANDLED</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-handled\">Contacts handled</a> </p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_HANDLED_BY_CONNECTED_TO_AGENT</dt> <dd> <p>Unit: Count</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code> </p> <p>Valid groupings and filters: Queue, Channel, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-handled-by-connected-to-agent-timestamp\">Contacts handled (connected to agent timestamp)</a> </p> </dd> <dt>CONTACTS_HOLD_ABANDONS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-hold-disconnect\">Contacts hold disconnect</a> </p> </dd> <dt>CONTACTS_ON_HOLD_AGENT_DISCONNECT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-hold-agent-disconnect\">Contacts hold agent disconnect</a> </p> </dd> <dt>CONTACTS_ON_HOLD_CUSTOMER_DISCONNECT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-hold-customer-disconnect\">Contacts hold customer disconnect</a> </p> </dd> <dt>CONTACTS_PUT_ON_HOLD</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-put-on-hold\">Contacts put on hold</a> </p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_EXTERNAL</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-transferred-out-external\">Contacts transferred out external</a> </p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_INTERNAL</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-transferred-out-internal\">Contacts transferred out internal</a> </p> </dd> <dt>CONTACTS_QUEUED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-queued\">Contacts queued</a> </p> </dd> <dt>CONTACTS_QUEUED_BY_ENQUEUE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-queued-by-enqueue\">Contacts queued (enqueue timestamp)</a> </p> </dd> <dt>CONTACTS_REMOVED_FROM_QUEUE_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Q in Connect</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you can use <code>LT</code> (for \"Less than\") or <code>LTE</code> (for \"Less than equal\").</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-removed-from-queue\">Contacts removed from queue in X seconds</a> </p> </dd> <dt>CONTACTS_RESOLVED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you can use <code>LT</code> (for \"Less than\") or <code>LTE</code> (for \"Less than equal\").</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-resolved\">Contacts resolved in X</a> </p> </dd> <dt>CONTACTS_TRANSFERRED_OUT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-transferred-out\">Contacts transferred out</a> </p> <note> <p>Feature is a valid filter but not a valid grouping.</p> </note> </dd> <dt>CONTACTS_TRANSFERRED_OUT_BY_AGENT</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-transferred-out-by-agent\">Contacts transferred out by agent</a> </p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-transferred-out-queue\">Contacts transferred out queue</a> </p> </dd> <dt>CURRENT_CASES</dt> <dd> <p>Unit: Count</p> <p>Required filter key: CASE_TEMPLATE_ARN</p> <p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#current-cases\">Current cases</a> </p> </dd> <dt>CONVERSATIONS_ABANDONED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile, Queue, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#conversations-abandoned\">Conversations abandoned</a> </p> </dd> <dt>DELIVERY_ATTEMPTS</dt> <dd> <p>This metric is available only for outbound campaigns.</p> <p>Unit: Count</p> <p>Valid metric filter key: <code>ANSWERING_MACHINE_DETECTION_STATUS</code>, <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code>, <code>DISCONNECT_REASON</code> </p> <p>Valid groupings and filters: Agent, Answering Machine Detection Status, Campaign, Campaign Delivery EventType, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#delivery-attempts\">Delivery attempts</a> </p> <note> <p>Campaign Delivery EventType filter and grouping are only available for SMS and Email campaign delivery modes. Agent, Queue, Routing Profile, Answering Machine Detection Status and Disconnect Reason are only available for agent assisted voice and automated voice delivery modes. </p> </note> </dd> <dt>DELIVERY_ATTEMPT_DISPOSITION_RATE</dt> <dd> <p>This metric is available only for outbound campaigns. Dispositions for the agent assisted voice and automated voice delivery modes are only available with answering machine detection enabled.</p> <p>Unit: Percent</p> <p>Valid metric filter key: <code>ANSWERING_MACHINE_DETECTION_STATUS</code>, <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code>, <code>DISCONNECT_REASON</code> </p> <p>Valid groupings and filters: Agent, Answering Machine Detection Status, Campaign, Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#delivery-attempt-disposition-rate\">Delivery attempt disposition rate</a> </p> <note> <p>Campaign Delivery Event Type filter and grouping are only available for SMS and Email campaign delivery modes. Agent, Queue, Routing Profile, Answering Machine Detection Status and Disconnect Reason are only available for agent assisted voice and automated voice delivery modes. </p> </note> </dd> <dt>EVALUATIONS_PERFORMED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID, Evaluation Source, Form Version, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#evaluations-performed\">Evaluations performed</a> </p> </dd> <dt>FLOWS_OUTCOME</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module resource ID, Flows next resource ID, Flows next resource queue ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#flows-outcome\">Flows outcome</a> </p> </dd> <dt>FLOWS_STARTED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module resource ID, Flows resource ID, Initiation method, Resource published timestamp</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#flows-started\">Flows started</a> </p> </dd> <dt>HUMAN_ANSWERED_CALLS</dt> <dd> <p>This metric is available only for outbound campaigns. Dispositions for the agent assisted voice and automated voice delivery modes are only available with answering machine detection enabled. </p> <p>Unit: Count</p> <p>Valid groupings and filters: Agent, Campaign</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#human-answered\">Human answered</a> </p> </dd> <dt>MAX_FLOW_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module resource ID, Flows next resource ID, Flows next resource queue ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#maximum-flow-time\">Maximum flow time</a> </p> </dd> <dt>MAX_QUEUED_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#maximum-queued-time\">Maximum queued time</a> </p> </dd> <dt>MIN_FLOW_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module resource ID, Flows next resource ID, Flows next resource queue ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#minimum-flow-time\">Minimum flow time</a> </p> </dd> <dt>PERCENT_AUTOMATIC_FAILS</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID, Evaluation Source, Form Version, Queue, Routing Profile</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#automatic-fails-percent\">Automatic fails percent</a> </p> </dd> <dt>PERCENT_BOT_CONVERSATIONS_OUTCOME</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot version, Bot locale, Flows resource ID, Flows module resource ID, Flow type, Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows resource ID</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#percent-bot-conversations-outcome\">Percent bot conversations outcome</a> </p> </dd> <dt>PERCENT_BOT_INTENTS_OUTCOME</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot version, Bot locale, Bot intent name, Flows resource ID, Flows module resource ID, Flow type, Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows resource ID</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#percent-bot-intents-outcome\">Percent bot intents outcome</a> </p> </dd> <dt>PERCENT_CASES_FIRST_CONTACT_RESOLVED</dt> <dd> <p>Unit: Percent</p> <p>Required filter key: CASE_TEMPLATE_ARN</p> <p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#cases-resolved-on-first-contact\">Cases resolved on first contact</a> </p> </dd> <dt>PERCENT_CONTACTS_STEP_EXPIRED</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, RoutingStepExpression</p> <p>UI name: This metric is available in Real-time Metrics UI but not on the Historical Metrics UI.</p> </dd> <dt>PERCENT_CONTACTS_STEP_JOINED</dt> <dd> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, RoutingStepExpression</p> <p>UI name: This metric is available in Real-time Metrics UI but not on the Historical Metrics UI.</p> </dd> <dt>PERCENT_FLOWS_OUTCOME</dt> <dd> <p>Unit: Percent</p> <p>Valid metric filter key: <code>FLOWS_OUTCOME_TYPE</code> </p> <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module resource ID, Flows next resource ID, Flows next resource queue ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#flows-outcome-percentage\">Flows outcome percentage</a>.</p> <note> <p>The <code>FLOWS_OUTCOME_TYPE</code> is not a valid grouping.</p> </note> </dd> <dt>PERCENT_NON_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#non-talk-time-percent\">Non-talk time percent</a> </p> </dd> <dt>PERCENT_TALK_TIME</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#talk-time-percent\">Talk time percent</a> </p> </dd> <dt>PERCENT_TALK_TIME_AGENT</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#agent-talk-time-percent\">Agent talk time percent</a> </p> </dd> <dt>PERCENT_TALK_TIME_CUSTOMER</dt> <dd> <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p> <p>Unit: Percentage</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#customer-talk-time-percent\">Customer talk time percent</a> </p> </dd> <dt>RECIPIENTS_ATTEMPTED</dt> <dd> <p>This metric is only available for outbound campaigns initiated using a customer segment. It is not available for event triggered campaigns.</p> <p>Unit: Count</p> <p>Valid groupings and filters: Campaign, Campaign Execution Timestamp</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#recipients-attempted\">Recipients attempted</a> </p> </dd> <dt>RECIPIENTS_INTERACTED</dt> <dd> <p>This metric is only available for outbound campaigns initiated using a customer segment. It is not available for event triggered campaigns.</p> <p>Valid metric filter key: CAMPAIGN_INTERACTION_EVENT_TYPE</p> <p>Unit: Count</p> <p>Valid groupings and filters: Campaign, Channel, contact/segmentAttributes/connect:Subtype, Campaign Execution Timestamp</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#recipients-interacted\">Recipients interacted</a> </p> </dd> <dt>RECIPIENTS_TARGETED</dt> <dd> <p>This metric is only available for outbound campaigns initiated using a customer segment. It is not available for event triggered campaigns.</p> <p>Unit: Count</p> <p>Valid groupings and filters: Campaign, Campaign Execution Timestamp</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#recipients-targeted\">Recipients targeted</a> </p> </dd> <dt>REOPENED_CASE_ACTIONS</dt> <dd> <p>Unit: Count</p> <p>Required filter key: CASE_TEMPLATE_ARN</p> <p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#cases-reopened\">Cases reopened</a> </p> </dd> <dt>RESOLVED_CASE_ACTIONS</dt> <dd> <p>Unit: Count</p> <p>Required filter key: CASE_TEMPLATE_ARN</p> <p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#cases-resolved\">Cases resolved</a> </p> </dd> <dt>SERVICE_LEVEL</dt> <dd> <p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p> <p>Unit: Percent</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Q in Connect</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you can use <code>LT</code> (for \"Less than\") or <code>LTE</code> (for \"Less than equal\").</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#service-level\">Service level X</a> </p> </dd> <dt>STEP_CONTACTS_QUEUED</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, RoutingStepExpression</p> <p>UI name: This metric is available in Real-time Metrics UI but not on the Historical Metrics UI.</p> </dd> <dt>SUM_AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#after-contact-work-time\">After contact work time</a> </p> </dd> <dt>SUM_CONNECTING_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid metric filter key: <code>INITIATION_METHOD</code>. This metric only supports the following filter keys as <code>INITIATION_METHOD</code>: <code>INBOUND</code> | <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code> | <code>CALLBACK_CUSTOMER_FIRST_DIALED</code> </p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#agent-api-connecting-time\">Agent API connecting time</a> </p> <note> <p>The <code>Negate</code> key in metric-level filters is not applicable for this metric.</p> </note> </dd> <dt>CONTACTS_ABANDONED</dt> <dd> <p>Unit: Count</p> <p>Metric filter: </p> <ul> <li> <p>Valid values: <code>API</code>| <code>INCOMING</code> | <code>OUTBOUND</code> | <code>TRANSFER</code> | <code>CALLBACK</code> | <code>QUEUE_TRANSFER</code>| <code>Disconnect</code> | <code>CALLBACK_CUSTOMER_FIRST_DIALED</code> </p> </li> </ul> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, RoutingStepExpression, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-abandoned\">Contact abandoned</a> </p> </dd> <dt>SUM_CONTACTS_ABANDONED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you can use <code>LT</code> (for \"Less than\") or <code>LTE</code> (for \"Less than equal\").</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-abandoned-in-x-seconds\">Contacts abandoned in X seconds</a> </p> </dd> <dt>SUM_CONTACTS_ANSWERED_IN_X</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you can use <code>LT</code> (for \"Less than\") or <code>LTE</code> (for \"Less than equal\").</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contacts-answered-in-x-seconds\">Contacts answered in X seconds</a> </p> </dd> <dt>SUM_CONTACT_FLOW_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contact-flow-time\">Contact flow time</a> </p> </dd> <dt>SUM_CONTACT_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#agent-on-contact-time\">Agent on contact time</a> </p> </dd> <dt>SUM_CONTACTS_DISCONNECTED </dt> <dd> <p>Valid metric filter key: <code>DISCONNECT_REASON</code> </p> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contact-disconnected\">Contact disconnected</a> </p> </dd> <dt>SUM_ERROR_STATUS_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#error-status-time\">Error status time</a> </p> </dd> <dt>SUM_HANDLE_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#contact-handle-time\">Contact handle time</a> </p> </dd> <dt>SUM_HOLD_TIME</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#customer-hold-time\">Customer hold time</a> </p> </dd> <dt>SUM_IDLE_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#agent-idle-time\">Agent idle time</a> </p> </dd> <dt>SUM_INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#agent-interaction-and-hold-time\">Agent interaction and hold time</a> </p> </dd> <dt>SUM_INTERACTION_TIME</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#agent-interaction-time\">Agent interaction time</a> </p> </dd> <dt>SUM_NON_PRODUCTIVE_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#agent-non-productive-time\">Agent non-productive time</a> </p> </dd> <dt>SUM_ONLINE_TIME_AGENT</dt> <dd> <p>Unit: Seconds</p> <p>Valid groupings and filters: Routing Profile, Agent, Agent Hierarchy</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#online-time\">Online time</a> </p> </dd> <dt>SUM_RETRY_CALLBACK_ATTEMPTS</dt> <dd> <p>Unit: Count</p> <p>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype, Q in Connect</p> <p>UI name: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#callback-attempts\">Callback attempts</a> </p> </dd> </dl>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9363,6 +10891,14 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             prompt_id: <p>A unique identifier for the prompt.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9407,6 +10943,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             task_template_id: <p>A unique identifier for the task template.</p>
             snapshot_version: <p>The system generated version of a task template that is associated with a task, when the task is created.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9451,6 +10995,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Amazon Connect instance.</p>
             test_case_id: <p>The identifier of the test case.</p>
             test_case_execution_id: <p>The identifier of the test case execution.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9490,6 +11043,14 @@ class ConnectClient:
 
         Args:
             id: <p>The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9537,6 +11098,15 @@ class ConnectClient:
             phone_number_description: <p>The description of the phone number.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.idempotency_exception.IdempotencyException: <p>An entity with the same name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9587,6 +11157,14 @@ class ConnectClient:
             workspace_id: <p>The identifier of the workspace.</p>
             media_type: <p>The type of media. Valid values are: <code>IMAGE_LOGO_FAVICON</code> and <code>IMAGE_LOGO_HORIZONTAL</code>.</p>
             media_source: <p>The media source. Can be an S3 presigned URL or a base64-encoded string.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9637,6 +11215,14 @@ class ConnectClient:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             agent_status_types: <p>Available agent status types.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9717,6 +11303,14 @@ class ConnectClient:
             data_set_id: <p>The identifier of the dataset to get the association status.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9766,6 +11360,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9811,6 +11413,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9883,6 +11493,14 @@ class ConnectClient:
             contact_id: <p>The identifier of the contact in this instance of Connect Customer. </p>
             max_results: <p>The maximum number of results to return per page. </p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -9931,6 +11549,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             max_results: <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10003,6 +11629,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10075,6 +11709,13 @@ class ConnectClient:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             lex_version: <p>The version of Amazon Lex or Amazon Lex V2.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10150,6 +11791,14 @@ class ConnectClient:
             hours_of_operation_id: <p>The identifier of the parent hours of operation.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10225,6 +11874,13 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             contact_id: <p>The identifier of the contact in this instance of Connect Customer. </p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p> <important> <p>This is not expected to be set because the value returned in the previous response is always null.</p> </important>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10296,6 +11952,15 @@ class ConnectClient:
             contact_flow_module_id: <p>The identifier of the flow module.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10377,6 +12042,15 @@ class ConnectClient:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             contact_flow_module_state: <p>The state of the flow module.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10457,6 +12131,15 @@ class ConnectClient:
             contact_flow_module_id: <p>The identifier of the flow module.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10538,6 +12221,14 @@ class ConnectClient:
             contact_flow_types: <p>The type of flow.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10618,6 +12309,15 @@ class ConnectClient:
             contact_flow_id: <p>The identifier of the flow.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10693,6 +12393,14 @@ class ConnectClient:
             contact_id: <p>The identifier of the initial contact.</p>
             reference_types: <p>The type of reference.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p> <important> <p>This is not expected to be set, because the value returned in the previous response is always null.</p> </important>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10771,6 +12479,15 @@ class ConnectClient:
             attribute_ids: <p>Optional list of specific attribute IDs to retrieve. Used for CloudFormation to effectively describe attributes by ID. If NextToken is provided, this parameter is ignored.</p>
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             max_results: <p>The maximum number of data table attributes to return in one page of results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10860,6 +12577,15 @@ class ConnectClient:
             primary_attribute_values: <p>Optional filter to retrieve primary values matching specific criteria.</p>
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             max_results: <p>The maximum number of data table primary values to return in one page of results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -10945,6 +12671,15 @@ class ConnectClient:
             instance_id: <p>The unique identifier for the Amazon Connect instance whose data tables should be listed.</p>
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             max_results: <p>The maximum number of data tables to return in one page of results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11025,6 +12760,15 @@ class ConnectClient:
             primary_attribute_values: <p>Optional filter to retrieve values for records matching specific primary attribute criteria.</p>
             next_token: <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
             max_results: <p>The maximum number of data table values to return in one page of results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11118,6 +12862,13 @@ class ConnectClient:
             language_code: <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html\">What is Amazon Transcribe?</a> </p>
             max_results: <p>The maximum number of results to return per page.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11204,6 +12955,14 @@ class ConnectClient:
             entity_arn: <p> ARN of a Q in Connect AI Agent. </p>
             next_token: <p> The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
             max_results: <p> The maximum number of results to return per page. The default MaxResult size is 100. </p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11284,6 +13043,13 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11360,6 +13126,13 @@ class ConnectClient:
             evaluation_form_id: <p>The unique identifier for the evaluation form.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11439,6 +13212,15 @@ class ConnectClient:
             resource_type: <p>A valid resource type.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11519,6 +13301,14 @@ class ConnectClient:
             hours_of_operation_id: <p>The identifier for the hours of operation.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11594,6 +13384,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11664,6 +13462,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11730,6 +13536,11 @@ class ConnectClient:
         Args:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11797,6 +13608,14 @@ class ConnectClient:
             resource_type: <p>A valid resource type.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11878,6 +13697,13 @@ class ConnectClient:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             integration_arn: <p>The Amazon Resource Name (ARN) of the integration.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -11958,6 +13784,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12026,6 +13860,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page. If no value is specified, the default is 10. </p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12096,6 +13938,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response to retrieve the next page of results.</p>
             max_results: <p>The maximum number of results to return per page. Valid range is 1-100.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12151,6 +14002,14 @@ class ConnectClient:
             phone_number_country_codes: <p>The ISO country code.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12251,6 +14110,14 @@ class ConnectClient:
             phone_number_country_codes: <p>The ISO country code.</p>
             phone_number_types: <p>The type of phone number.</p>
             phone_number_prefix: <p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12348,6 +14215,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12420,6 +14295,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12494,6 +14377,15 @@ class ConnectClient:
             queue_id: <p>The identifier for the queue.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12544,6 +14436,14 @@ class ConnectClient:
             queue_id: <p>The identifier for the queue.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12621,6 +14521,14 @@ class ConnectClient:
             queue_types: <p>The type of queue.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12701,6 +14609,14 @@ class ConnectClient:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
             quick_connect_types: <p>The type of quick connect. In the Connect Customer admin website, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12787,6 +14703,15 @@ class ConnectClient:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             output_type: <p>The Contact Lens output type to be returned.</p>
             segment_types: <p>Enum with segment types . Each value corresponds to a segment type returned in the segments list of the API. Each segment type has its own structure. Different channels may have different sets of supported segment types.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.output_type_not_found_exception.OutputTypeNotFoundException: <p>Thrown for analyzed content when requested OutputType was not enabled for a given contact. For example, if an OutputType.Raw was requested for a contact that had `RedactedOnly` Redaction policy set in the flow.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12839,6 +14764,14 @@ class ConnectClient:
             routing_profile_id: <p>The identifier of the routing profile.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12919,6 +14852,14 @@ class ConnectClient:
             routing_profile_id: <p>The identifier of the routing profile.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -12996,6 +14937,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13078,6 +15027,14 @@ class ConnectClient:
             event_source_name: <p>The name of the event source.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13160,6 +15117,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13232,6 +15197,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13309,6 +15282,14 @@ class ConnectClient:
             instance_id: <p> The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             next_token: <p> The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
             max_results: <p> The maximum number of results to return per page. The default MaxResult size is 100. </p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13386,6 +15367,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13461,6 +15450,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13527,6 +15524,14 @@ class ConnectClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource. All Connect Customer resources (instances, queues, flows, routing profiles, etc) have an ARN. To locate the ARN for an instance, for example, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">Find your Connect Customer instance ID/ARN</a>. </p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13578,6 +15583,14 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p> <important> <p>It is not expected that you set this.</p> </important>
             status: <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it. Tasks can only be created from <code>ACTIVE</code> templates. If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
             name: <p>The name of the task template.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13670,6 +15683,15 @@ class ConnectClient:
             status: <p>Filter execution records by status.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13739,6 +15761,15 @@ class ConnectClient:
             status: <p>Filter executions by status.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13796,6 +15827,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Amazon Connect instance.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13868,6 +15908,13 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -13941,6 +15988,14 @@ class ConnectClient:
             traffic_distribution_group_id: <p>The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14015,6 +16070,13 @@ class ConnectClient:
             integration_association_id: <p>The identifier for the integration association.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14090,6 +16152,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14166,6 +16236,15 @@ class ConnectClient:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response to retrieve the next page of results.</p>
             max_results: <p>The maximum number of results to return per page. Valid range is 1-1000.</p>
             user_id: <p>The identifier of the user.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14216,6 +16295,14 @@ class ConnectClient:
             user_id: <p>The identifier of the user account.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14291,6 +16378,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14365,6 +16460,15 @@ class ConnectClient:
             type: <p>The type of the view.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.too_many_requests_exception.TooManyRequestsException: <p>Displayed when rate-related API limits are exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14443,6 +16547,15 @@ class ConnectClient:
             view_id: <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.too_many_requests_exception.TooManyRequestsException: <p>Displayed when rate-related API limits are exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14516,6 +16629,15 @@ class ConnectClient:
         Args:
             instance_id: <p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             workspace_id: <p>The identifier of the workspace.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14564,6 +16686,15 @@ class ConnectClient:
             workspace_id: <p>The identifier of the workspace.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14639,6 +16770,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14715,6 +16855,16 @@ class ConnectClient:
             user_id: <p>The identifier of the user account.</p>
             allowed_monitor_capabilities: <p>Specify which monitoring actions the user is allowed to take. For example, whether the user is allowed to escalate from silent monitoring to barge. AllowedMonitorCapabilities is required if barge is enabled.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.idempotency_exception.IdempotencyException: <p>An entity with the same name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14764,6 +16914,17 @@ class ConnectClient:
             contact_id: <p>The identifier of the contact.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can find the <code>instanceId</code> in the ARN of the instance.</p>
             contact_flow_id: <p>The identifier of the flow.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conflict_exception.ConflictException: <p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14808,6 +16969,15 @@ class ConnectClient:
             user_id: <p>The identifier of the user.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             agent_status_id: <p>The identifier of the agent status.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14849,6 +17019,16 @@ class ConnectClient:
         Args:
             phone_number_id: <p>A unique identifier for the phone number.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.idempotency_exception.IdempotencyException: <p>An entity with the same name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_in_use_exception.ResourceInUseException: <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14892,6 +17072,17 @@ class ConnectClient:
             replica_region: <p>The Amazon Web Services Region where to replicate the Connect Customer instance.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
             replica_alias: <p>The alias for the replicated instance. The <code>ReplicaAlias</code> must be unique.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.resource_not_ready_exception.ResourceNotReadyException: <p>The resource is not ready.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14939,6 +17130,16 @@ class ConnectClient:
             contact_id: <p>The identifier of the contact.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can find the <code>instanceId</code> in the ARN of the instance.</p>
             contact_flow_id: <p>The identifier of the flow.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conflict_exception.ConflictException: <p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -14987,6 +17188,13 @@ class ConnectClient:
             contact_id: <p>The identifier of the contact.</p>
             initial_contact_id: <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
             contact_recording_type: <p>The type of recording being operated on.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_active_region_exception.InvalidActiveRegionException: <p>This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -15044,6 +17252,14 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p>
             search_filter: <p>Filters to be applied to search results.</p>
             search_criteria: <p>The search criteria to be used to return agent statuses.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -15140,6 +17356,13 @@ class ConnectClient:
             phone_number_prefix: <p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -15237,6 +17460,14 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p>
             search_criteria: <p>The search criteria to be used to return contact evaluations.</p>
             search_filter: <p>Filters to be applied to search results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -15298,6 +17529,14 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p>
             search_filter: <p>Filters to be applied to search results.</p>
             search_criteria: <p>The search criteria to be used to return flow modules.</p> <note> <p>The <code>name</code> and <code>description</code> fields support \"contains\" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range will result in invalid results.</p> </note>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -15396,6 +17635,14 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p>
             search_filter: <p>Filters to be applied to search results.</p>
             search_criteria: <p>The search criteria to be used to return flows.</p> <note> <p>The <code>name</code> and <code>description</code> fields support \"contains\" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range will result in invalid results.</p> </note>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -15492,6 +17739,14 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p>
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             sort: <p>Specifies a field to sort by and a sort order.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -15587,6 +17842,14 @@ class ConnectClient:
             max_results: <p>The maximum number of data tables to return in one page of results.</p>
             search_filter: <p>Optional filters to apply to the search results, such as tag-based filtering for attribute-based access control.</p>
             search_criteria: <p>Search criteria including string conditions for matching table names, descriptions, or resource IDs. Supports STARTS_WITH, CONTAINS, and EXACT comparison types.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -15681,6 +17944,15 @@ class ConnectClient:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             search_criteria: <p>The search criteria to be used to return email addresses.</p>
             search_filter: <p>Filters to be applied to search results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -15740,6 +18012,14 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p>
             search_criteria: <p>The search criteria to be used to return evaluation forms.</p>
             search_filter: <p>Filters to be applied to search results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -15800,6 +18080,14 @@ class ConnectClient:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
             max_results: <p>The maximum number of results to return per page.</p>
             search_criteria: <p>The search criteria to be used to return hours of operations overrides.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -15896,6 +18184,14 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p>
             search_filter: <p>Filters to be applied to search results.</p>
             search_criteria: <p>The search criteria to be used to return hours of operations.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -15990,6 +18286,15 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page. Valid range is 1-100.</p>
             search_filter: <p>Filters to apply to the search results, such as tag-based filters.</p>
             search_criteria: <p>The search criteria to apply when searching for notifications. Supports filtering by notification ID and message content using comparison types such as STARTS_WITH, CONTAINS, and EXACT.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -16047,6 +18352,14 @@ class ConnectClient:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             search_criteria: <p>The search criteria to be used to return predefined attributes.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -16137,6 +18450,14 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p>
             search_filter: <p>Filters to be applied to search results.</p>
             search_criteria: <p>The search criteria to be used to return prompts.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -16233,6 +18554,14 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p>
             search_filter: <p>Filters to be applied to search results.</p>
             search_criteria: <p>The search criteria to be used to return queues.</p> <note> <p>The <code>name</code> and <code>description</code> fields support \"contains\" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results. </p> </note>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -16329,6 +18658,14 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p>
             search_filter: <p>Filters to be applied to search results.</p>
             search_criteria: <p>The search criteria to be used to return quick connects.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -16427,6 +18764,15 @@ class ConnectClient:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             search_criteria: <p>The search criteria to be used to return tags.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.maximum_result_returned_exception.MaximumResultReturnedException: <p>Maximum number (1000) of tags have been returned with current request. Consider changing request parameters to get more tags.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -16523,6 +18869,14 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p>
             search_filter: <p>Filters to be applied to search results.</p>
             search_criteria: <p>The search criteria to be used to return routing profiles.</p> <note> <p>The <code>name</code> and <code>description</code> fields support \"contains\" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results. </p> </note>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -16619,6 +18973,14 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p>
             search_criteria: <p>The search criteria to be used to return security profiles. </p> <note> <p>The <code>name</code> field support \"contains\" queries with a minimum of 2 characters and maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results.</p> </note> <note> <p>The currently supported value for <code>FieldName</code>: <code>name</code> </p> </note>
             search_filter: <p>Filters to be applied to search results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -16715,6 +19077,15 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p>
             search_filter: <p>Filters to be applied to search results.</p>
             search_criteria: <p>The search criteria to be used to return test cases.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -16811,6 +19182,14 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p>
             search_filter: <p>Filters to be applied to search results.</p>
             search_criteria: <p>The search criteria to be used to return UserHierarchyGroups.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -16906,6 +19285,14 @@ class ConnectClient:
             next_token: <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
             max_results: <p>The maximum number of results to return per page.</p>
             search_filter: <p>Filters to be applied to search results.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -17002,6 +19389,15 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p>
             search_filter: <p>Filters to apply to the search, such as tag-based filters.</p>
             search_criteria: <p>The search criteria, including field names and comparison types.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -17104,6 +19500,13 @@ class ConnectClient:
             state: <p>The current state of the custom vocabulary.</p>
             name_starts_with: <p>The starting pattern of the name of the vocabulary.</p>
             language_code: <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html\">What is Amazon Transcribe?</a> </p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -17206,6 +19609,15 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p>
             search_filter: <p>Filters to apply to the search, such as tag-based filters.</p>
             search_criteria: <p>The search criteria, including workspace ID, resource ID, or resource type.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -17302,6 +19714,15 @@ class ConnectClient:
             max_results: <p>The maximum number of results to return per page.</p>
             search_filter: <p>Filters to apply to the search, such as tag-based filters.</p>
             search_criteria: <p>The search criteria, including field names and comparison types.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -17392,6 +19813,14 @@ class ConnectClient:
             subtype: <p>Classification of a channel. This is used in part to uniquely identify chat. </p> <p>Valid value: <code>[\"connect:sms\", connect:\"WhatsApp\"]</code> </p>
             event: <p>Chat integration event payload</p>
             new_session_details: <p>Contact properties to apply when starting a new chat. If the integration event is handled with an existing chat, this is ignored.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -17453,6 +19882,16 @@ class ConnectClient:
             traffic_type: <p>Denotes the class of traffic.</p> <note> <p>Only the CAMPAIGN traffic type is supported.</p> </note>
             source_campaign: <p>A Campaign object need for Campaign traffic type.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.idempotency_exception.IdempotencyException: <p>An entity with the same name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -17520,6 +19959,15 @@ class ConnectClient:
             associated_resource_arn: <p>The resource to which the attached file is (being) uploaded to. The supported resources are <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/cases.html\">Cases</a> and <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html\">Email</a>.</p> <note> <p>This value must be a valid ARN.</p> </note>
             created_by: <p>Represents the identity that created the file.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, <code>{ \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }</code>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -17613,6 +20061,14 @@ class ConnectClient:
             segment_attributes: <p>A set of system defined key-value pairs stored on individual contact segments using an attribute map. The attributes are standard Connect Customer attributes. They can be accessed in flows.</p> <p>Attribute keys can include only alphanumeric, -, and _.</p> <p>This field can be used to show channel subtype, such as <code>connect:Guide</code>.</p> <note> <p>The types <code>application/vnd.amazonaws.connect.message.interactive</code> and <code>application/vnd.amazonaws.connect.message.interactive.response</code> must be present in the SupportedMessagingContentTypes field of this API in order to set <code>SegmentAttributes</code> as {<code> \"connect:Subtype\": {\"valueString\" : \"connect:Guide\" }}</code>.</p> </note>
             customer_id: <p>The customer's identification number. For example, the <code>CustomerId</code> may be a customer number from your CRM.</p>
             disconnect_on_customer_exit: <p>A list of participant types to automatically disconnect when the end customer ends the chat session, allowing them to continue through disconnect flows such as surveys or feedback forms.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -17688,6 +20144,15 @@ class ConnectClient:
             auto_evaluation_configuration: <p>Whether automated evaluations are enabled.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -17741,6 +20206,16 @@ class ConnectClient:
             contact_id: <p>The identifier of the contact.</p>
             processor_arn: <p> The Amazon Resource Name (ARN) of the Lambda processor. You can find the Amazon Resource Name of the lambda in the lambda console. </p>
             failure_mode: <p> The desired behavior for failed message processing. </p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -17791,6 +20266,14 @@ class ConnectClient:
             contact_id: <p>The identifier of the contact.</p>
             initial_contact_id: <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
             voice_recording_configuration: <p>The person being recorded.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_active_region_exception.InvalidActiveRegionException: <p>This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -17837,6 +20320,14 @@ class ConnectClient:
             contact_id: <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
             chat_streaming_configuration: <p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -17915,6 +20406,16 @@ class ConnectClient:
             attributes: <p>A custom key-value pair using an attribute map. The attributes are standard Connect Customer attributes, and can be accessed in flows just like any other contact attributes.</p> <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>
             segment_attributes: <p>A set of system defined key-value pairs stored on individual contact segments using an attribute map. The attributes are standard Connect Customer attributes. They can be accessed in flows.</p> <p>Attribute keys can include only alphanumeric, -, and _.</p> <p>This field can be used to show channel subtype, such as <code>connect:Guide</code>.</p> <note> <p>To set contact expiry, a <code>ValueMap</code> must be specified containing the integer number of minutes the contact will be active for before expiring, with <code>SegmentAttributes</code> like { <code> \"connect:ContactExpiry\": {\"ValueMap\" : { \"ExpiryDuration\": { \"ValueInteger\":135}}}}</code>.</p> </note>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.idempotency_exception.IdempotencyException: <p>An entity with the same name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -18006,6 +20507,16 @@ class ConnectClient:
             related_contact_id: <p>The unique identifier for an Connect Customer contact. This identifier is related to the contact starting.</p>
             supported_messaging_content_types: <p>The supported chat message content types. Supported types are:</p> <ul> <li> <p> <code>text/plain</code> </p> </li> <li> <p> <code>text/markdown</code> </p> </li> <li> <p> <code>application/json, application/vnd.amazonaws.connect.message.interactive</code> </p> </li> <li> <p> <code>application/vnd.amazonaws.connect.message.interactive.response</code> </p> </li> </ul> <p>Content types must always contain <code>text/plain</code>. You can then put any other supported type in the list. For example, all the following lists are valid because they contain <code>text/plain</code>:</p> <ul> <li> <p> <code>[text/plain, text/markdown, application/json]</code> </p> </li> <li> <p> <code>[text/markdown, text/plain]</code> </p> </li> <li> <p> <code>[text/plain, application/json, application/vnd.amazonaws.connect.message.interactive.response]</code> </p> </li> </ul>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>. The token is valid for 7 days after creation. If a contact is already started, the contact ID is returned.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conflict_exception.ConflictException: <p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -18083,6 +20594,16 @@ class ConnectClient:
             additional_recipients: <p>The additional recipients address of email in CC.</p>
             email_message: <p>The email message body to be sent to the newly created email.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.idempotency_exception.IdempotencyException: <p>An entity with the same name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -18171,6 +20692,16 @@ class ConnectClient:
             traffic_type: <p>Denotes the class of traffic. Calls with different traffic types are handled differently by Connect Customer. The default value is <code>GENERAL</code>. Use <code>CAMPAIGN</code> if <code>EnableAnswerMachineDetection</code> is set to <code>true</code>. For all other cases, use <code>GENERAL</code>. </p>
             outbound_strategy: <p>Information about the outbound strategy.</p>
             ring_timeout_in_seconds: <p>The maximum time the outbound call will wait for the destination to answer the call, in seconds </p>
+
+        Raises:
+            aws_sdk_connect.errors.destination_not_allowed_exception.DestinationNotAllowedException: <p>Outbound calls to the destination number are not allowed.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.outbound_contact_not_permitted_exception.OutboundContactNotPermittedException: <p>The contact is not permitted.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -18242,6 +20773,15 @@ class ConnectClient:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             contact_id: <p>The identifier of the contact in this instance of Connect Customer. </p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -18324,6 +20864,15 @@ class ConnectClient:
             related_contact_id: <p>The contactId that is <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html#linked-tasks\">related</a> to this contact. Linking tasks together by using <code>RelatedContactID</code> copies over contact attributes from the related task contact to the new task contact. All updates to user-defined attributes in the new task contact are limited to the individual contact ID, unlike what happens when tasks are linked by using <code>PreviousContactID</code>. There are no limits to the number of contacts that can be linked by using <code>RelatedContactId</code>. </p>
             segment_attributes: <p>A set of system defined key-value pairs stored on individual contact segments (unique contact ID) using an attribute map. The attributes are standard Connect Customer attributes. They can be accessed in flows.</p> <p>Attribute keys can include only alphanumeric, -, and _.</p> <p>This field can be used to set Contact Expiry as a duration in minutes and set a UserId for the User who created a task.</p> <note> <p>To set contact expiry, a ValueMap must be specified containing the integer number of minutes the contact will be active for before expiring, with <code>SegmentAttributes</code> like { <code> \"connect:ContactExpiry\": {\"ValueMap\" : { \"ExpiryDuration\": { \"ValueInteger\": 135}}}}</code>. </p> <p>To set the created by user, a valid AgentResourceId must be supplied, with <code>SegmentAttributes</code> like { <code>\"connect:CreatedByUser\" { \"ValueString\": \"arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/agent/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"}}}</code>. </p> </note>
             attachments: <p>List of S3 presigned URLs of task attachments and their file name. You can have a maximum of 5 attachments per task.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -18390,6 +20939,16 @@ class ConnectClient:
             instance_id: <p>The identifier of the Amazon Connect instance.</p>
             test_case_id: <p>The identifier of the test case to execute.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -18451,6 +21010,14 @@ class ConnectClient:
             related_contact_id: <p>The unique identifier for an Connect Customer contact. This identifier is related to the contact starting.</p>
             references: <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks can have the following reference types at the time of creation: <code>URL</code> | <code>NUMBER</code> | <code>STRING</code> | <code>DATE</code> | <code>EMAIL</code>. <code>ATTACHMENT</code> is not a supported reference type during task creation.</p>
             description: <p>A description of the task that is shown to an agent in the Contact Control Panel (CCP).</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -18508,6 +21075,15 @@ class ConnectClient:
             contact_id: <p>The ID of the contact.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             disconnect_reason: <p>The reason a contact can be disconnected. Only Connect Customer outbound campaigns can provide this field. For a list and description of all the possible disconnect reasons by channel (including outbound campaign voice contacts) see DisconnectReason under <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord\">ContactTraceRecord</a> in the <i>Connect Customer Administrator Guide</i>. </p>
+
+        Raises:
+            aws_sdk_connect.errors.contact_not_found_exception.ContactNotFoundException: <p>The contact with the specified ID does not exist.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_active_region_exception.InvalidActiveRegionException: <p>This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -18550,6 +21126,15 @@ class ConnectClient:
         Args:
             instance_id: <p> The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. </p>
             contact_id: <p> The identifier of the contact. </p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -18598,6 +21183,13 @@ class ConnectClient:
             contact_id: <p>The identifier of the contact.</p>
             initial_contact_id: <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
             contact_recording_type: <p>The type of recording being operated on.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_active_region_exception.InvalidActiveRegionException: <p>This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -18643,6 +21235,13 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             contact_id: <p>The identifier of the contact. This is the identifier of the contact that is associated with the first interaction with the contact center.</p>
             streaming_id: <p>The identifier of the streaming configuration enabled. </p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -18688,6 +21287,15 @@ class ConnectClient:
             test_case_execution_id: <p>The identifier of the test case execution to stop.</p>
             test_case_id: <p>The identifier of the test case.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -18743,6 +21351,14 @@ class ConnectClient:
             answers: <p>A map of question identifiers to answer value.</p>
             notes: <p>A map of question identifiers to note value.</p>
             submitted_by: <p>The ID of the user who submitted the contact evaluation.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -18795,6 +21411,13 @@ class ConnectClient:
             contact_id: <p>The identifier of the contact.</p>
             initial_contact_id: <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
             contact_recording_type: <p>The type of recording being operated on.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_active_region_exception.InvalidActiveRegionException: <p>This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -18840,6 +21463,15 @@ class ConnectClient:
             contact_id: <p>The identifier of the contact in this instance of Connect Customer. </p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             tags: <p>The tags to be assigned to the contact resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p> <note> <p>Authorization is not supported by this tag.</p> </note>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_active_region_exception.InvalidActiveRegionException: <p>This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -18881,6 +21513,14 @@ class ConnectClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -18929,6 +21569,16 @@ class ConnectClient:
             user_id: <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
             contact_flow_id: <p>The identifier of the flow.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.idempotency_exception.IdempotencyException: <p>An entity with the same name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -18978,6 +21628,15 @@ class ConnectClient:
             contact_id: <p>The identifier of the contact in this instance of Connect Customer. </p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             tag_keys: <p>A list of tag keys. Existing tags on the contact whose keys are members of this list will be removed.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_active_region_exception.InvalidActiveRegionException: <p>This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -19019,6 +21678,14 @@ class ConnectClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p>The tag keys.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -19075,6 +21742,16 @@ class ConnectClient:
             state: <p>The state of the agent status.</p>
             display_order: <p>The display order of the agent status.</p>
             reset_order_number: <p>A number indicating the reset order of the agent status.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -19131,6 +21808,14 @@ class ConnectClient:
             attachment_scope: <p>The scope of the attachment. Valid values are <code>EMAIL</code>, <code>CHAT</code>, <code>CASE</code>, and <code>TASK</code>.</p>
             maximum_size_limit_in_bytes: <p>The maximum size limit for attached files in bytes. The minimum value is 1 and the maximum value is 104857600 (100 MB).</p>
             extension_configuration: <p>The configuration for allowed file extensions.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -19199,6 +21884,14 @@ class ConnectClient:
             periodic_session_duration: <p>The short lived session duration configuration for users logged in to Connect Customer, in minutes. This value determines the maximum possible time before an agent is authenticated. For more information, For more information on how to configure IP addresses, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts\">Configure session timeouts</a> in the <i>Connect Customer Administrator Guide</i>. </p>
             session_inactivity_duration: <p>The period, in minutes, before an agent is automatically signed out of the contact center when they go inactive.</p>
             session_inactivity_handling_enabled: <p>Determines if automatic logout on user inactivity is enabled.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -19275,6 +21968,17 @@ class ConnectClient:
             user_info: <p>Information about the agent associated with a contact. This parameter can only be updated for external audio contacts. It is used when you integrate third-party systems with Contact Lens for analytics. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html\">Connect Customer Contact Lens integration</a> in the <i> Connect Customer Administrator Guide</i>.</p>
             customer_endpoint: <p>The endpoint of the customer for which the contact was initiated. For external audio contacts, this is usually the end customer's phone number. This value can only be updated for external audio contacts. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html\">Connect Customer Contact Lens integration</a> in the <i>Connect Customer Administrator Guide</i>.</p>
             system_endpoint: <p>External system endpoint for the contact was initiated. For external audio contacts, this is the phone number of the external system such as the contact center. This value can only be updated for external audio contacts. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html\">Connect Customer Contact Lens integration</a> in the <i>Connect Customer Administrator Guide</i>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conflict_exception.ConflictException: <p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_active_region_exception.InvalidActiveRegionException: <p>This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -19333,6 +22037,14 @@ class ConnectClient:
             initial_contact_id: <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             attributes: <p>The Connect Customer attributes. These attributes can be accessed in flows just like any other contact attributes.</p> <p>You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p> <p>In the <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/set-contact-attributes.html\">Set contact attributes</a> block, when the attributes for a contact exceed 32 KB, the contact is routed down the Error branch of the flow. As a mitigation, consider the following options:</p> <ul> <li> <p>Remove unnecessary attributes by setting their values to empty.</p> </li> <li> <p>If the attributes are only used in one flow and don't need to be referred to outside of that flow (for example, by a Lambda or another flow), then use flow attributes. This way you aren't needlessly persisting the 32 KB of information from one flow to another. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/set-contact-attributes.html\">Flow block: Set contact attributes</a> in the <i>Connect Customer Administrator Guide</i>. </p> </li> </ul>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_active_region_exception.InvalidActiveRegionException: <p>This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -19386,6 +22098,14 @@ class ConnectClient:
             answers: <p>A map of question identifiers to answer value.</p>
             notes: <p>A map of question identifiers to note value.</p>
             updated_by: <p>The ID of the user who updated the contact evaluation.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -19434,6 +22154,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance.</p>
             contact_flow_id: <p>The identifier of the flow.</p>
             content: <p>The JSON string that represents the content of the flow. For an example, see <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html\">Example flow in Connect Customer Flow language</a>. </p> <p>Length Constraints: Minimum length of 1. Maximum length of 256000.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_contact_flow_exception.InvalidContactFlowException: <p>The flow is not valid.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -19487,6 +22216,15 @@ class ConnectClient:
             name: <p>The name of the flow.</p>
             description: <p>The description of the flow.</p>
             contact_flow_state: <p>The state of flow.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -19547,6 +22285,17 @@ class ConnectClient:
             name: <p>The name of the alias.</p>
             description: <p>The description of the alias.</p>
             contact_flow_module_version: <p>The version of the flow module.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conditional_operation_failed_exception.ConditionalOperationFailedException: <p>Request processing failed because dependent condition failed.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -19602,6 +22351,15 @@ class ConnectClient:
             contact_flow_module_id: <p>The identifier of the flow module.</p>
             content: <p>The JSON string that represents the content of the flow. For an example, see <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html\">Example flow in Connect Customer Flow language</a>. </p>
             settings: <p>Serialized JSON string of the flow module Settings schema.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_contact_flow_module_exception.InvalidContactFlowModuleException: <p>The problems with the module. Please fix before trying again.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -19658,6 +22416,16 @@ class ConnectClient:
             name: <p>The name of the flow module.</p>
             description: <p>The description of the flow module.</p>
             state: <p>The state of flow module.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -19712,6 +22480,15 @@ class ConnectClient:
             contact_flow_id: <p>The identifier of the flow.</p>
             name: <p>The name of the flow.</p>
             description: <p>The description of the flow.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -19768,6 +22545,16 @@ class ConnectClient:
             queue_time_adjustment_seconds: <p>The number of seconds to add or subtract from the contact's routing age. Contacts are routed to agents on a first-come, first-serve basis. This means that changing their amount of time in queue compared to others also changes their position in queue.</p>
             queue_priority: <p>Priority of the contact in the queue. The default priority for new contacts is 5. You can raise the priority of a contact compared to other contacts in the queue by assigning them a higher priority, such as 1 or 2.</p>
             routing_criteria: <p>Updates the routing criteria on the contact. These properties can be used to change how a contact is routed within the queue.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_active_region_exception.InvalidActiveRegionException: <p>This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -19816,6 +22603,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             contact_id: <p>The identifier of the contact.</p>
             scheduled_time: <p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -19871,6 +22667,18 @@ class ConnectClient:
             description: <p>The updated description for the attribute.</p>
             primary: <p>Whether the attribute should be treated as a primary key. Converting to primary attribute requires existing values to maintain uniqueness.</p>
             validation: <p>The updated validation rules for the attribute. Changes do not affect existing values until they are modified.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conflict_exception.ConflictException: <p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.limit_exceeded_exception.LimitExceededException: <p>The allowed limit for the resource has been exceeded.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -19930,6 +22738,17 @@ class ConnectClient:
             description: <p>The updated description for the data table. Must conform to Connect human readable string specification and have 0-250 characters.</p>
             value_lock_level: <p>The updated value lock level for the data table. One of DATA_TABLE, PRIMARY_VALUE, ATTRIBUTE, VALUE, and NONE.</p>
             time_zone: <p>The updated IANA timezone identifier to use when resolving time based dynamic values.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conflict_exception.ConflictException: <p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -19981,6 +22800,16 @@ class ConnectClient:
             primary_values: <p>The current primary values for the record. Required and must include values for all primary attributes. Fails if the table has primary attributes and some primary values are omitted.</p>
             new_primary_values: <p>The new primary values for the record. Required and must include values for all primary attributes. The combination must be unique within the table.</p>
             lock_version: <p>The lock version information required for optimistic locking to prevent concurrent modifications.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conflict_exception.ConflictException: <p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20032,6 +22861,16 @@ class ConnectClient:
             description: <p>The description of the email address.</p>
             display_name: <p>The display name of email address.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.idempotency_exception.IdempotencyException: <p>An entity with the same name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20116,6 +22955,15 @@ class ConnectClient:
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
             target_configuration: <p>Configuration that specifies the target for the evaluation form.</p>
             language_configuration: <p>Configuration for language settings of the evaluation form.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20191,6 +23039,15 @@ class ConnectClient:
             description: <p>The description of the hours of operation.</p>
             time_zone: <p>The time zone of the hours of operation.</p>
             config: <p>Configuration information of the hours of operation.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20267,6 +23124,16 @@ class ConnectClient:
             effective_till: <p>The date until the hours of operation override is effective.</p>
             recurrence_config: <p>Configuration for a recurring event.</p>
             override_type: <p>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</p> <p>For more information about how override types are applied, see <a href=\"https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html\">Build your list of overrides</a> in the <i> Administrator Guide</i>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.conditional_operation_failed_exception.ConditionalOperationFailedException: <p>Request processing failed because dependent condition failed.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20324,6 +23191,14 @@ class ConnectClient:
             attribute_type: <p>The type of attribute.</p> <note> <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature, contact Amazon Web Services Support for allowlisting.</p> </note> <note> <p>If you set the attribute type as <code>MESSAGE_STREAMING</code>, you need to update the Lex bot alias resource based policy to include the <code>lex:RecognizeMessageAsync</code> action for the connect instance ARN resource.</p> </note>
             value: <p>The value for the attribute. Maximum character limit is 100. </p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20370,6 +23245,14 @@ class ConnectClient:
             association_id: <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
             resource_type: <p>A valid resource type.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20414,6 +23297,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             notification_id: <p>The unique identifier for the notification to update.</p>
             content: <p>The updated localized content of the notification. A map of locale codes and values. Maximum 500 characters per locale.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20467,6 +23359,15 @@ class ConnectClient:
             code: <p>The <code>code</code> query parameter provided by Cognito in the <code>redirectUri</code>.</p>
             error: <p>The <code>error</code> query parameter provided by Cognito in the <code>redirectUri</code>.</p>
             error_description: <p>The <code>error_description</code> parameter provided by Cognito in the <code>redirectUri</code>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conflict_exception.ConflictException: <p>Operation cannot be performed at this time as there is a conflict with another operation or contact state.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20515,6 +23416,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             contact_id: <p>The identifier of the contact in this instance of Connect Customer. </p>
             channel_configuration: <p>The Connect Customer channel you want to configure.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20560,6 +23470,16 @@ class ConnectClient:
             target_arn: <p>The Amazon Resource Name (ARN) for Connect Customer instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
             instance_id: <p>The identifier of the Connect Customer instance that phone numbers are claimed to. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.idempotency_exception.IdempotencyException: <p>An entity with the same name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.resource_in_use_exception.ResourceInUseException: <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20609,6 +23529,17 @@ class ConnectClient:
             phone_number_id: <p>The Amazon Resource Name (ARN) or resource ID of the phone number.</p>
             phone_number_description: <p>The description of the phone number.</p>
             client_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.idempotency_exception.IdempotencyException: <p>An entity with the same name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_in_use_exception.ResourceInUseException: <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20662,6 +23593,14 @@ class ConnectClient:
             values: <p>The values of the predefined attribute.</p>
             purposes: <p>Values that enable you to categorize your predefined attributes. You can use them in custom UI elements across the Connect Customer admin website.</p>
             attribute_configuration: <p>Custom metadata that is associated to predefined attributes to control behavior in upstream services, such as controlling how a predefined attribute should be displayed in the Connect Customer admin website.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20716,6 +23655,14 @@ class ConnectClient:
             name: <p>The name of the prompt.</p>
             description: <p>A description of the prompt.</p>
             s3_uri: <p>The URI for the S3 bucket where the prompt is stored. You can provide S3 pre-signed URLs returned by the <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_GetPromptFile.html\">GetPromptFile</a> API instead of providing S3 URIs.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20764,6 +23711,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             queue_id: <p>The identifier for the queue.</p>
             hours_of_operation_id: <p>The identifier for the hours of operation.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20807,6 +23762,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             queue_id: <p>The identifier for the queue.</p>
             max_contacts: <p>The maximum number of contacts that can be in the queue before it is considered full.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20855,6 +23818,15 @@ class ConnectClient:
             queue_id: <p>The identifier for the queue.</p>
             name: <p>The name of the queue.</p>
             description: <p>The description of the queue.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20899,6 +23871,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             queue_id: <p>The identifier for the queue.</p>
             outbound_caller_config: <p>The outbound caller ID name, number, and outbound whisper flow.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20940,6 +23920,16 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             queue_id: <p>The identifier for the queue.</p>
             outbound_email_config: <p>The outbound email address ID for a specified queue.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.conditional_operation_failed_exception.ConditionalOperationFailedException: <p>Request processing failed because dependent condition failed.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -20981,6 +23971,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             queue_id: <p>The identifier for the queue.</p>
             status: <p>The status of the queue.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21022,6 +24020,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             quick_connect_id: <p>The identifier for the quick connect.</p>
             quick_connect_config: <p>Information about the configuration settings for the quick connect.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21069,6 +24075,14 @@ class ConnectClient:
             quick_connect_id: <p>The identifier for the quick connect.</p>
             name: <p>The name of the quick connect.</p>
             description: <p>The description of the quick connect.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21113,6 +24127,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             routing_profile_id: <p>The identifier of the routing profile.</p>
             agent_availability_timer: <p>Whether agents with this routing profile will have their routing order calculated based on <i>time since their last inbound contact</i> or <i>longest idle time</i>. </p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21154,6 +24176,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             routing_profile_id: <p>The identifier of the routing profile.</p>
             media_concurrencies: <p>The channels that agents can handle in the Contact Control Panel (CCP).</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21195,6 +24225,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             routing_profile_id: <p>The identifier of the routing profile.</p>
             default_outbound_queue_id: <p>The identifier for the default outbound queue.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21242,6 +24280,15 @@ class ConnectClient:
             routing_profile_id: <p>The identifier of the routing profile.</p>
             name: <p>The name of the routing profile. Must not be more than 127 characters.</p>
             description: <p>The description of the routing profile. Must not be more than 250 characters.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21286,6 +24333,14 @@ class ConnectClient:
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             routing_profile_id: <p>The identifier of the routing profile.</p>
             queue_configs: <p>The queues to be updated for this routing profile. Queues must first be associated to the routing profile. You can do this using AssociateRoutingProfileQueues.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21333,6 +24388,15 @@ class ConnectClient:
             function: <p>The conditions of the rule.</p>
             actions: <p>A list of actions to be run when the rule is triggered.</p>
             publish_status: <p>The publish status of the rule.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21411,6 +24475,14 @@ class ConnectClient:
             allowed_access_control_hierarchy_group_id: <p>The identifier of the hierarchy group that a security profile uses to restrict access to resources in Connect Customer.</p>
             allowed_flow_modules: <p> A list of Flow Modules an AI Agent can invoke as a tool </p>
             granular_access_control_configuration: <p>The granular access control configuration for the security profile, including data table permissions.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21505,6 +24577,15 @@ class ConnectClient:
             defaults: <p>The default values for fields when a task is created by referencing this template.</p>
             status: <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it. Tasks can only be created from <code>ACTIVE</code> templates. If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
             fields: <p>Fields that are part of the template.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.property_validation_exception.PropertyValidationException: <p>The property is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The service quota has been exceeded.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21591,6 +24672,17 @@ class ConnectClient:
             status: <p>Indicates the test status as either SAVED or PUBLISHED. The PUBLISHED status will initiate validation on the content. The SAVED status does not initiate validation of the content.</p>
             last_modified_time: <p>The time at which the resource was last modified.</p>
             last_modified_region: <p>The region in which the resource was last modified</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.invalid_test_case_exception.InvalidTestCaseException: <p>The test is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21655,6 +24747,15 @@ class ConnectClient:
             telephony_config: <p>The distribution of traffic between the instance and its replica(s).</p>
             sign_in_config: <p>The distribution that determines which Amazon Web Services Regions should be used to sign in agents in to both the instance and its replica(s).</p>
             agent_config: <p>The distribution of agents between the instance and its replica(s).</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21720,6 +24821,15 @@ class ConnectClient:
             voice_enhancement_configs: <p>The list of voice enhancement configuration settings for each channel.</p>
             user_id: <p>The identifier of the user account.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.conditional_operation_failed_exception.ConditionalOperationFailedException: <p>Request processing failed because dependent condition failed.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21772,6 +24882,14 @@ class ConnectClient:
             hierarchy_group_id: <p>The identifier of the hierarchy group.</p>
             user_id: <p>The identifier of the user account.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21814,6 +24932,15 @@ class ConnectClient:
             name: <p>The name of the hierarchy group. Must not be more than 100 characters.</p>
             hierarchy_group_id: <p>The identifier of the hierarchy group.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21853,6 +24980,15 @@ class ConnectClient:
         Args:
             hierarchy_structure: <p>The hierarchy levels to update.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_in_use_exception.ResourceInUseException: <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21893,6 +25029,14 @@ class ConnectClient:
             identity_info: <p>The identity information for the user.</p>
             user_id: <p>The identifier of the user account.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21944,6 +25088,15 @@ class ConnectClient:
             status: <p>The new status for the notification. Valid values are READ, UNREAD, and HIDDEN.</p>
             last_modified_time: <p>The timestamp when the notification status was last modified. Used for cross-region replication and optimistic locking.</p>
             last_modified_region: <p>The AWS Region where the notification status was last modified. Used for cross-region replication.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -21992,6 +25145,14 @@ class ConnectClient:
             phone_config: <p>Information about phone configuration settings for the user.</p>
             user_id: <p>The identifier of the user account.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -22033,6 +25194,14 @@ class ConnectClient:
             instance_id: <p> The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>
             user_id: <p>The identifier of the user account.</p>
             user_proficiencies: <p>The proficiencies to be updated for the user. Proficiencies must first be associated to the user. You can do this using AssociateUserProficiencies API.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -22074,6 +25243,14 @@ class ConnectClient:
             routing_profile_id: <p>The identifier of the routing profile for the user.</p>
             user_id: <p>The identifier of the user account.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -22115,6 +25292,14 @@ class ConnectClient:
             security_profile_ids: <p>The identifiers of the security profiles for the user.</p>
             user_id: <p>The identifier of the user account.</p>
             instance_id: <p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+
+        Raises:
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -22158,6 +25343,16 @@ class ConnectClient:
             view_id: <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
             status: <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The <code>PUBLISHED</code> status will initiate validation on the content.</p>
             content: <p>View content containing all content necessary to render a view except for runtime input data and the runtime input schema, which is auto-generated by this operation.</p> <p>The total uncompressed content has a maximum file size of 400kB.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_in_use_exception.ResourceInUseException: <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.too_many_requests_exception.TooManyRequestsException: <p>Displayed when rate-related API limits are exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -22208,6 +25403,17 @@ class ConnectClient:
             view_id: <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
             name: <p>The name of the view.</p>
             description: <p>The description of the view.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_in_use_exception.ResourceInUseException: <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.too_many_requests_exception.TooManyRequestsException: <p>Displayed when rate-related API limits are exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -22260,6 +25466,16 @@ class ConnectClient:
             name: <p>The name of the workspace.</p>
             description: <p>The description of the workspace.</p>
             title: <p>The title displayed for the workspace.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -22316,6 +25532,17 @@ class ConnectClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the view to associate with the page.</p>
             slug: <p>The URL-friendly identifier for the page.</p>
             input_data: <p>A JSON string containing input parameters for the view.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.duplicate_resource_exception.DuplicateResourceException: <p>A resource with the specified name already exists.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_conflict_exception.ResourceConflictException: <p>A resource already has that name.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -22367,6 +25594,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             workspace_id: <p>The identifier of the workspace.</p>
             theme: <p>The theme configuration, including color schemes and visual styles.</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -22411,6 +25647,15 @@ class ConnectClient:
             instance_id: <p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
             workspace_id: <p>The identifier of the workspace.</p>
             visibility: <p>The visibility setting for the workspace. Valid values are: <code>ALL</code> (available to all users), <code>ASSIGNED</code> (available only to assigned users and routing profiles), and <code>NONE</code> (not visible to any users).</p>
+
+        Raises:
+            aws_sdk_connect.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient permissions to perform this action.</p>
+            aws_sdk_connect.errors.internal_service_exception.InternalServiceException: <p>Request processing failed because of an error or failure with the service.</p>
+            aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more of the specified parameters are not valid.</p>
+            aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException: <p>The request is not valid.</p>
+            aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found.</p>
+            aws_sdk_connect.errors.throttling_exception.ThrottlingException: <p>The throttling limit has been exceeded.</p>
+            aws_sdk_connect.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

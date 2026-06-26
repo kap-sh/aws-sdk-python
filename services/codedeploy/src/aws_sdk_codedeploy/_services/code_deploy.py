@@ -280,6 +280,16 @@ class CodeDeployClient:
         Args:
             tags: <p>The tag key-value pairs to add to the on-premises instances.</p> <p>Keys and values are both required. Keys cannot be null or empty strings. Value-only tags are not allowed.</p>
             instance_names: <p>The names of the on-premises instances to which to add tags.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.instance_limit_exceeded_exception.InstanceLimitExceededException: <p>The maximum number of allowed on-premises instances in a single call was exceeded.</p>
+            aws_sdk_codedeploy.errors.instance_name_required_exception.InstanceNameRequiredException: <p>An on-premises instance name was not specified.</p>
+            aws_sdk_codedeploy.errors.instance_not_registered_exception.InstanceNotRegisteredException: <p>The specified on-premises instance is not registered.</p>
+            aws_sdk_codedeploy.errors.invalid_instance_name_exception.InvalidInstanceNameException: <p>The on-premises instance name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_tag_exception.InvalidTagException: <p>The tag was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.tag_limit_exceeded_exception.TagLimitExceededException: <p>The maximum allowed number of tags was exceeded.</p>
+            aws_sdk_codedeploy.errors.tag_required_exception.TagRequiredException: <p>A tag was not specified.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -318,6 +328,15 @@ class CodeDeployClient:
         Args:
             application_name: <p>The name of an CodeDeploy application about which to get revision information.</p>
             revisions: <p>An array of <code>RevisionLocation</code> objects that specify information to get about the application revisions, including type and location. The maximum number of <code>RevisionLocation</code> objects you can specify is 25.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException: <p>The application does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException: <p>The minimum number of required application names was not specified.</p>
+            aws_sdk_codedeploy.errors.batch_limit_exceeded_exception.BatchLimitExceededException: <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
+            aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException: <p>The application name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_revision_exception.InvalidRevisionException: <p>The revision was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.revision_required_exception.RevisionRequiredException: <p>The revision ID was not specified.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -356,6 +375,13 @@ class CodeDeployClient:
 
         Args:
             application_names: <p>A list of application names separated by spaces. The maximum number of application names you can specify is 100.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException: <p>The application does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException: <p>The minimum number of required application names was not specified.</p>
+            aws_sdk_codedeploy.errors.batch_limit_exceeded_exception.BatchLimitExceededException: <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
+            aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException: <p>The application name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -395,6 +421,16 @@ class CodeDeployClient:
         Args:
             application_name: <p>The name of an CodeDeploy application associated with the applicable user or Amazon Web Services account.</p>
             deployment_group_names: <p>The names of the deployment groups.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException: <p>The application does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException: <p>The minimum number of required application names was not specified.</p>
+            aws_sdk_codedeploy.errors.batch_limit_exceeded_exception.BatchLimitExceededException: <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
+            aws_sdk_codedeploy.errors.deployment_config_does_not_exist_exception.DeploymentConfigDoesNotExistException: <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.deployment_group_name_required_exception.DeploymentGroupNameRequiredException: <p>The deployment group name was not specified.</p>
+            aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException: <p>The application name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_group_name_exception.InvalidDeploymentGroupNameException: <p>The deployment group name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -435,6 +471,16 @@ class CodeDeployClient:
         Args:
             deployment_id: <p> The unique ID of a deployment. </p>
             instance_ids: <p>The unique IDs of instances used in the deployment. The maximum number of instance IDs you can specify is 25.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.batch_limit_exceeded_exception.BatchLimitExceededException: <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
+            aws_sdk_codedeploy.errors.deployment_does_not_exist_exception.DeploymentDoesNotExistException: <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+            aws_sdk_codedeploy.errors.deployment_id_required_exception.DeploymentIdRequiredException: <p>At least one deployment ID must be specified.</p>
+            aws_sdk_codedeploy.errors.instance_id_required_exception.InstanceIdRequiredException: <p>The instance ID was not specified.</p>
+            aws_sdk_codedeploy.errors.invalid_compute_platform_exception.InvalidComputePlatformException: <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_id_exception.InvalidDeploymentIdException: <p>At least one of the deployment IDs was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_instance_name_exception.InvalidInstanceNameException: <p>The on-premises instance name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -473,6 +519,12 @@ class CodeDeployClient:
 
         Args:
             deployment_ids: <p> A list of deployment IDs, separated by spaces. The maximum number of deployment IDs you can specify is 25.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.batch_limit_exceeded_exception.BatchLimitExceededException: <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
+            aws_sdk_codedeploy.errors.deployment_id_required_exception.DeploymentIdRequiredException: <p>At least one deployment ID must be specified.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_id_exception.InvalidDeploymentIdException: <p>At least one of the deployment IDs was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -512,6 +564,18 @@ class CodeDeployClient:
         Args:
             deployment_id: <p> The unique ID of a deployment. </p>
             target_ids: <p> The unique IDs of the deployment targets. The compute platform of the deployment determines the type of the targets and their formats. The maximum number of deployment target IDs you can specify is 25.</p> <ul> <li> <p> For deployments that use the EC2/On-premises compute platform, the target IDs are Amazon EC2 or on-premises instances IDs, and their target type is <code>instanceTarget</code>. </p> </li> <li> <p> For deployments that use the Lambda compute platform, the target IDs are the names of Lambda functions, and their target type is <code>instanceTarget</code>. </p> </li> <li> <p> For deployments that use the Amazon ECS compute platform, the target IDs are pairs of Amazon ECS clusters and services specified using the format <code><clustername>:<servicename></code>. Their target type is <code>ecsTarget</code>. </p> </li> <li> <p> For deployments that are deployed with CloudFormation, the target IDs are CloudFormation stack IDs. Their target type is <code>cloudFormationTarget</code>. </p> </li> </ul>
+
+        Raises:
+            aws_sdk_codedeploy.errors.deployment_does_not_exist_exception.DeploymentDoesNotExistException: <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+            aws_sdk_codedeploy.errors.deployment_id_required_exception.DeploymentIdRequiredException: <p>At least one deployment ID must be specified.</p>
+            aws_sdk_codedeploy.errors.deployment_not_started_exception.DeploymentNotStartedException: <p>The specified deployment has not started.</p>
+            aws_sdk_codedeploy.errors.deployment_target_does_not_exist_exception.DeploymentTargetDoesNotExistException: <p> The provided target ID does not belong to the attempted deployment. </p>
+            aws_sdk_codedeploy.errors.deployment_target_id_required_exception.DeploymentTargetIdRequiredException: <p> A deployment target ID was not provided. </p>
+            aws_sdk_codedeploy.errors.deployment_target_list_size_exceeded_exception.DeploymentTargetListSizeExceededException: <p> The maximum number of targets that can be associated with an Amazon ECS or Lambda deployment was exceeded. The target list of both types of deployments must have exactly one item. This exception does not apply to EC2/On-premises deployments. </p>
+            aws_sdk_codedeploy.errors.instance_does_not_exist_exception.InstanceDoesNotExistException: <p>The specified instance does not exist in the deployment group.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_id_exception.InvalidDeploymentIdException: <p>At least one of the deployment IDs was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_target_id_exception.InvalidDeploymentTargetIdException: <p> The target ID provided was not valid. </p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -550,6 +614,12 @@ class CodeDeployClient:
 
         Args:
             instance_names: <p>The names of the on-premises instances about which to get information. The maximum number of instance names you can specify is 25.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.batch_limit_exceeded_exception.BatchLimitExceededException: <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
+            aws_sdk_codedeploy.errors.instance_name_required_exception.InstanceNameRequiredException: <p>An on-premises instance name was not specified.</p>
+            aws_sdk_codedeploy.errors.invalid_instance_name_exception.InvalidInstanceNameException: <p>The on-premises instance name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -593,6 +663,17 @@ class CodeDeployClient:
         Args:
             deployment_id: <p> The unique ID of a blue/green deployment for which you want to start rerouting traffic to the replacement environment. </p>
             deployment_wait_type: <p> The status of the deployment's waiting period. <code>READY_WAIT</code> indicates that the deployment is ready to start shifting traffic. <code>TERMINATION_WAIT</code> indicates that the traffic is shifted, but the original target is not terminated. </p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.deployment_already_completed_exception.DeploymentAlreadyCompletedException: <p>The deployment is already complete.</p>
+            aws_sdk_codedeploy.errors.deployment_does_not_exist_exception.DeploymentDoesNotExistException: <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+            aws_sdk_codedeploy.errors.deployment_id_required_exception.DeploymentIdRequiredException: <p>At least one deployment ID must be specified.</p>
+            aws_sdk_codedeploy.errors.deployment_is_not_in_ready_state_exception.DeploymentIsNotInReadyStateException: <p>The deployment does not have a status of Ready and can't continue yet.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_id_exception.InvalidDeploymentIdException: <p>At least one of the deployment IDs was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_status_exception.InvalidDeploymentStatusException: <p>The specified deployment status doesn't exist or cannot be determined.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_wait_type_exception.InvalidDeploymentWaitTypeException: <p> The wait type is invalid. </p>
+            aws_sdk_codedeploy.errors.unsupported_action_for_deployment_type_exception.UnsupportedActionForDeploymentTypeException: <p>A call was submitted that is not supported for the specified deployment type.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -637,6 +718,15 @@ class CodeDeployClient:
             application_name: <p>The name of the application. This name must be unique with the applicable user or Amazon Web Services account.</p>
             compute_platform: <p> The destination platform type for the deployment (<code>Lambda</code>, <code>Server</code>, or <code>ECS</code>).</p>
             tags: <p> The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. </p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.application_already_exists_exception.ApplicationAlreadyExistsException: <p>An application with the specified name with the user or Amazon Web Services account already exists.</p>
+            aws_sdk_codedeploy.errors.application_limit_exceeded_exception.ApplicationLimitExceededException: <p>More applications were attempted to be created than are allowed.</p>
+            aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException: <p>The minimum number of required application names was not specified.</p>
+            aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException: <p>The application name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_compute_platform_exception.InvalidComputePlatformException: <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+            aws_sdk_codedeploy.errors.invalid_tags_to_add_exception.InvalidTagsToAddException: <p> The specified tags are not valid. </p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -718,6 +808,35 @@ class CodeDeployClient:
             update_outdated_instances_only: <p> Indicates whether to deploy to all instances or only to instances that are not running the latest application revision. </p>
             file_exists_behavior: <p>Information about how CodeDeploy handles files that already exist in a deployment target location but weren't part of the previous successful deployment.</p> <p>The <code>fileExistsBehavior</code> parameter takes any of the following values:</p> <ul> <li> <p>DISALLOW: The deployment fails. This is also the default behavior if no option is specified.</p> </li> <li> <p>OVERWRITE: The version of the file from the application revision currently being deployed replaces the version already on the instance.</p> </li> <li> <p>RETAIN: The version of the file already on the instance is kept and used as part of the new deployment.</p> </li> </ul>
             override_alarm_configuration: <p>Allows you to specify information about alarms associated with a deployment. The alarm configuration that you specify here will override the alarm configuration at the deployment group level. Consider overriding the alarm configuration if you have set up alarms at the deployment group level that are causing deployment failures. In this case, you would call <code>CreateDeployment</code> to create a new deployment that uses a previous application revision that is known to work, and set its alarm configuration to turn off alarm polling. Turning off alarm polling ensures that the new deployment proceeds without being blocked by the alarm that was generated by the previous, failed, deployment.</p> <note> <p>If you specify an <code>overrideAlarmConfiguration</code>, you need the <code>UpdateDeploymentGroup</code> IAM permission when calling <code>CreateDeployment</code>.</p> </note>
+
+        Raises:
+            aws_sdk_codedeploy.errors.alarms_limit_exceeded_exception.AlarmsLimitExceededException: <p>The maximum number of alarms for a deployment group (10) was exceeded.</p>
+            aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException: <p>The application does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException: <p>The minimum number of required application names was not specified.</p>
+            aws_sdk_codedeploy.errors.deployment_config_does_not_exist_exception.DeploymentConfigDoesNotExistException: <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.deployment_group_does_not_exist_exception.DeploymentGroupDoesNotExistException: <p>The named deployment group with the user or Amazon Web Services account does not exist.</p>
+            aws_sdk_codedeploy.errors.deployment_group_name_required_exception.DeploymentGroupNameRequiredException: <p>The deployment group name was not specified.</p>
+            aws_sdk_codedeploy.errors.deployment_limit_exceeded_exception.DeploymentLimitExceededException: <p>The number of allowed deployments was exceeded.</p>
+            aws_sdk_codedeploy.errors.description_too_long_exception.DescriptionTooLongException: <p>The description is too long.</p>
+            aws_sdk_codedeploy.errors.invalid_alarm_config_exception.InvalidAlarmConfigException: <p>The format of the alarm configuration is invalid. Possible causes include:</p> <ul> <li> <p>The alarm list is null.</p> </li> <li> <p>The alarm object is null.</p> </li> <li> <p>The alarm name is empty or null or exceeds the limit of 255 characters.</p> </li> <li> <p>Two alarms with the same name have been specified.</p> </li> <li> <p>The alarm configuration is enabled, but the alarm list is empty.</p> </li> </ul>
+            aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException: <p>The application name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_auto_rollback_config_exception.InvalidAutoRollbackConfigException: <p>The automatic rollback configuration was specified in an invalid format. For example, automatic rollback is enabled, but an invalid triggering event type or no event types were listed.</p>
+            aws_sdk_codedeploy.errors.invalid_auto_scaling_group_exception.InvalidAutoScalingGroupException: <p>The Auto Scaling group was specified in an invalid format or does not exist.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_config_name_exception.InvalidDeploymentConfigNameException: <p>The deployment configuration name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_group_name_exception.InvalidDeploymentGroupNameException: <p>The deployment group name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_file_exists_behavior_exception.InvalidFileExistsBehaviorException: <p>An invalid fileExistsBehavior option was specified to determine how CodeDeploy handles files or directories that already exist in a deployment target location, but weren't part of the previous successful deployment. Valid values include \"DISALLOW,\" \"OVERWRITE,\" and \"RETAIN.\"</p>
+            aws_sdk_codedeploy.errors.invalid_git_hub_account_token_exception.InvalidGitHubAccountTokenException: <p>The GitHub token is not valid.</p>
+            aws_sdk_codedeploy.errors.invalid_ignore_application_stop_failures_value_exception.InvalidIgnoreApplicationStopFailuresValueException: <p>The IgnoreApplicationStopFailures value is invalid. For Lambda deployments, <code>false</code> is expected. For EC2/On-premises deployments, <code>true</code> or <code>false</code> is expected.</p>
+            aws_sdk_codedeploy.errors.invalid_load_balancer_info_exception.InvalidLoadBalancerInfoException: <p>An invalid load balancer name, or no load balancer name, was specified.</p>
+            aws_sdk_codedeploy.errors.invalid_revision_exception.InvalidRevisionException: <p>The revision was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_role_exception.InvalidRoleException: <p>The service role ARN was specified in an invalid format. Or, if an Auto Scaling group was specified, the specified service role does not grant the appropriate permissions to Amazon EC2 Auto Scaling.</p>
+            aws_sdk_codedeploy.errors.invalid_target_instances_exception.InvalidTargetInstancesException: <p>The target instance configuration is invalid. Possible causes include:</p> <ul> <li> <p>Configuration data for target instances was entered for an in-place deployment.</p> </li> <li> <p>The limit of 10 tags for a tag type was exceeded.</p> </li> <li> <p>The combined length of the tag names exceeded the limit. </p> </li> <li> <p>A specified tag is not currently applied to any instances.</p> </li> </ul>
+            aws_sdk_codedeploy.errors.invalid_traffic_routing_configuration_exception.InvalidTrafficRoutingConfigurationException: <p> The configuration that specifies how traffic is routed during a deployment is invalid.</p>
+            aws_sdk_codedeploy.errors.invalid_update_outdated_instances_only_value_exception.InvalidUpdateOutdatedInstancesOnlyValueException: <p>The UpdateOutdatedInstancesOnly value is invalid. For Lambda deployments, <code>false</code> is expected. For EC2/On-premises deployments, <code>true</code> or <code>false</code> is expected.</p>
+            aws_sdk_codedeploy.errors.revision_does_not_exist_exception.RevisionDoesNotExistException: <p>The named revision does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.revision_required_exception.RevisionRequiredException: <p>The revision ID was not specified.</p>
+            aws_sdk_codedeploy.errors.throttling_exception.ThrottlingException: <p>An API function was called too frequently.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -793,6 +912,17 @@ class CodeDeployClient:
             traffic_routing_config: <p>The configuration that specifies how the deployment traffic is routed.</p>
             compute_platform: <p>The destination platform type for the deployment (<code>Lambda</code>, <code>Server</code>, or <code>ECS</code>).</p>
             zonal_config: <p>Configure the <code>ZonalConfig</code> object if you want CodeDeploy to deploy your application to one <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones\">Availability Zone</a> at a time, within an Amazon Web Services Region.</p> <p>For more information about the zonal configuration feature, see <a href=\"https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config\">zonal configuration</a> in the <i>CodeDeploy User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.deployment_config_already_exists_exception.DeploymentConfigAlreadyExistsException: <p>A deployment configuration with the specified name with the user or Amazon Web Services account already exists.</p>
+            aws_sdk_codedeploy.errors.deployment_config_limit_exceeded_exception.DeploymentConfigLimitExceededException: <p>The deployment configurations limit was exceeded.</p>
+            aws_sdk_codedeploy.errors.deployment_config_name_required_exception.DeploymentConfigNameRequiredException: <p>The deployment configuration name was not specified.</p>
+            aws_sdk_codedeploy.errors.invalid_compute_platform_exception.InvalidComputePlatformException: <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_config_name_exception.InvalidDeploymentConfigNameException: <p>The deployment configuration name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_minimum_healthy_host_value_exception.InvalidMinimumHealthyHostValueException: <p>The minimum healthy instance value was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_traffic_routing_configuration_exception.InvalidTrafficRoutingConfigurationException: <p> The configuration that specifies how traffic is routed during a deployment is invalid.</p>
+            aws_sdk_codedeploy.errors.invalid_zonal_deployment_configuration_exception.InvalidZonalDeploymentConfigurationException: <p>The <code>ZonalConfig</code> object is not valid.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -902,6 +1032,42 @@ class CodeDeployClient:
             on_premises_tag_set: <p>Information about groups of tags applied to on-premises instances. The deployment group includes only on-premises instances identified by all of the tag groups. Cannot be used in the same call as <code>onPremisesInstanceTagFilters</code>.</p>
             tags: <p> The metadata that you apply to CodeDeploy deployment groups to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. </p>
             termination_hook_enabled: <p>This parameter only applies if you are using CodeDeploy with Amazon EC2 Auto Scaling. For more information, see <a href=\"https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html\">Integrating CodeDeploy with Amazon EC2 Auto Scaling</a> in the <i>CodeDeploy User Guide</i>.</p> <p>Set <code>terminationHookEnabled</code> to <code>true</code> to have CodeDeploy install a termination hook into your Auto Scaling group when you create a deployment group. When this hook is installed, CodeDeploy will perform termination deployments.</p> <p>For information about termination deployments, see <a href=\"https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html#integrations-aws-auto-scaling-behaviors-hook-enable\">Enabling termination deployments during Auto Scaling scale-in events</a> in the <i>CodeDeploy User Guide</i>.</p> <p>For more information about Auto Scaling scale-in events, see the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html#as-lifecycle-scale-in\">Scale in</a> topic in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.alarms_limit_exceeded_exception.AlarmsLimitExceededException: <p>The maximum number of alarms for a deployment group (10) was exceeded.</p>
+            aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException: <p>The application does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException: <p>The minimum number of required application names was not specified.</p>
+            aws_sdk_codedeploy.errors.deployment_config_does_not_exist_exception.DeploymentConfigDoesNotExistException: <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.deployment_group_already_exists_exception.DeploymentGroupAlreadyExistsException: <p>A deployment group with the specified name with the user or Amazon Web Services account already exists.</p>
+            aws_sdk_codedeploy.errors.deployment_group_limit_exceeded_exception.DeploymentGroupLimitExceededException: <p> The deployment groups limit was exceeded.</p>
+            aws_sdk_codedeploy.errors.deployment_group_name_required_exception.DeploymentGroupNameRequiredException: <p>The deployment group name was not specified.</p>
+            aws_sdk_codedeploy.errors.ecs_service_mapping_limit_exceeded_exception.ECSServiceMappingLimitExceededException: <p> The Amazon ECS service is associated with more than one deployment groups. An Amazon ECS service can be associated with only one deployment group. </p>
+            aws_sdk_codedeploy.errors.invalid_alarm_config_exception.InvalidAlarmConfigException: <p>The format of the alarm configuration is invalid. Possible causes include:</p> <ul> <li> <p>The alarm list is null.</p> </li> <li> <p>The alarm object is null.</p> </li> <li> <p>The alarm name is empty or null or exceeds the limit of 255 characters.</p> </li> <li> <p>Two alarms with the same name have been specified.</p> </li> <li> <p>The alarm configuration is enabled, but the alarm list is empty.</p> </li> </ul>
+            aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException: <p>The application name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_auto_rollback_config_exception.InvalidAutoRollbackConfigException: <p>The automatic rollback configuration was specified in an invalid format. For example, automatic rollback is enabled, but an invalid triggering event type or no event types were listed.</p>
+            aws_sdk_codedeploy.errors.invalid_auto_scaling_group_exception.InvalidAutoScalingGroupException: <p>The Auto Scaling group was specified in an invalid format or does not exist.</p>
+            aws_sdk_codedeploy.errors.invalid_blue_green_deployment_configuration_exception.InvalidBlueGreenDeploymentConfigurationException: <p>The configuration for the blue/green deployment group was provided in an invalid format. For information about deployment configuration format, see <a>CreateDeploymentConfig</a>.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_config_name_exception.InvalidDeploymentConfigNameException: <p>The deployment configuration name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_group_name_exception.InvalidDeploymentGroupNameException: <p>The deployment group name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_style_exception.InvalidDeploymentStyleException: <p>An invalid deployment style was specified. Valid deployment types include \"IN_PLACE\" and \"BLUE_GREEN.\" Valid deployment options include \"WITH_TRAFFIC_CONTROL\" and \"WITHOUT_TRAFFIC_CONTROL.\"</p>
+            aws_sdk_codedeploy.errors.invalid_ec2_tag_combination_exception.InvalidEC2TagCombinationException: <p>A call was submitted that specified both Ec2TagFilters and Ec2TagSet, but only one of these data types can be used in a single call.</p>
+            aws_sdk_codedeploy.errors.invalid_ec2_tag_exception.InvalidEC2TagException: <p>The tag was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_ecs_service_exception.InvalidECSServiceException: <p> The Amazon ECS service identifier is not valid. </p>
+            aws_sdk_codedeploy.errors.invalid_input_exception.InvalidInputException: <p>The input was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_load_balancer_info_exception.InvalidLoadBalancerInfoException: <p>An invalid load balancer name, or no load balancer name, was specified.</p>
+            aws_sdk_codedeploy.errors.invalid_on_premises_tag_combination_exception.InvalidOnPremisesTagCombinationException: <p>A call was submitted that specified both OnPremisesTagFilters and OnPremisesTagSet, but only one of these data types can be used in a single call.</p>
+            aws_sdk_codedeploy.errors.invalid_role_exception.InvalidRoleException: <p>The service role ARN was specified in an invalid format. Or, if an Auto Scaling group was specified, the specified service role does not grant the appropriate permissions to Amazon EC2 Auto Scaling.</p>
+            aws_sdk_codedeploy.errors.invalid_tag_exception.InvalidTagException: <p>The tag was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_tags_to_add_exception.InvalidTagsToAddException: <p> The specified tags are not valid. </p>
+            aws_sdk_codedeploy.errors.invalid_target_group_pair_exception.InvalidTargetGroupPairException: <p> A target group pair associated with this deployment is not valid. </p>
+            aws_sdk_codedeploy.errors.invalid_traffic_routing_configuration_exception.InvalidTrafficRoutingConfigurationException: <p> The configuration that specifies how traffic is routed during a deployment is invalid.</p>
+            aws_sdk_codedeploy.errors.invalid_trigger_config_exception.InvalidTriggerConfigException: <p>The trigger was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.lifecycle_hook_limit_exceeded_exception.LifecycleHookLimitExceededException: <p>The limit for lifecycle hooks was exceeded.</p>
+            aws_sdk_codedeploy.errors.role_required_exception.RoleRequiredException: <p>The role ID was not specified.</p>
+            aws_sdk_codedeploy.errors.tag_set_list_limit_exceeded_exception.TagSetListLimitExceededException: <p>The number of tag groups included in the tag set list exceeded the maximum allowed limit of 3.</p>
+            aws_sdk_codedeploy.errors.throttling_exception.ThrottlingException: <p>An API function was called too frequently.</p>
+            aws_sdk_codedeploy.errors.trigger_targets_limit_exceeded_exception.TriggerTargetsLimitExceededException: <p>The maximum allowed number of triggers was exceeded.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -977,6 +1143,12 @@ class CodeDeployClient:
 
         Args:
             application_name: <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException: <p>The minimum number of required application names was not specified.</p>
+            aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException: <p>The application name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_role_exception.InvalidRoleException: <p>The service role ARN was specified in an invalid format. Or, if an Auto Scaling group was specified, the specified service role does not grant the appropriate permissions to Amazon EC2 Auto Scaling.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1012,6 +1184,13 @@ class CodeDeployClient:
 
         Args:
             deployment_config_name: <p>The name of a deployment configuration associated with the user or Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.deployment_config_in_use_exception.DeploymentConfigInUseException: <p>The deployment configuration is still in use.</p>
+            aws_sdk_codedeploy.errors.deployment_config_name_required_exception.DeploymentConfigNameRequiredException: <p>The deployment configuration name was not specified.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_config_name_exception.InvalidDeploymentConfigNameException: <p>The deployment configuration name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_operation_exception.InvalidOperationException: <p>An invalid operation was detected.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1049,6 +1228,14 @@ class CodeDeployClient:
         Args:
             application_name: <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
             deployment_group_name: <p>The name of a deployment group for the specified application.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException: <p>The minimum number of required application names was not specified.</p>
+            aws_sdk_codedeploy.errors.deployment_group_name_required_exception.DeploymentGroupNameRequiredException: <p>The deployment group name was not specified.</p>
+            aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException: <p>The application name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_group_name_exception.InvalidDeploymentGroupNameException: <p>The deployment group name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_role_exception.InvalidRoleException: <p>The service role ARN was specified in an invalid format. Or, if an Auto Scaling group was specified, the specified service role does not grant the appropriate permissions to Amazon EC2 Auto Scaling.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1089,6 +1276,14 @@ class CodeDeployClient:
 
         Args:
             token_name: <p>The name of the GitHub account connection to delete.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.git_hub_account_token_does_not_exist_exception.GitHubAccountTokenDoesNotExistException: <p>No GitHub account connection exists with the named specified in the call.</p>
+            aws_sdk_codedeploy.errors.git_hub_account_token_name_required_exception.GitHubAccountTokenNameRequiredException: <p>The call is missing a required GitHub account connection name.</p>
+            aws_sdk_codedeploy.errors.invalid_git_hub_account_token_name_exception.InvalidGitHubAccountTokenNameException: <p>The format of the specified GitHub account connection name is invalid.</p>
+            aws_sdk_codedeploy.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The API used does not support the deployment.</p>
+            aws_sdk_codedeploy.errors.resource_validation_exception.ResourceValidationException: <p>The specified resource could not be validated.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1127,6 +1322,9 @@ class CodeDeployClient:
 
         Args:
             external_id: <p>The unique ID of an external resource (for example, a CloudFormation stack ID) that is linked to one or more CodeDeploy resources.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1165,6 +1363,11 @@ class CodeDeployClient:
 
         Args:
             instance_name: <p>The name of the on-premises instance to deregister.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.instance_name_required_exception.InstanceNameRequiredException: <p>An on-premises instance name was not specified.</p>
+            aws_sdk_codedeploy.errors.invalid_instance_name_exception.InvalidInstanceNameException: <p>The on-premises instance name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1200,6 +1403,12 @@ class CodeDeployClient:
 
         Args:
             application_name: <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException: <p>The application does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException: <p>The minimum number of required application names was not specified.</p>
+            aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException: <p>The application name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1239,6 +1448,15 @@ class CodeDeployClient:
         Args:
             application_name: <p>The name of the application that corresponds to the revision.</p>
             revision: <p>Information about the application revision to get, including type and location.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException: <p>The application does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException: <p>The minimum number of required application names was not specified.</p>
+            aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException: <p>The application name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_revision_exception.InvalidRevisionException: <p>The revision was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.revision_does_not_exist_exception.RevisionDoesNotExistException: <p>The named revision does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.revision_required_exception.RevisionRequiredException: <p>The revision ID was not specified.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1277,6 +1495,12 @@ class CodeDeployClient:
 
         Args:
             deployment_id: <p> The unique ID of a deployment associated with the user or Amazon Web Services account. </p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.deployment_does_not_exist_exception.DeploymentDoesNotExistException: <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+            aws_sdk_codedeploy.errors.deployment_id_required_exception.DeploymentIdRequiredException: <p>At least one deployment ID must be specified.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_id_exception.InvalidDeploymentIdException: <p>At least one of the deployment IDs was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1314,6 +1538,13 @@ class CodeDeployClient:
 
         Args:
             deployment_config_name: <p>The name of a deployment configuration associated with the user or Amazon Web Services account.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.deployment_config_does_not_exist_exception.DeploymentConfigDoesNotExistException: <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.deployment_config_name_required_exception.DeploymentConfigNameRequiredException: <p>The deployment configuration name was not specified.</p>
+            aws_sdk_codedeploy.errors.invalid_compute_platform_exception.InvalidComputePlatformException: <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_config_name_exception.InvalidDeploymentConfigNameException: <p>The deployment configuration name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1355,6 +1586,16 @@ class CodeDeployClient:
         Args:
             application_name: <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
             deployment_group_name: <p>The name of a deployment group for the specified application.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException: <p>The application does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException: <p>The minimum number of required application names was not specified.</p>
+            aws_sdk_codedeploy.errors.deployment_config_does_not_exist_exception.DeploymentConfigDoesNotExistException: <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.deployment_group_does_not_exist_exception.DeploymentGroupDoesNotExistException: <p>The named deployment group with the user or Amazon Web Services account does not exist.</p>
+            aws_sdk_codedeploy.errors.deployment_group_name_required_exception.DeploymentGroupNameRequiredException: <p>The deployment group name was not specified.</p>
+            aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException: <p>The application name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_group_name_exception.InvalidDeploymentGroupNameException: <p>The deployment group name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1395,6 +1636,16 @@ class CodeDeployClient:
         Args:
             deployment_id: <p> The unique ID of a deployment. </p>
             instance_id: <p> The unique ID of an instance in the deployment group. </p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.deployment_does_not_exist_exception.DeploymentDoesNotExistException: <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+            aws_sdk_codedeploy.errors.deployment_id_required_exception.DeploymentIdRequiredException: <p>At least one deployment ID must be specified.</p>
+            aws_sdk_codedeploy.errors.instance_does_not_exist_exception.InstanceDoesNotExistException: <p>The specified instance does not exist in the deployment group.</p>
+            aws_sdk_codedeploy.errors.instance_id_required_exception.InstanceIdRequiredException: <p>The instance ID was not specified.</p>
+            aws_sdk_codedeploy.errors.invalid_compute_platform_exception.InvalidComputePlatformException: <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_id_exception.InvalidDeploymentIdException: <p>At least one of the deployment IDs was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_instance_name_exception.InvalidInstanceNameException: <p>The on-premises instance name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1435,6 +1686,17 @@ class CodeDeployClient:
         Args:
             deployment_id: <p> The unique ID of a deployment. </p>
             target_id: <p> The unique ID of a deployment target. </p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.deployment_does_not_exist_exception.DeploymentDoesNotExistException: <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+            aws_sdk_codedeploy.errors.deployment_id_required_exception.DeploymentIdRequiredException: <p>At least one deployment ID must be specified.</p>
+            aws_sdk_codedeploy.errors.deployment_not_started_exception.DeploymentNotStartedException: <p>The specified deployment has not started.</p>
+            aws_sdk_codedeploy.errors.deployment_target_does_not_exist_exception.DeploymentTargetDoesNotExistException: <p> The provided target ID does not belong to the attempted deployment. </p>
+            aws_sdk_codedeploy.errors.deployment_target_id_required_exception.DeploymentTargetIdRequiredException: <p> A deployment target ID was not provided. </p>
+            aws_sdk_codedeploy.errors.invalid_deployment_id_exception.InvalidDeploymentIdException: <p>At least one of the deployment IDs was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_target_id_exception.InvalidDeploymentTargetIdException: <p> The target ID provided was not valid. </p>
+            aws_sdk_codedeploy.errors.invalid_instance_name_exception.InvalidInstanceNameException: <p>The on-premises instance name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1473,6 +1735,12 @@ class CodeDeployClient:
 
         Args:
             instance_name: <p> The name of the on-premises instance about which to get information. </p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.instance_name_required_exception.InstanceNameRequiredException: <p>An on-premises instance name was not specified.</p>
+            aws_sdk_codedeploy.errors.instance_not_registered_exception.InstanceNotRegisteredException: <p>The specified on-premises instance is not registered.</p>
+            aws_sdk_codedeploy.errors.invalid_instance_name_exception.InvalidInstanceNameException: <p>The on-premises instance name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1526,6 +1794,19 @@ class CodeDeployClient:
             s3_key_prefix: <p> A key prefix for the set of Amazon S3 objects to limit the search for revisions. </p>
             deployed: <p> Whether to list revisions based on whether the revision is the target revision of a deployment group: </p> <ul> <li> <p> <code>include</code>: List revisions that are target revisions of a deployment group.</p> </li> <li> <p> <code>exclude</code>: Do not list revisions that are target revisions of a deployment group.</p> </li> <li> <p> <code>ignore</code>: List all revisions.</p> </li> </ul>
             next_token: <p>An identifier returned from the previous <code>ListApplicationRevisions</code> call. It can be used to return the next set of applications in the list.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException: <p>The application does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException: <p>The minimum number of required application names was not specified.</p>
+            aws_sdk_codedeploy.errors.bucket_name_filter_required_exception.BucketNameFilterRequiredException: <p>A bucket name is required, but was not provided.</p>
+            aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException: <p>The application name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_bucket_name_filter_exception.InvalidBucketNameFilterException: <p>The bucket name either doesn't exist or was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_deployed_state_filter_exception.InvalidDeployedStateFilterException: <p>The deployed state filter was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_key_prefix_filter_exception.InvalidKeyPrefixFilterException: <p>The specified key prefix filter was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The next token was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_sort_by_exception.InvalidSortByException: <p>The column name to sort by is either not present or was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_sort_order_exception.InvalidSortOrderException: <p>The sort order was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1610,6 +1891,10 @@ class CodeDeployClient:
 
         Args:
             next_token: <p>An identifier returned from the previous list applications call. It can be used to return the next set of applications in the list.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The next token was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1667,6 +1952,10 @@ class CodeDeployClient:
 
         Args:
             next_token: <p>An identifier returned from the previous <code>ListDeploymentConfigs</code> call. It can be used to return the next set of deployment configurations in the list. </p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The next token was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1728,6 +2017,13 @@ class CodeDeployClient:
         Args:
             application_name: <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
             next_token: <p>An identifier returned from the previous list deployment groups call. It can be used to return the next set of deployment groups in the list.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException: <p>The application does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException: <p>The minimum number of required application names was not specified.</p>
+            aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException: <p>The application name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The next token was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1798,6 +2094,19 @@ class CodeDeployClient:
             next_token: <p>An identifier returned from the previous list deployment instances call. It can be used to return the next set of deployment instances in the list.</p>
             instance_status_filter: <p>A subset of instances to list by status:</p> <ul> <li> <p> <code>Pending</code>: Include those instances with pending deployments.</p> </li> <li> <p> <code>InProgress</code>: Include those instances where deployments are still in progress.</p> </li> <li> <p> <code>Succeeded</code>: Include those instances with successful deployments.</p> </li> <li> <p> <code>Failed</code>: Include those instances with failed deployments.</p> </li> <li> <p> <code>Skipped</code>: Include those instances with skipped deployments.</p> </li> <li> <p> <code>Unknown</code>: Include those instances with deployments in an unknown state.</p> </li> </ul>
             instance_type_filter: <p>The set of instances in a blue/green deployment, either those in the original environment (\"BLUE\") or those in the replacement environment (\"GREEN\"), for which you want to view instance information.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.deployment_does_not_exist_exception.DeploymentDoesNotExistException: <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+            aws_sdk_codedeploy.errors.deployment_id_required_exception.DeploymentIdRequiredException: <p>At least one deployment ID must be specified.</p>
+            aws_sdk_codedeploy.errors.deployment_not_started_exception.DeploymentNotStartedException: <p>The specified deployment has not started.</p>
+            aws_sdk_codedeploy.errors.invalid_compute_platform_exception.InvalidComputePlatformException: <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_id_exception.InvalidDeploymentIdException: <p>At least one of the deployment IDs was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_instance_type_exception.InvalidDeploymentInstanceTypeException: <p>An instance type was specified for an in-place deployment. Instance types are supported for blue/green deployments only.</p>
+            aws_sdk_codedeploy.errors.invalid_instance_status_exception.InvalidInstanceStatusException: <p>The specified instance status does not exist.</p>
+            aws_sdk_codedeploy.errors.invalid_instance_type_exception.InvalidInstanceTypeException: <p>An invalid instance type was specified for instances in a blue/green deployment. Valid values include \"Blue\" for an original environment and \"Green\" for a replacement environment.</p>
+            aws_sdk_codedeploy.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The next token was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_target_filter_name_exception.InvalidTargetFilterNameException: <p> The target filter name is invalid. </p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1888,6 +2197,20 @@ class CodeDeployClient:
             include_only_statuses: <p>A subset of deployments to list by status:</p> <ul> <li> <p> <code>Created</code>: Include created deployments in the resulting list.</p> </li> <li> <p> <code>Queued</code>: Include queued deployments in the resulting list.</p> </li> <li> <p> <code>In Progress</code>: Include in-progress deployments in the resulting list.</p> </li> <li> <p> <code>Succeeded</code>: Include successful deployments in the resulting list.</p> </li> <li> <p> <code>Failed</code>: Include failed deployments in the resulting list.</p> </li> <li> <p> <code>Stopped</code>: Include stopped deployments in the resulting list.</p> </li> </ul>
             create_time_range: <p>A time range (start and end) for returning a subset of the list of deployments.</p>
             next_token: <p>An identifier returned from the previous list deployments call. It can be used to return the next set of deployments in the list.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException: <p>The application does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException: <p>The minimum number of required application names was not specified.</p>
+            aws_sdk_codedeploy.errors.deployment_group_does_not_exist_exception.DeploymentGroupDoesNotExistException: <p>The named deployment group with the user or Amazon Web Services account does not exist.</p>
+            aws_sdk_codedeploy.errors.deployment_group_name_required_exception.DeploymentGroupNameRequiredException: <p>The deployment group name was not specified.</p>
+            aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException: <p>The application name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_group_name_exception.InvalidDeploymentGroupNameException: <p>The deployment group name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_status_exception.InvalidDeploymentStatusException: <p>The specified deployment status doesn't exist or cannot be determined.</p>
+            aws_sdk_codedeploy.errors.invalid_external_id_exception.InvalidExternalIdException: <p>The external ID was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_input_exception.InvalidInputException: <p>The input was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The next token was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_time_range_exception.InvalidTimeRangeException: <p>The specified time range was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1979,6 +2302,18 @@ class CodeDeployClient:
             deployment_id: <p> The unique ID of a deployment. </p>
             next_token: <p> A token identifier returned from the previous <code>ListDeploymentTargets</code> call. It can be used to return the next set of deployment targets in the list. </p>
             target_filters: <p> A key used to filter the returned targets. The two valid values are:</p> <ul> <li> <p> <code>TargetStatus</code> - A <code>TargetStatus</code> filter string can be <code>Failed</code>, <code>InProgress</code>, <code>Pending</code>, <code>Ready</code>, <code>Skipped</code>, <code>Succeeded</code>, or <code>Unknown</code>. </p> </li> <li> <p> <code>ServerInstanceLabel</code> - A <code>ServerInstanceLabel</code> filter string can be <code>Blue</code> or <code>Green</code>. </p> </li> </ul>
+
+        Raises:
+            aws_sdk_codedeploy.errors.deployment_does_not_exist_exception.DeploymentDoesNotExistException: <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+            aws_sdk_codedeploy.errors.deployment_id_required_exception.DeploymentIdRequiredException: <p>At least one deployment ID must be specified.</p>
+            aws_sdk_codedeploy.errors.deployment_not_started_exception.DeploymentNotStartedException: <p>The specified deployment has not started.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_id_exception.InvalidDeploymentIdException: <p>At least one of the deployment IDs was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_instance_type_exception.InvalidDeploymentInstanceTypeException: <p>An instance type was specified for an in-place deployment. Instance types are supported for blue/green deployments only.</p>
+            aws_sdk_codedeploy.errors.invalid_instance_status_exception.InvalidInstanceStatusException: <p>The specified instance status does not exist.</p>
+            aws_sdk_codedeploy.errors.invalid_instance_type_exception.InvalidInstanceTypeException: <p>An invalid instance type was specified for instances in a blue/green deployment. Valid values include \"Blue\" for an original environment and \"Green\" for a replacement environment.</p>
+            aws_sdk_codedeploy.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The next token was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_target_filter_name_exception.InvalidTargetFilterNameException: <p> The target filter name is invalid. </p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2020,6 +2355,12 @@ class CodeDeployClient:
 
         Args:
             next_token: <p>An identifier returned from the previous <code>ListGitHubAccountTokenNames</code> call. It can be used to return the next set of names in the list. </p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The next token was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.operation_not_supported_exception.OperationNotSupportedException: <p>The API used does not support the deployment.</p>
+            aws_sdk_codedeploy.errors.resource_validation_exception.ResourceValidationException: <p>The specified resource could not be validated.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2066,6 +2407,12 @@ class CodeDeployClient:
             registration_status: <p>The registration status of the on-premises instances:</p> <ul> <li> <p> <code>Deregistered</code>: Include deregistered on-premises instances in the resulting list.</p> </li> <li> <p> <code>Registered</code>: Include registered on-premises instances in the resulting list.</p> </li> </ul>
             tag_filters: <p>The on-premises instance tags that are used to restrict the on-premises instance names returned.</p>
             next_token: <p>An identifier returned from the previous list on-premises instances call. It can be used to return the next set of on-premises instances in the list.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.invalid_next_token_exception.InvalidNextTokenException: <p>The next token was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_registration_status_exception.InvalidRegistrationStatusException: <p>The registration status was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_tag_filter_exception.InvalidTagFilterException: <p>The tag filter was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2110,6 +2457,12 @@ class CodeDeployClient:
         Args:
             resource_arn: <p> The ARN of a CodeDeploy resource. <code>ListTagsForResource</code> returns all the tags associated with the resource that is identified by the <code>ResourceArn</code>. </p>
             next_token: <p>An identifier returned from the previous <code>ListTagsForResource</code> call. It can be used to return the next set of applications in the list.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.arn_not_supported_exception.ArnNotSupportedException: <p> The specified ARN is not supported. For example, it might be an ARN for a resource that is not expected. </p>
+            aws_sdk_codedeploy.errors.invalid_arn_exception.InvalidArnException: <p> The specified ARN is not in a valid format. </p>
+            aws_sdk_codedeploy.errors.resource_arn_required_exception.ResourceArnRequiredException: <p> The ARN of a resource is required, but was not found. </p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2159,6 +2512,16 @@ class CodeDeployClient:
             deployment_id: <p> The unique ID of a deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event. </p>
             lifecycle_event_hook_execution_id: <p> The execution ID of a deployment's lifecycle hook. A deployment lifecycle hook is specified in the <code>hooks</code> section of the AppSpec file. </p>
             status: <p>The result of a Lambda function that validates a deployment lifecycle event. The values listed in <b>Valid Values</b> are valid for lifecycle statuses in general; however, only <code>Succeeded</code> and <code>Failed</code> can be passed successfully in your API call.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.deployment_does_not_exist_exception.DeploymentDoesNotExistException: <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+            aws_sdk_codedeploy.errors.deployment_id_required_exception.DeploymentIdRequiredException: <p>At least one deployment ID must be specified.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_id_exception.InvalidDeploymentIdException: <p>At least one of the deployment IDs was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_lifecycle_event_hook_execution_id_exception.InvalidLifecycleEventHookExecutionIdException: <p>A lifecycle event hook is invalid. Review the <code>hooks</code> section in your AppSpec file to ensure the lifecycle events and <code>hooks</code> functions are valid.</p>
+            aws_sdk_codedeploy.errors.invalid_lifecycle_event_hook_execution_status_exception.InvalidLifecycleEventHookExecutionStatusException: <p>The result of a Lambda validation function that verifies a lifecycle event is invalid. It should return <code>Succeeded</code> or <code>Failed</code>.</p>
+            aws_sdk_codedeploy.errors.lifecycle_event_already_completed_exception.LifecycleEventAlreadyCompletedException: <p>An attempt to return the status of an already completed lifecycle event occurred.</p>
+            aws_sdk_codedeploy.errors.unsupported_action_for_deployment_type_exception.UnsupportedActionForDeploymentTypeException: <p>A call was submitted that is not supported for the specified deployment type.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2209,6 +2572,15 @@ class CodeDeployClient:
             application_name: <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
             description: <p>A comment about the revision.</p>
             revision: <p>Information about the application revision to register, including type and location.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException: <p>The application does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException: <p>The minimum number of required application names was not specified.</p>
+            aws_sdk_codedeploy.errors.description_too_long_exception.DescriptionTooLongException: <p>The description is too long.</p>
+            aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException: <p>The application name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_revision_exception.InvalidRevisionException: <p>The revision was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.revision_required_exception.RevisionRequiredException: <p>The revision ID was not specified.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2255,6 +2627,19 @@ class CodeDeployClient:
             instance_name: <p>The name of the on-premises instance to register.</p>
             iam_session_arn: <p>The ARN of the IAM session to associate with the on-premises instance.</p>
             iam_user_arn: <p>The ARN of the user to associate with the on-premises instance.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.iam_arn_required_exception.IamArnRequiredException: <p>No IAM ARN was included in the request. You must use an IAM session ARN or user ARN in the request.</p>
+            aws_sdk_codedeploy.errors.iam_session_arn_already_registered_exception.IamSessionArnAlreadyRegisteredException: <p>The request included an IAM session ARN that has already been used to register a different instance.</p>
+            aws_sdk_codedeploy.errors.iam_user_arn_already_registered_exception.IamUserArnAlreadyRegisteredException: <p>The specified user ARN is already registered with an on-premises instance.</p>
+            aws_sdk_codedeploy.errors.iam_user_arn_required_exception.IamUserArnRequiredException: <p>An user ARN was not specified.</p>
+            aws_sdk_codedeploy.errors.instance_name_already_registered_exception.InstanceNameAlreadyRegisteredException: <p>The specified on-premises instance name is already registered.</p>
+            aws_sdk_codedeploy.errors.instance_name_required_exception.InstanceNameRequiredException: <p>An on-premises instance name was not specified.</p>
+            aws_sdk_codedeploy.errors.invalid_iam_session_arn_exception.InvalidIamSessionArnException: <p>The IAM session ARN was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_iam_user_arn_exception.InvalidIamUserArnException: <p>The user ARN was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_instance_name_exception.InvalidInstanceNameException: <p>The on-premises instance name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.multiple_iam_arns_provided_exception.MultipleIamArnsProvidedException: <p>Both an user ARN and an IAM session ARN were included in the request. Use only one ARN type.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2296,6 +2681,16 @@ class CodeDeployClient:
         Args:
             tags: <p>The tag key-value pairs to remove from the on-premises instances.</p>
             instance_names: <p>The names of the on-premises instances from which to remove tags.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.instance_limit_exceeded_exception.InstanceLimitExceededException: <p>The maximum number of allowed on-premises instances in a single call was exceeded.</p>
+            aws_sdk_codedeploy.errors.instance_name_required_exception.InstanceNameRequiredException: <p>An on-premises instance name was not specified.</p>
+            aws_sdk_codedeploy.errors.instance_not_registered_exception.InstanceNotRegisteredException: <p>The specified on-premises instance is not registered.</p>
+            aws_sdk_codedeploy.errors.invalid_instance_name_exception.InvalidInstanceNameException: <p>The on-premises instance name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_tag_exception.InvalidTagException: <p>The tag was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.tag_limit_exceeded_exception.TagLimitExceededException: <p>The maximum allowed number of tags was exceeded.</p>
+            aws_sdk_codedeploy.errors.tag_required_exception.TagRequiredException: <p>A tag was not specified.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2334,6 +2729,15 @@ class CodeDeployClient:
 
         Args:
             deployment_id: <p> The unique ID of a blue/green deployment for which you want to skip the instance termination wait time. </p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.deployment_already_completed_exception.DeploymentAlreadyCompletedException: <p>The deployment is already complete.</p>
+            aws_sdk_codedeploy.errors.deployment_does_not_exist_exception.DeploymentDoesNotExistException: <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+            aws_sdk_codedeploy.errors.deployment_id_required_exception.DeploymentIdRequiredException: <p>At least one deployment ID must be specified.</p>
+            aws_sdk_codedeploy.errors.deployment_not_started_exception.DeploymentNotStartedException: <p>The specified deployment has not started.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_id_exception.InvalidDeploymentIdException: <p>At least one of the deployment IDs was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.unsupported_action_for_deployment_type_exception.UnsupportedActionForDeploymentTypeException: <p>A call was submitted that is not supported for the specified deployment type.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2374,6 +2778,15 @@ class CodeDeployClient:
         Args:
             deployment_id: <p> The unique ID of a deployment. </p>
             auto_rollback_enabled: <p> Indicates, when a deployment is stopped, whether instances that have been updated should be rolled back to the previous version of the application revision. </p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.deployment_already_completed_exception.DeploymentAlreadyCompletedException: <p>The deployment is already complete.</p>
+            aws_sdk_codedeploy.errors.deployment_does_not_exist_exception.DeploymentDoesNotExistException: <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+            aws_sdk_codedeploy.errors.deployment_group_does_not_exist_exception.DeploymentGroupDoesNotExistException: <p>The named deployment group with the user or Amazon Web Services account does not exist.</p>
+            aws_sdk_codedeploy.errors.deployment_id_required_exception.DeploymentIdRequiredException: <p>At least one deployment ID must be specified.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_id_exception.InvalidDeploymentIdException: <p>At least one of the deployment IDs was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.unsupported_action_for_deployment_type_exception.UnsupportedActionForDeploymentTypeException: <p>A call was submitted that is not supported for the specified deployment type.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2415,6 +2828,17 @@ class CodeDeployClient:
         Args:
             resource_arn: <p> The ARN of a resource, such as a CodeDeploy application or deployment group. </p>
             tags: <p> A list of tags that <code>TagResource</code> associates with a resource. The resource is identified by the <code>ResourceArn</code> input parameter. </p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException: <p>The application does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.arn_not_supported_exception.ArnNotSupportedException: <p> The specified ARN is not supported. For example, it might be an ARN for a resource that is not expected. </p>
+            aws_sdk_codedeploy.errors.deployment_config_does_not_exist_exception.DeploymentConfigDoesNotExistException: <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.deployment_group_does_not_exist_exception.DeploymentGroupDoesNotExistException: <p>The named deployment group with the user or Amazon Web Services account does not exist.</p>
+            aws_sdk_codedeploy.errors.invalid_arn_exception.InvalidArnException: <p> The specified ARN is not in a valid format. </p>
+            aws_sdk_codedeploy.errors.invalid_tags_to_add_exception.InvalidTagsToAddException: <p> The specified tags are not valid. </p>
+            aws_sdk_codedeploy.errors.resource_arn_required_exception.ResourceArnRequiredException: <p> The ARN of a resource is required, but was not found. </p>
+            aws_sdk_codedeploy.errors.tag_required_exception.TagRequiredException: <p>A tag was not specified.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2455,6 +2879,17 @@ class CodeDeployClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) that specifies from which resource to disassociate the tags with the keys in the <code>TagKeys</code> input parameter. </p>
             tag_keys: <p> A list of keys of <code>Tag</code> objects. The <code>Tag</code> objects identified by the keys are disassociated from the resource specified by the <code>ResourceArn</code> input parameter. </p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException: <p>The application does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.arn_not_supported_exception.ArnNotSupportedException: <p> The specified ARN is not supported. For example, it might be an ARN for a resource that is not expected. </p>
+            aws_sdk_codedeploy.errors.deployment_config_does_not_exist_exception.DeploymentConfigDoesNotExistException: <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.deployment_group_does_not_exist_exception.DeploymentGroupDoesNotExistException: <p>The named deployment group with the user or Amazon Web Services account does not exist.</p>
+            aws_sdk_codedeploy.errors.invalid_arn_exception.InvalidArnException: <p> The specified ARN is not in a valid format. </p>
+            aws_sdk_codedeploy.errors.invalid_tags_to_add_exception.InvalidTagsToAddException: <p> The specified tags are not valid. </p>
+            aws_sdk_codedeploy.errors.resource_arn_required_exception.ResourceArnRequiredException: <p> The ARN of a resource is required, but was not found. </p>
+            aws_sdk_codedeploy.errors.tag_required_exception.TagRequiredException: <p>A tag was not specified.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2499,6 +2934,13 @@ class CodeDeployClient:
         Args:
             application_name: <p>The current name of the application you want to change.</p>
             new_application_name: <p>The new name to give the application.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.application_already_exists_exception.ApplicationAlreadyExistsException: <p>An application with the specified name with the user or Amazon Web Services account already exists.</p>
+            aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException: <p>The application does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException: <p>The minimum number of required application names was not specified.</p>
+            aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException: <p>The application name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2603,6 +3045,40 @@ class CodeDeployClient:
             ecs_services: <p> The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format <code><clustername>:<servicename></code>. </p>
             on_premises_tag_set: <p>Information about an on-premises instance tag set. The deployment group includes only on-premises instances identified by all the tag groups.</p>
             termination_hook_enabled: <p>This parameter only applies if you are using CodeDeploy with Amazon EC2 Auto Scaling. For more information, see <a href=\"https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html\">Integrating CodeDeploy with Amazon EC2 Auto Scaling</a> in the <i>CodeDeploy User Guide</i>.</p> <p>Set <code>terminationHookEnabled</code> to <code>true</code> to have CodeDeploy install a termination hook into your Auto Scaling group when you update a deployment group. When this hook is installed, CodeDeploy will perform termination deployments.</p> <p>For information about termination deployments, see <a href=\"https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html#integrations-aws-auto-scaling-behaviors-hook-enable\">Enabling termination deployments during Auto Scaling scale-in events</a> in the <i>CodeDeploy User Guide</i>.</p> <p>For more information about Auto Scaling scale-in events, see the <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html#as-lifecycle-scale-in\">Scale in</a> topic in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_codedeploy.errors.alarms_limit_exceeded_exception.AlarmsLimitExceededException: <p>The maximum number of alarms for a deployment group (10) was exceeded.</p>
+            aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException: <p>The application does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException: <p>The minimum number of required application names was not specified.</p>
+            aws_sdk_codedeploy.errors.deployment_config_does_not_exist_exception.DeploymentConfigDoesNotExistException: <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
+            aws_sdk_codedeploy.errors.deployment_group_already_exists_exception.DeploymentGroupAlreadyExistsException: <p>A deployment group with the specified name with the user or Amazon Web Services account already exists.</p>
+            aws_sdk_codedeploy.errors.deployment_group_does_not_exist_exception.DeploymentGroupDoesNotExistException: <p>The named deployment group with the user or Amazon Web Services account does not exist.</p>
+            aws_sdk_codedeploy.errors.deployment_group_name_required_exception.DeploymentGroupNameRequiredException: <p>The deployment group name was not specified.</p>
+            aws_sdk_codedeploy.errors.ecs_service_mapping_limit_exceeded_exception.ECSServiceMappingLimitExceededException: <p> The Amazon ECS service is associated with more than one deployment groups. An Amazon ECS service can be associated with only one deployment group. </p>
+            aws_sdk_codedeploy.errors.invalid_alarm_config_exception.InvalidAlarmConfigException: <p>The format of the alarm configuration is invalid. Possible causes include:</p> <ul> <li> <p>The alarm list is null.</p> </li> <li> <p>The alarm object is null.</p> </li> <li> <p>The alarm name is empty or null or exceeds the limit of 255 characters.</p> </li> <li> <p>Two alarms with the same name have been specified.</p> </li> <li> <p>The alarm configuration is enabled, but the alarm list is empty.</p> </li> </ul>
+            aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException: <p>The application name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_auto_rollback_config_exception.InvalidAutoRollbackConfigException: <p>The automatic rollback configuration was specified in an invalid format. For example, automatic rollback is enabled, but an invalid triggering event type or no event types were listed.</p>
+            aws_sdk_codedeploy.errors.invalid_auto_scaling_group_exception.InvalidAutoScalingGroupException: <p>The Auto Scaling group was specified in an invalid format or does not exist.</p>
+            aws_sdk_codedeploy.errors.invalid_blue_green_deployment_configuration_exception.InvalidBlueGreenDeploymentConfigurationException: <p>The configuration for the blue/green deployment group was provided in an invalid format. For information about deployment configuration format, see <a>CreateDeploymentConfig</a>.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_config_name_exception.InvalidDeploymentConfigNameException: <p>The deployment configuration name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_group_name_exception.InvalidDeploymentGroupNameException: <p>The deployment group name was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_deployment_style_exception.InvalidDeploymentStyleException: <p>An invalid deployment style was specified. Valid deployment types include \"IN_PLACE\" and \"BLUE_GREEN.\" Valid deployment options include \"WITH_TRAFFIC_CONTROL\" and \"WITHOUT_TRAFFIC_CONTROL.\"</p>
+            aws_sdk_codedeploy.errors.invalid_ec2_tag_combination_exception.InvalidEC2TagCombinationException: <p>A call was submitted that specified both Ec2TagFilters and Ec2TagSet, but only one of these data types can be used in a single call.</p>
+            aws_sdk_codedeploy.errors.invalid_ec2_tag_exception.InvalidEC2TagException: <p>The tag was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_ecs_service_exception.InvalidECSServiceException: <p> The Amazon ECS service identifier is not valid. </p>
+            aws_sdk_codedeploy.errors.invalid_input_exception.InvalidInputException: <p>The input was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_load_balancer_info_exception.InvalidLoadBalancerInfoException: <p>An invalid load balancer name, or no load balancer name, was specified.</p>
+            aws_sdk_codedeploy.errors.invalid_on_premises_tag_combination_exception.InvalidOnPremisesTagCombinationException: <p>A call was submitted that specified both OnPremisesTagFilters and OnPremisesTagSet, but only one of these data types can be used in a single call.</p>
+            aws_sdk_codedeploy.errors.invalid_role_exception.InvalidRoleException: <p>The service role ARN was specified in an invalid format. Or, if an Auto Scaling group was specified, the specified service role does not grant the appropriate permissions to Amazon EC2 Auto Scaling.</p>
+            aws_sdk_codedeploy.errors.invalid_tag_exception.InvalidTagException: <p>The tag was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.invalid_target_group_pair_exception.InvalidTargetGroupPairException: <p> A target group pair associated with this deployment is not valid. </p>
+            aws_sdk_codedeploy.errors.invalid_traffic_routing_configuration_exception.InvalidTrafficRoutingConfigurationException: <p> The configuration that specifies how traffic is routed during a deployment is invalid.</p>
+            aws_sdk_codedeploy.errors.invalid_trigger_config_exception.InvalidTriggerConfigException: <p>The trigger was specified in an invalid format.</p>
+            aws_sdk_codedeploy.errors.lifecycle_hook_limit_exceeded_exception.LifecycleHookLimitExceededException: <p>The limit for lifecycle hooks was exceeded.</p>
+            aws_sdk_codedeploy.errors.tag_set_list_limit_exceeded_exception.TagSetListLimitExceededException: <p>The number of tag groups included in the tag set list exceeded the maximum allowed limit of 3.</p>
+            aws_sdk_codedeploy.errors.throttling_exception.ThrottlingException: <p>An API function was called too frequently.</p>
+            aws_sdk_codedeploy.errors.trigger_targets_limit_exceeded_exception.TriggerTargetsLimitExceededException: <p>The maximum allowed number of triggers was exceeded.</p>
+            aws_sdk_codedeploy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

@@ -197,6 +197,15 @@ class S3FilesClient:
             file_system_id: <p>The ID or Amazon Resource Name (ARN) of the S3 File System.</p>
             posix_user: <p>The POSIX identity with uid, gid, and secondary group IDs for user enforcement when accessing the file system through this access point.</p>
             root_directory: <p>The root directory path for the access point, with optional creation permissions for newly created directories.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. This can occur when trying to create a resource that already exists or delete a resource that is in use.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed a service quota. Review your service quotas and either delete resources or request a quota increase.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -256,6 +265,15 @@ class S3FilesClient:
             role_arn: <p>The ARN of the IAM role that grants the S3 Files service permission to read and write data between the file system and the S3 bucket. This role must have the necessary permissions to access the specified bucket and prefix.</p>
             tags: <p>An array of key-value pairs to apply as tags to the file system resource. Each tag is a user-defined key-value pair. You can use tags to categorize and manage your file systems. Each key must be unique for the resource.</p>
             accept_bucket_warning: <p>Set to true to acknowledge and accept any warnings about the bucket configuration. If not specified, the operation may fail if there are bucket configuration warnings.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. This can occur when trying to create a resource that already exists or delete a resource that is in use.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed a service quota. Review your service quotas and either delete resources or request a quota increase.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -318,6 +336,15 @@ class S3FilesClient:
             ipv6_address: <p>A specific IPv6 address to assign to the mount target. If not specified and the IP address type supports IPv6, an address is automatically assigned from the subnet's available IPv6 address range. The address must be within the subnet's IPv6 CIDR block and not already in use.</p>
             ip_address_type: <p>The IP address type for the mount target. If not specified, <code>IPV4_ONLY</code> is used. The IP address type must match the IP configuration of the specified subnet.</p>
             security_groups: <p>An array of VPC security group IDs to associate with the mount target's network interface. These security groups control network access to the mount target. If not specified, the default security group for the subnet's VPC is used. All security groups must belong to the same VPC as the subnet.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. This can occur when trying to create a resource that already exists or delete a resource that is in use.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed a service quota. Review your service quotas and either delete resources or request a quota increase.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -364,6 +391,14 @@ class S3FilesClient:
 
         Args:
             access_point_id: <p>The ID or Amazon Resource Name (ARN) of the access point to delete.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. This can occur when trying to create a resource that already exists or delete a resource that is in use.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -401,6 +436,14 @@ class S3FilesClient:
         Args:
             file_system_id: <p>The ID or Amazon Resource Name (ARN) of the S3 File System to delete.</p>
             force_delete: <p>If true, allows deletion of a file system that contains data pending export to S3. If false (the default), the deletion will fail if there is data that has not yet been exported to the S3 bucket. Use this parameter with caution as it may result in data loss.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. This can occur when trying to create a resource that already exists or delete a resource that is in use.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -438,6 +481,13 @@ class S3FilesClient:
 
         Args:
             file_system_id: <p>The ID or Amazon Resource Name (ARN) of the S3 File System whose resource policy to delete.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -473,6 +523,14 @@ class S3FilesClient:
 
         Args:
             mount_target_id: <p>The ID of the mount target to delete.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. This can occur when trying to create a resource that already exists or delete a resource that is in use.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -508,6 +566,13 @@ class S3FilesClient:
 
         Args:
             access_point_id: <p>The ID or Amazon Resource Name (ARN) of the access point to retrieve information for.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -545,6 +610,13 @@ class S3FilesClient:
 
         Args:
             file_system_id: <p>The ID or Amazon Resource Name (ARN) of the S3 File System to retrieve information for.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -582,6 +654,13 @@ class S3FilesClient:
 
         Args:
             file_system_id: <p>The ID or Amazon Resource Name (ARN) of the S3 File System whose resource policy to retrieve.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -619,6 +698,13 @@ class S3FilesClient:
 
         Args:
             mount_target_id: <p>The ID of the mount target to retrieve information for.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -656,6 +742,13 @@ class S3FilesClient:
 
         Args:
             file_system_id: <p>The ID or Amazon Resource Name (ARN) of the S3 File System to retrieve the synchronization configuration for.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -697,6 +790,13 @@ class S3FilesClient:
             file_system_id: <p>The ID or Amazon Resource Name (ARN) of the S3 File System to list access points for.</p>
             max_results: <p>The maximum number of access points to return in a single response.</p>
             next_token: <p>A pagination token returned from a previous call to continue listing access points.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -765,6 +865,12 @@ class S3FilesClient:
             bucket: <p>Optional filter to list only file systems associated with the specified S3 bucket Amazon Resource Name (ARN). If provided, only file systems that provide access to this bucket will be returned in the response.</p>
             max_results: <p>The maximum number of file systems to return in a single response. If not specified, up to 100 file systems are returned.</p>
             next_token: <p>A pagination token returned from a previous call to continue listing file systems.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -840,6 +946,13 @@ class S3FilesClient:
             access_point_id: <p>Optional filter to list only mount targets associated with the specified access point ID or Amazon Resource Name (ARN).</p>
             max_results: <p>The maximum number of mount targets to return in a single response.</p>
             next_token: <p>A pagination token returned from a previous call to continue listing mount targets.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -917,6 +1030,13 @@ class S3FilesClient:
             resource_id: <p>The ID or Amazon Resource Name (ARN) of the resource to list tags for.</p>
             max_results: <p>The maximum number of tags to return in a single response.</p>
             next_token: <p>A pagination token returned from a previous call to continue listing tags.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -983,6 +1103,13 @@ class S3FilesClient:
         Args:
             file_system_id: <p>The ID or Amazon Resource Name (ARN) of the S3 File System to apply the resource policy to.</p>
             policy: <p>The JSON-formatted resource policy to apply to the file system. The policy defines the permissions for accessing the file system. The policy must be a valid JSON document that follows IAM policy syntax.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1027,6 +1154,14 @@ class S3FilesClient:
             latest_version_number: <p>The version number of the current synchronization configuration. Omit this value when creating a synchronization configuration for the first time. For subsequent updates, provide this value for optimistic concurrency control. If the version number does not match the current configuration, the request fails with a <code>ConflictException</code>.</p>
             import_data_rules: <p>An array of import data rules that control how data is imported from S3 into the file system.</p>
             expiration_data_rules: <p>An array of expiration data rules that control when cached data expires from the file system.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.conflict_exception.ConflictException: <p>The request conflicts with the current state of the resource. This can occur when trying to create a resource that already exists or delete a resource that is in use.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1070,6 +1205,13 @@ class S3FilesClient:
         Args:
             resource_id: <p>The ID or Amazon Resource Name (ARN) of the resource to add tags to.</p>
             tags: <p>An array of key-value pairs to add as tags to the resource.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1108,6 +1250,13 @@ class S3FilesClient:
         Args:
             resource_id: <p>The ID or Amazon Resource Name (ARN) of the resource to remove tags from.</p>
             tag_keys: <p>An array of tag keys to remove from the resource.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1146,6 +1295,13 @@ class S3FilesClient:
         Args:
             mount_target_id: <p>The ID of the mount target to update.</p>
             security_groups: <p>An array of VPC security group IDs to associate with the mount target's network interface. This replaces the existing security groups. All security groups must belong to the same VPC as the mount target's subnet.</p>
+
+        Raises:
+            aws_sdk_s3files.errors.throttling_exception.ThrottlingException: <p>The request was throttled. Retry your request using exponential backoff.</p>
+            aws_sdk_s3files.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_s3files.errors.resource_not_found_exception.ResourceNotFoundException: <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+            aws_sdk_s3files.errors.validation_exception.ValidationException: <p>The input parameters are not valid. Check the parameter values and try again.</p>
+            aws_sdk_s3files.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

@@ -76,6 +76,14 @@ class TaskResource:
 
         Args:
             task_identifier: <p>The unique identifier of the export task.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.conflict_exception.ConflictException: <p>Raised when a conflict is encountered.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -113,6 +121,14 @@ class TaskResource:
 
         Args:
             task_identifier: <p>The unique identifier of the import task.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.conflict_exception.ConflictException: <p>Raised when a conflict is encountered.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -196,6 +212,14 @@ class TaskResource:
             parquet_type: <p>The parquet type of the import task.</p>
             blank_node_handling: <p>The method to handle blank nodes in the dataset. Currently, only <code>convertToIri</code> is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is <code>ntriples</code>. For more information, see <a href=\"https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html#rdf-handling\">Handling RDF values</a>.</p>
             role_arn: <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.conflict_exception.ConflictException: <p>Raised when a conflict is encountered.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota was exceeded.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -261,6 +285,13 @@ class TaskResource:
 
         Args:
             task_identifier: <p>The unique identifier of the export task.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -298,6 +329,13 @@ class TaskResource:
 
         Args:
             task_identifier: <p>The unique identifier of the import task.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -345,6 +383,13 @@ class TaskResource:
             graph_identifier: <p>The unique identifier of the Neptune Analytics graph.</p>
             next_token: <p>Pagination token used to paginate input.</p>
             max_results: <p>The maximum number of export tasks to return.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -393,6 +438,13 @@ class TaskResource:
         Args:
             next_token: <p>Pagination token used to paginate output.</p> <p>When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.</p>
             max_results: <p>The total number of records to return in the command's output.</p> <p>If the total number of records available is more than the value specified, <code>nextToken</code> is provided in the command's output. To resume pagination, provide the <code>nextToken</code> output value in the <code>nextToken</code> argument of a subsequent command. Do not use the <code>nextToken</code> response element directly outside of the Amazon CLI.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -451,6 +503,14 @@ class TaskResource:
             parquet_type: <p>The parquet type of the export task.</p>
             export_filter: <p>The export filter of the export task.</p>
             tags: <p>Tags to be applied to the export task.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.conflict_exception.ConflictException: <p>Raised when a conflict is encountered.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -517,6 +577,14 @@ class TaskResource:
             blank_node_handling: <p>The method to handle blank nodes in the dataset. Currently, only <code>convertToIri</code> is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is <code>ntriples</code>. For more information, see <a href=\"https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html#rdf-handling\">Handling RDF values</a>.</p>
             graph_identifier: <p>The unique identifier of the Neptune Analytics graph.</p>
             role_arn: <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.conflict_exception.ConflictException: <p>Raised when a conflict is encountered.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -571,6 +639,14 @@ class AsyncTaskResource:
 
         Args:
             task_identifier: <p>The unique identifier of the export task.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.conflict_exception.ConflictException: <p>Raised when a conflict is encountered.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -609,6 +685,14 @@ class AsyncTaskResource:
 
         Args:
             task_identifier: <p>The unique identifier of the import task.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.conflict_exception.ConflictException: <p>Raised when a conflict is encountered.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -693,6 +777,14 @@ class AsyncTaskResource:
             parquet_type: <p>The parquet type of the import task.</p>
             blank_node_handling: <p>The method to handle blank nodes in the dataset. Currently, only <code>convertToIri</code> is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is <code>ntriples</code>. For more information, see <a href=\"https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html#rdf-handling\">Handling RDF values</a>.</p>
             role_arn: <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.conflict_exception.ConflictException: <p>Raised when a conflict is encountered.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>A service quota was exceeded.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -759,6 +851,13 @@ class AsyncTaskResource:
 
         Args:
             task_identifier: <p>The unique identifier of the export task.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -797,6 +896,13 @@ class AsyncTaskResource:
 
         Args:
             task_identifier: <p>The unique identifier of the import task.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -845,6 +951,13 @@ class AsyncTaskResource:
             graph_identifier: <p>The unique identifier of the Neptune Analytics graph.</p>
             next_token: <p>Pagination token used to paginate input.</p>
             max_results: <p>The maximum number of export tasks to return.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -894,6 +1007,13 @@ class AsyncTaskResource:
         Args:
             next_token: <p>Pagination token used to paginate output.</p> <p>When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.</p>
             max_results: <p>The total number of records to return in the command's output.</p> <p>If the total number of records available is more than the value specified, <code>nextToken</code> is provided in the command's output. To resume pagination, provide the <code>nextToken</code> output value in the <code>nextToken</code> argument of a subsequent command. Do not use the <code>nextToken</code> response element directly outside of the Amazon CLI.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -953,6 +1073,14 @@ class AsyncTaskResource:
             parquet_type: <p>The parquet type of the export task.</p>
             export_filter: <p>The export filter of the export task.</p>
             tags: <p>Tags to be applied to the export task.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.conflict_exception.ConflictException: <p>Raised when a conflict is encountered.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1020,6 +1148,14 @@ class AsyncTaskResource:
             blank_node_handling: <p>The method to handle blank nodes in the dataset. Currently, only <code>convertToIri</code> is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is <code>ntriples</code>. For more information, see <a href=\"https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html#rdf-handling\">Handling RDF values</a>.</p>
             graph_identifier: <p>The unique identifier of the Neptune Analytics graph.</p>
             role_arn: <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
+
+        Raises:
+            aws_sdk_neptune_graph.errors.conflict_exception.ConflictException: <p>Raised when a conflict is encountered.</p>
+            aws_sdk_neptune_graph.errors.internal_server_exception.InternalServerException: <p>A failure occurred on the server.</p>
+            aws_sdk_neptune_graph.errors.resource_not_found_exception.ResourceNotFoundException: <p>A specified resource could not be located.</p>
+            aws_sdk_neptune_graph.errors.throttling_exception.ThrottlingException: <p>The exception was interrupted by throttling.</p>
+            aws_sdk_neptune_graph.errors.validation_exception.ValidationException: <p>A resource could not be validated.</p>
+            aws_sdk_neptune_graph.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

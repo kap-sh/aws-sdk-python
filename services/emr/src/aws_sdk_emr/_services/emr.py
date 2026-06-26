@@ -331,6 +331,11 @@ class EMRClient:
         Args:
             cluster_id: <p>The unique identifier of the cluster.</p>
             instance_fleet: <p>Specifies the configuration of the instance fleet.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -371,6 +376,10 @@ class EMRClient:
         Args:
             instance_groups: <p>Instance groups to add.</p>
             job_flow_id: <p>Job flow in which to add the instance groups.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -413,6 +422,10 @@ class EMRClient:
             job_flow_id: <p>A string that uniquely identifies the job flow. This identifier is returned by <a>RunJobFlow</a> and can also be obtained from <a>ListClusters</a>. </p>
             steps: <p> A list of <a>StepConfig</a> to be executed by the job flow. </p>
             execution_role_arn: <p>The Amazon Resource Name (ARN) of the runtime role for a step on the cluster. The runtime role can be a cross-account IAM role. The runtime role ARN is a combination of account ID, role name, and role type using the following format: <code>arn:partition:service:region:account:resource</code>. </p> <p>For example, <code>arn:aws:IAM::1234567890:role/ReadOnly</code> is a correctly formatted runtime role ARN.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -457,6 +470,11 @@ class EMRClient:
             resource_id: <p>The Amazon EMR resource identifier to which tags will be added. For example, a cluster identifier or an Amazon EMR Studio ID.</p>
             tags: <p>A list of tags to associate with a resource. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.</p>
             cluster_id: <p>The ID of the cluster that scopes the tag operation. Required when the resource being tagged is a session-scoped resource.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -501,6 +519,11 @@ class EMRClient:
             cluster_id: <p>The <code>ClusterID</code> for the specified steps that will be canceled. Use <a>RunJobFlow</a> and <a>ListClusters</a> to get ClusterIDs. </p>
             step_ids: <p>The list of <code>StepIDs</code> to cancel. Use <a>ListSteps</a> to get steps and their states for the specified cluster.</p>
             step_cancellation_option: <p>The option to choose to cancel <code>RUNNING</code> steps. By default, the value is <code>SEND_INTERRUPT</code>.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -553,6 +576,11 @@ class EMRClient:
             tags: <p>Tags for the persistent application user interface.</p>
             x_referer: <p>The cross reference for the persistent application user interface.</p>
             profiler_type: <p>The profiler type for the persistent application user interface.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -600,6 +628,11 @@ class EMRClient:
         Args:
             name: <p>The name of the security configuration.</p>
             security_configuration: <p>The security configuration details in JSON format. For JSON parameters and examples, see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html\">Use Security Configurations to Set Up Cluster Security</a> in the <i>Amazon EMR Management Guide</i>.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -678,6 +711,11 @@ class EMRClient:
             idc_user_assignment: <p> Specifies whether IAM Identity Center user assignment is <code>REQUIRED</code> or <code>OPTIONAL</code>. If the value is set to <code>REQUIRED</code>, users must be explicitly assigned to the Studio application to access the Studio. </p>
             idc_instance_arn: <p> The ARN of the IAM Identity Center instance to create the Studio application. </p>
             encryption_key_arn: <p>The KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -754,6 +792,11 @@ class EMRClient:
             identity_name: <p>The name of the user or group. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>IAM Identity Center Identity Store API Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must be specified, but not both.</p>
             identity_type: <p>Specifies whether the identity to map to the Amazon EMR Studio is a user or a group.</p>
             session_policy_arn: <p>The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role. For more information, see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html\">Create an Amazon EMR Studio User Role with Session Policies</a>.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -795,6 +838,11 @@ class EMRClient:
 
         Args:
             name: <p>The name of the security configuration.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -832,6 +880,11 @@ class EMRClient:
 
         Args:
             studio_id: <p>The ID of the Amazon EMR Studio.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -877,6 +930,11 @@ class EMRClient:
             identity_id: <p>The globally unique identifier (GUID) of the user or group to remove from the Amazon EMR Studio. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId\">UserId</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId\">GroupId</a> in the <i>IAM Identity Center Identity Store API Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
             identity_name: <p>The name of the user name or group to remove from the Amazon EMR Studio. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>IAM Identity Center Store API Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
             identity_type: <p>Specifies whether the identity to delete from the Amazon EMR Studio is a user or a group.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -917,6 +975,11 @@ class EMRClient:
 
         Args:
             cluster_id: <p>The identifier of the cluster to describe.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -964,6 +1027,10 @@ class EMRClient:
             created_before: <p>Return only job flows created before this date and time.</p>
             job_flow_ids: <p>Return only job flows whose job flow ID is contained in this list.</p>
             job_flow_states: <p>Return only job flows whose state is contained in this list.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1008,6 +1075,11 @@ class EMRClient:
 
         Args:
             notebook_execution_id: <p>The unique identifier of the notebook execution.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1045,6 +1117,11 @@ class EMRClient:
 
         Args:
             persistent_app_ui_id: <p>The identifier for the persistent application user interface.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1088,6 +1165,11 @@ class EMRClient:
             release_label: <p>The target release label to be described.</p>
             next_token: <p>The pagination token. Reserved for future use. Currently set to null.</p>
             max_results: <p>Reserved for future use. Currently set to null.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1130,6 +1212,11 @@ class EMRClient:
 
         Args:
             name: <p>The name of the security configuration.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1169,6 +1256,11 @@ class EMRClient:
         Args:
             cluster_id: <p>The identifier of the cluster with steps to describe.</p>
             step_id: <p>The identifier of the step to describe.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1207,6 +1299,11 @@ class EMRClient:
 
         Args:
             studio_id: <p>The Amazon EMR Studio ID.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1244,6 +1341,9 @@ class EMRClient:
 
         Args:
             cluster_id: <p>Specifies the ID of the Amazon EMR cluster for which the auto-termination policy will be fetched.</p>
+
+        Raises:
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1274,7 +1374,13 @@ class EMRClient:
     def get_block_public_access_configuration(
         self, *, config_overrides: Optional[EMRClientConfig] = None
     ) -> "aws_sdk_emr.types.get_block_public_access_configuration_output.GetBlockPublicAccessConfigurationOutput":
-        r"""<p>Returns the Amazon EMR block public access configuration for your Amazon Web Services account in the current Region. For more information see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html\">Configure Block Public Access for Amazon EMR</a> in the <i>Amazon EMR Management Guide</i>.</p>"""
+        r"""<p>Returns the Amazon EMR block public access configuration for your Amazon Web Services account in the current Region. For more information see <a href=\"https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html\">Configure Block Public Access for Amazon EMR</a> in the <i>Amazon EMR Management Guide</i>.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_emr.types.get_block_public_access_configuration_input.GetBlockPublicAccessConfigurationInput]",
@@ -1312,6 +1418,11 @@ class EMRClient:
         Args:
             cluster_id: <p>The unique identifier of the cluster.</p>
             execution_role_arn: <p>The Amazon Resource Name (ARN) of the runtime role for interactive workload submission on the cluster. The runtime role can be a cross-account IAM role. The runtime role ARN is a combination of account ID, role name, and role type using the following format: <code>arn:partition:service:region:account:resource</code>.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1351,6 +1462,9 @@ class EMRClient:
 
         Args:
             cluster_id: <p>Specifies the ID of the cluster for which the managed scaling policy will be fetched. </p>
+
+        Raises:
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1400,6 +1514,11 @@ class EMRClient:
             application_id: <p>The application ID associated with the cluster's application user interface presigned URL.</p>
             dry_run: <p>Determines if the user interface presigned URL is for a dry run.</p>
             execution_role_arn: <p>The execution role ARN associated with the cluster's application user interface presigned URL.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1459,6 +1578,11 @@ class EMRClient:
             application_id: <p>The application ID associated with the presigned URL.</p>
             auth_proxy_call: <p>A boolean that represents if the caller is an authentication proxy call.</p>
             execution_role_arn: <p>The execution role ARN associated with the presigned URL.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1506,6 +1630,11 @@ class EMRClient:
         Args:
             cluster_id: <p>The ID of the cluster that the session belongs to.</p>
             session_id: <p>The ID of the session.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1544,6 +1673,11 @@ class EMRClient:
         Args:
             cluster_id: <p>The ID of the cluster that the session belongs to.</p>
             session_id: <p>The ID of the session.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1592,6 +1726,11 @@ class EMRClient:
             identity_id: <p>The globally unique identifier (GUID) of the user or group. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId\">UserId</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId\">GroupId</a> in the <i>IAM Identity Center Identity Store API Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
             identity_name: <p>The name of the user or group to fetch. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>IAM Identity Center Identity Store API Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
             identity_type: <p>Specifies whether the identity to fetch is a user or a group.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1636,6 +1775,11 @@ class EMRClient:
         Args:
             cluster_id: <p>The cluster identifier for the bootstrap actions to list.</p>
             marker: <p>The pagination token that indicates the next set of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1704,6 +1848,11 @@ class EMRClient:
             created_before: <p>The creation date and time end value filter for listing clusters.</p>
             cluster_states: <p>The cluster state filters to apply when listing clusters. Clusters that change state while this action runs may be not be returned as expected in the list of clusters.</p>
             marker: <p>The pagination token that indicates the next set of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1777,6 +1926,11 @@ class EMRClient:
         Args:
             cluster_id: <p>The unique identifier of the cluster.</p>
             marker: <p>The pagination token that indicates the next set of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1839,6 +1993,11 @@ class EMRClient:
         Args:
             cluster_id: <p>The identifier of the cluster for which to list the instance groups.</p>
             marker: <p>The pagination token that indicates the next set of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1921,6 +2080,11 @@ class EMRClient:
             instance_fleet_type: <p>The node type of the instance fleet. For example MASTER, CORE, or TASK.</p>
             instance_states: <p>A list of instance states that will filter the instances returned with this request.</p>
             marker: <p>The pagination token that indicates the next set of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2027,6 +2191,11 @@ class EMRClient:
             to: <p>The end of time range filter for listing notebook executions. The default is the current timestamp.</p>
             marker: <p>The pagination token, returned by a previous <code>ListNotebookExecutions</code> call, that indicates the start of the list for this <code>ListNotebookExecutions</code> call.</p>
             execution_engine_id: <p>The unique ID of the execution engine.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2116,6 +2285,11 @@ class EMRClient:
             filters: <p>Filters the results of the request. <code>Prefix</code> specifies the prefix of release labels to return. <code>Application</code> specifies the application (with/without version) of release labels to return.</p>
             next_token: <p>Specifies the next page of results. If <code>NextToken</code> is not specified, which is usually the case for the first request of ListReleaseLabels, the first page of results are determined by other filtering parameters or by the latest version. The <code>ListReleaseLabels</code> request fails if the identity (Amazon Web Services account ID) and all filtering parameters are different from the original request, or if the <code>NextToken</code> is expired or tampered with.</p>
             max_results: <p>Defines the maximum number of release labels to return in a single response. The default is <code>100</code>.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2158,6 +2332,11 @@ class EMRClient:
 
         Args:
             marker: <p>The pagination token that indicates the set of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2225,6 +2404,11 @@ class EMRClient:
             session_states: <p>An optional filter that limits the results to sessions in the specified states.</p>
             next_token: <p>The pagination token returned by a previous <code>ListSessions</code> call. Use it to retrieve the next page of results.</p>
             max_results: <p>The maximum number of sessions to return in each page of results.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2303,6 +2487,11 @@ class EMRClient:
             step_states: <p>The filter to limit the step list based on certain states.</p>
             step_ids: <p>The filter to limit the step list based on the identifier of the steps. You can specify a maximum of ten Step IDs. The character constraint applies to the overall length of the array.</p>
             marker: <p>The maximum number of steps that a single <code>ListSteps</code> action returns is 50. To return a longer list of steps, use multiple <code>ListSteps</code> actions along with the <code>Marker</code> parameter, which is a pagination token that indicates the next set of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2369,6 +2558,11 @@ class EMRClient:
 
         Args:
             marker: <p>The pagination token that indicates the set of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2432,6 +2626,11 @@ class EMRClient:
             studio_id: <p>The ID of the Amazon EMR Studio.</p>
             identity_type: <p>Specifies whether to return session mappings for users or groups. If not specified, the results include session mapping details for both users and groups.</p>
             marker: <p>The pagination token that indicates the set of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2501,6 +2700,11 @@ class EMRClient:
         Args:
             release_label: <p>The Amazon EMR release label determines the <a href=\"https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-app-versions-6.x.html\">versions of open-source application packages</a> that Amazon EMR has installed on the cluster. Release labels are in the format <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release number such as <code>emr-6.10.0</code>. For more information about Amazon EMR releases and their included application versions and features, see the <i> <a href=\"https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html\">Amazon EMR Release Guide</a> </i>.</p>
             marker: <p>The pagination token that marks the next set of results to retrieve.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2546,6 +2750,11 @@ class EMRClient:
             cluster_id: <p>The unique identifier of the cluster.</p>
             step_concurrency_level: <p>The number of steps that can be executed concurrently. You can specify a minimum of 1 step and a maximum of 256 steps. We recommend that you do not change this parameter while steps are running or the <code>ActionOnFailure</code> setting may not behave as expected. For more information see <a>Step$ActionOnFailure</a>.</p>
             extended_support: <p>Reserved.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2589,6 +2798,11 @@ class EMRClient:
         Args:
             cluster_id: <p>The unique identifier of the cluster.</p>
             instance_fleet: <p>The configuration parameters of the instance fleet.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2629,6 +2843,10 @@ class EMRClient:
         Args:
             cluster_id: <p>The ID of the cluster to which the instance group belongs.</p>
             instance_groups: <p>Instance groups to change.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2671,6 +2889,9 @@ class EMRClient:
             cluster_id: <p>Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.</p>
             instance_group_id: <p>Specifies the ID of the instance group to which the automatic scaling policy is applied.</p>
             auto_scaling_policy: <p>Specifies the definition of the automatic scaling policy.</p>
+
+        Raises:
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2714,6 +2935,9 @@ class EMRClient:
         Args:
             cluster_id: <p>Specifies the ID of the Amazon EMR cluster to which the auto-termination policy will be attached.</p>
             auto_termination_policy: <p>Specifies the auto-termination policy to attach to the cluster.</p>
+
+        Raises:
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2753,6 +2977,11 @@ class EMRClient:
 
         Args:
             block_public_access_configuration: <p>A configuration for Amazon EMR block public access. The configuration applies to all clusters created in your account for the current Region. The configuration specifies whether block public access is enabled. If block public access is enabled, security groups associated with the cluster cannot have rules that allow inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an exception using <code>PermittedPublicSecurityGroupRuleRanges</code> in the <code>BlockPublicAccessConfiguration</code>. By default, Port 22 (SSH) is an exception, and public access is allowed on this port. You can change this by updating <code>BlockPublicSecurityGroupRules</code> to remove the exception.</p> <note> <p>For accounts that created clusters in a Region before November 25, 2019, block public access is disabled by default in that Region. To use this feature, you must manually enable and configure it. For accounts that did not create an Amazon EMR cluster in a Region before this date, block public access is enabled by default in that Region.</p> </note>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2792,6 +3021,9 @@ class EMRClient:
         Args:
             cluster_id: <p>Specifies the ID of an Amazon EMR cluster where the managed scaling policy is attached. </p>
             managed_scaling_policy: <p>Specifies the constraints for the managed scaling policy. </p>
+
+        Raises:
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2832,6 +3064,9 @@ class EMRClient:
         Args:
             cluster_id: <p>Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.</p>
             instance_group_id: <p>Specifies the ID of the instance group to which the scaling policy is applied.</p>
+
+        Raises:
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2870,6 +3105,9 @@ class EMRClient:
 
         Args:
             cluster_id: <p>Specifies the ID of the Amazon EMR cluster from which the auto-termination policy will be removed.</p>
+
+        Raises:
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2907,6 +3145,9 @@ class EMRClient:
 
         Args:
             cluster_id: <p> Specifies the ID of the cluster from which the managed scaling policy will be removed. </p>
+
+        Raises:
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2948,6 +3189,11 @@ class EMRClient:
             resource_id: <p>The Amazon EMR resource identifier from which tags will be removed. For example, a cluster identifier or an Amazon EMR Studio ID.</p>
             tag_keys: <p>A list of tag keys to remove from the resource.</p>
             cluster_id: <p>The ID of the cluster that scopes the tag operation. Required when the resource being untagged is a session-scoped resource.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3095,6 +3341,10 @@ class EMRClient:
             extended_support: <p>Reserved.</p>
             monitoring_configuration: <p>Contains CloudWatch log configuration metadata and settings.</p>
             session_enabled: <p>Indicates whether Spark Connect sessions are enabled on the cluster. When set to <code>true</code>, you can start Spark Connect sessions using the <code>StartSession</code> operation.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3201,6 +3451,10 @@ class EMRClient:
         Args:
             job_flow_ids: <p>A list of strings that uniquely identify the clusters to protect. This identifier is returned by <a href=\"https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html\">RunJobFlow</a> and can also be obtained from <a href=\"https://docs.aws.amazon.com/emr/latest/APIReference/API_DescribeJobFlows.html\">DescribeJobFlows</a>.</p>
             keep_job_flow_alive_when_no_steps: <p>A Boolean that indicates whether to terminate the cluster after all steps are executed.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3239,6 +3493,10 @@ class EMRClient:
         Args:
             job_flow_ids: <p> A list of strings that uniquely identify the clusters to protect. This identifier is returned by <a>RunJobFlow</a> and can also be obtained from <a>DescribeJobFlows</a> . </p>
             termination_protected: <p>A Boolean that indicates whether to protect the cluster and prevent the Amazon EC2 instances in the cluster from shutting down due to API calls, user intervention, or job-flow error.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3277,6 +3535,10 @@ class EMRClient:
         Args:
             job_flow_ids: <p>The list of strings that uniquely identify the clusters for which to turn on unhealthy node replacement. You can get these identifiers by running the <a>RunJobFlow</a> or the <a>DescribeJobFlows</a> operations.</p>
             unhealthy_node_replacement: <p>Indicates whether to turn on or turn off graceful unhealthy node replacement.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3315,6 +3577,10 @@ class EMRClient:
         Args:
             job_flow_ids: <p>The unique identifier of the job flow (cluster).</p>
             visible_to_all_users: <p>A value of <code>true</code> indicates that an IAM principal in the Amazon Web Services account can perform Amazon EMR actions on the cluster that the IAM policies attached to the principal allow. A value of <code>false</code> indicates that only the IAM principal that created the cluster and the Amazon Web Services root user can perform Amazon EMR actions on the cluster.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3389,6 +3655,11 @@ class EMRClient:
             output_notebook_s3_location: <p>The Amazon S3 location for the notebook execution output.</p>
             output_notebook_format: <p>The output format for the notebook execution.</p>
             environment_variables: <p>The environment variables associated with the notebook execution.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3473,6 +3744,11 @@ class EMRClient:
             session_idle_timeout_in_minutes: <p>The idle timeout, in minutes. If the session is idle for this duration, Amazon EMR EC2 automatically terminates it.</p>
             client_request_token: <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client request token, the service returns the original response without performing the operation again.</p>
             tags: <p>The tags to assign to the session.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3524,6 +3800,11 @@ class EMRClient:
 
         Args:
             notebook_execution_id: <p>The unique identifier of the notebook execution.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3559,6 +3840,10 @@ class EMRClient:
 
         Args:
             job_flow_ids: <p>A list of job flows to be shut down.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3596,6 +3881,11 @@ class EMRClient:
         Args:
             cluster_id: <p>The ID of the cluster that the session belongs to.</p>
             session_id: <p>The ID of the session to terminate.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3648,6 +3938,11 @@ class EMRClient:
             subnet_ids: <p>A list of subnet IDs to associate with the Amazon EMR Studio. The list can include new subnet IDs, but must also include all of the subnet IDs previously associated with the Studio. The list order does not matter. A Studio can have a maximum of 5 subnets. The subnets must belong to the same VPC as the Studio. </p>
             default_s3_location: <p>The Amazon S3 location to back up Workspaces and notebook files for the Amazon EMR Studio.</p>
             encryption_key_arn: <p>The KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_exception.InternalServerException: <p>This exception occurs when there is an internal failure in the Amazon EMR service.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -3705,6 +4000,11 @@ class EMRClient:
             identity_name: <p>The name of the user or group to update. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName\">UserName</a> and <a href=\"https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName\">DisplayName</a> in the <i>IAM Identity Center Identity Store API Reference</i>. Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
             identity_type: <p>Specifies whether the identity to update is a user or a group.</p>
             session_policy_arn: <p>The Amazon Resource Name (ARN) of the session policy to associate with the specified user or group.</p>
+
+        Raises:
+            aws_sdk_emr.errors.internal_server_error.InternalServerError: <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
+            aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException: <p>This exception occurs when there is something wrong with user input.</p>
+            aws_sdk_emr.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

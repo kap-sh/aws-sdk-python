@@ -184,6 +184,10 @@ class HealthClient:
             event_arn: <p>The unique identifier for the event. The event ARN has the <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i> </code> format.</p> <p>For example, an event ARN might look like the following:</p> <p> <code>arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code> </p>
             next_token: <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.</p>
             max_results: <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
+
+        Raises:
+            aws_sdk_health.errors.invalid_pagination_token.InvalidPaginationToken: <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+            aws_sdk_health.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -256,6 +260,11 @@ class HealthClient:
             locale: <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
             next_token: <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.</p>
             max_results: <p>The maximum number of items to return in one batch, between 1 and 100, inclusive.</p>
+
+        Raises:
+            aws_sdk_health.errors.invalid_pagination_token.InvalidPaginationToken: <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+            aws_sdk_health.errors.unsupported_locale.UnsupportedLocale: <p>The specified locale is not supported.</p>
+            aws_sdk_health.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -340,6 +349,11 @@ class HealthClient:
             next_token: <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.</p>
             max_results: <p>The maximum number of items to return in one batch, between 1 and 100, inclusive.</p>
             organization_entity_account_filters: <p>A JSON set of elements including the <code>awsAccountId</code>, <code>eventArn</code> and a set of <code>statusCodes</code>.</p>
+
+        Raises:
+            aws_sdk_health.errors.invalid_pagination_token.InvalidPaginationToken: <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+            aws_sdk_health.errors.unsupported_locale.UnsupportedLocale: <p>The specified locale is not supported.</p>
+            aws_sdk_health.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -423,6 +437,9 @@ class HealthClient:
 
         Args:
             event_arns: <p>A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"</code> </p>
+
+        Raises:
+            aws_sdk_health.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -465,6 +482,9 @@ class HealthClient:
         Args:
             event_arns: <p>A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"</code> </p>
             aws_account_ids: <p>A list of 12-digit Amazon Web Services account numbers that contains the affected entities.</p>
+
+        Raises:
+            aws_sdk_health.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -510,6 +530,10 @@ class HealthClient:
             aggregate_field: <p>The only currently supported value is <code>eventTypeCategory</code>.</p>
             max_results: <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
             next_token: <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.</p>
+
+        Raises:
+            aws_sdk_health.errors.invalid_pagination_token.InvalidPaginationToken: <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+            aws_sdk_health.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -580,6 +604,10 @@ class HealthClient:
         Args:
             event_arns: <p>A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"</code> </p>
             locale: <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
+
+        Raises:
+            aws_sdk_health.errors.unsupported_locale.UnsupportedLocale: <p>The specified locale is not supported.</p>
+            aws_sdk_health.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -621,6 +649,10 @@ class HealthClient:
         Args:
             organization_event_detail_filters: <p>A set of JSON elements that includes the <code>awsAccountId</code> and the <code>eventArn</code>.</p>
             locale: <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
+
+        Raises:
+            aws_sdk_health.errors.unsupported_locale.UnsupportedLocale: <p>The specified locale is not supported.</p>
+            aws_sdk_health.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -668,6 +700,11 @@ class HealthClient:
             next_token: <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.</p>
             max_results: <p>The maximum number of items to return in one batch, between 1 and 100, inclusive.</p>
             locale: <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
+
+        Raises:
+            aws_sdk_health.errors.invalid_pagination_token.InvalidPaginationToken: <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+            aws_sdk_health.errors.unsupported_locale.UnsupportedLocale: <p>The specified locale is not supported.</p>
+            aws_sdk_health.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -749,6 +786,11 @@ class HealthClient:
             next_token: <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.</p>
             max_results: <p>The maximum number of items to return in one batch, between 1 and 100, inclusive.</p>
             locale: <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
+
+        Raises:
+            aws_sdk_health.errors.invalid_pagination_token.InvalidPaginationToken: <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+            aws_sdk_health.errors.unsupported_locale.UnsupportedLocale: <p>The specified locale is not supported.</p>
+            aws_sdk_health.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -832,6 +874,11 @@ class HealthClient:
             locale: <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
             next_token: <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.</p>
             max_results: <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p> <note> <p>If you don't specify the <code>maxResults</code> parameter, this operation returns a maximum of 30 items by default.</p> </note>
+
+        Raises:
+            aws_sdk_health.errors.invalid_pagination_token.InvalidPaginationToken: <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+            aws_sdk_health.errors.unsupported_locale.UnsupportedLocale: <p>The specified locale is not supported.</p>
+            aws_sdk_health.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -896,7 +943,11 @@ class HealthClient:
     def describe_health_service_status_for_organization(
         self, *, config_overrides: Optional[HealthClientConfig] = None
     ) -> "aws_sdk_health.types.describe_health_service_status_for_organization_response.DescribeHealthServiceStatusForOrganizationResponse":
-        """<p>This operation provides status information on enabling or disabling Health to work with your organization. To call this operation, you must use the organization's management account.</p>"""
+        """<p>This operation provides status information on enabling or disabling Health to work with your organization. To call this operation, you must use the organization's management account.</p>
+
+        Raises:
+            aws_sdk_health.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[None]",
@@ -924,7 +975,12 @@ class HealthClient:
     def disable_health_service_access_for_organization(
         self, *, config_overrides: Optional[HealthClientConfig] = None
     ) -> None:
-        r"""<p>Disables Health from working with Organizations. To call this operation, you must sign in to the organization's management account. For more information, see <a href=\"https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html\">Aggregating Health events</a> in the <i>Health User Guide</i>.</p> <p>This operation doesn't remove the service-linked role from the management account in your organization. You must use the IAM console, API, or Command Line Interface (CLI) to remove the service-linked role. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role\">Deleting a Service-Linked Role</a> in the <i>IAM User Guide</i>.</p> <note> <p>You can also disable the organizational feature by using the Organizations <a href=\"https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html\">DisableAWSServiceAccess</a> API operation. After you call this operation, Health stops aggregating events for all other Amazon Web Services accounts in your organization. If you call the Health API operations for organizational view, Health returns an error. Health continues to aggregate health events for your Amazon Web Services account.</p> </note>"""
+        r"""<p>Disables Health from working with Organizations. To call this operation, you must sign in to the organization's management account. For more information, see <a href=\"https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html\">Aggregating Health events</a> in the <i>Health User Guide</i>.</p> <p>This operation doesn't remove the service-linked role from the management account in your organization. You must use the IAM console, API, or Command Line Interface (CLI) to remove the service-linked role. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role\">Deleting a Service-Linked Role</a> in the <i>IAM User Guide</i>.</p> <note> <p>You can also disable the organizational feature by using the Organizations <a href=\"https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html\">DisableAWSServiceAccess</a> API operation. After you call this operation, Health stops aggregating events for all other Amazon Web Services accounts in your organization. If you call the Health API operations for organizational view, Health returns an error. Health continues to aggregate health events for your Amazon Web Services account.</p> </note>
+
+        Raises:
+            aws_sdk_health.errors.concurrent_modification_exception.ConcurrentModificationException: <p> <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html\">EnableHealthServiceAccessForOrganization</a> is already in progress. Wait for the action to complete before trying again. To get the current status, use the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html\">DescribeHealthServiceStatusForOrganization</a> operation.</p>
+            aws_sdk_health.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(req: "OperationRequest[None]") -> OperationResponse[None]:
             import aws_sdk_health._operations.aws_health_20160804.disable_health_service_access_for_organization
@@ -948,7 +1004,12 @@ class HealthClient:
     def enable_health_service_access_for_organization(
         self, *, config_overrides: Optional[HealthClientConfig] = None
     ) -> None:
-        r"""<p>Enables Health to work with Organizations. You can use the organizational view feature to aggregate events from all Amazon Web Services accounts in your organization in a centralized location. </p> <p>This operation also creates a service-linked role for the management account in the organization. </p> <note> <p>To call this operation, you must meet the following requirements:</p> <ul> <li> <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from <a href=\"http://aws.amazon.com/premiumsupport/\">Amazon Web Services Support</a> to use the Health API. If you call the Health API from an Amazon Web Services account that doesn't have a Business, Enterprise On-Ramp, or Enterprise Support plan, you receive a <code>SubscriptionRequiredException</code> error.</p> </li> <li> <p>You must have permission to call this operation from the organization's management account. For example IAM policies, see <a href=\"https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html\">Health identity-based policy examples</a>.</p> </li> </ul> </note> <p>If you don't have the required support plan, you can instead use the Health console to enable the organizational view feature. For more information, see <a href=\"https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html\">Aggregating Health events</a> in the <i>Health User Guide</i>.</p>"""
+        r"""<p>Enables Health to work with Organizations. You can use the organizational view feature to aggregate events from all Amazon Web Services accounts in your organization in a centralized location. </p> <p>This operation also creates a service-linked role for the management account in the organization. </p> <note> <p>To call this operation, you must meet the following requirements:</p> <ul> <li> <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from <a href=\"http://aws.amazon.com/premiumsupport/\">Amazon Web Services Support</a> to use the Health API. If you call the Health API from an Amazon Web Services account that doesn't have a Business, Enterprise On-Ramp, or Enterprise Support plan, you receive a <code>SubscriptionRequiredException</code> error.</p> </li> <li> <p>You must have permission to call this operation from the organization's management account. For example IAM policies, see <a href=\"https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html\">Health identity-based policy examples</a>.</p> </li> </ul> </note> <p>If you don't have the required support plan, you can instead use the Health console to enable the organizational view feature. For more information, see <a href=\"https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html\">Aggregating Health events</a> in the <i>Health User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_health.errors.concurrent_modification_exception.ConcurrentModificationException: <p> <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html\">EnableHealthServiceAccessForOrganization</a> is already in progress. Wait for the action to complete before trying again. To get the current status, use the <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html\">DescribeHealthServiceStatusForOrganization</a> operation.</p>
+            aws_sdk_health.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(req: "OperationRequest[None]") -> OperationResponse[None]:
             import aws_sdk_health._operations.aws_health_20160804.enable_health_service_access_for_organization

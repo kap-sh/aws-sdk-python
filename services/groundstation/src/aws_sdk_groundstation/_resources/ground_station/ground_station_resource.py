@@ -61,6 +61,12 @@ class GroundStationResource:
             satellite_id: <p>Satellite ID to retrieve on-boarded ground stations.</p>
             max_results: <p>Maximum number of ground stations returned.</p>
             next_token: <p>Next token that can be supplied in the next call to get the next page of ground stations.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -111,6 +117,11 @@ class GroundStationResource:
             ground_station_id: <p>ID of a ground station.</p>
             max_results: <p>Maximum number of antennas returned.</p>
             next_token: <p>Next token returned in the request of a previous <code>ListAntennas</code> call. Used to get the next page of results.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -168,6 +179,11 @@ class GroundStationResource:
             reservation_types: <p>Types of reservations to filter by.</p>
             max_results: <p>Maximum number of ground station reservations returned.</p>
             next_token: <p>Next token returned in the request of a previous <code>ListGroundStationReservations</code> call. Used to get the next page of results.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -226,6 +242,12 @@ class AsyncGroundStationResource:
             satellite_id: <p>Satellite ID to retrieve on-boarded ground stations.</p>
             max_results: <p>Maximum number of ground stations returned.</p>
             next_token: <p>Next token that can be supplied in the next call to get the next page of ground stations.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource was not found.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -277,6 +299,11 @@ class AsyncGroundStationResource:
             ground_station_id: <p>ID of a ground station.</p>
             max_results: <p>Maximum number of antennas returned.</p>
             next_token: <p>Next token returned in the request of a previous <code>ListAntennas</code> call. Used to get the next page of results.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -335,6 +362,11 @@ class AsyncGroundStationResource:
             reservation_types: <p>Types of reservations to filter by.</p>
             max_results: <p>Maximum number of ground station reservations returned.</p>
             next_token: <p>Next token returned in the request of a previous <code>ListGroundStationReservations</code> call. Used to get the next page of results.</p>
+
+        Raises:
+            aws_sdk_groundstation.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_groundstation.errors.invalid_parameter_exception.InvalidParameterException: <p>One or more parameters are not valid.</p>
+            aws_sdk_groundstation.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

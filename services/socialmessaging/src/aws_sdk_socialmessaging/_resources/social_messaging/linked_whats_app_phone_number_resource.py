@@ -53,6 +53,16 @@ class LinkedWhatsAppPhoneNumberResource:
 
         Args:
             id: <p>The unique identifier of the phone number. Phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html\">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's id.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -92,6 +102,17 @@ class LinkedWhatsAppPhoneNumberResource:
         Args:
             media_id: <p>The unique identifier of the media file to delete. Use the <code>mediaId</code> returned from <a href=\"https://console.aws.amazon.com/social-messaging/latest/APIReference/API_PostWhatsAppMessageMedia.html\">PostWhatsAppMessageMedia</a>.</p>
             origination_phone_number_id: <p>The unique identifier of the originating phone number associated with the media. Phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html\">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's id.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -142,6 +163,17 @@ class LinkedWhatsAppPhoneNumberResource:
             metadata_only: <p>Set to <code>True</code> to get only the metadata for the file.</p>
             destination_s3_presigned_url: <p>The presign url of the media file.</p>
             destination_s3_file: <p>The <code>bucketName</code> and <code>key</code> of the S3 media file.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -192,6 +224,17 @@ class LinkedWhatsAppPhoneNumberResource:
             origination_phone_number_id: <p>The ID of the phone number to associate with the WhatsApp media file. The phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html\">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's id.</p>
             source_s3_presigned_url: <p>The source presign url of the media file.</p>
             source_s3_file: <p>The source S3 url for the media file.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -237,6 +280,16 @@ class LinkedWhatsAppPhoneNumberResource:
             origination_phone_number_id: <p>The ID of the phone number used to send the WhatsApp message. If you are sending a media file only the <code>originationPhoneNumberId</code> used to upload the file can be used. Phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html\">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's id.</p>
             message: <p>The message to send through WhatsApp. The length is in KB. The message field passes through a WhatsApp Message object, see <a href=\"https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages\">Messages</a> in the <i>WhatsApp Business Platform Cloud API Reference</i>.</p>
             meta_api_version: <p>The API version for the request formatted as <code>v{VersionNumber}</code>. For a list of supported API versions and Amazon Web Services Regions, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/end-user-messaging.html\"> <i>Amazon Web Services End User Messaging Social API</i> Service Endpoints</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -281,6 +334,16 @@ class AsyncLinkedWhatsAppPhoneNumberResource:
 
         Args:
             id: <p>The unique identifier of the phone number. Phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html\">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's id.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -321,6 +384,17 @@ class AsyncLinkedWhatsAppPhoneNumberResource:
         Args:
             media_id: <p>The unique identifier of the media file to delete. Use the <code>mediaId</code> returned from <a href=\"https://console.aws.amazon.com/social-messaging/latest/APIReference/API_PostWhatsAppMessageMedia.html\">PostWhatsAppMessageMedia</a>.</p>
             origination_phone_number_id: <p>The unique identifier of the originating phone number associated with the media. Phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html\">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's id.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -372,6 +446,17 @@ class AsyncLinkedWhatsAppPhoneNumberResource:
             metadata_only: <p>Set to <code>True</code> to get only the metadata for the file.</p>
             destination_s3_presigned_url: <p>The presign url of the media file.</p>
             destination_s3_file: <p>The <code>bucketName</code> and <code>key</code> of the S3 media file.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -423,6 +508,17 @@ class AsyncLinkedWhatsAppPhoneNumberResource:
             origination_phone_number_id: <p>The ID of the phone number to associate with the WhatsApp media file. The phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html\">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's id.</p>
             source_s3_presigned_url: <p>The source presign url of the media file.</p>
             source_s3_file: <p>The source S3 url for the media file.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.access_denied_by_meta_exception.AccessDeniedByMetaException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -469,6 +565,16 @@ class AsyncLinkedWhatsAppPhoneNumberResource:
             origination_phone_number_id: <p>The ID of the phone number used to send the WhatsApp message. If you are sending a media file only the <code>originationPhoneNumberId</code> used to upload the file can be used. Phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>. Use <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html\">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's id.</p>
             message: <p>The message to send through WhatsApp. The length is in KB. The message field passes through a WhatsApp Message object, see <a href=\"https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages\">Messages</a> in the <i>WhatsApp Business Platform Cloud API Reference</i>.</p>
             meta_api_version: <p>The API version for the request formatted as <code>v{VersionNumber}</code>. For a list of supported API versions and Amazon Web Services Regions, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/end-user-messaging.html\"> <i>Amazon Web Services End User Messaging Social API</i> Service Endpoints</a> in the <i>Amazon Web Services General Reference</i>.</p>
+
+        Raises:
+            aws_sdk_socialmessaging.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_socialmessaging.errors.validation_exception.ValidationException: <p>The request contains an invalid parameter value. </p>
+            aws_sdk_socialmessaging.errors.dependency_exception.DependencyException: <p>Thrown when performing an action because a dependency would be broken.</p>
+            aws_sdk_socialmessaging.errors.internal_service_exception.InternalServiceException: <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+            aws_sdk_socialmessaging.errors.invalid_parameters_exception.InvalidParametersException: <p>One or more parameters provided to the action are not valid.</p>
+            aws_sdk_socialmessaging.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_socialmessaging.errors.throttled_request_exception.ThrottledRequestException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_socialmessaging.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

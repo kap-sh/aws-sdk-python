@@ -339,6 +339,14 @@ class AmplifyClient:
             auto_branch_creation_config: <p>The automated branch creation configuration for an Amplify app. </p>
             job_config: <p>Describes the configuration details that apply to the jobs for an Amplify app.</p>
             cache_config: <p>The cache configuration for the Amplify app.</p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.dependent_service_failure_exception.DependentServiceFailureException: <p>An operation failed because a dependent service threw an exception. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.limit_exceeded_exception.LimitExceededException: <p>A resource could not be created because service quotas were exceeded. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -426,6 +434,14 @@ class AmplifyClient:
             environment_name: <p>The name for the backend environment. </p>
             stack_name: <p>The AWS CloudFormation stack name of a backend environment. </p>
             deployment_artifacts: <p>The name of deployment artifacts. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.limit_exceeded_exception.LimitExceededException: <p>A resource could not be created because service quotas were exceeded. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -530,6 +546,15 @@ class AmplifyClient:
             backend_environment_arn: <p>The Amazon Resource Name (ARN) for a backend environment that is part of a Gen 1 Amplify app. </p> <p>This field is available to Amplify Gen 1 apps only where the backend is created using Amplify Studio or the Amplify command line interface (CLI).</p>
             backend: <p>The backend for a <code>Branch</code> of an Amplify app. Use for a backend created from an CloudFormation stack.</p> <p>This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.</p>
             compute_role_arn: <p>The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources based on the role's permissions. For more information about the SSR Compute role, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html\">Adding an SSR Compute role</a> in the <i>Amplify User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.dependent_service_failure_exception.DependentServiceFailureException: <p>An operation failed because a dependent service threw an exception. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.limit_exceeded_exception.LimitExceededException: <p>A resource could not be created because service quotas were exceeded. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -610,6 +635,13 @@ class AmplifyClient:
             app_id: <p> The unique ID for an Amplify app. </p>
             branch_name: <p> The name of the branch to use for the job. </p>
             file_map: <p> An optional file map that contains the file name as the key and the file content md5 hash as the value. If this argument is provided, the service will generate a unique upload URL per file. Otherwise, the service will only generate a single upload URL for the zipped files. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.limit_exceeded_exception.LimitExceededException: <p>A resource could not be created because service quotas were exceeded. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -670,6 +702,15 @@ class AmplifyClient:
             auto_sub_domain_creation_patterns: <p> Sets the branch patterns for automatic subdomain creation. </p>
             auto_sub_domain_iam_role: <p> The required AWS Identity and Access Management (IAM) service role for the Amazon Resource Name (ARN) for automatically creating subdomains. </p>
             certificate_settings: <p>The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.</p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.dependent_service_failure_exception.DependentServiceFailureException: <p>An operation failed because a dependent service threw an exception. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.limit_exceeded_exception.LimitExceededException: <p>A resource could not be created because service quotas were exceeded. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -723,6 +764,15 @@ class AmplifyClient:
             app_id: <p>The unique ID for an Amplify app. </p>
             branch_name: <p>The name for a branch that is part of an Amplify app. </p>
             description: <p>The description for a webhook. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.dependent_service_failure_exception.DependentServiceFailureException: <p>An operation failed because a dependent service threw an exception. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.limit_exceeded_exception.LimitExceededException: <p>A resource could not be created because service quotas were exceeded. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -763,6 +813,14 @@ class AmplifyClient:
 
         Args:
             app_id: <p>The unique ID for an Amplify app. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.dependent_service_failure_exception.DependentServiceFailureException: <p>An operation failed because a dependent service threw an exception. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -802,6 +860,14 @@ class AmplifyClient:
         Args:
             app_id: <p>The unique ID of an Amplify app. </p>
             environment_name: <p>The name of a backend environment of an Amplify app. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.dependent_service_failure_exception.DependentServiceFailureException: <p>An operation failed because a dependent service threw an exception. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -842,6 +908,14 @@ class AmplifyClient:
         Args:
             app_id: <p> The unique ID for an Amplify app. </p>
             branch_name: <p>The name of the branch. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.dependent_service_failure_exception.DependentServiceFailureException: <p>An operation failed because a dependent service threw an exception. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -882,6 +956,14 @@ class AmplifyClient:
         Args:
             app_id: <p> The unique id for an Amplify app. </p>
             domain_name: <p> The name of the domain. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.dependent_service_failure_exception.DependentServiceFailureException: <p>An operation failed because a dependent service threw an exception. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -924,6 +1006,14 @@ class AmplifyClient:
             app_id: <p> The unique ID for an Amplify app. </p>
             branch_name: <p>The name of the branch to use for the job. </p>
             job_id: <p> The unique ID for the job. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.limit_exceeded_exception.LimitExceededException: <p>A resource could not be created because service quotas were exceeded. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -963,6 +1053,14 @@ class AmplifyClient:
 
         Args:
             webhook_id: <p>The unique ID for a webhook. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.limit_exceeded_exception.LimitExceededException: <p>A resource could not be created because service quotas were exceeded. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1006,6 +1104,13 @@ class AmplifyClient:
             end_time: <p>The time at which the logs should end. The time range specified is inclusive of the end time. </p>
             domain_name: <p>The name of the domain. </p>
             app_id: <p>The unique ID for an Amplify app. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1048,6 +1153,13 @@ class AmplifyClient:
 
         Args:
             app_id: <p>The unique ID for an Amplify app. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1081,6 +1193,14 @@ class AmplifyClient:
 
         Args:
             artifact_id: <p>The unique ID for an artifact. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.limit_exceeded_exception.LimitExceededException: <p>A resource could not be created because service quotas were exceeded. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1120,6 +1240,13 @@ class AmplifyClient:
         Args:
             app_id: <p>The unique id for an Amplify app. </p>
             environment_name: <p>The name for the backend environment. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1160,6 +1287,13 @@ class AmplifyClient:
         Args:
             app_id: <p> The unique ID for an Amplify app. </p>
             branch_name: <p>The name of the branch. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1202,6 +1336,13 @@ class AmplifyClient:
         Args:
             app_id: <p> The unique id for an Amplify app. </p>
             domain_name: <p> The name of the domain. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1244,6 +1385,14 @@ class AmplifyClient:
             app_id: <p>The unique ID for an Amplify app. </p>
             branch_name: <p>The name of the branch to use for the job. </p>
             job_id: <p>The unique ID for the job. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.limit_exceeded_exception.LimitExceededException: <p>A resource could not be created because service quotas were exceeded. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1279,6 +1428,14 @@ class AmplifyClient:
 
         Args:
             webhook_id: <p>The unique ID for a webhook. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.limit_exceeded_exception.LimitExceededException: <p>A resource could not be created because service quotas were exceeded. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1320,6 +1477,12 @@ class AmplifyClient:
         Args:
             next_token: <p>A pagination token. If non-null, the pagination token is returned in a result. Pass its value in another request to retrieve more entries. </p>
             max_results: <p>The maximum number of records to list in a single response. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1389,6 +1552,13 @@ class AmplifyClient:
             job_id: <p>The unique ID for a job. </p>
             next_token: <p>A pagination token. Set to null to start listing artifacts from start. If a non-null pagination token is returned in a result, pass its value in here to list more artifacts. </p>
             max_results: <p>The maximum number of records to list in a single response. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.limit_exceeded_exception.LimitExceededException: <p>A resource could not be created because service quotas were exceeded. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1440,6 +1610,12 @@ class AmplifyClient:
             environment_name: <p>The name of the backend environment </p>
             next_token: <p>A pagination token. Set to null to start listing backend environments from the start. If a non-null pagination token is returned in a result, pass its value in here to list more backend environments. </p>
             max_results: <p>The maximum number of records to list in a single response. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1487,6 +1663,12 @@ class AmplifyClient:
             app_id: <p>The unique ID for an Amplify app. </p>
             next_token: <p>A pagination token. Set to null to start listing branches from the start. If a non-null pagination token is returned in a result, pass its value in here to list more branches. </p>
             max_results: <p> The maximum number of records to list in a single response. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1555,6 +1737,12 @@ class AmplifyClient:
             app_id: <p> The unique ID for an Amplify app. </p>
             next_token: <p> A pagination token. Set to null to start listing apps from the start. If non-null, a pagination token is returned in a result. Pass its value in here to list more projects. </p>
             max_results: <p> The maximum number of records to list in a single response. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1625,6 +1813,13 @@ class AmplifyClient:
             branch_name: <p>The name of the branch to use for the request. </p>
             next_token: <p>A pagination token. Set to null to start listing steps from the start. If a non-null pagination token is returned in a result, pass its value in here to list more steps. </p>
             max_results: <p>The maximum number of records to list in a single response. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.limit_exceeded_exception.LimitExceededException: <p>A resource could not be created because service quotas were exceeded. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1690,6 +1885,12 @@ class AmplifyClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) to use to list tags. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.resource_not_found_exception.ResourceNotFoundException: <p>An operation failed due to a non-existent resource. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1731,6 +1932,13 @@ class AmplifyClient:
             app_id: <p>The unique ID for an Amplify app. </p>
             next_token: <p>A pagination token. Set to null to start listing webhooks from the start. If non-null,the pagination token is returned in a result. Pass its value in here to list more webhooks. </p>
             max_results: <p>The maximum number of records to list in a single response. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.limit_exceeded_exception.LimitExceededException: <p>A resource could not be created because service quotas were exceeded. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1782,6 +1990,14 @@ class AmplifyClient:
             job_id: <p>The job ID for this deployment that is generated by the <code>CreateDeployment</code> request. </p>
             source_url: <p>The source URL for the deployment that is used when calling <code>StartDeployment</code> without <code>CreateDeployment</code>. The source URL can be either an HTTP GET URL that is publicly accessible and downloads a single .zip file, or an Amazon S3 bucket and prefix.</p>
             source_url_type: <p>The type of source specified by the <code>sourceURL</code>. If the value is <code>ZIP</code>, the source is a .zip file. If the value is <code>BUCKET_PREFIX</code>, the source is an Amazon S3 bucket and prefix. If no value is specified, the default is <code>ZIP</code>.</p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.limit_exceeded_exception.LimitExceededException: <p>A resource could not be created because service quotas were exceeded. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1842,6 +2058,14 @@ class AmplifyClient:
             commit_id: <p> The commit ID from a third-party repository provider for the job. </p>
             commit_message: <p> The commit message from a third-party repository provider for the job. </p>
             commit_time: <p> The commit date and time for the job. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.limit_exceeded_exception.LimitExceededException: <p>A resource could not be created because service quotas were exceeded. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1893,6 +2117,14 @@ class AmplifyClient:
             app_id: <p> The unique ID for an Amplify app. </p>
             branch_name: <p>The name of the branch to use for the stop job request. </p>
             job_id: <p> The unique id for the job. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.limit_exceeded_exception.LimitExceededException: <p>A resource could not be created because service quotas were exceeded. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1932,6 +2164,12 @@ class AmplifyClient:
         Args:
             resource_arn: <p> The Amazon Resource Name (ARN) to use to tag a resource. </p>
             tags: <p>The tags used to tag the resource. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.resource_not_found_exception.ResourceNotFoundException: <p>An operation failed due to a non-existent resource. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1972,6 +2210,12 @@ class AmplifyClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) to use to untag a resource. </p>
             tag_keys: <p>The tag keys to use to untag a resource. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.resource_not_found_exception.ResourceNotFoundException: <p>An operation failed due to a non-existent resource. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2074,6 +2318,13 @@ class AmplifyClient:
             access_token: <p>The personal access token for a GitHub repository for an Amplify app. The personal access token is used to authorize access to a GitHub repository using the Amplify GitHub App. The token is not stored.</p> <p>Use <code>accessToken</code> for GitHub repositories only. To authorize access to a repository provider such as Bitbucket or CodeCommit, use <code>oauthToken</code>.</p> <p>You must specify either <code>accessToken</code> or <code>oauthToken</code> when you update an app.</p> <p>Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth\">Migrating an existing OAuth app to the Amplify GitHub App</a> in the <i>Amplify User Guide</i> .</p>
             job_config: <p>Describes the configuration details that apply to the jobs for an Amplify app.</p>
             cache_config: <p>The cache configuration for the Amplify app.</p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2213,6 +2464,14 @@ class AmplifyClient:
             backend_environment_arn: <p>The Amazon Resource Name (ARN) for a backend environment that is part of a Gen 1 Amplify app. </p> <p>This field is available to Amplify Gen 1 apps only where the backend is created using Amplify Studio or the Amplify command line interface (CLI).</p>
             backend: <p>The backend for a <code>Branch</code> of an Amplify app. Use for a backend created from an CloudFormation stack.</p> <p>This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.</p>
             compute_role_arn: <p>The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources based on the role's permissions. For more information about the SSR Compute role, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html\">Adding an SSR Compute role</a> in the <i>Amplify User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.dependent_service_failure_exception.DependentServiceFailureException: <p>An operation failed because a dependent service threw an exception. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2309,6 +2568,14 @@ class AmplifyClient:
             auto_sub_domain_creation_patterns: <p> Sets the branch patterns for automatic subdomain creation. </p>
             auto_sub_domain_iam_role: <p> The required AWS Identity and Access Management (IAM) service role for the Amazon Resource Name (ARN) for automatically creating subdomains. </p>
             certificate_settings: <p>The type of SSL/TLS certificate to use for your custom domain.</p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.dependent_service_failure_exception.DependentServiceFailureException: <p>An operation failed because a dependent service threw an exception. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -2363,6 +2630,14 @@ class AmplifyClient:
             webhook_id: <p>The unique ID for a webhook. </p>
             branch_name: <p>The name for a branch that is part of an Amplify app. </p>
             description: <p>The description for a webhook. </p>
+
+        Raises:
+            aws_sdk_amplify.errors.bad_request_exception.BadRequestException: <p>A request contains unexpected data. </p>
+            aws_sdk_amplify.errors.dependent_service_failure_exception.DependentServiceFailureException: <p>An operation failed because a dependent service threw an exception. </p>
+            aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException: <p>The service failed to perform an operation due to an internal issue. </p>
+            aws_sdk_amplify.errors.not_found_exception.NotFoundException: <p>An entity was not found during an operation. </p>
+            aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException: <p>An operation failed due to a lack of access. </p>
+            aws_sdk_amplify.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

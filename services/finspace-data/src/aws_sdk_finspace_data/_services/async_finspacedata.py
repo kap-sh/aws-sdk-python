@@ -243,6 +243,15 @@ class AsyncfinspacedataClient:
             permission_group_id: <p>The unique identifier for the permission group.</p>
             user_id: <p>The unique identifier for the user.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -296,6 +305,16 @@ class AsyncfinspacedataClient:
             change_type: <p>The option to indicate how a Changeset will be applied to a Dataset.</p> <ul> <li> <p> <code>REPLACE</code> – Changeset will be considered as a replacement to all prior loaded Changesets.</p> </li> <li> <p> <code>APPEND</code> – Changeset will be considered as an addition to the end of all prior loaded Changesets.</p> </li> <li> <p> <code>MODIFY</code> – Changeset is considered as a replacement to a specific prior ingested Changeset.</p> </li> </ul>
             source_params: <p>Options that define the location of the data being ingested (<code>s3SourcePath</code>) and the source of the changeset (<code>sourceType</code>).</p> <p>Both <code>s3SourcePath</code> and <code>sourceType</code> are required attributes.</p> <p>Here is an example of how you could specify the <code>sourceParams</code>:</p> <p> <code> \"sourceParams\": { \"s3SourcePath\": \"s3://finspace-landing-us-east-2-bk7gcfvitndqa6ebnvys4d/scratch/wr5hh8pwkpqqkxa4sxrmcw/ingestion/equity.csv\", \"sourceType\": \"S3\" } </code> </p> <p>The S3 path that you specify must allow the FinSpace role access. To do that, you first need to configure the IAM policy on S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#access-s3-buckets\">Loading data from an Amazon S3 Bucket using the FinSpace API</a> section.</p>
             format_params: <p>Options that define the structure of the source file(s) including the format type (<code>formatType</code>), header row (<code>withHeader</code>), data separation character (<code>separator</code>) and the type of compression (<code>compression</code>). </p> <p> <code>formatType</code> is a required attribute and can have the following values: </p> <ul> <li> <p> <code>PARQUET</code> – Parquet source file format.</p> </li> <li> <p> <code>CSV</code> – CSV source file format.</p> </li> <li> <p> <code>JSON</code> – JSON source file format.</p> </li> <li> <p> <code>XML</code> – XML source file format.</p> </li> </ul> <p>Here is an example of how you could specify the <code>formatParams</code>:</p> <p> <code> \"formatParams\": { \"formatType\": \"CSV\", \"withHeader\": \"true\", \"separator\": \",\", \"compression\":\"None\" } </code> </p> <p>Note that if you only provide <code>formatType</code> as <code>CSV</code>, the rest of the attributes will automatically default to CSV values as following:</p> <p> <code> { \"withHeader\": \"true\", \"separator\": \",\" } </code> </p> <p> For more information about supported file formats, see <a href=\"https://docs.aws.amazon.com/finspace/latest/userguide/supported-data-types.html\">Supported Data Types and File Formats</a> in the FinSpace User Guide.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has exceeded.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -361,6 +380,16 @@ class AsyncfinspacedataClient:
             permission_group_params: <p>Permission group parameters for Dataset permissions.</p>
             alias: <p>The unique resource identifier for a Dataset.</p>
             schema_definition: <p>Definition for a schema on a tabular Dataset.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has exceeded.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -431,6 +460,15 @@ class AsyncfinspacedataClient:
             partition_columns: <p>Ordered set of column names used to partition data.</p>
             as_of_timestamp: <p>Beginning time to use for the Dataview. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
             destination_type_params: <p>Options that define the destination type for the Dataview.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has exceeded.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -490,6 +528,15 @@ class AsyncfinspacedataClient:
             description: <p>A brief description for the permission group.</p>
             application_permissions: <p>The option to indicate FinSpace application permissions that are granted to a specific group.</p> <important> <p>When assigning application permissions, be aware that the permission <code>ManageUsersAndGroups</code> allows users to grant themselves or others access to any functionality in their FinSpace environment's application. It should only be granted to trusted users.</p> </important> <ul> <li> <p> <code>CreateDataset</code> – Group members can create new datasets.</p> </li> <li> <p> <code>ManageClusters</code> – Group members can manage Apache Spark clusters from FinSpace notebooks.</p> </li> <li> <p> <code>ManageUsersAndGroups</code> – Group members can manage users and permission groups. This is a privileged permission that allows users to grant themselves or others access to any functionality in the application. It should only be granted to trusted users.</p> </li> <li> <p> <code>ManageAttributeSets</code> – Group members can manage attribute sets.</p> </li> <li> <p> <code>ViewAuditData</code> – Group members can view audit data.</p> </li> <li> <p> <code>AccessNotebooks</code> – Group members will have access to FinSpace notebooks.</p> </li> <li> <p> <code>GetTemporaryCredentials</code> – Group members can get temporary API credentials.</p> </li> </ul>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has exceeded.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -549,6 +596,15 @@ class AsyncfinspacedataClient:
             api_access: <p>The option to indicate whether the user can use the <code>GetProgrammaticAccessCredentials</code> API to obtain credentials that can then be used to access other FinSpace Data API operations.</p> <ul> <li> <p> <code>ENABLED</code> – The user has permissions to use the APIs.</p> </li> <li> <p> <code>DISABLED</code> – The user does not have permissions to use any APIs.</p> </li> </ul>
             api_access_principal_arn: <p>The ARN identifier of an AWS user or role that is allowed to call the <code>GetProgrammaticAccessCredentials</code> API to obtain a credentials token for a specific FinSpace user. This must be an IAM role within your FinSpace account.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has exceeded.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -602,6 +658,16 @@ class AsyncfinspacedataClient:
         Args:
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
             dataset_id: <p>The unique identifier of the Dataset to be deleted.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has exceeded.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -646,6 +712,16 @@ class AsyncfinspacedataClient:
         Args:
             permission_group_id: <p>The unique identifier for the permission group that you want to delete.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has exceeded.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -690,6 +766,15 @@ class AsyncfinspacedataClient:
         Args:
             user_id: <p>The unique identifier for the user that you want to deactivate.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -736,6 +821,15 @@ class AsyncfinspacedataClient:
             permission_group_id: <p>The unique identifier for the permission group.</p>
             user_id: <p>The unique identifier for the user.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -781,6 +875,16 @@ class AsyncfinspacedataClient:
         Args:
             user_id: <p>The unique identifier for the user that you want to activate.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.limit_exceeded_exception.LimitExceededException: <p>A limit has exceeded.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -823,6 +927,15 @@ class AsyncfinspacedataClient:
         Args:
             dataset_id: <p>The unique identifier for the FinSpace Dataset where the Changeset is created.</p>
             changeset_id: <p>The unique identifier of the Changeset for which to get data.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -862,6 +975,15 @@ class AsyncfinspacedataClient:
 
         Args:
             dataset_id: <p>The unique identifier for a Dataset.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -902,6 +1024,14 @@ class AsyncfinspacedataClient:
         Args:
             data_view_id: <p>The unique identifier for the Dataview.</p>
             dataset_id: <p>The unique identifier for the Dataset used in the Dataview.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -943,6 +1073,14 @@ class AsyncfinspacedataClient:
         Args:
             data_view_id: <p>The unique identifier for the Dataview that you want to access.</p>
             dataset_id: <p>The unique identifier for the Dataset.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -982,6 +1120,14 @@ class AsyncfinspacedataClient:
 
         Args:
             permission_group_id: <p>The unique identifier for the permission group.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1024,6 +1170,13 @@ class AsyncfinspacedataClient:
         Args:
             duration_in_minutes: <p>The time duration in which the credentials remain valid. </p>
             environment_id: <p>The FinSpace environment identifier.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1064,6 +1217,14 @@ class AsyncfinspacedataClient:
 
         Args:
             user_id: <p>The unique identifier of the user to get data for.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1104,6 +1265,13 @@ class AsyncfinspacedataClient:
 
         Args:
             location_type: <p>Specify the type of the working location.</p> <ul> <li> <p> <code>SAGEMAKER</code> – Use the Amazon S3 location as a temporary location to store data content when working with FinSpace Notebooks that run on SageMaker studio.</p> </li> <li> <p> <code>INGESTION</code> – Use the Amazon S3 location as a staging location to copy your data content and then use the location with the Changeset creation operation.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1151,6 +1319,15 @@ class AsyncfinspacedataClient:
             dataset_id: <p>The unique identifier for the FinSpace Dataset to which the Changeset belongs.</p>
             max_results: <p>The maximum number of results per page.</p>
             next_token: <p>A token that indicates where a results page should begin.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1228,6 +1405,14 @@ class AsyncfinspacedataClient:
         Args:
             next_token: <p>A token that indicates where a results page should begin.</p>
             max_results: <p>The maximum number of results per page.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1302,6 +1487,14 @@ class AsyncfinspacedataClient:
             dataset_id: <p>The unique identifier of the Dataset for which to retrieve Dataviews.</p>
             next_token: <p>A token that indicates where a results page should begin.</p>
             max_results: <p>The maximum number of results per page.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1375,6 +1568,13 @@ class AsyncfinspacedataClient:
         Args:
             next_token: <p>A token that indicates where a results page should begin.</p>
             max_results: <p>The maximum number of results per page.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1444,6 +1644,14 @@ class AsyncfinspacedataClient:
             user_id: <p>The unique identifier for the user.</p>
             next_token: <p>A token that indicates where a results page should begin.</p>
             max_results: <p>The maximum number of results per page.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1489,6 +1697,13 @@ class AsyncfinspacedataClient:
         Args:
             next_token: <p>A token that indicates where a results page should begin.</p>
             max_results: <p>The maximum number of results per page.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1558,6 +1773,14 @@ class AsyncfinspacedataClient:
             permission_group_id: <p>The unique identifier for the permission group.</p>
             next_token: <p>A token that indicates where a results page should begin.</p>
             max_results: <p>The maximum number of results per page.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1603,6 +1826,15 @@ class AsyncfinspacedataClient:
         Args:
             user_id: <p>The unique identifier of the user that a temporary password is requested for.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1655,6 +1887,15 @@ class AsyncfinspacedataClient:
             changeset_id: <p>The unique identifier for the Changeset to update.</p>
             source_params: <p>Options that define the location of the data being ingested (<code>s3SourcePath</code>) and the source of the changeset (<code>sourceType</code>).</p> <p>Both <code>s3SourcePath</code> and <code>sourceType</code> are required attributes.</p> <p>Here is an example of how you could specify the <code>sourceParams</code>:</p> <p> <code> \"sourceParams\": { \"s3SourcePath\": \"s3://finspace-landing-us-east-2-bk7gcfvitndqa6ebnvys4d/scratch/wr5hh8pwkpqqkxa4sxrmcw/ingestion/equity.csv\", \"sourceType\": \"S3\" } </code> </p> <p>The S3 path that you specify must allow the FinSpace role access. To do that, you first need to configure the IAM policy on S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#access-s3-buckets\">Loading data from an Amazon S3 Bucket using the FinSpace API</a>section.</p>
             format_params: <p>Options that define the structure of the source file(s) including the format type (<code>formatType</code>), header row (<code>withHeader</code>), data separation character (<code>separator</code>) and the type of compression (<code>compression</code>). </p> <p> <code>formatType</code> is a required attribute and can have the following values: </p> <ul> <li> <p> <code>PARQUET</code> – Parquet source file format.</p> </li> <li> <p> <code>CSV</code> – CSV source file format.</p> </li> <li> <p> <code>JSON</code> – JSON source file format.</p> </li> <li> <p> <code>XML</code> – XML source file format.</p> </li> </ul> <p>Here is an example of how you could specify the <code>formatParams</code>:</p> <p> <code> \"formatParams\": { \"formatType\": \"CSV\", \"withHeader\": \"true\", \"separator\": \",\", \"compression\":\"None\" } </code> </p> <p>Note that if you only provide <code>formatType</code> as <code>CSV</code>, the rest of the attributes will automatically default to CSV values as following:</p> <p> <code> { \"withHeader\": \"true\", \"separator\": \",\" } </code> </p> <p> For more information about supported file formats, see <a href=\"https://docs.aws.amazon.com/finspace/latest/userguide/supported-data-types.html\">Supported Data Types and File Formats</a> in the FinSpace User Guide.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1716,6 +1957,15 @@ class AsyncfinspacedataClient:
             dataset_description: <p>A description for the Dataset.</p>
             alias: <p>The unique resource identifier for a Dataset.</p>
             schema_definition: <p>Definition for a schema on a tabular Dataset.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1780,6 +2030,15 @@ class AsyncfinspacedataClient:
             description: <p>A brief description for the permission group.</p>
             application_permissions: <p>The permissions that are granted to a specific group for accessing the FinSpace application.</p> <important> <p>When assigning application permissions, be aware that the permission <code>ManageUsersAndGroups</code> allows users to grant themselves or others access to any functionality in their FinSpace environment's application. It should only be granted to trusted users.</p> </important> <ul> <li> <p> <code>CreateDataset</code> – Group members can create new datasets.</p> </li> <li> <p> <code>ManageClusters</code> – Group members can manage Apache Spark clusters from FinSpace notebooks.</p> </li> <li> <p> <code>ManageUsersAndGroups</code> – Group members can manage users and permission groups. This is a privileged permission that allows users to grant themselves or others access to any functionality in the application. It should only be granted to trusted users.</p> </li> <li> <p> <code>ManageAttributeSets</code> – Group members can manage attribute sets.</p> </li> <li> <p> <code>ViewAuditData</code> – Group members can view audit data.</p> </li> <li> <p> <code>AccessNotebooks</code> – Group members will have access to FinSpace notebooks.</p> </li> <li> <p> <code>GetTemporaryCredentials</code> – Group members can get temporary API credentials.</p> </li> </ul>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1842,6 +2101,15 @@ class AsyncfinspacedataClient:
             api_access: <p>The option to indicate whether the user can use the <code>GetProgrammaticAccessCredentials</code> API to obtain credentials that can then be used to access other FinSpace Data API operations.</p> <ul> <li> <p> <code>ENABLED</code> – The user has permissions to use the APIs.</p> </li> <li> <p> <code>DISABLED</code> – The user does not have permissions to use any APIs.</p> </li> </ul>
             api_access_principal_arn: <p>The ARN identifier of an AWS user or role that is allowed to call the <code>GetProgrammaticAccessCredentials</code> API to obtain a credentials token for a specific FinSpace user. This must be an IAM role within your FinSpace account.</p>
             client_token: <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+
+        Raises:
+            aws_sdk_finspace_data.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_finspace_data.errors.conflict_exception.ConflictException: <p>The request conflicts with an existing resource.</p>
+            aws_sdk_finspace_data.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            aws_sdk_finspace_data.errors.resource_not_found_exception.ResourceNotFoundException: <p>One or more resources can't be found.</p>
+            aws_sdk_finspace_data.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_finspace_data.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+            aws_sdk_finspace_data.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

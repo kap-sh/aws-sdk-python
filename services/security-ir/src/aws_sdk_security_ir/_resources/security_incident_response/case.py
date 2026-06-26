@@ -123,6 +123,18 @@ class Case:
             impacted_aws_regions: <p>An optional element used in combination with CreateCase to provide a list of impacted regions.</p>
             tags: <p>An optional element used in combination with CreateCase to add customer specified tags to a case.</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke CreateCase
 
@@ -180,6 +192,18 @@ class Case:
 
         Args:
             case_id: <p>Required element for GetCase to identify the requested case ID.</p>
+
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke GetCase
@@ -279,6 +303,18 @@ class Case:
             impacted_accounts_to_delete: <p>Optional element for UpdateCase to provide content to add accounts impacted.</p> <note> <p> AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be <code>123123123</code> which is nine digits, and with zero-prepend would be <code>000123123123</code>. Not zero-prepending to 12 digits could result in errors. </p> </note>
             case_metadata: <p>Update the case request with case metadata</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke UpdateCase
 
@@ -359,6 +395,18 @@ class Case:
             next_token: <p>An optional string that, if supplied, must be copied from the output of a previous call to ListCases. When provided in this manner, the API fetches the next page of results. </p>
             max_results: <p>Optional element for ListCases to limit the number of responses.</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke ListCases
 
@@ -403,6 +451,18 @@ class Case:
 
         Args:
             case_id: <p>Required element used in combination with CloseCase to identify the case ID to close.</p>
+
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke CloseCase
@@ -450,6 +510,18 @@ class Case:
             client_token: <note> <p>The <code>clientToken</code> field is an idempotency key used to ensure that repeated attempts for a single action will be ignored by the server during retries. A caller supplied unique ID (typically a UUID) should be provided. </p> </note>
             body: <p>Required element used in combination with CreateCaseComment to add content for the new comment.</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke CreateCaseComment
 
@@ -496,6 +568,18 @@ class Case:
         Args:
             case_id: <p>Required element for GetCaseAttachmentDownloadUrl to identify the case ID for downloading an attachment from. </p>
             attachment_id: <p>Required element for GetCaseAttachmentDownloadUrl to identify the attachment ID for downloading an attachment. </p>
+
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke GetCaseAttachmentDownloadUrl
@@ -545,6 +629,18 @@ class Case:
             file_name: <p>Required element for GetCaseAttachmentUploadUrl to identify the file name of the attachment to upload. </p>
             content_length: <p>Required element for GetCaseAttachmentUploadUrl to identify the size of the file attachment.</p>
             client_token: <note> <p>The <code>clientToken</code> field is an idempotency key used to ensure that repeated attempts for a single action will be ignored by the server during retries. A caller supplied unique ID (typically a UUID) should be provided. </p> </note>
+
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke GetCaseAttachmentUploadUrl
@@ -596,6 +692,18 @@ class Case:
             max_results: <p>Optional element to identify how many results to obtain. There is a maximum value of 25.</p>
             case_id: <p>Required element used with ListCaseEdits to identify the case to query.</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke ListCaseEdits
 
@@ -646,6 +754,18 @@ class Case:
             max_results: <p>Optional element for ListComments to limit the number of responses.</p>
             case_id: <p>Required element for ListComments to designate the case to query.</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke ListComments
 
@@ -695,6 +815,18 @@ class Case:
             next_token: <p>Investigation performed by an agent for a security incident request</p>
             max_results: <p>Investigation performed by an agent for a security incident request, returning max results</p>
             case_id: <p>Investigation performed by an agent for a security incident per caseID</p>
+
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke ListInvestigations with feedback examples
@@ -750,6 +882,18 @@ class Case:
             usefulness: <p>Required enum value indicating user assessment of result q.....</p>
             comment: <p>Send feedback based on request comments</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Send positive feedback for investigation result
 
@@ -803,6 +947,18 @@ class Case:
             comment_id: <p>Required element for UpdateCaseComment to identify the case ID to be updated.</p>
             body: <p>Required element for UpdateCaseComment to identify the content for the comment to be updated.</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke UpdateCaseComment
 
@@ -851,6 +1007,18 @@ class Case:
             case_id: <p>Required element for UpdateCaseStatus to identify the case to update.</p>
             case_status: <p>Required element for UpdateCaseStatus to identify the status for a case. Options include <code>Submitted | Detection and Analysis | Containment, Eradication and Recovery | Post-incident Activities</code>. </p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke UpdateCaseStatus
 
@@ -895,6 +1063,18 @@ class Case:
         Args:
             case_id: <p>Required element for UpdateResolverType to identify the case to update.</p>
             resolver_type: <p>Required element for UpdateResolverType to identify the new resolver.</p>
+
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke UpdateResolverType
@@ -972,6 +1152,18 @@ class AsyncCase:
             impacted_aws_regions: <p>An optional element used in combination with CreateCase to provide a list of impacted regions.</p>
             tags: <p>An optional element used in combination with CreateCase to add customer specified tags to a case.</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke CreateCase
 
@@ -1030,6 +1222,18 @@ class AsyncCase:
 
         Args:
             case_id: <p>Required element for GetCase to identify the requested case ID.</p>
+
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke GetCase
@@ -1130,6 +1334,18 @@ class AsyncCase:
             impacted_accounts_to_delete: <p>Optional element for UpdateCase to provide content to add accounts impacted.</p> <note> <p> AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be <code>123123123</code> which is nine digits, and with zero-prepend would be <code>000123123123</code>. Not zero-prepending to 12 digits could result in errors. </p> </note>
             case_metadata: <p>Update the case request with case metadata</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke UpdateCase
 
@@ -1211,6 +1427,18 @@ class AsyncCase:
             next_token: <p>An optional string that, if supplied, must be copied from the output of a previous call to ListCases. When provided in this manner, the API fetches the next page of results. </p>
             max_results: <p>Optional element for ListCases to limit the number of responses.</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke ListCases
 
@@ -1256,6 +1484,18 @@ class AsyncCase:
 
         Args:
             case_id: <p>Required element used in combination with CloseCase to identify the case ID to close.</p>
+
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke CloseCase
@@ -1304,6 +1544,18 @@ class AsyncCase:
             client_token: <note> <p>The <code>clientToken</code> field is an idempotency key used to ensure that repeated attempts for a single action will be ignored by the server during retries. A caller supplied unique ID (typically a UUID) should be provided. </p> </note>
             body: <p>Required element used in combination with CreateCaseComment to add content for the new comment.</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke CreateCaseComment
 
@@ -1351,6 +1603,18 @@ class AsyncCase:
         Args:
             case_id: <p>Required element for GetCaseAttachmentDownloadUrl to identify the case ID for downloading an attachment from. </p>
             attachment_id: <p>Required element for GetCaseAttachmentDownloadUrl to identify the attachment ID for downloading an attachment. </p>
+
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke GetCaseAttachmentDownloadUrl
@@ -1401,6 +1665,18 @@ class AsyncCase:
             file_name: <p>Required element for GetCaseAttachmentUploadUrl to identify the file name of the attachment to upload. </p>
             content_length: <p>Required element for GetCaseAttachmentUploadUrl to identify the size of the file attachment.</p>
             client_token: <note> <p>The <code>clientToken</code> field is an idempotency key used to ensure that repeated attempts for a single action will be ignored by the server during retries. A caller supplied unique ID (typically a UUID) should be provided. </p> </note>
+
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke GetCaseAttachmentUploadUrl
@@ -1453,6 +1729,18 @@ class AsyncCase:
             max_results: <p>Optional element to identify how many results to obtain. There is a maximum value of 25.</p>
             case_id: <p>Required element used with ListCaseEdits to identify the case to query.</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke ListCaseEdits
 
@@ -1504,6 +1792,18 @@ class AsyncCase:
             max_results: <p>Optional element for ListComments to limit the number of responses.</p>
             case_id: <p>Required element for ListComments to designate the case to query.</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke ListComments
 
@@ -1554,6 +1854,18 @@ class AsyncCase:
             next_token: <p>Investigation performed by an agent for a security incident request</p>
             max_results: <p>Investigation performed by an agent for a security incident request, returning max results</p>
             case_id: <p>Investigation performed by an agent for a security incident per caseID</p>
+
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke ListInvestigations with feedback examples
@@ -1610,6 +1922,18 @@ class AsyncCase:
             usefulness: <p>Required enum value indicating user assessment of result q.....</p>
             comment: <p>Send feedback based on request comments</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Send positive feedback for investigation result
 
@@ -1664,6 +1988,18 @@ class AsyncCase:
             comment_id: <p>Required element for UpdateCaseComment to identify the case ID to be updated.</p>
             body: <p>Required element for UpdateCaseComment to identify the content for the comment to be updated.</p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke UpdateCaseComment
 
@@ -1713,6 +2049,18 @@ class AsyncCase:
             case_id: <p>Required element for UpdateCaseStatus to identify the case to update.</p>
             case_status: <p>Required element for UpdateCaseStatus to identify the status for a case. Options include <code>Submitted | Detection and Analysis | Containment, Eradication and Recovery | Post-incident Activities</code>. </p>
 
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Invoke UpdateCaseStatus
 
@@ -1758,6 +2106,18 @@ class AsyncCase:
         Args:
             case_id: <p>Required element for UpdateResolverType to identify the case to update.</p>
             resolver_type: <p>Required element for UpdateResolverType to identify the new resolver.</p>
+
+        Raises:
+            aws_sdk_security_ir.errors.access_denied_exception.AccessDeniedException: <p/>
+            aws_sdk_security_ir.errors.conflict_exception.ConflictException: <p/>
+            aws_sdk_security_ir.errors.internal_server_exception.InternalServerException: <p/>
+            aws_sdk_security_ir.errors.invalid_token_exception.InvalidTokenException: <p/>
+            aws_sdk_security_ir.errors.resource_not_found_exception.ResourceNotFoundException: <p/>
+            aws_sdk_security_ir.errors.security_incident_response_not_active_exception.SecurityIncidentResponseNotActiveException: <p/>
+            aws_sdk_security_ir.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p/>
+            aws_sdk_security_ir.errors.throttling_exception.ThrottlingException: <p/>
+            aws_sdk_security_ir.errors.validation_exception.ValidationException: <p/>
+            aws_sdk_security_ir.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke UpdateResolverType

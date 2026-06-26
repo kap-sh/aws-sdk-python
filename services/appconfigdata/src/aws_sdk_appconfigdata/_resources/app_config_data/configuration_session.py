@@ -50,6 +50,13 @@ class ConfigurationSession:
             environment_identifier: <p>The environment ID or the environment name.</p>
             configuration_profile_identifier: <p>The configuration profile ID or the configuration profile name.</p>
             required_minimum_poll_interval_in_seconds: <p>Sets a constraint on a session. If you specify a value of, for example, 60 seconds, then the client that established the session can't call <a>GetLatestConfiguration</a> more frequently than every 60 seconds.</p>
+
+        Raises:
+            aws_sdk_appconfigdata.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_appconfigdata.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the service.</p>
+            aws_sdk_appconfigdata.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfigdata.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_appconfigdata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -106,6 +113,13 @@ class AsyncConfigurationSession:
             environment_identifier: <p>The environment ID or the environment name.</p>
             configuration_profile_identifier: <p>The configuration profile ID or the configuration profile name.</p>
             required_minimum_poll_interval_in_seconds: <p>Sets a constraint on a session. If you specify a value of, for example, 60 seconds, then the client that established the session can't call <a>GetLatestConfiguration</a> more frequently than every 60 seconds.</p>
+
+        Raises:
+            aws_sdk_appconfigdata.errors.bad_request_exception.BadRequestException: <p>The input fails to satisfy the constraints specified by the service.</p>
+            aws_sdk_appconfigdata.errors.internal_server_exception.InternalServerException: <p>There was an internal failure in the service.</p>
+            aws_sdk_appconfigdata.errors.resource_not_found_exception.ResourceNotFoundException: <p>The requested resource could not be found.</p>
+            aws_sdk_appconfigdata.errors.throttling_exception.ThrottlingException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_appconfigdata.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

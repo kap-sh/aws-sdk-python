@@ -239,6 +239,16 @@ class IoTEventsClient:
             alarm_notification: <p>Contains information about one or more notification actions.</p>
             alarm_event_actions: <p>Contains information about one or more alarm actions.</p>
             alarm_capabilities: <p>Contains the configuration information of alarm state changes.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_iot_events.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot_events.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is in use.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -310,6 +320,16 @@ class IoTEventsClient:
             role_arn: <p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>
             tags: <p>Metadata that can be used to manage the detector model.</p>
             evaluation_method: <p>Information about the order in which events are evaluated and how actions are executed. </p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_iot_events.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot_events.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is in use.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -365,6 +385,14 @@ class IoTEventsClient:
             input_description: <p>A brief description of the input.</p>
             input_definition: <p>The definition of the input.</p>
             tags: <p>Metadata that can be used to manage the input.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_already_exists_exception.ResourceAlreadyExistsException: <p>The resource already exists.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -409,6 +437,15 @@ class IoTEventsClient:
 
         Args:
             alarm_model_name: <p>The name of the alarm model.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is in use.</p>
+            aws_sdk_iot_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -446,6 +483,15 @@ class IoTEventsClient:
 
         Args:
             detector_model_name: <p>The name of the detector model to be deleted.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is in use.</p>
+            aws_sdk_iot_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -483,6 +529,15 @@ class IoTEventsClient:
 
         Args:
             input_name: <p>The name of the input to delete.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is in use.</p>
+            aws_sdk_iot_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -524,6 +579,14 @@ class IoTEventsClient:
         Args:
             alarm_model_name: <p>The name of the alarm model.</p>
             alarm_model_version: <p>The version of the alarm model.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -567,6 +630,14 @@ class IoTEventsClient:
         Args:
             detector_model_name: <p>The name of the detector model.</p>
             detector_model_version: <p>The version of the detector model.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -606,6 +677,14 @@ class IoTEventsClient:
 
         Args:
             analysis_id: <p>The ID of the analysis result that you want to retrieve.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -643,6 +722,14 @@ class IoTEventsClient:
 
         Args:
             input_name: <p>The name of the input.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -673,7 +760,17 @@ class IoTEventsClient:
     def describe_logging_options(
         self, *, config_overrides: Optional[IoTEventsClientConfig] = None
     ) -> "aws_sdk_iot_events.types.describe_logging_options_response.DescribeLoggingOptionsResponse":
-        """<p>Retrieves the current settings of the AWS IoT Events logging options.</p>"""
+        """<p>Retrieves the current settings of the AWS IoT Events logging options.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The requested operation is not supported.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_events.types.describe_logging_options_request.DescribeLoggingOptionsRequest]",
@@ -715,6 +812,14 @@ class IoTEventsClient:
             analysis_id: <p>The ID of the analysis result that you want to retrieve.</p>
             next_token: <p>The token that you can use to return the next set of results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -758,6 +863,13 @@ class IoTEventsClient:
         Args:
             next_token: <p>The token that you can use to return the next set of results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -802,6 +914,14 @@ class IoTEventsClient:
             alarm_model_name: <p>The name of the alarm model.</p>
             next_token: <p>The token that you can use to return the next set of results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -845,6 +965,13 @@ class IoTEventsClient:
         Args:
             next_token: <p>The token that you can use to return the next set of results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -889,6 +1016,14 @@ class IoTEventsClient:
             detector_model_name: <p>The name of the detector model whose versions are returned.</p>
             next_token: <p>The token that you can use to return the next set of results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -934,6 +1069,14 @@ class IoTEventsClient:
             input_identifier: <p> The identifer of the routed input. </p>
             max_results: <p> The maximum number of results to be returned per request. </p>
             next_token: <p> The token that you can use to return the next set of results. </p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -977,6 +1120,13 @@ class IoTEventsClient:
         Args:
             next_token: <p>The token that you can use to return the next set of results.</p>
             max_results: <p>The maximum number of results to be returned per request.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1017,6 +1167,14 @@ class IoTEventsClient:
 
         Args:
             resource_arn: <p>The ARN of the resource.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is in use.</p>
+            aws_sdk_iot_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1054,6 +1212,15 @@ class IoTEventsClient:
 
         Args:
             logging_options: <p>The new values of the AWS IoT Events logging options.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is in use.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The requested operation is not supported.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1085,7 +1252,16 @@ class IoTEventsClient:
         *,
         config_overrides: Optional[IoTEventsClientConfig] = None,
     ) -> "aws_sdk_iot_events.types.start_detector_model_analysis_response.StartDetectorModelAnalysisResponse":
-        r"""<p>Performs an analysis of your detector model. For more information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html\">Troubleshooting a detector model</a> in the <i>AWS IoT Events Developer Guide</i>.</p>"""
+        r"""<p>Performs an analysis of your detector model. For more information, see <a href=\"https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html\">Troubleshooting a detector model</a> in the <i>AWS IoT Events Developer Guide</i>.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_iot_events.types.start_detector_model_analysis_request.StartDetectorModelAnalysisRequest]",
@@ -1124,6 +1300,15 @@ class IoTEventsClient:
         Args:
             resource_arn: <p>The ARN of the resource.</p>
             tags: <p>The new or modified tags for the resource.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.limit_exceeded_exception.LimitExceededException: <p>A limit was exceeded.</p>
+            aws_sdk_iot_events.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is in use.</p>
+            aws_sdk_iot_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1164,6 +1349,14 @@ class IoTEventsClient:
         Args:
             resource_arn: <p>The ARN of the resource.</p>
             tag_keys: <p>A list of the keys of the tags to be removed from the resource.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is in use.</p>
+            aws_sdk_iot_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1226,6 +1419,15 @@ class IoTEventsClient:
             alarm_notification: <p>Contains information about one or more notification actions.</p>
             alarm_event_actions: <p>Contains information about one or more alarm actions.</p>
             alarm_capabilities: <p>Contains the configuration information of alarm state changes.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is in use.</p>
+            aws_sdk_iot_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1287,6 +1489,15 @@ class IoTEventsClient:
             detector_model_description: <p>A brief description of the detector model.</p>
             role_arn: <p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>
             evaluation_method: <p>Information about the order in which events are evaluated and how actions are executed. </p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is in use.</p>
+            aws_sdk_iot_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -1336,6 +1547,15 @@ class IoTEventsClient:
             input_name: <p>The name of the input you want to update.</p>
             input_description: <p>A brief description of the input.</p>
             input_definition: <p>The definition of the input.</p>
+
+        Raises:
+            aws_sdk_iot_events.errors.internal_failure_exception.InternalFailureException: <p>An internal failure occurred.</p>
+            aws_sdk_iot_events.errors.invalid_request_exception.InvalidRequestException: <p>The request was invalid.</p>
+            aws_sdk_iot_events.errors.resource_in_use_exception.ResourceInUseException: <p>The resource is in use.</p>
+            aws_sdk_iot_events.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource was not found.</p>
+            aws_sdk_iot_events.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is currently unavailable.</p>
+            aws_sdk_iot_events.errors.throttling_exception.ThrottlingException: <p>The request could not be completed due to throttling.</p>
+            aws_sdk_iot_events.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

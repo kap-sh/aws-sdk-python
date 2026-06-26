@@ -290,6 +290,11 @@ class AsyncBatchClient:
             job_id: <p>The Batch job ID of the job to cancel.</p>
             reason: <p>A message to attach to the job that explains the reason for canceling it. This message is returned by future <a>DescribeJobs</a> operations on the job. It is also recorded in the Batch activity logs.</p> <p>This parameter has as limit of 1024 characters.</p>
 
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To cancel a job
             This example cancels a job with the specified job ID.
@@ -354,6 +359,11 @@ class AsyncBatchClient:
             tags: <p>The tags that you apply to the compute environment to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General Reference</i>.</p> <p>These tags can be updated or removed using the <a href=\"https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html\">TagResource</a> and <a href=\"https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html\">UntagResource</a> API operations. These tags don't propagate to the underlying compute resources.</p>
             eks_configuration: <p>The details for the Amazon EKS cluster that supports the compute environment.</p> <note> <p>To create a compute environment that uses EKS resources, the caller must have permissions to call <code>eks:DescribeCluster</code>.</p> </note>
             context: <p>Reserved.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a managed EC2 compute environment
@@ -423,6 +433,11 @@ class AsyncBatchClient:
             total_quantity: <p>The total amount of the consumable resource that is available. Must be non-negative.</p>
             resource_type: <p>Indicates whether the resource is available to be re-used after a job completes. Can be one of: </p> <ul> <li> <p> <code>REPLENISHABLE</code> (default)</p> </li> <li> <p> <code>NON_REPLENISHABLE</code> </p> </li> </ul>
             tags: <p>The tags that you apply to the consumable resource to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html\">Tagging your Batch resources</a>.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a consumable resource
@@ -498,6 +513,11 @@ class AsyncBatchClient:
             tags: <p>The tags that you apply to the job queue to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html\">Tagging your Batch resources</a> in <i>Batch User Guide</i>.</p>
             job_state_time_limit_actions: <p>The set of actions that Batch performs on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed. (<b>Note</b>: The minimum value for maxTimeSeconds is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</p>
 
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a job queue with a single compute environment
             This example creates a job queue called LowPriority that uses the M4Spot compute environment.
@@ -572,6 +592,11 @@ class AsyncBatchClient:
             preemption_configuration: <p>Specifies the preemption behavior for jobs in a quota share.</p>
             state: <p>The state of the quota share. If the quota share is <code>ENABLED</code>, it is able to accept jobs. If the quota share is <code>DISABLED</code>, new jobs won't be accepted but jobs already submitted can finish. The default state is <code>ENABLED</code>.</p>
             tags: <p>The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html\">Tagging your Batch resources</a> in <i>Batch User Guide</i>.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -628,6 +653,11 @@ class AsyncBatchClient:
             quota_share_policy: <p>The quota share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set. Once set, this policy type cannot be removed or changed to a fairSharePolicy.</p>
             fairshare_policy: <p>The fair-share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set. Once set, this policy type cannot be removed or changed to a quotaSharePolicy.</p>
             tags: <p>The tags that you apply to the scheduling policy to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General Reference</i>.</p> <p>These tags can be updated or removed using the <a href=\"https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html\">TagResource</a> and <a href=\"https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html\">UntagResource</a> API operations.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -682,6 +712,11 @@ class AsyncBatchClient:
             state: <p>The state of the service environment. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. The default value is <code>ENABLED</code>.</p>
             capacity_limits: <p>The capacity limits for the service environment. The number of instances a job consumes is the total number of instances requested in the submit training job request resource configuration.</p>
             tags: <p>The tags that you apply to the service environment to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html\">Tagging your Batch resources</a>.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -727,6 +762,11 @@ class AsyncBatchClient:
         Args:
             compute_environment: <p>The name or Amazon Resource Name (ARN) of the compute environment to delete.</p>
 
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a compute environment
             This example deletes the P2OnDemand compute environment.
@@ -770,6 +810,11 @@ class AsyncBatchClient:
 
         Args:
             consumable_resource: <p>The name or ARN of the consumable resource that will be deleted.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a consumable resource
@@ -815,6 +860,11 @@ class AsyncBatchClient:
         Args:
             job_queue: <p>The short name or full Amazon Resource Name (ARN) of the queue to delete.</p>
 
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a job queue
             This example deletes the GPGPU job queue.
@@ -858,6 +908,11 @@ class AsyncBatchClient:
 
         Args:
             quota_share_arn: <p>The Amazon Resource Name (ARN) of the quota share.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -896,6 +951,11 @@ class AsyncBatchClient:
 
         Args:
             arn: <p>The Amazon Resource Name (ARN) of the scheduling policy to delete.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -934,6 +994,11 @@ class AsyncBatchClient:
 
         Args:
             service_environment: <p>The name or ARN of the service environment to delete.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -972,6 +1037,11 @@ class AsyncBatchClient:
 
         Args:
             job_definition: <p>The name and revision (<code>name:revision</code>) or full Amazon Resource Name (ARN) of the job definition to deregister.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To deregister a job definition
@@ -1022,6 +1092,11 @@ class AsyncBatchClient:
             compute_environments: <p>A list of up to 100 compute environment names or full Amazon Resource Name (ARN) entries.</p>
             max_results: <p>The maximum number of cluster results returned by <code>DescribeComputeEnvironments</code> in paginated output. When this parameter is used, <code>DescribeComputeEnvironments</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeComputeEnvironments</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>DescribeComputeEnvironments</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeComputeEnvironments</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>Treat this token as an opaque identifier that's only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe a compute environment
@@ -1097,6 +1172,11 @@ class AsyncBatchClient:
         Args:
             consumable_resource: <p>The name or ARN of the consumable resource whose description will be returned.</p>
 
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get a description of a consumable resource
             Returns a description of the specified consumable resource.
@@ -1148,6 +1228,11 @@ class AsyncBatchClient:
             job_definition_name: <p>The name of the job definition to describe.</p>
             status: <p>The status used to filter job definitions.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeJobDefinitions</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>Treat this token as an opaque identifier that's only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To describe active job definitions
@@ -1233,6 +1318,11 @@ class AsyncBatchClient:
             max_results: <p>The maximum number of results returned by <code>DescribeJobQueues</code> in paginated output. When this parameter is used, <code>DescribeJobQueues</code> only returns <code>maxResults</code> results in a single page and a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeJobQueues</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>DescribeJobQueues</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeJobQueues</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>Treat this token as an opaque identifier that's only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
 
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe a job queue
             This example describes the HighPriority job queue.
@@ -1305,6 +1395,11 @@ class AsyncBatchClient:
         Args:
             jobs: <p>A list of up to 100 job IDs.</p>
 
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To describe a specific job
             This example describes a job with the specified job ID.
@@ -1348,6 +1443,11 @@ class AsyncBatchClient:
 
         Args:
             quota_share_arn: <p>The Amazon Resource Name (ARN) of the quota share.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1386,6 +1486,11 @@ class AsyncBatchClient:
 
         Args:
             arns: <p>A list of up to 100 scheduling policy Amazon Resource Name (ARN) entries.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1430,6 +1535,11 @@ class AsyncBatchClient:
             service_environments: <p>An array of service environment names or ARN entries.</p>
             max_results: <p>The maximum number of results returned by <code>DescribeServiceEnvironments</code> in paginated output. When this parameter is used, <code>DescribeServiceEnvironments</code> only returns <code>maxResults</code> results in a single page and a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeServiceEnvironments</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>DescribeServiceEnvironments</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeServiceEnvironments</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>Treat this token as an opaque identifier that's only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1498,6 +1608,11 @@ class AsyncBatchClient:
 
         Args:
             job_id: <p>The job ID for the service job to describe.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1536,6 +1651,11 @@ class AsyncBatchClient:
 
         Args:
             job_queue: <p>The job queue’s name or full queue Amazon Resource Name (ARN).</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1580,6 +1700,11 @@ class AsyncBatchClient:
             filters: <p>The filters to apply to the consumable resource list query. If used, only those consumable resources that match the filter are listed. Filter names and values can be:</p> <ul> <li> <p>name: <code>CONSUMABLE_RESOURCE_NAME </code> </p> <p>values: case-insensitive matches for the consumable resource name. If a filter value ends with an asterisk (*), it matches any consumable resource name that begins with the string before the '*'.</p> </li> </ul>
             max_results: <p>The maximum number of results returned by <code>ListConsumableResources</code> in paginated output. When this parameter is used, <code>ListConsumableResources</code> only returns <code>maxResults</code> results in a single page and a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListConsumableResources</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListConsumableResources</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListConsumableResources</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>Treat this token as an opaque identifier that's only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a list of a consumable resources
@@ -1668,6 +1793,11 @@ class AsyncBatchClient:
             max_results: <p>The maximum number of results returned by <code>ListJobs</code> in a paginated output. When this parameter is used, <code>ListJobs</code> returns up to <code>maxResults</code> results in a single page and a <code>nextToken</code> response element, if applicable. The remaining results of the initial request can be seen by sending another <code>ListJobs</code> request with the returned <code>nextToken</code> value.</p> <p>The following outlines key parameters and limitations:</p> <ul> <li> <p>The minimum value is 1. </p> </li> <li> <p>When <code>--job-status</code> is used, Batch returns up to 1000 values. </p> </li> <li> <p>When <code>--filters</code> is used, Batch returns up to 100 values.</p> </li> <li> <p>If neither parameter is used, then <code>ListJobs</code> returns up to 1000 results (jobs that are in the <code>RUNNING</code> status) and a <code>nextToken</code> value, if applicable.</p> </li> </ul>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListJobs</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>Treat this token as an opaque identifier that's only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
             filters: <p>The filter to apply to the query. Only one filter can be used at a time. When the filter is used, <code>jobStatus</code> is ignored with the exception that <code>SHARE_IDENTIFIER</code> and <code>jobStatus</code> can be used together. The filter doesn't apply to child jobs in an array or multi-node parallel (MNP) jobs. The results are sorted by the <code>createdAt</code> field, with the most recent jobs being first.</p> <note> <p>The <code>SHARE_IDENTIFIER</code> filter and the <code>jobStatus</code> field can be used together to filter results.</p> </note> <dl> <dt>JOB_NAME</dt> <dd> <p>The value of the filter is a case-insensitive match for the job name. If the value ends with an asterisk (*), the filter matches any job name that begins with the string before the '*'. This corresponds to the <code>jobName</code> value. For example, <code>test1</code> matches both <code>Test1</code> and <code>test1</code>, and <code>test1*</code> matches both <code>test1</code> and <code>Test10</code>. When the <code>JOB_NAME</code> filter is used, the results are grouped by the job name and version.</p> </dd> <dt>JOB_DEFINITION</dt> <dd> <p>The value for the filter is the name or Amazon Resource Name (ARN) of the job definition. This corresponds to the <code>jobDefinition</code> value. The value is case sensitive. When the value for the filter is the job definition name, the results include all the jobs that used any revision of that job definition name. If the value ends with an asterisk (*), the filter matches any job definition name that begins with the string before the '*'. For example, <code>jd1</code> matches only <code>jd1</code>, and <code>jd1*</code> matches both <code>jd1</code> and <code>jd1A</code>. The version of the job definition that's used doesn't affect the sort order. When the <code>JOB_DEFINITION</code> filter is used and the ARN is used (which is in the form <code>arn:${Partition}:batch:${Region}:${Account}:job-definition/${JobDefinitionName}:${Revision}</code>), the results include jobs that used the specified revision of the job definition. Asterisk (*) isn't supported when the ARN is used.</p> </dd> <dt>BEFORE_CREATED_AT</dt> <dd> <p>The value for the filter is the time that's before the job was created. This corresponds to the <code>createdAt</code> value. The value is a string representation of the number of milliseconds since 00:00:00 UTC (midnight) on January 1, 1970.</p> </dd> <dt>AFTER_CREATED_AT</dt> <dd> <p>The value for the filter is the time that's after the job was created. This corresponds to the <code>createdAt</code> value. The value is a string representation of the number of milliseconds since 00:00:00 UTC (midnight) on January 1, 1970.</p> </dd> <dt>SHARE_IDENTIFIER</dt> <dd> <p>The value for the filter is the fairshare scheduling share identifier.</p> </dd> </dl>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list running jobs
@@ -1771,6 +1901,11 @@ class AsyncBatchClient:
             max_results: <p>The maximum number of results returned by <code>ListJobsByConsumableResource</code> in paginated output. When this parameter is used, <code>ListJobsByConsumableResource</code> only returns <code>maxResults</code> results in a single page and a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListJobsByConsumableResource</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListJobsByConsumableResource</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListJobsByConsumableResource</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>Treat this token as an opaque identifier that's only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
 
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get a list of Batch jobs by consumable resource
             Returns a list of Batch jobs that require a specific consumable resource.
@@ -1851,6 +1986,11 @@ class AsyncBatchClient:
             job_queue: <p>The name or full Amazon Resource Name (ARN) of the job queue used to list quota shares.</p>
             max_results: <p>The maximum number of results returned by <code>ListQuotaShares</code> in paginated output. When this parameter is used, <code>ListQuotaShares</code> only returns <code>maxResults</code> results in a single page and a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another <code>ListQuotaShares</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, <code>ListQuotaShares</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
             next_token: <p>The <code>nextToken</code> value that's returned from a previous paginated <code>ListQuotaShares</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>Treat this token as an opaque identifier that's only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1918,6 +2058,11 @@ class AsyncBatchClient:
         Args:
             max_results: <p>The maximum number of results that's returned by <code>ListSchedulingPolicies</code> in paginated output. When this parameter is used, <code>ListSchedulingPolicies</code> only returns <code>maxResults</code> results in a single page and a <code>nextToken</code> response element. You can see the remaining results of the initial request by sending another <code>ListSchedulingPolicies</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, <code>ListSchedulingPolicies</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
             next_token: <p>The <code>nextToken</code> value that's returned from a previous paginated <code>ListSchedulingPolicies</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>Treat this token as an opaque identifier that's only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1992,6 +2137,11 @@ class AsyncBatchClient:
             max_results: <p>The maximum number of results returned by <code>ListServiceJobs</code> in paginated output. When this parameter is used, <code>ListServiceJobs</code> only returns <code>maxResults</code> results in a single page and a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListServiceJobs</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListServiceJobs</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
             next_token: <p>The <code>nextToken</code> value returned from a previous paginated <code>ListServiceJobs</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>Treat this token as an opaque identifier that's only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
             filters: <p>The filter to apply to the query. Only one filter can be used at a time. When the filter is used, <code>jobStatus</code> is ignored with the exception that <code>SHARE_IDENTIFIER</code> or <code>QUOTA_SHARE_NAME</code> and <code>jobStatus</code> can be used together. The results are sorted by the <code>createdAt</code> field, with the most recent jobs being first.</p> <note> <p>The <code>SHARE_IDENTIFIER</code> or <code>QUOTA_SHARE_NAME</code> filter and the <code>jobStatus</code> field can be used together to filter results.</p> </note> <dl> <dt>JOB_NAME</dt> <dd> <p>The value of the filter is a case-insensitive match for the job name. If the value ends with an asterisk (*), the filter matches any job name that begins with the string before the '*'. This corresponds to the <code>jobName</code> value. For example, <code>test1</code> matches both <code>Test1</code> and <code>test1</code>, and <code>test1*</code> matches both <code>test1</code> and <code>Test10</code>. When the <code>JOB_NAME</code> filter is used, the results are grouped by the job name and version.</p> </dd> <dt>BEFORE_CREATED_AT</dt> <dd> <p>The value for the filter is the time that's before the job was created. This corresponds to the <code>createdAt</code> value. The value is a string representation of the number of milliseconds since 00:00:00 UTC (midnight) on January 1, 1970.</p> </dd> <dt>AFTER_CREATED_AT</dt> <dd> <p>The value for the filter is the time that's after the job was created. This corresponds to the <code>createdAt</code> value. The value is a string representation of the number of milliseconds since 00:00:00 UTC (midnight) on January 1, 1970.</p> </dd> <dt>SHARE_IDENTIFIER</dt> <dd> <p>The value for the filter is the fairshare scheduling share identifier.</p> </dd> <dt>QUOTA_SHARE_NAME</dt> <dd> <p>The value for the filter is the quota management share name.</p> </dd> </dl>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2070,6 +2220,11 @@ class AsyncBatchClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that identifies the resource that tags are listed for. Batch resources that support tags are compute environments, jobs, job definitions, job queues, and scheduling policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't supported.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             ListTagsForResource Example
@@ -2154,6 +2309,11 @@ class AsyncBatchClient:
             eks_properties: <p>An object with properties that are specific to Amazon EKS-based jobs. This must not be specified for Amazon ECS based job definitions.</p>
             ecs_properties: <p>An object with properties that are specific to Amazon ECS-based jobs. This must not be specified for Amazon EKS-based job definitions.</p>
             consumable_resource_properties: <p>Contains a list of consumable resources required by the job.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             RegisterJobDefinition with tags
@@ -2278,6 +2438,11 @@ class AsyncBatchClient:
             ecs_properties_override: <p>An object, with properties that override defaults for the job definition, can only be specified for jobs that are run on Amazon ECS resources.</p>
             consumable_resource_properties_override: <p>An object that contains overrides for the consumable resources of a job.</p>
 
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To submit a job to a queue
             This example submits a simple container job called example to the HighPriority job queue.
@@ -2383,6 +2548,11 @@ class AsyncBatchClient:
             timeout_config: <p>The timeout configuration for the service job. If none is specified, Batch defers to the default timeout of the underlying service handling the job.</p>
             tags: <p>The tags that you apply to the service job request. Each tag consists of a key and an optional value. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html\">Tagging your Batch resources</a>.</p>
             client_token: <p>A unique identifier for the request. This token is used to ensure idempotency of requests. If this parameter is specified and two submit requests with identical payloads and <code>clientToken</code>s are received, these requests are considered the same request and the second request is rejected.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2443,6 +2613,11 @@ class AsyncBatchClient:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource that tags are added to. Batch resources that support tags are compute environments, jobs, job definitions, job queues, and scheduling policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't supported.</p>
             tags: <p>The tags that you apply to the resource to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General Reference</i>.</p>
 
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             TagResource Example
             This demonstrates calling the TagResource action.
@@ -2489,6 +2664,11 @@ class AsyncBatchClient:
         Args:
             job_id: <p>The Batch job ID of the job to terminate.</p>
             reason: <p>A message to attach to the job that explains the reason for canceling it. This message is returned by future <a>DescribeJobs</a> operations on the job. It is also recorded in the Batch activity logs.</p> <p>This parameter has as limit of 1024 characters.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To terminate a job
@@ -2538,6 +2718,11 @@ class AsyncBatchClient:
         Args:
             job_id: <p>The service job ID of the service job to terminate.</p>
             reason: <p>A message to attach to the service job that explains the reason for canceling it. This message is returned by <code>DescribeServiceJob</code> operations on the service job.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2579,6 +2764,11 @@ class AsyncBatchClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource from which to delete tags. Batch resources that support tags are compute environments, jobs, job definitions, job queues, and scheduling policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't supported.</p>
             tag_keys: <p>The keys of the tags to be removed.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             UntagResource Example
@@ -2640,6 +2830,11 @@ class AsyncBatchClient:
             service_role: <p>The full Amazon Resource Name (ARN) of the IAM role that allows Batch to make calls to other Amazon Web Services services on your behalf. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html\">Batch service IAM role</a> in the <i>Batch User Guide</i>.</p> <important> <p>If the compute environment has a service-linked role, it can't be changed to use a regular IAM role. Likewise, if the compute environment has a regular IAM role, it can't be changed to use a service-linked role. To update the parameters for the compute environment that require an infrastructure update to change, the <b>AWSServiceRoleForBatch</b> service-linked role must be used. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html\">Updating compute environments</a> in the <i>Batch User Guide</i>.</p> </important> <p>If your specified role has a path other than <code>/</code>, then you must either specify the full role ARN (recommended) or prefix the role name with the path.</p> <note> <p>Depending on how you created your Batch service role, its ARN might contain the <code>service-role</code> path prefix. When you only specify the name of the service role, Batch assumes that your ARN doesn't use the <code>service-role</code> path prefix. Because of this, we recommend that you specify the full ARN of your service role when you create compute environments.</p> </note>
             update_policy: <p>Specifies the updated infrastructure update policy for the compute environment. For more information about infrastructure updates, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html\">Updating compute environments</a> in the <i>Batch User Guide</i>.</p>
             context: <p>Reserved.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a compute environment
@@ -2704,6 +2899,11 @@ class AsyncBatchClient:
             operation: <p>Indicates how the quantity of the consumable resource will be updated. Must be one of:</p> <ul> <li> <p> <code>SET</code> </p> <p>Sets the quantity of the resource to the value specified by the <code>quantity</code> parameter.</p> </li> <li> <p> <code>ADD</code> </p> <p>Increases the quantity of the resource by the value specified by the <code>quantity</code> parameter.</p> </li> <li> <p> <code>REMOVE</code> </p> <p>Reduces the quantity of the resource by the value specified by the <code>quantity</code> parameter.</p> </li> </ul>
             quantity: <p>The change in the total quantity of the consumable resource. The <code>operation</code> parameter determines whether the value specified here will be the new total quantity, or the amount by which the total quantity will be increased or reduced. Must be a non-negative value.</p>
             client_token: <p>If this parameter is specified and two update requests with identical payloads and <code>clientToken</code>s are received, these requests are considered the same request. Both requests will succeed, but the update will only happen once. A <code>clientToken</code> is valid for 8 hours.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a consumable resource
@@ -2772,6 +2972,11 @@ class AsyncBatchClient:
             compute_environment_order: <p>Details the set of compute environments mapped to a job queue and their order relative to each other. This is one of the parameters used by the job scheduler to determine which compute environment runs a given job. Compute environments must be in the <code>VALID</code> state before you can associate them with a job queue. All of the compute environments must be either EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>). EC2 and Fargate compute environments can't be mixed.</p> <note> <p>All compute environments that are associated with a job queue must share the same architecture. Batch doesn't support mixing compute environment architecture types in a single job queue.</p> </note>
             service_environment_order: <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
             job_state_time_limit_actions: <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed. (<b>Note</b>: The minimum value for maxTimeSeconds is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a job queue
@@ -2842,6 +3047,11 @@ class AsyncBatchClient:
             resource_sharing_configuration: <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
             preemption_configuration: <p>Specifies the preemption behavior for jobs in a quota share.</p>
             state: <p>The state of the quota share. If the quota share is <code>ENABLED</code>, it is able to accept jobs. If the quota share is <code>DISABLED</code>, new jobs won't be accepted but jobs already submitted can finish.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2896,6 +3106,11 @@ class AsyncBatchClient:
             arn: <p>The Amazon Resource Name (ARN) of the scheduling policy to update.</p>
             quota_share_policy: <p>The quota share scheduling policy details. Once set during creation, a quotaSharePolicy cannot be removed or changed to a fairsharePolicy.</p>
             fairshare_policy: <p>The fair-share policy scheduling details. Once set during creation, a fairsharePolicy cannot be removed or changed to a quotaSharePolicy.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2946,6 +3161,11 @@ class AsyncBatchClient:
             service_environment: <p>The name or ARN of the service environment to update.</p>
             state: <p>The state of the service environment. </p>
             capacity_limits: <p>The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2990,6 +3210,11 @@ class AsyncBatchClient:
         Args:
             job_id: <p>The Batch job ID of the job to update.</p>
             scheduling_priority: <p>The scheduling priority for the job. This only affects jobs in job queues with a quota-share or fair-share scheduling policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority within a share.</p> <p>The minimum supported value is 0 and the maximum supported value is 9999.</p>
+
+        Raises:
+            aws_sdk_batch.errors.client_exception.ClientException: <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.</p>
+            aws_sdk_batch.errors.server_exception.ServerException: <p>These errors are usually caused by a server issue.</p>
+            aws_sdk_batch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -51,6 +51,15 @@ class ApplicationGrantResource:
             application_arn: <p>Specifies the ARN of the application to update.</p>
             grant_type: <p>Specifies the type of grant to update.</p>
             grant: <p>Specifies a structure that describes the grant to update.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -90,6 +99,14 @@ class ApplicationGrantResource:
         Args:
             application_arn: <p>Specifies the ARN of the application that contains the grant.</p>
             grant_type: <p>Specifies the type of grant.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -130,6 +147,15 @@ class ApplicationGrantResource:
         Args:
             application_arn: <p>Specifies the ARN of the application with the grant to delete.</p>
             grant_type: <p>Specifies the type of grant to delete from the application.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -168,6 +194,14 @@ class ApplicationGrantResource:
         Args:
             application_arn: <p>Specifies the ARN of the application whose grants you want to list.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -216,6 +250,15 @@ class AsyncApplicationGrantResource:
             application_arn: <p>Specifies the ARN of the application to update.</p>
             grant_type: <p>Specifies the type of grant to update.</p>
             grant: <p>Specifies a structure that describes the grant to update.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -256,6 +299,14 @@ class AsyncApplicationGrantResource:
         Args:
             application_arn: <p>Specifies the ARN of the application that contains the grant.</p>
             grant_type: <p>Specifies the type of grant.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -297,6 +348,15 @@ class AsyncApplicationGrantResource:
         Args:
             application_arn: <p>Specifies the ARN of the application with the grant to delete.</p>
             grant_type: <p>Specifies the type of grant to delete from the application.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.conflict_exception.ConflictException: <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -336,6 +396,14 @@ class AsyncApplicationGrantResource:
         Args:
             application_arn: <p>Specifies the ARN of the application whose grants you want to list.</p>
             next_token: <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>
+
+        Raises:
+            aws_sdk_sso_admin.errors.access_denied_exception.AccessDeniedException: <p>You do not have sufficient access to perform this action.</p>
+            aws_sdk_sso_admin.errors.internal_server_exception.InternalServerException: <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+            aws_sdk_sso_admin.errors.resource_not_found_exception.ResourceNotFoundException: <p>Indicates that a requested resource is not found.</p>
+            aws_sdk_sso_admin.errors.throttling_exception.ThrottlingException: <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+            aws_sdk_sso_admin.errors.validation_exception.ValidationException: <p>The request failed because it contains a syntax error.</p>
+            aws_sdk_sso_admin.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

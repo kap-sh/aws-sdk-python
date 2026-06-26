@@ -145,6 +145,10 @@ class SagemakerEdgeClient:
         Args:
             device_name: <p>The unique name of the device you want to get the configuration of active deployments from.</p>
             device_fleet_name: <p>The name of the fleet that the device belongs to.</p>
+
+        Raises:
+            aws_sdk_sagemaker_edge.errors.internal_service_exception.InternalServiceException: <p>An internal failure occurred. Try your request again. If the problem persists, contact Amazon Web Services customer support.</p>
+            aws_sdk_sagemaker_edge.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -185,6 +189,10 @@ class SagemakerEdgeClient:
         Args:
             device_name: <p>The unique name of the device you want to get the registration status from.</p>
             device_fleet_name: <p>The name of the fleet that the device belongs to.</p>
+
+        Raises:
+            aws_sdk_sagemaker_edge.errors.internal_service_exception.InternalServiceException: <p>An internal failure occurred. Try your request again. If the problem persists, contact Amazon Web Services customer support.</p>
+            aws_sdk_sagemaker_edge.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -237,6 +245,10 @@ class SagemakerEdgeClient:
             device_name: <p>The unique name of the device.</p>
             device_fleet_name: <p>The name of the fleet that the device belongs to.</p>
             deployment_result: <p>Returns the result of a deployment on the device.</p>
+
+        Raises:
+            aws_sdk_sagemaker_edge.errors.internal_service_exception.InternalServiceException: <p>An internal failure occurred. Try your request again. If the problem persists, contact Amazon Web Services customer support.</p>
+            aws_sdk_sagemaker_edge.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(

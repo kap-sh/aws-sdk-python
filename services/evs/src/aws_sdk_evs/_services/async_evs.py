@@ -142,7 +142,13 @@ class AsyncevsClient:
     async def get_versions(
         self, *, config_overrides: Optional[AsyncevsClientConfig] = None
     ) -> "aws_sdk_evs.types.get_versions_response.GetVersionsResponse":
-        """<p>Returns information about VCF versions, ESX versions and EC2 instance types provided by Amazon EVS. For each VCF version, the response also includes the default ESX version and provided EC2 instance types.</p>"""
+        """<p>Returns information about VCF versions, ESX versions and EC2 instance types provided by Amazon EVS. For each VCF version, the response also includes the default ESX version and provided EC2 instance types.</p>
+
+        Raises:
+            aws_sdk_evs.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_evs.errors.throttling_exception.ThrottlingException: <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_evs.types.get_versions_request.GetVersionsRequest]",
@@ -181,6 +187,10 @@ class AsyncevsClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that identifies the resource to list tags for.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -221,6 +231,13 @@ class AsyncevsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to add tags to.</p>
             tags: <p>Metadata that assists with categorization and organization. Each tag consists of a key and an optional value. You define both. Tags don't propagate to any other environment or Amazon Web Services resources.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The number of one or more Amazon EVS resources exceeds the maximum allowed. For a list of Amazon EVS quotas, see <a href=\"https://docs.aws.amazon.com/evs/latest/userguide/service-quotas-evs.html\">Amazon EVS endpoints and quotas</a> in the <i>Amazon EVS User Guide</i>. Delete some resources or request an increase in your service quota. To request an increase, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\">Amazon Web Services Service Quotas</a> in the <i>Amazon Web Services General Reference Guide</i>. </p>
+            aws_sdk_evs.errors.tag_policy_exception.TagPolicyException: <note> <p> <code>TagPolicyException</code> is deprecated. See <a href=\"https://docs.aws.amazon.com/evs/latest/APIReference/API_ValidationException.html\"> <code>ValidationException</code> </a> instead.</p> </note> <p>The request doesn't comply with IAM tag policy. Correct your request and then retry it.</p>
+            aws_sdk_evs.errors.too_many_tags_exception.TooManyTagsException: <note> <p> <code>TooManyTagsException</code> is deprecated. See <a href=\"https://docs.aws.amazon.com/evs/latest/APIReference/API_ServiceQuotaExceededException.html\"> <code>ServiceQuotaExceededException</code> </a> instead.</p> </note> <p>A service resource associated with the request has more than 200 tags.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -262,6 +279,11 @@ class AsyncevsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource to delete tags from.</p>
             tag_keys: <p>The keys of the tags to delete.</p>
+
+        Raises:
+            aws_sdk_evs.errors.resource_not_found_exception.ResourceNotFoundException: <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+            aws_sdk_evs.errors.tag_policy_exception.TagPolicyException: <note> <p> <code>TagPolicyException</code> is deprecated. See <a href=\"https://docs.aws.amazon.com/evs/latest/APIReference/API_ValidationException.html\"> <code>ValidationException</code> </a> instead.</p> </note> <p>The request doesn't comply with IAM tag policy. Correct your request and then retry it.</p>
+            aws_sdk_evs.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

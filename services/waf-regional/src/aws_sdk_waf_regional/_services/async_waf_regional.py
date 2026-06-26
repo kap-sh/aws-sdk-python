@@ -328,6 +328,14 @@ class AsyncWAFRegionalClient:
         Args:
             web_acl_id: <p>A unique identifier (ID) for the web ACL. </p>
             resource_arn: <p>The ARN (Amazon Resource Name) of the resource to be protected, either an application load balancer or Amazon API Gateway stage. </p> <p>The ARN should be in one of the following formats:</p> <ul> <li> <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i> </code> </p> </li> <li> <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i> </code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_unavailable_entity_exception.WAFUnavailableEntityException: <p>The operation failed because the entity referenced is temporarily unavailable. Retry your request.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -369,6 +377,15 @@ class AsyncWAFRegionalClient:
         Args:
             name: <p>A friendly name or description of the <a>ByteMatchSet</a>. You can't change <code>Name</code> after you create a <code>ByteMatchSet</code>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_disallowed_name_exception.WAFDisallowedNameException: <p>The name specified is invalid.</p>
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -410,6 +427,15 @@ class AsyncWAFRegionalClient:
         Args:
             name: <p>A friendly name or description of the <a>GeoMatchSet</a>. You can't change <code>Name</code> after you create the <code>GeoMatchSet</code>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_disallowed_name_exception.WAFDisallowedNameException: <p>The name specified is invalid.</p>
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -451,6 +477,15 @@ class AsyncWAFRegionalClient:
         Args:
             name: <p>A friendly name or description of the <a>IPSet</a>. You can't change <code>Name</code> after you create the <code>IPSet</code>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_disallowed_name_exception.WAFDisallowedNameException: <p>The name specified is invalid.</p>
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create an IP set
@@ -506,6 +541,17 @@ class AsyncWAFRegionalClient:
             rate_limit: <p>The maximum number of requests, which have an identical value in the field that is specified by <code>RateKey</code>, allowed in a five-minute period. If the number of requests exceeds the <code>RateLimit</code> and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule.</p>
             change_token: <p>The <code>ChangeToken</code> that you used to submit the <code>CreateRateBasedRule</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
             tags: <p></p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_bad_request_exception.WAFBadRequestException: <p></p>
+            aws_sdk_waf_regional.errors.waf_disallowed_name_exception.WAFDisallowedNameException: <p>The name specified is invalid.</p>
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_exception.WAFTagOperationException: <p></p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p></p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -552,6 +598,13 @@ class AsyncWAFRegionalClient:
         Args:
             name: <p>A friendly name or description of the <a>RegexMatchSet</a>. You can't change <code>Name</code> after you create a <code>RegexMatchSet</code>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_disallowed_name_exception.WAFDisallowedNameException: <p>The name specified is invalid.</p>
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -593,6 +646,13 @@ class AsyncWAFRegionalClient:
         Args:
             name: <p>A friendly name or description of the <a>RegexPatternSet</a>. You can't change <code>Name</code> after you create a <code>RegexPatternSet</code>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_disallowed_name_exception.WAFDisallowedNameException: <p>The name specified is invalid.</p>
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -638,6 +698,17 @@ class AsyncWAFRegionalClient:
             metric_name: <p>A friendly name or description for the metrics for this <code>Rule</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including \"All\" and \"Default_Action.\" You can't change the name of the metric after you create the <code>Rule</code>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
             tags: <p></p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_bad_request_exception.WAFBadRequestException: <p></p>
+            aws_sdk_waf_regional.errors.waf_disallowed_name_exception.WAFDisallowedNameException: <p>The name specified is invalid.</p>
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_exception.WAFTagOperationException: <p></p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p></p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a rule
@@ -694,6 +765,16 @@ class AsyncWAFRegionalClient:
             metric_name: <p>A friendly name or description for the metrics for this <code>RuleGroup</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including \"All\" and \"Default_Action.\" You can't change the name of the metric after you create the <code>RuleGroup</code>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
             tags: <p></p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_bad_request_exception.WAFBadRequestException: <p></p>
+            aws_sdk_waf_regional.errors.waf_disallowed_name_exception.WAFDisallowedNameException: <p>The name specified is invalid.</p>
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_exception.WAFTagOperationException: <p></p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p></p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -738,6 +819,15 @@ class AsyncWAFRegionalClient:
         Args:
             name: <p>A friendly name or description of the <a>SizeConstraintSet</a>. You can't change <code>Name</code> after you create a <code>SizeConstraintSet</code>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_disallowed_name_exception.WAFDisallowedNameException: <p>The name specified is invalid.</p>
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a size constraint
@@ -785,6 +875,15 @@ class AsyncWAFRegionalClient:
         Args:
             name: <p>A friendly name or description for the <a>SqlInjectionMatchSet</a> that you're creating. You can't change <code>Name</code> after you create the <code>SqlInjectionMatchSet</code>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_disallowed_name_exception.WAFDisallowedNameException: <p>The name specified is invalid.</p>
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create a SQL injection match set
@@ -839,6 +938,18 @@ class AsyncWAFRegionalClient:
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
             tags: <p></p>
 
+        Raises:
+            aws_sdk_waf_regional.errors.waf_bad_request_exception.WAFBadRequestException: <p></p>
+            aws_sdk_waf_regional.errors.waf_disallowed_name_exception.WAFDisallowedNameException: <p>The name specified is invalid.</p>
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_exception.WAFTagOperationException: <p></p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p></p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To create a web ACL
             The following example creates a web ACL named CreateExample.
@@ -891,6 +1002,14 @@ class AsyncWAFRegionalClient:
             web_acl_id: <p>The UUID of the WAF Classic web ACL that you want to migrate to WAF v2.</p>
             s3_bucket_name: <p>The name of the Amazon S3 bucket to store the CloudFormation template in. The S3 bucket must be configured as follows for the migration: </p> <ul> <li> <p>The bucket name must start with <code>aws-waf-migration-</code>. For example, <code>aws-waf-migration-my-web-acl</code>.</p> </li> <li> <p>The bucket must be in the Region where you are deploying the template. For example, for a web ACL in us-west-2, you must use an Amazon S3 bucket in us-west-2 and you must deploy the template stack to us-west-2. </p> </li> <li> <p>The bucket policies must permit the migration process to write data. For listings of the bucket policies, see the Examples section. </p> </li> </ul>
             ignore_unsupported_type: <p>Indicates whether to exclude entities that can't be migrated or to stop the migration. Set this to true to ignore unsupported entities in the web ACL during the migration. Otherwise, if AWS WAF encounters unsupported entities, it stops the process and throws an exception. </p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_entity_migration_exception.WAFEntityMigrationException: <p>The operation failed due to a problem with the migration. The failure cause is provided in the exception, in the <code>MigrationErrorType</code>: </p> <ul> <li> <p> <code>ENTITY_NOT_SUPPORTED</code> - The web ACL has an unsupported entity but the <code>IgnoreUnsupportedType</code> is not set to true.</p> </li> <li> <p> <code>ENTITY_NOT_FOUND</code> - The web ACL doesn't exist. </p> </li> <li> <p> <code>S3_BUCKET_NO_PERMISSION</code> - You don't have permission to perform the <code>PutObject</code> action to the specified Amazon S3 bucket.</p> </li> <li> <p> <code>S3_BUCKET_NOT_ACCESSIBLE</code> - The bucket policy doesn't allow AWS WAF to perform the <code>PutObject</code> action in the bucket.</p> </li> <li> <p> <code>S3_BUCKET_NOT_FOUND</code> - The S3 bucket doesn't exist. </p> </li> <li> <p> <code>S3_BUCKET_INVALID_REGION</code> - The S3 bucket is not in the same Region as the web ACL.</p> </li> <li> <p> <code>S3_INTERNAL_ERROR</code> - AWS WAF failed to create the template in the S3 bucket for another reason.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation failed because there was nothing to do. For example:</p> <ul> <li> <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -933,6 +1052,15 @@ class AsyncWAFRegionalClient:
         Args:
             name: <p>A friendly name or description for the <a>XssMatchSet</a> that you're creating. You can't change <code>Name</code> after you create the <code>XssMatchSet</code>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_disallowed_name_exception.WAFDisallowedNameException: <p>The name specified is invalid.</p>
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To create an XSS match set
@@ -981,6 +1109,15 @@ class AsyncWAFRegionalClient:
             byte_match_set_id: <p>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to delete. <code>ByteMatchSetId</code> is returned by <a>CreateByteMatchSet</a> and by <a>ListByteMatchSets</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
 
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_non_empty_entity_exception.WAFNonEmptyEntityException: <p>The operation failed because you tried to delete an object that isn't empty. For example:</p> <ul> <li> <p>You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code> objects.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code> objects or other predicates.</p> </li> <li> <p>You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code> objects.</p> </li> <li> <p>You tried to delete an <code>IPSet</code> that references one or more IP addresses.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_referenced_item_exception.WAFReferencedItemException: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a byte match set
             The following example deletes a byte match set with the ID exampleIDs3t-46da-4fdb-b8d5-abc321j569j5.
@@ -1027,6 +1164,15 @@ class AsyncWAFRegionalClient:
         Args:
             geo_match_set_id: <p>The <code>GeoMatchSetID</code> of the <a>GeoMatchSet</a> that you want to delete. <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by <a>ListGeoMatchSets</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_non_empty_entity_exception.WAFNonEmptyEntityException: <p>The operation failed because you tried to delete an object that isn't empty. For example:</p> <ul> <li> <p>You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code> objects.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code> objects or other predicates.</p> </li> <li> <p>You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code> objects.</p> </li> <li> <p>You tried to delete an <code>IPSet</code> that references one or more IP addresses.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_referenced_item_exception.WAFReferencedItemException: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1068,6 +1214,15 @@ class AsyncWAFRegionalClient:
         Args:
             ip_set_id: <p>The <code>IPSetId</code> of the <a>IPSet</a> that you want to delete. <code>IPSetId</code> is returned by <a>CreateIPSet</a> and by <a>ListIPSets</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_non_empty_entity_exception.WAFNonEmptyEntityException: <p>The operation failed because you tried to delete an object that isn't empty. For example:</p> <ul> <li> <p>You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code> objects.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code> objects or other predicates.</p> </li> <li> <p>You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code> objects.</p> </li> <li> <p>You tried to delete an <code>IPSet</code> that references one or more IP addresses.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_referenced_item_exception.WAFReferencedItemException: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete an IP set
@@ -1113,6 +1268,12 @@ class AsyncWAFRegionalClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the web ACL from which you want to delete the <a>LoggingConfiguration</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1151,6 +1312,12 @@ class AsyncWAFRegionalClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the RuleGroup from which you want to delete the policy.</p> <p>The user making the request must be the owner of the RuleGroup.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1191,6 +1358,17 @@ class AsyncWAFRegionalClient:
         Args:
             rule_id: <p>The <code>RuleId</code> of the <a>RateBasedRule</a> that you want to delete. <code>RuleId</code> is returned by <a>CreateRateBasedRule</a> and by <a>ListRateBasedRules</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_non_empty_entity_exception.WAFNonEmptyEntityException: <p>The operation failed because you tried to delete an object that isn't empty. For example:</p> <ul> <li> <p>You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code> objects.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code> objects or other predicates.</p> </li> <li> <p>You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code> objects.</p> </li> <li> <p>You tried to delete an <code>IPSet</code> that references one or more IP addresses.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_referenced_item_exception.WAFReferencedItemException: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_exception.WAFTagOperationException: <p></p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p></p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1232,6 +1410,15 @@ class AsyncWAFRegionalClient:
         Args:
             regex_match_set_id: <p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to delete. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_non_empty_entity_exception.WAFNonEmptyEntityException: <p>The operation failed because you tried to delete an object that isn't empty. For example:</p> <ul> <li> <p>You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code> objects.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code> objects or other predicates.</p> </li> <li> <p>You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code> objects.</p> </li> <li> <p>You tried to delete an <code>IPSet</code> that references one or more IP addresses.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_referenced_item_exception.WAFReferencedItemException: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1273,6 +1460,15 @@ class AsyncWAFRegionalClient:
         Args:
             regex_pattern_set_id: <p>The <code>RegexPatternSetId</code> of the <a>RegexPatternSet</a> that you want to delete. <code>RegexPatternSetId</code> is returned by <a>CreateRegexPatternSet</a> and by <a>ListRegexPatternSets</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_non_empty_entity_exception.WAFNonEmptyEntityException: <p>The operation failed because you tried to delete an object that isn't empty. For example:</p> <ul> <li> <p>You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code> objects.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code> objects or other predicates.</p> </li> <li> <p>You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code> objects.</p> </li> <li> <p>You tried to delete an <code>IPSet</code> that references one or more IP addresses.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_referenced_item_exception.WAFReferencedItemException: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1314,6 +1510,17 @@ class AsyncWAFRegionalClient:
         Args:
             rule_id: <p>The <code>RuleId</code> of the <a>Rule</a> that you want to delete. <code>RuleId</code> is returned by <a>CreateRule</a> and by <a>ListRules</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_non_empty_entity_exception.WAFNonEmptyEntityException: <p>The operation failed because you tried to delete an object that isn't empty. For example:</p> <ul> <li> <p>You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code> objects.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code> objects or other predicates.</p> </li> <li> <p>You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code> objects.</p> </li> <li> <p>You tried to delete an <code>IPSet</code> that references one or more IP addresses.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_referenced_item_exception.WAFReferencedItemException: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_exception.WAFTagOperationException: <p></p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p></p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a rule
@@ -1363,6 +1570,17 @@ class AsyncWAFRegionalClient:
         Args:
             rule_group_id: <p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> that you want to delete. <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by <a>ListRuleGroups</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation failed because there was nothing to do. For example:</p> <ul> <li> <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_non_empty_entity_exception.WAFNonEmptyEntityException: <p>The operation failed because you tried to delete an object that isn't empty. For example:</p> <ul> <li> <p>You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code> objects.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code> objects or other predicates.</p> </li> <li> <p>You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code> objects.</p> </li> <li> <p>You tried to delete an <code>IPSet</code> that references one or more IP addresses.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_referenced_item_exception.WAFReferencedItemException: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_exception.WAFTagOperationException: <p></p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p></p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1404,6 +1622,15 @@ class AsyncWAFRegionalClient:
         Args:
             size_constraint_set_id: <p>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want to delete. <code>SizeConstraintSetId</code> is returned by <a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_non_empty_entity_exception.WAFNonEmptyEntityException: <p>The operation failed because you tried to delete an object that isn't empty. For example:</p> <ul> <li> <p>You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code> objects.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code> objects or other predicates.</p> </li> <li> <p>You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code> objects.</p> </li> <li> <p>You tried to delete an <code>IPSet</code> that references one or more IP addresses.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_referenced_item_exception.WAFReferencedItemException: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a size constraint set
@@ -1452,6 +1679,15 @@ class AsyncWAFRegionalClient:
             sql_injection_match_set_id: <p>The <code>SqlInjectionMatchSetId</code> of the <a>SqlInjectionMatchSet</a> that you want to delete. <code>SqlInjectionMatchSetId</code> is returned by <a>CreateSqlInjectionMatchSet</a> and by <a>ListSqlInjectionMatchSets</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
 
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_non_empty_entity_exception.WAFNonEmptyEntityException: <p>The operation failed because you tried to delete an object that isn't empty. For example:</p> <ul> <li> <p>You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code> objects.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code> objects or other predicates.</p> </li> <li> <p>You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code> objects.</p> </li> <li> <p>You tried to delete an <code>IPSet</code> that references one or more IP addresses.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_referenced_item_exception.WAFReferencedItemException: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete a SQL injection match set
             The following example deletes a SQL injection match set  with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
@@ -1498,6 +1734,17 @@ class AsyncWAFRegionalClient:
         Args:
             web_acl_id: <p>The <code>WebACLId</code> of the <a>WebACL</a> that you want to delete. <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by <a>ListWebACLs</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_non_empty_entity_exception.WAFNonEmptyEntityException: <p>The operation failed because you tried to delete an object that isn't empty. For example:</p> <ul> <li> <p>You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code> objects.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code> objects or other predicates.</p> </li> <li> <p>You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code> objects.</p> </li> <li> <p>You tried to delete an <code>IPSet</code> that references one or more IP addresses.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_referenced_item_exception.WAFReferencedItemException: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_exception.WAFTagOperationException: <p></p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p></p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To delete a web ACL
@@ -1546,6 +1793,15 @@ class AsyncWAFRegionalClient:
             xss_match_set_id: <p>The <code>XssMatchSetId</code> of the <a>XssMatchSet</a> that you want to delete. <code>XssMatchSetId</code> is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
 
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_non_empty_entity_exception.WAFNonEmptyEntityException: <p>The operation failed because you tried to delete an object that isn't empty. For example:</p> <ul> <li> <p>You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code> objects.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code> objects or other predicates.</p> </li> <li> <p>You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code> objects.</p> </li> <li> <p>You tried to delete an <code>IPSet</code> that references one or more IP addresses.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_referenced_item_exception.WAFReferencedItemException: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To delete an XSS match set
             The following example deletes an XSS match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
@@ -1590,6 +1846,13 @@ class AsyncWAFRegionalClient:
 
         Args:
             resource_arn: <p>The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed, either an application load balancer or Amazon API Gateway stage.</p> <p>The ARN should be in one of the following formats:</p> <ul> <li> <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i> </code> </p> </li> <li> <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i> </code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1631,6 +1894,12 @@ class AsyncWAFRegionalClient:
         Args:
             byte_match_set_id: <p>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to get. <code>ByteMatchSetId</code> is returned by <a>CreateByteMatchSet</a> and by <a>ListByteMatchSets</a>.</p>
 
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get a byte match set
             The following example returns the details of a byte match set with the ID exampleIDs3t-46da-4fdb-b8d5-abc321j569j5.
@@ -1668,6 +1937,10 @@ class AsyncWAFRegionalClient:
         self, *, config_overrides: Optional[AsyncWAFRegionalClientConfig] = None
     ) -> "aws_sdk_waf_regional.types.get_change_token_response.GetChangeTokenResponse":
         r"""<note> <p>This is <b>AWS WAF Classic</b> documentation. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html\">AWS WAF Classic</a> in the developer guide.</p> <p> <b>For the latest version of AWS WAF</b>, use the AWS WAFV2 API and see the <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html\">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p> </note> <p>When you want to create, update, or delete AWS WAF objects, get a change token and include the change token in the create, update, or delete request. Change tokens ensure that your application doesn't submit conflicting requests to AWS WAF.</p> <p>Each create, update, or delete request must use a unique change token. If your application submits a <code>GetChangeToken</code> request and then submits a second <code>GetChangeToken</code> request before submitting a create, update, or delete request, the second <code>GetChangeToken</code> request returns the same value as the first <code>GetChangeToken</code> request.</p> <p>When you use a change token in a create, update, or delete request, the status of the change token changes to <code>PENDING</code>, which indicates that AWS WAF is propagating the change to all AWS WAF servers. Use <code>GetChangeTokenStatus</code> to determine the status of your change token.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a change token
@@ -1712,6 +1985,11 @@ class AsyncWAFRegionalClient:
         Args:
             change_token: <p>The change token for which you want to get the status. This change token was previously returned in the <code>GetChangeToken</code> response.</p>
 
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get the change token status
             The following example returns the status of a change token with the ID abcd12f2-46da-4fdb-b8d5-fbd4c466928f.
@@ -1755,6 +2033,12 @@ class AsyncWAFRegionalClient:
 
         Args:
             geo_match_set_id: <p>The <code>GeoMatchSetId</code> of the <a>GeoMatchSet</a> that you want to get. <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by <a>ListGeoMatchSets</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1793,6 +2077,12 @@ class AsyncWAFRegionalClient:
 
         Args:
             ip_set_id: <p>The <code>IPSetId</code> of the <a>IPSet</a> that you want to get. <code>IPSetId</code> is returned by <a>CreateIPSet</a> and by <a>ListIPSets</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get an IP set
@@ -1837,6 +2127,11 @@ class AsyncWAFRegionalClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the web ACL for which you want to get the <a>LoggingConfiguration</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1875,6 +2170,11 @@ class AsyncWAFRegionalClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the RuleGroup for which you want to get the policy.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1913,6 +2213,12 @@ class AsyncWAFRegionalClient:
 
         Args:
             rule_id: <p>The <code>RuleId</code> of the <a>RateBasedRule</a> that you want to get. <code>RuleId</code> is returned by <a>CreateRateBasedRule</a> and by <a>ListRateBasedRules</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1955,6 +2261,13 @@ class AsyncWAFRegionalClient:
         Args:
             rule_id: <p>The <code>RuleId</code> of the <a>RateBasedRule</a> for which you want to get a list of <code>ManagedKeys</code>. <code>RuleId</code> is returned by <a>CreateRateBasedRule</a> and by <a>ListRateBasedRules</a>.</p>
             next_marker: <p>A null value and not currently used. Do not include this in your request.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1995,6 +2308,12 @@ class AsyncWAFRegionalClient:
 
         Args:
             regex_match_set_id: <p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to get. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2033,6 +2352,12 @@ class AsyncWAFRegionalClient:
 
         Args:
             regex_pattern_set_id: <p>The <code>RegexPatternSetId</code> of the <a>RegexPatternSet</a> that you want to get. <code>RegexPatternSetId</code> is returned by <a>CreateRegexPatternSet</a> and by <a>ListRegexPatternSets</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2071,6 +2396,12 @@ class AsyncWAFRegionalClient:
 
         Args:
             rule_id: <p>The <code>RuleId</code> of the <a>Rule</a> that you want to get. <code>RuleId</code> is returned by <a>CreateRule</a> and by <a>ListRules</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a rule
@@ -2115,6 +2446,11 @@ class AsyncWAFRegionalClient:
 
         Args:
             rule_group_id: <p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> that you want to get. <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by <a>ListRuleGroups</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2159,6 +2495,11 @@ class AsyncWAFRegionalClient:
             rule_id: <p> <code>RuleId</code> is one of three values:</p> <ul> <li> <p>The <code>RuleId</code> of the <code>Rule</code> or the <code>RuleGroupId</code> of the <code>RuleGroup</code> for which you want <code>GetSampledRequests</code> to return a sample of requests.</p> </li> <li> <p> <code>Default_Action</code>, which causes <code>GetSampledRequests</code> to return a sample of the requests that didn't match any of the rules in the specified <code>WebACL</code>.</p> </li> </ul>
             time_window: <p>The start date and time and the end date and time of the range for which you want <code>GetSampledRequests</code> to return a sample of requests. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, <code>Z</code>. For example, <code>\"2016-09-27T14:50Z\"</code>. You can specify any time range in the previous three hours.</p>
             max_items: <p>The number of requests that you want AWS WAF to return from among the first 5,000 requests that your AWS resource received during the time range. If your resource received fewer requests than the value of <code>MaxItems</code>, <code>GetSampledRequests</code> returns information about all of them. </p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2200,6 +2541,12 @@ class AsyncWAFRegionalClient:
 
         Args:
             size_constraint_set_id: <p>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want to get. <code>SizeConstraintSetId</code> is returned by <a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get a size constraint set
@@ -2245,6 +2592,12 @@ class AsyncWAFRegionalClient:
         Args:
             sql_injection_match_set_id: <p>The <code>SqlInjectionMatchSetId</code> of the <a>SqlInjectionMatchSet</a> that you want to get. <code>SqlInjectionMatchSetId</code> is returned by <a>CreateSqlInjectionMatchSet</a> and by <a>ListSqlInjectionMatchSets</a>.</p>
 
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get a SQL injection match set
             The following example returns the details of a SQL injection match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
@@ -2289,6 +2642,12 @@ class AsyncWAFRegionalClient:
         Args:
             web_acl_id: <p>The <code>WebACLId</code> of the <a>WebACL</a> that you want to get. <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by <a>ListWebACLs</a>.</p>
 
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To get a web ACL
             The following example returns the details of a web ACL with the ID createwebacl-1472061481310.
@@ -2332,6 +2691,14 @@ class AsyncWAFRegionalClient:
 
         Args:
             resource_arn: <p>The ARN (Amazon Resource Name) of the resource for which to get the web ACL, either an application load balancer or Amazon API Gateway stage.</p> <p>The ARN should be in one of the following formats:</p> <ul> <li> <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i> </code> </p> </li> <li> <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i> </code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_unavailable_entity_exception.WAFUnavailableEntityException: <p>The operation failed because the entity referenced is temporarily unavailable. Retry your request.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2370,6 +2737,12 @@ class AsyncWAFRegionalClient:
 
         Args:
             xss_match_set_id: <p>The <code>XssMatchSetId</code> of the <a>XssMatchSet</a> that you want to get. <code>XssMatchSetId</code> is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To get an XSS match set
@@ -2424,6 +2797,12 @@ class AsyncWAFRegionalClient:
             rule_group_id: <p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> for which you want to get a list of <a>ActivatedRule</a> objects.</p>
             next_marker: <p>If you specify a value for <code>Limit</code> and you have more <code>ActivatedRules</code> than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>ActivatedRules</code>. For the second and subsequent <code>ListActivatedRulesInRuleGroup</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>ActivatedRules</code>.</p>
             limit: <p>Specifies the number of <code>ActivatedRules</code> that you want AWS WAF to return for this request. If you have more <code>ActivatedRules</code> than the number that you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>ActivatedRules</code>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2473,6 +2852,11 @@ class AsyncWAFRegionalClient:
         Args:
             next_marker: <p>If you specify a value for <code>Limit</code> and you have more <code>ByteMatchSets</code> than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>ByteMatchSets</code>. For the second and subsequent <code>ListByteMatchSets</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>ByteMatchSets</code>.</p>
             limit: <p>Specifies the number of <code>ByteMatchSet</code> objects that you want AWS WAF to return for this request. If you have more <code>ByteMatchSets</code> objects than the number you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>ByteMatchSet</code> objects.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2520,6 +2904,11 @@ class AsyncWAFRegionalClient:
         Args:
             next_marker: <p>If you specify a value for <code>Limit</code> and you have more <code>GeoMatchSet</code>s than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>GeoMatchSet</code> objects. For the second and subsequent <code>ListGeoMatchSets</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>GeoMatchSet</code> objects.</p>
             limit: <p>Specifies the number of <code>GeoMatchSet</code> objects that you want AWS WAF to return for this request. If you have more <code>GeoMatchSet</code> objects than the number you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>GeoMatchSet</code> objects.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2567,6 +2956,11 @@ class AsyncWAFRegionalClient:
         Args:
             next_marker: <p>AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>IPSets</code>. For the second and subsequent <code>ListIPSets</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>IPSets</code>.</p>
             limit: <p>Specifies the number of <code>IPSet</code> objects that you want AWS WAF to return for this request. If you have more <code>IPSet</code> objects than the number you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>IPSet</code> objects.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list IP sets
@@ -2620,6 +3014,12 @@ class AsyncWAFRegionalClient:
         Args:
             next_marker: <p>If you specify a value for <code>Limit</code> and you have more <code>LoggingConfigurations</code> than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>LoggingConfigurations</code>. For the second and subsequent <code>ListLoggingConfigurations</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>ListLoggingConfigurations</code>.</p>
             limit: <p>Specifies the number of <code>LoggingConfigurations</code> that you want AWS WAF to return for this request. If you have more <code>LoggingConfigurations</code> than the number that you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>LoggingConfigurations</code>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2667,6 +3067,11 @@ class AsyncWAFRegionalClient:
         Args:
             next_marker: <p>If you specify a value for <code>Limit</code> and you have more <code>Rules</code> than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>Rules</code>. For the second and subsequent <code>ListRateBasedRules</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>Rules</code>.</p>
             limit: <p>Specifies the number of <code>Rules</code> that you want AWS WAF to return for this request. If you have more <code>Rules</code> than the number that you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>Rules</code>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2714,6 +3119,11 @@ class AsyncWAFRegionalClient:
         Args:
             next_marker: <p>If you specify a value for <code>Limit</code> and you have more <code>RegexMatchSet</code> objects than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>ByteMatchSets</code>. For the second and subsequent <code>ListRegexMatchSets</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>RegexMatchSet</code> objects.</p>
             limit: <p>Specifies the number of <code>RegexMatchSet</code> objects that you want AWS WAF to return for this request. If you have more <code>RegexMatchSet</code> objects than the number you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>RegexMatchSet</code> objects.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2761,6 +3171,11 @@ class AsyncWAFRegionalClient:
         Args:
             next_marker: <p>If you specify a value for <code>Limit</code> and you have more <code>RegexPatternSet</code> objects than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>RegexPatternSet</code> objects. For the second and subsequent <code>ListRegexPatternSets</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>RegexPatternSet</code> objects.</p>
             limit: <p>Specifies the number of <code>RegexPatternSet</code> objects that you want AWS WAF to return for this request. If you have more <code>RegexPatternSet</code> objects than the number you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>RegexPatternSet</code> objects.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2806,6 +3221,13 @@ class AsyncWAFRegionalClient:
         Args:
             web_acl_id: <p>The unique identifier (ID) of the web ACL for which to list the associated resources.</p>
             resource_type: <p>The type of resource to list, either an application load balancer or Amazon API Gateway.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2852,6 +3274,10 @@ class AsyncWAFRegionalClient:
         Args:
             next_marker: <p>If you specify a value for <code>Limit</code> and you have more <code>RuleGroups</code> than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>RuleGroups</code>. For the second and subsequent <code>ListRuleGroups</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>RuleGroups</code>.</p>
             limit: <p>Specifies the number of <code>RuleGroups</code> that you want AWS WAF to return for this request. If you have more <code>RuleGroups</code> than the number that you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>RuleGroups</code>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2899,6 +3325,11 @@ class AsyncWAFRegionalClient:
         Args:
             next_marker: <p>If you specify a value for <code>Limit</code> and you have more <code>Rules</code> than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>Rules</code>. For the second and subsequent <code>ListRules</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>Rules</code>.</p>
             limit: <p>Specifies the number of <code>Rules</code> that you want AWS WAF to return for this request. If you have more <code>Rules</code> than the number that you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>Rules</code>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list rules
@@ -2953,6 +3384,11 @@ class AsyncWAFRegionalClient:
             next_marker: <p>If you specify a value for <code>Limit</code> and you have more <code>SizeConstraintSets</code> than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>SizeConstraintSets</code>. For the second and subsequent <code>ListSizeConstraintSets</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>SizeConstraintSets</code>.</p>
             limit: <p>Specifies the number of <code>SizeConstraintSet</code> objects that you want AWS WAF to return for this request. If you have more <code>SizeConstraintSets</code> objects than the number you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>SizeConstraintSet</code> objects.</p>
 
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list a size constraint sets
             The following example returns an array of up to 100 size contraint match sets.
@@ -3006,6 +3442,11 @@ class AsyncWAFRegionalClient:
             next_marker: <p>If you specify a value for <code>Limit</code> and you have more <a>SqlInjectionMatchSet</a> objects than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>SqlInjectionMatchSets</code>. For the second and subsequent <code>ListSqlInjectionMatchSets</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>SqlInjectionMatchSets</code>.</p>
             limit: <p>Specifies the number of <a>SqlInjectionMatchSet</a> objects that you want AWS WAF to return for this request. If you have more <code>SqlInjectionMatchSet</code> objects than the number you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>Rules</code>.</p>
 
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list SQL injection match sets
             The following example returns an array of up to 100 SQL injection match sets.
@@ -3058,6 +3499,11 @@ class AsyncWAFRegionalClient:
         Args:
             next_marker: <p>If you specify a value for <code>Limit</code> and you have more <code>ByteMatchSets</code>subscribed rule groups than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of subscribed rule groups. For the second and subsequent <code>ListSubscribedRuleGroupsRequest</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of subscribed rule groups.</p>
             limit: <p>Specifies the number of subscribed rule groups that you want AWS WAF to return for this request. If you have more objects than the number you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of objects.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3107,6 +3553,15 @@ class AsyncWAFRegionalClient:
             next_marker: <p></p>
             limit: <p></p>
             resource_arn: <p></p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_bad_request_exception.WAFBadRequestException: <p></p>
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_exception.WAFTagOperationException: <p></p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p></p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3155,6 +3610,11 @@ class AsyncWAFRegionalClient:
         Args:
             next_marker: <p>If you specify a value for <code>Limit</code> and you have more <code>WebACL</code> objects than the number that you specify for <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>WebACL</code> objects. For the second and subsequent <code>ListWebACLs</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>WebACL</code> objects.</p>
             limit: <p>Specifies the number of <code>WebACL</code> objects that you want AWS WAF to return for this request. If you have more <code>WebACL</code> objects than the number that you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>WebACL</code> objects.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To list Web ACLs
@@ -3209,6 +3669,11 @@ class AsyncWAFRegionalClient:
             next_marker: <p>If you specify a value for <code>Limit</code> and you have more <a>XssMatchSet</a> objects than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>XssMatchSets</code>. For the second and subsequent <code>ListXssMatchSets</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>XssMatchSets</code>.</p>
             limit: <p>Specifies the number of <a>XssMatchSet</a> objects that you want AWS WAF to return for this request. If you have more <code>XssMatchSet</code> objects than the number you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>Rules</code>.</p>
 
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To list XSS match sets
             The following example returns an array of up to 100 XSS match sets.
@@ -3255,6 +3720,13 @@ class AsyncWAFRegionalClient:
 
         Args:
             logging_configuration: <p>The Amazon Kinesis Data Firehose that contains the inspected traffic information, the redacted fields details, and the Amazon Resource Name (ARN) of the web ACL to monitor.</p> <note> <p>When specifying <code>Type</code> in <code>RedactedFields</code>, you must use one of the following values: <code>URI</code>, <code>QUERY_STRING</code>, <code>HEADER</code>, or <code>METHOD</code>.</p> </note>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_service_linked_role_error_exception.WAFServiceLinkedRoleErrorException: <p>AWS WAF is not able to access the service linked role. This can be caused by a previous <code>PutLoggingConfiguration</code> request, which can lock the service linked role for about 20 seconds. Please try your request again. The service linked role can also be locked by a previous <code>DeleteServiceLinkedRole</code> request, which can lock the role for 15 minutes or more. If you recently made a <code>DeleteServiceLinkedRole</code>, wait at least 15 minutes and try the request again. If you receive this same exception again, you will have to wait additional time until the role is unlocked.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3295,6 +3767,13 @@ class AsyncWAFRegionalClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the RuleGroup to which you want to attach the policy.</p>
             policy: <p>The policy to attach to the specified RuleGroup.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_permission_policy_exception.WAFInvalidPermissionPolicyException: <p>The operation failed because the specified policy is not in the proper format. </p> <p>The policy is subject to the following restrictions:</p> <ul> <li> <p>You can attach only one policy with each <code>PutPermissionPolicy</code> request.</p> </li> <li> <p>The policy must include an <code>Effect</code>, <code>Action</code> and <code>Principal</code>. </p> </li> <li> <p> <code>Effect</code> must specify <code>Allow</code>.</p> </li> <li> <p>The <code>Action</code> in the policy must be <code>waf:UpdateWebACL</code>, <code>waf-regional:UpdateWebACL</code>, <code>waf:GetRuleGroup</code> and <code>waf-regional:GetRuleGroup</code> . Any extra or wildcard actions in the policy will be rejected.</p> </li> <li> <p>The policy cannot include a <code>Resource</code> parameter.</p> </li> <li> <p>The ARN in the request must be a valid WAF RuleGroup ARN and the RuleGroup must exist in the same region.</p> </li> <li> <p>The user making the request must be the owner of the RuleGroup.</p> </li> <li> <p>Your policy must be composed using IAM Policy version 2012-10-17.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3336,6 +3815,16 @@ class AsyncWAFRegionalClient:
         Args:
             resource_arn: <p></p>
             tags: <p></p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_bad_request_exception.WAFBadRequestException: <p></p>
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_exception.WAFTagOperationException: <p></p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p></p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3377,6 +3866,15 @@ class AsyncWAFRegionalClient:
         Args:
             resource_arn: <p></p>
             tag_keys: <p></p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_bad_request_exception.WAFBadRequestException: <p></p>
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_exception.WAFTagOperationException: <p></p>
+            aws_sdk_waf_regional.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException: <p></p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3420,6 +3918,17 @@ class AsyncWAFRegionalClient:
             byte_match_set_id: <p>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to update. <code>ByteMatchSetId</code> is returned by <a>CreateByteMatchSet</a> and by <a>ListByteMatchSets</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
             updates: <p>An array of <code>ByteMatchSetUpdate</code> objects that you want to insert into or delete from a <a>ByteMatchSet</a>. For more information, see the applicable data types:</p> <ul> <li> <p> <a>ByteMatchSetUpdate</a>: Contains <code>Action</code> and <code>ByteMatchTuple</code> </p> </li> <li> <p> <a>ByteMatchTuple</a>: Contains <code>FieldToMatch</code>, <code>PositionalConstraint</code>, <code>TargetString</code>, and <code>TextTransformation</code> </p> </li> <li> <p> <a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation failed because there was nothing to do. For example:</p> <ul> <li> <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_container_exception.WAFNonexistentContainerException: <p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p> <ul> <li> <p>You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code> from a <code>Rule</code> that doesn't exist.</p> </li> <li> <p>You tried to add an IP address to or delete an IP address from an <code>IPSet</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code> that doesn't exist.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a byte match set
@@ -3470,6 +3979,18 @@ class AsyncWAFRegionalClient:
             geo_match_set_id: <p>The <code>GeoMatchSetId</code> of the <a>GeoMatchSet</a> that you want to update. <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by <a>ListGeoMatchSets</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
             updates: <p>An array of <code>GeoMatchSetUpdate</code> objects that you want to insert into or delete from an <a>GeoMatchSet</a>. For more information, see the applicable data types:</p> <ul> <li> <p> <a>GeoMatchSetUpdate</a>: Contains <code>Action</code> and <code>GeoMatchConstraint</code> </p> </li> <li> <p> <a>GeoMatchConstraint</a>: Contains <code>Type</code> and <code>Value</code> </p> <p>You can have only one <code>Type</code> and <code>Value</code> per <code>GeoMatchConstraint</code>. To add multiple countries, include multiple <code>GeoMatchSetUpdate</code> objects in your request.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation failed because there was nothing to do. For example:</p> <ul> <li> <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_container_exception.WAFNonexistentContainerException: <p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p> <ul> <li> <p>You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code> from a <code>Rule</code> that doesn't exist.</p> </li> <li> <p>You tried to add an IP address to or delete an IP address from an <code>IPSet</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code> that doesn't exist.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_referenced_item_exception.WAFReferencedItemException: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3514,6 +4035,18 @@ class AsyncWAFRegionalClient:
             ip_set_id: <p>The <code>IPSetId</code> of the <a>IPSet</a> that you want to update. <code>IPSetId</code> is returned by <a>CreateIPSet</a> and by <a>ListIPSets</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
             updates: <p>An array of <code>IPSetUpdate</code> objects that you want to insert into or delete from an <a>IPSet</a>. For more information, see the applicable data types:</p> <ul> <li> <p> <a>IPSetUpdate</a>: Contains <code>Action</code> and <code>IPSetDescriptor</code> </p> </li> <li> <p> <a>IPSetDescriptor</a>: Contains <code>Type</code> and <code>Value</code> </p> </li> </ul> <p>You can insert a maximum of 1000 addresses in a single request.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation failed because there was nothing to do. For example:</p> <ul> <li> <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_container_exception.WAFNonexistentContainerException: <p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p> <ul> <li> <p>You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code> from a <code>Rule</code> that doesn't exist.</p> </li> <li> <p>You tried to add an IP address to or delete an IP address from an <code>IPSet</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code> that doesn't exist.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_referenced_item_exception.WAFReferencedItemException: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update an IP set
@@ -3566,6 +4099,18 @@ class AsyncWAFRegionalClient:
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
             updates: <p>An array of <code>RuleUpdate</code> objects that you want to insert into or delete from a <a>RateBasedRule</a>. </p>
             rate_limit: <p>The maximum number of requests, which have an identical value in the field specified by the <code>RateKey</code>, allowed in a five-minute period. If the number of requests exceeds the <code>RateLimit</code> and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation failed because there was nothing to do. For example:</p> <ul> <li> <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_container_exception.WAFNonexistentContainerException: <p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p> <ul> <li> <p>You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code> from a <code>Rule</code> that doesn't exist.</p> </li> <li> <p>You tried to add an IP address to or delete an IP address from an <code>IPSet</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code> that doesn't exist.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_referenced_item_exception.WAFReferencedItemException: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3611,6 +4156,17 @@ class AsyncWAFRegionalClient:
             regex_match_set_id: <p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to update. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</p>
             updates: <p>An array of <code>RegexMatchSetUpdate</code> objects that you want to insert into or delete from a <a>RegexMatchSet</a>. For more information, see <a>RegexMatchTuple</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_disallowed_name_exception.WAFDisallowedNameException: <p>The name specified is invalid.</p>
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation failed because there was nothing to do. For example:</p> <ul> <li> <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_container_exception.WAFNonexistentContainerException: <p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p> <ul> <li> <p>You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code> from a <code>Rule</code> that doesn't exist.</p> </li> <li> <p>You tried to add an IP address to or delete an IP address from an <code>IPSet</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code> that doesn't exist.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3655,6 +4211,17 @@ class AsyncWAFRegionalClient:
             regex_pattern_set_id: <p>The <code>RegexPatternSetId</code> of the <a>RegexPatternSet</a> that you want to update. <code>RegexPatternSetId</code> is returned by <a>CreateRegexPatternSet</a> and by <a>ListRegexPatternSets</a>.</p>
             updates: <p>An array of <code>RegexPatternSetUpdate</code> objects that you want to insert into or delete from a <a>RegexPatternSet</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation failed because there was nothing to do. For example:</p> <ul> <li> <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_invalid_regex_pattern_exception.WAFInvalidRegexPatternException: <p>The regular expression (regex) you specified in <code>RegexPatternString</code> is invalid.</p>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_container_exception.WAFNonexistentContainerException: <p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p> <ul> <li> <p>You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code> from a <code>Rule</code> that doesn't exist.</p> </li> <li> <p>You tried to add an IP address to or delete an IP address from an <code>IPSet</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code> that doesn't exist.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3699,6 +4266,18 @@ class AsyncWAFRegionalClient:
             rule_id: <p>The <code>RuleId</code> of the <code>Rule</code> that you want to update. <code>RuleId</code> is returned by <code>CreateRule</code> and by <a>ListRules</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
             updates: <p>An array of <code>RuleUpdate</code> objects that you want to insert into or delete from a <a>Rule</a>. For more information, see the applicable data types:</p> <ul> <li> <p> <a>RuleUpdate</a>: Contains <code>Action</code> and <code>Predicate</code> </p> </li> <li> <p> <a>Predicate</a>: Contains <code>DataId</code>, <code>Negated</code>, and <code>Type</code> </p> </li> <li> <p> <a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation failed because there was nothing to do. For example:</p> <ul> <li> <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_container_exception.WAFNonexistentContainerException: <p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p> <ul> <li> <p>You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code> from a <code>Rule</code> that doesn't exist.</p> </li> <li> <p>You tried to add an IP address to or delete an IP address from an <code>IPSet</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code> that doesn't exist.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_referenced_item_exception.WAFReferencedItemException: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a rule
@@ -3751,6 +4330,16 @@ class AsyncWAFRegionalClient:
             rule_group_id: <p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> that you want to update. <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by <a>ListRuleGroups</a>.</p>
             updates: <p>An array of <code>RuleGroupUpdate</code> objects that you want to insert into or delete from a <a>RuleGroup</a>.</p> <p>You can only insert <code>REGULAR</code> rules into a rule group.</p> <p> <code>ActivatedRule|OverrideAction</code> applies only when updating or adding a <code>RuleGroup</code> to a <code>WebACL</code>. In this case you do not use <code>ActivatedRule|Action</code>. For all other update requests, <code>ActivatedRule|Action</code> is used instead of <code>ActivatedRule|OverrideAction</code>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation failed because there was nothing to do. For example:</p> <ul> <li> <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_container_exception.WAFNonexistentContainerException: <p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p> <ul> <li> <p>You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code> from a <code>Rule</code> that doesn't exist.</p> </li> <li> <p>You tried to add an IP address to or delete an IP address from an <code>IPSet</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code> that doesn't exist.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3795,6 +4384,18 @@ class AsyncWAFRegionalClient:
             size_constraint_set_id: <p>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want to update. <code>SizeConstraintSetId</code> is returned by <a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
             updates: <p>An array of <code>SizeConstraintSetUpdate</code> objects that you want to insert into or delete from a <a>SizeConstraintSet</a>. For more information, see the applicable data types:</p> <ul> <li> <p> <a>SizeConstraintSetUpdate</a>: Contains <code>Action</code> and <code>SizeConstraint</code> </p> </li> <li> <p> <a>SizeConstraint</a>: Contains <code>FieldToMatch</code>, <code>TextTransformation</code>, <code>ComparisonOperator</code>, and <code>Size</code> </p> </li> <li> <p> <a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation failed because there was nothing to do. For example:</p> <ul> <li> <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_container_exception.WAFNonexistentContainerException: <p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p> <ul> <li> <p>You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code> from a <code>Rule</code> that doesn't exist.</p> </li> <li> <p>You tried to add an IP address to or delete an IP address from an <code>IPSet</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code> that doesn't exist.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_referenced_item_exception.WAFReferencedItemException: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a size constraint set
@@ -3845,6 +4446,17 @@ class AsyncWAFRegionalClient:
             sql_injection_match_set_id: <p>The <code>SqlInjectionMatchSetId</code> of the <code>SqlInjectionMatchSet</code> that you want to update. <code>SqlInjectionMatchSetId</code> is returned by <a>CreateSqlInjectionMatchSet</a> and by <a>ListSqlInjectionMatchSets</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
             updates: <p>An array of <code>SqlInjectionMatchSetUpdate</code> objects that you want to insert into or delete from a <a>SqlInjectionMatchSet</a>. For more information, see the applicable data types:</p> <ul> <li> <p> <a>SqlInjectionMatchSetUpdate</a>: Contains <code>Action</code> and <code>SqlInjectionMatchTuple</code> </p> </li> <li> <p> <a>SqlInjectionMatchTuple</a>: Contains <code>FieldToMatch</code> and <code>TextTransformation</code> </p> </li> <li> <p> <a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation failed because there was nothing to do. For example:</p> <ul> <li> <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_container_exception.WAFNonexistentContainerException: <p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p> <ul> <li> <p>You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code> from a <code>Rule</code> that doesn't exist.</p> </li> <li> <p>You tried to add an IP address to or delete an IP address from an <code>IPSet</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code> that doesn't exist.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update a SQL injection match set
@@ -3902,6 +4514,19 @@ class AsyncWAFRegionalClient:
             updates: <p>An array of updates to make to the <a>WebACL</a>.</p> <p>An array of <code>WebACLUpdate</code> objects that you want to insert into or delete from a <a>WebACL</a>. For more information, see the applicable data types:</p> <ul> <li> <p> <a>WebACLUpdate</a>: Contains <code>Action</code> and <code>ActivatedRule</code> </p> </li> <li> <p> <a>ActivatedRule</a>: Contains <code>Action</code>, <code>OverrideAction</code>, <code>Priority</code>, <code>RuleId</code>, and <code>Type</code>. <code>ActivatedRule|OverrideAction</code> applies only when updating or adding a <code>RuleGroup</code> to a <code>WebACL</code>. In this case, you do not use <code>ActivatedRule|Action</code>. For all other update requests, <code>ActivatedRule|Action</code> is used instead of <code>ActivatedRule|OverrideAction</code>. </p> </li> <li> <p> <a>WafAction</a>: Contains <code>Type</code> </p> </li> </ul>
             default_action: <p>A default action for the web ACL, either ALLOW or BLOCK. AWS WAF performs the default action if a request doesn't match the criteria in any of the rules in a web ACL.</p>
 
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation failed because there was nothing to do. For example:</p> <ul> <li> <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_container_exception.WAFNonexistentContainerException: <p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p> <ul> <li> <p>You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code> from a <code>Rule</code> that doesn't exist.</p> </li> <li> <p>You tried to add an IP address to or delete an IP address from an <code>IPSet</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code> that doesn't exist.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_referenced_item_exception.WAFReferencedItemException: <p>The operation failed because you tried to delete an object that is still in use. For example:</p> <ul> <li> <p>You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.</p> </li> <li> <p>You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.waf_subscription_not_found_exception.WAFSubscriptionNotFoundException: <p>The specified subscription does not exist.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             To update a Web ACL
             The following example deletes an ActivatedRule object in a WebACL with the ID webacl-1472061481310.
@@ -3954,6 +4579,17 @@ class AsyncWAFRegionalClient:
             xss_match_set_id: <p>The <code>XssMatchSetId</code> of the <code>XssMatchSet</code> that you want to update. <code>XssMatchSetId</code> is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</p>
             change_token: <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
             updates: <p>An array of <code>XssMatchSetUpdate</code> objects that you want to insert into or delete from an <a>XssMatchSet</a>. For more information, see the applicable data types:</p> <ul> <li> <p> <a>XssMatchSetUpdate</a>: Contains <code>Action</code> and <code>XssMatchTuple</code> </p> </li> <li> <p> <a>XssMatchTuple</a>: Contains <code>FieldToMatch</code> and <code>TextTransformation</code> </p> </li> <li> <p> <a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException: <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException: <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+            aws_sdk_waf_regional.errors.waf_invalid_operation_exception.WAFInvalidOperationException: <p>The operation failed because there was nothing to do. For example:</p> <ul> <li> <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p> </li> <li> <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the specified <code>WebACL</code>.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_invalid_parameter_exception.WAFInvalidParameterException: <p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_limits_exceeded_exception.WAFLimitsExceededException: <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create for an AWS account. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/limits.html\">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+            aws_sdk_waf_regional.errors.waf_nonexistent_container_exception.WAFNonexistentContainerException: <p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p> <ul> <li> <p>You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code> from a <code>Rule</code> that doesn't exist.</p> </li> <li> <p>You tried to add an IP address to or delete an IP address from an <code>IPSet</code> that doesn't exist.</p> </li> <li> <p>You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code> that doesn't exist.</p> </li> </ul>
+            aws_sdk_waf_regional.errors.waf_nonexistent_item_exception.WAFNonexistentItemException: <p>The operation failed because the referenced object doesn't exist.</p>
+            aws_sdk_waf_regional.errors.waf_stale_data_exception.WAFStaleDataException: <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+            aws_sdk_waf_regional.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             To update an XSS match set

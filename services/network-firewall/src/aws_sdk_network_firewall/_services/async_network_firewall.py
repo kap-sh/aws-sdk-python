@@ -362,6 +362,13 @@ class AsyncNetworkFirewallClient:
 
         Args:
             transit_gateway_attachment_id: <p>Required. The unique identifier of the transit gateway attachment to accept. This ID is returned in the response when creating a transit gateway-attached firewall.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -412,6 +419,16 @@ class AsyncNetworkFirewallClient:
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_name: <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             availability_zone_mappings: <p>Required. The Availability Zones where you want to create firewall endpoints. You must specify at least one Availability Zone.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.insufficient_capacity_exception.InsufficientCapacityException: <p>Amazon Web Services doesn't currently have enough available capacity to fulfill your request. Try your request later. </p>
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because it's not valid. For example, you might have tried to delete a rule group or firewall policy that's in use.</p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.invalid_token_exception.InvalidTokenException: <p>The token you provided is stale or isn't valid for the operation. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -468,6 +485,15 @@ class AsyncNetworkFirewallClient:
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_name: <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_policy_arn: <p>The Amazon Resource Name (ARN) of the firewall policy.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because it's not valid. For example, you might have tried to delete a rule group or firewall policy that's in use.</p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.invalid_token_exception.InvalidTokenException: <p>The token you provided is stale or isn't valid for the operation. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -524,6 +550,16 @@ class AsyncNetworkFirewallClient:
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_name: <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             subnet_mappings: <p>The IDs of the subnets that you want to associate with the firewall. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.insufficient_capacity_exception.InsufficientCapacityException: <p>Amazon Web Services doesn't currently have enough available capacity to fulfill your request. Try your request later. </p>
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because it's not valid. For example, you might have tried to delete a rule group or firewall policy that's in use.</p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.invalid_token_exception.InvalidTokenException: <p>The token you provided is stale or isn't valid for the operation. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -578,6 +614,13 @@ class AsyncNetworkFirewallClient:
             proxy_configuration_arn: <p>The Amazon Resource Name (ARN) of a proxy configuration.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             rule_groups: <p>The proxy rule group(s) to attach to the proxy configuration</p>
             update_token: <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy configuration. The token marks the state of the proxy configuration resource at the time of the request. </p> <p>To make changes to the proxy configuration, you provide the token in your request. Network Firewall uses the token to ensure that the proxy configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -669,6 +712,15 @@ class AsyncNetworkFirewallClient:
             transit_gateway_id: <p>Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through Resource Access Manager.</p> <important> <p>After creating the firewall, you cannot change the transit gateway association. To use a different transit gateway, you must create a new firewall.</p> </important> <p>For information about creating firewalls, see <a>CreateFirewall</a>. For specific guidance about transit gateway-attached firewalls, see <a href=\"https://docs.aws.amazon.com/network-firewall/latest/developerguide/tgw-firewall-considerations.html\">Considerations for transit gateway-attached firewalls</a> in the <i>Network Firewall Developer Guide</i>.</p>
             availability_zone_mappings: <p>Required. The Availability Zones where you want to create firewall endpoints for a transit gateway-attached firewall. You must specify at least one Availability Zone. Consider enabling the firewall in every Availability Zone where you have workloads to maintain Availability Zone isolation.</p> <p>You can modify Availability Zones later using <a>AssociateAvailabilityZones</a> or <a>DisassociateAvailabilityZones</a>, but this may briefly disrupt traffic. The <code>AvailabilityZoneChangeProtection</code> setting controls whether you can make these modifications.</p>
             availability_zone_change_protection: <p>Optional. A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to <code>TRUE</code>, you cannot add or remove Availability Zones without first disabling this protection using <a>UpdateAvailabilityZoneChangeProtection</a>.</p> <p>Default value: <code>FALSE</code> </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.insufficient_capacity_exception.InsufficientCapacityException: <p>Amazon Web Services doesn't currently have enough available capacity to fulfill your request. Try your request later. </p>
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because it's not valid. For example, you might have tried to delete a rule group or firewall policy that's in use.</p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.limit_exceeded_exception.LimitExceededException: <p>Unable to perform the operation because doing so would violate a limit setting. </p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -750,6 +802,14 @@ class AsyncNetworkFirewallClient:
             tags: <p>The key:value pairs to associate with the resource.</p>
             dry_run: <p>Indicates whether you want Network Firewall to just check the validity of the request, rather than run the request. </p> <p>If set to <code>TRUE</code>, Network Firewall checks whether the request can run successfully, but doesn't actually make the requested changes. The call returns the value that the request would return if you ran it with dry run set to <code>FALSE</code>, but doesn't make additions or changes to your resources. This option allows you to make sure that you have the required permissions to run the request and that your request parameters are valid. </p> <p>If set to <code>FALSE</code>, Network Firewall makes the requested changes to your resources. </p>
             encryption_configuration: <p>A complex type that contains settings for encryption of your firewall policy resources.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.insufficient_capacity_exception.InsufficientCapacityException: <p>Amazon Web Services doesn't currently have enough available capacity to fulfill your request. Try your request later. </p>
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.limit_exceeded_exception.LimitExceededException: <p>Unable to perform the operation because doing so would violate a limit setting. </p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -815,6 +875,15 @@ class AsyncNetworkFirewallClient:
             listener_properties: <p>Listener properties for HTTP and HTTPS traffic.</p>
             tls_intercept_properties: <p>TLS decryption on traffic to filter on attributes in the HTTP header. </p>
             tags: <p>The key:value pairs to associate with the resource.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.limit_exceeded_exception.LimitExceededException: <p>Unable to perform the operation because doing so would violate a limit setting. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation you requested isn't supported by Network Firewall. </p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -879,6 +948,14 @@ class AsyncNetworkFirewallClient:
             rule_group_arns: <p>The proxy rule group arn(s) to attach to the proxy configuration.</p> <p>You must specify the ARNs or the names, and you can specify both. </p>
             default_rule_phase_actions: <p>Evaluation points in the traffic flow where rules are applied. There are three phases in a traffic where the rule match is applied. </p>
             tags: <p>The key:value pairs to associate with the resource.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.limit_exceeded_exception.LimitExceededException: <p>Unable to perform the operation because doing so would violate a limit setting. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -936,6 +1013,13 @@ class AsyncNetworkFirewallClient:
             description: <p>A description of the proxy rule group. </p>
             rules: <p>Individual rules that define match conditions and actions for application-layer traffic. Rules specify what to inspect (domains, headers, methods) and what action to take (allow, deny, alert). </p>
             tags: <p>The key:value pairs to associate with the resource.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.limit_exceeded_exception.LimitExceededException: <p>Unable to perform the operation because doing so would violate a limit setting. </p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -988,6 +1072,12 @@ class AsyncNetworkFirewallClient:
             proxy_rule_group_arn: <p>The Amazon Resource Name (ARN) of a proxy rule group.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             proxy_rule_group_name: <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             rules: <p>Individual rules that define match conditions and actions for application-layer traffic. Rules specify what to inspect (domains, headers, methods) and what action to take (allow, deny, alert). </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1066,6 +1156,14 @@ class AsyncNetworkFirewallClient:
             source_metadata: <p>A complex type that contains metadata about the rule group that your own rule group is copied from. You can use the metadata to keep track of updates made to the originating rule group.</p>
             analyze_rule_group: <p>Indicates whether you want Network Firewall to analyze the stateless rules in the rule group for rule behavior such as asymmetric routing. If set to <code>TRUE</code>, Network Firewall runs the analysis and then creates the rule group for you. To run the stateless rule group analyzer without creating the rule group, set <code>DryRun</code> to <code>TRUE</code>.</p>
             summary_configuration: <p>An object that contains a <code>RuleOptions</code> array of strings. You use <code>RuleOptions</code> to determine which of the following <a>RuleSummary</a> values are returned in response to <code>DescribeRuleGroupSummary</code>.</p> <ul> <li> <p> <code>Metadata</code> - returns</p> </li> <li> <p> <code>Msg</code> </p> </li> <li> <p> <code>SID</code> </p> </li> </ul>
+
+        Raises:
+            aws_sdk_network_firewall.errors.insufficient_capacity_exception.InsufficientCapacityException: <p>Amazon Web Services doesn't currently have enough available capacity to fulfill your request. Try your request later. </p>
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.limit_exceeded_exception.LimitExceededException: <p>Unable to perform the operation because doing so would violate a limit setting. </p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1135,6 +1233,14 @@ class AsyncNetworkFirewallClient:
             tls_inspection_configuration: <p>The object that defines a TLS inspection configuration. This, along with <a>TLSInspectionConfigurationResponse</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p> <p>Network Firewall uses a TLS inspection configuration to decrypt traffic. Network Firewall re-encrypts the traffic before sending it to its destination.</p> <p>To use a TLS inspection configuration, you add it to a new Network Firewall firewall policy, then you apply the firewall policy to a firewall. Network Firewall acts as a proxy service to decrypt and inspect the traffic traveling through your firewalls. You can reference a TLS inspection configuration from more than one firewall policy, and you can use a firewall policy in more than one firewall. For more information about using TLS inspection configurations, see <a href=\"https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html\">Inspecting SSL/TLS traffic with TLS inspection configurations</a> in the <i>Network Firewall Developer Guide</i>.</p>
             description: <p>A description of the TLS inspection configuration. </p>
             tags: <p>The key:value pairs to associate with the resource.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.insufficient_capacity_exception.InsufficientCapacityException: <p>Amazon Web Services doesn't currently have enough available capacity to fulfill your request. Try your request later. </p>
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.limit_exceeded_exception.LimitExceededException: <p>Unable to perform the operation because doing so would violate a limit setting. </p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1189,6 +1295,16 @@ class AsyncNetworkFirewallClient:
             vpc_id: <p>The unique identifier of the VPC where you want to create a firewall endpoint. </p>
             description: <p>A description of the VPC endpoint association. </p>
             tags: <p>The key:value pairs to associate with the resource.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.insufficient_capacity_exception.InsufficientCapacityException: <p>Amazon Web Services doesn't currently have enough available capacity to fulfill your request. Try your request later. </p>
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because it's not valid. For example, you might have tried to delete a rule group or firewall policy that's in use.</p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.limit_exceeded_exception.LimitExceededException: <p>Unable to perform the operation because doing so would violate a limit setting. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1241,6 +1357,15 @@ class AsyncNetworkFirewallClient:
         Args:
             firewall_name: <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because it's not valid. For example, you might have tried to delete a rule group or firewall policy that's in use.</p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation you requested isn't supported by Network Firewall. </p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1288,6 +1413,15 @@ class AsyncNetworkFirewallClient:
         Args:
             firewall_policy_name: <p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_policy_arn: <p>The Amazon Resource Name (ARN) of the firewall policy.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because it's not valid. For example, you might have tried to delete a rule group or firewall policy that's in use.</p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation you requested isn't supported by Network Firewall. </p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1329,6 +1463,13 @@ class AsyncNetworkFirewallClient:
 
         Args:
             transit_gateway_attachment_id: <p>Required. The unique identifier of the transit gateway attachment to delete.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1375,6 +1516,14 @@ class AsyncNetworkFirewallClient:
             nat_gateway_id: <p>The NAT Gateway the proxy is attached to. </p>
             proxy_name: <p>The descriptive name of the proxy. You can't change the name of a proxy after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             proxy_arn: <p>The Amazon Resource Name (ARN) of a proxy.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation you requested isn't supported by Network Firewall. </p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1423,6 +1572,13 @@ class AsyncNetworkFirewallClient:
         Args:
             proxy_configuration_name: <p>The descriptive name of the proxy configuration. You can't change the name of a proxy configuration after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             proxy_configuration_arn: <p>The Amazon Resource Name (ARN) of a proxy configuration.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1470,6 +1626,13 @@ class AsyncNetworkFirewallClient:
         Args:
             proxy_rule_group_name: <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             proxy_rule_group_arn: <p>The Amazon Resource Name (ARN) of a proxy rule group.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1519,6 +1682,13 @@ class AsyncNetworkFirewallClient:
             proxy_rule_group_arn: <p>The Amazon Resource Name (ARN) of a proxy rule group.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             proxy_rule_group_name: <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             rules: <p>The proxy rule(s) to remove from the existing proxy rule group. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1561,6 +1731,14 @@ class AsyncNetworkFirewallClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the rule group or firewall policy whose resource policy you want to delete. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.invalid_resource_policy_exception.InvalidResourcePolicyException: <p>The policy statement failed validation.</p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1609,6 +1787,15 @@ class AsyncNetworkFirewallClient:
             rule_group_name: <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             rule_group_arn: <p>The Amazon Resource Name (ARN) of the rule group.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             type: <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. </p> <note> <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p> </note>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because it's not valid. For example, you might have tried to delete a rule group or firewall policy that's in use.</p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation you requested isn't supported by Network Firewall. </p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1658,6 +1845,14 @@ class AsyncNetworkFirewallClient:
         Args:
             tls_inspection_configuration_arn: <p>The Amazon Resource Name (ARN) of the TLS inspection configuration.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             tls_inspection_configuration_name: <p>The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because it's not valid. For example, you might have tried to delete a rule group or firewall policy that's in use.</p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1703,6 +1898,14 @@ class AsyncNetworkFirewallClient:
 
         Args:
             vpc_endpoint_association_arn: <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because it's not valid. For example, you might have tried to delete a rule group or firewall policy that's in use.</p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1747,6 +1950,13 @@ class AsyncNetworkFirewallClient:
         Args:
             firewall_name: <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1790,6 +2000,13 @@ class AsyncNetworkFirewallClient:
 
         Args:
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1835,6 +2052,13 @@ class AsyncNetworkFirewallClient:
         Args:
             firewall_policy_name: <p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_policy_arn: <p>The Amazon Resource Name (ARN) of the firewall policy.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1890,6 +2114,13 @@ class AsyncNetworkFirewallClient:
             vpc_endpoint_association_arn: <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>
             vpc_endpoint_id: <p>A unique identifier for the primary endpoint associated with a firewall.</p>
             flow_operation_id: <p>A unique identifier for the flow operation. This ID is returned in the responses to start and list commands. You provide to describe commands.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1941,6 +2172,13 @@ class AsyncNetworkFirewallClient:
         Args:
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_name: <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1988,6 +2226,13 @@ class AsyncNetworkFirewallClient:
         Args:
             proxy_name: <p>The descriptive name of the proxy. You can't change the name of a proxy after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             proxy_arn: <p>The Amazon Resource Name (ARN) of a proxy.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2035,6 +2280,13 @@ class AsyncNetworkFirewallClient:
         Args:
             proxy_configuration_name: <p>The descriptive name of the proxy configuration. You can't change the name of a proxy configuration after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             proxy_configuration_arn: <p>The Amazon Resource Name (ARN) of a proxy configuration.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2084,6 +2336,13 @@ class AsyncNetworkFirewallClient:
             proxy_rule_name: <p>The descriptive name of the proxy rule. You can't change the name of a proxy rule after you create it.</p>
             proxy_rule_group_name: <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             proxy_rule_group_arn: <p>The Amazon Resource Name (ARN) of a proxy rule group.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2132,6 +2391,13 @@ class AsyncNetworkFirewallClient:
         Args:
             proxy_rule_group_name: <p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             proxy_rule_group_arn: <p>The Amazon Resource Name (ARN) of a proxy rule group.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2173,6 +2439,13 @@ class AsyncNetworkFirewallClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the rule group or firewall policy whose resource policy you want to retrieve. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2225,6 +2498,13 @@ class AsyncNetworkFirewallClient:
             rule_group_arn: <p>The Amazon Resource Name (ARN) of the rule group.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             type: <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. </p> <note> <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p> </note>
             analyze_rule_group: <p>Indicates whether you want Network Firewall to analyze the stateless rules in the rule group for rule behavior such as asymmetric routing. If set to <code>TRUE</code>, Network Firewall runs the analysis.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2280,6 +2560,13 @@ class AsyncNetworkFirewallClient:
             rule_group_name: <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             rule_group_arn: <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             type: <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules. </p> <note> <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p> </note>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2333,6 +2620,13 @@ class AsyncNetworkFirewallClient:
             rule_group_name: <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             rule_group_arn: <p>Required. The Amazon Resource Name (ARN) of the rule group.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             type: <p>The type of rule group you want a summary for. This is a required field.</p> <p>Valid value: <code>STATEFUL</code> </p> <p>Note that <code>STATELESS</code> exists but is not currently supported. If you provide <code>STATELESS</code>, an exception is returned.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2382,6 +2676,13 @@ class AsyncNetworkFirewallClient:
         Args:
             tls_inspection_configuration_arn: <p>The Amazon Resource Name (ARN) of the TLS inspection configuration.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             tls_inspection_configuration_name: <p>The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2427,6 +2728,13 @@ class AsyncNetworkFirewallClient:
 
         Args:
             vpc_endpoint_association_arn: <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2481,6 +2789,13 @@ class AsyncNetworkFirewallClient:
             rule_group_names: <p>The proxy rule group names to detach from the proxy configuration</p>
             rule_group_arns: <p>The proxy rule group arns to detach from the proxy configuration</p>
             update_token: <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy configuration. The token marks the state of the proxy configuration resource at the time of the request. </p> <p>To make changes to the proxy configuration, you provide the token in your request. Network Firewall uses the token to ensure that the proxy configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2539,6 +2854,15 @@ class AsyncNetworkFirewallClient:
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_name: <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             availability_zone_mappings: <p>Required. The Availability Zones to remove from the firewall's configuration.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because it's not valid. For example, you might have tried to delete a rule group or firewall policy that's in use.</p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.invalid_token_exception.InvalidTokenException: <p>The token you provided is stale or isn't valid for the operation. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2595,6 +2919,15 @@ class AsyncNetworkFirewallClient:
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_name: <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             subnet_ids: <p>The unique identifiers for the subnets that you want to disassociate. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_operation_exception.InvalidOperationException: <p>The operation failed because it's not valid. For example, you might have tried to delete a rule group or firewall policy that's in use.</p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.invalid_token_exception.InvalidTokenException: <p>The token you provided is stale or isn't valid for the operation. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2655,6 +2988,13 @@ class AsyncNetworkFirewallClient:
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             next_token: <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
             max_results: <p>The maximum number of objects that you want Network Firewall to return for this request. If more objects are available, in the response, Network Firewall provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2750,6 +3090,13 @@ class AsyncNetworkFirewallClient:
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             next_token: <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
             max_results: <p>The maximum number of objects that you want Network Firewall to return for this request. If more objects are available, in the response, Network Firewall provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2834,6 +3181,12 @@ class AsyncNetworkFirewallClient:
         Args:
             next_token: <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
             max_results: <p>The maximum number of objects that you want Network Firewall to return for this request. If more objects are available, in the response, Network Firewall provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -2908,6 +3261,12 @@ class AsyncNetworkFirewallClient:
             next_token: <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
             vpc_ids: <p>The unique identifiers of the VPCs that you want Network Firewall to retrieve the firewalls for. Leave this blank to retrieve all firewalls that you have defined.</p>
             max_results: <p>The maximum number of objects that you want Network Firewall to return for this request. If more objects are available, in the response, Network Firewall provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3000,6 +3359,13 @@ class AsyncNetworkFirewallClient:
             availability_zone: <p>The ID of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p> <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
             vpc_endpoint_id: <p>A unique identifier for the primary endpoint associated with a firewall.</p>
             vpc_endpoint_association_arn: <p>The Amazon Resource Name (ARN) of a VPC endpoint association.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3114,6 +3480,13 @@ class AsyncNetworkFirewallClient:
             flow_operation_type: <p>An optional string that defines whether any or all operation types are returned.</p>
             next_token: <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
             max_results: <p>The maximum number of objects that you want Network Firewall to return for this request. If more objects are available, in the response, Network Firewall provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3213,6 +3586,12 @@ class AsyncNetworkFirewallClient:
         Args:
             next_token: <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
             max_results: <p>The maximum number of objects that you want Network Firewall to return for this request. If more objects are available, in the response, Network Firewall provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3285,6 +3664,13 @@ class AsyncNetworkFirewallClient:
         Args:
             next_token: <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
             max_results: <p>The maximum number of objects that you want Network Firewall to return for this request. If more objects are available, in the response, Network Firewall provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3357,6 +3743,13 @@ class AsyncNetworkFirewallClient:
         Args:
             next_token: <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
             max_results: <p>The maximum number of objects that you want Network Firewall to return for this request. If more objects are available, in the response, Network Firewall provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3445,6 +3838,12 @@ class AsyncNetworkFirewallClient:
             managed_type: <p>Indicates the general category of the Amazon Web Services managed rule group.</p>
             subscription_status: <p>Filters the results to show only rule groups with the specified subscription status. Use this to find subscribed or unsubscribed rule groups.</p>
             type: <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3543,6 +3942,13 @@ class AsyncNetworkFirewallClient:
             next_token: <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
             max_results: <p>The maximum number of objects that you want Network Firewall to return for this request. If more objects are available, in the response, Network Firewall provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3618,6 +4024,12 @@ class AsyncNetworkFirewallClient:
         Args:
             next_token: <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
             max_results: <p>The maximum number of objects that you want Network Firewall to return for this request. If more objects are available, in the response, Network Firewall provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3694,6 +4106,12 @@ class AsyncNetworkFirewallClient:
             next_token: <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
             max_results: <p>The maximum number of objects that you want Network Firewall to return for this request. If more objects are available, in the response, Network Firewall provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p> <p>If you don't specify this, Network Firewall retrieves all VPC endpoint associations that you have defined.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3768,6 +4186,14 @@ class AsyncNetworkFirewallClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the account that you want to share your Network Firewall resources with.</p>
             policy: <p>The IAM policy statement that lists the accounts that you want to share your Network Firewall resources with and the operations that you want the accounts to be able to perform. </p> <p>For a rule group resource, you can specify the following operations in the Actions section of the statement:</p> <ul> <li> <p>network-firewall:CreateFirewallPolicy</p> </li> <li> <p>network-firewall:UpdateFirewallPolicy</p> </li> <li> <p>network-firewall:ListRuleGroups</p> </li> </ul> <p>For a firewall policy resource, you can specify the following operations in the Actions section of the statement:</p> <ul> <li> <p>network-firewall:AssociateFirewallPolicy</p> </li> <li> <p>network-firewall:ListFirewallPolicies</p> </li> </ul> <p>For a firewall resource, you can specify the following operations in the Actions section of the statement:</p> <ul> <li> <p>network-firewall:CreateVpcEndpointAssociation</p> </li> <li> <p>network-firewall:DescribeFirewallMetadata</p> </li> <li> <p>network-firewall:ListFirewalls</p> </li> </ul> <p>In the Resource section of the statement, you specify the ARNs for the Network Firewall resources that you want to share with the account that you specified in <code>Arn</code>.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.invalid_resource_policy_exception.InvalidResourcePolicyException: <p>The policy statement failed validation.</p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3807,6 +4233,13 @@ class AsyncNetworkFirewallClient:
 
         Args:
             transit_gateway_attachment_id: <p>Required. The unique identifier of the transit gateway attachment to reject. This ID is returned in the response when creating a transit gateway-attached firewall.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3853,6 +4286,13 @@ class AsyncNetworkFirewallClient:
             firewall_name: <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             analysis_type: <p>The type of traffic that will be used to generate a report. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3913,6 +4353,13 @@ class AsyncNetworkFirewallClient:
             vpc_endpoint_id: <p>A unique identifier for the primary endpoint associated with a firewall.</p>
             minimum_flow_age_in_seconds: <p>The reqested <code>FlowOperation</code> ignores flows with an age (in seconds) lower than <code>MinimumFlowAgeInSeconds</code>. You provide this for start commands.</p> <note> <p>We recommend setting this value to at least 1 minute (60 seconds) to reduce chance of capturing flows that are not yet established.</p> </note>
             flow_filters: <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -3978,6 +4425,13 @@ class AsyncNetworkFirewallClient:
             vpc_endpoint_id: <p>A unique identifier for the primary endpoint associated with a firewall.</p>
             minimum_flow_age_in_seconds: <p>The reqested <code>FlowOperation</code> ignores flows with an age (in seconds) lower than <code>MinimumFlowAgeInSeconds</code>. You provide this for start commands.</p>
             flow_filters: <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4027,6 +4481,13 @@ class AsyncNetworkFirewallClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tags: <p></p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4068,6 +4529,13 @@ class AsyncNetworkFirewallClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
             tag_keys: <p></p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4119,6 +4587,15 @@ class AsyncNetworkFirewallClient:
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_name: <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             availability_zone_change_protection: <p>A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.invalid_token_exception.InvalidTokenException: <p>The token you provided is stale or isn't valid for the operation. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.resource_owner_check_exception.ResourceOwnerCheckException: <p>Unable to change the resource because your account doesn't own it. </p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4179,6 +4656,14 @@ class AsyncNetworkFirewallClient:
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_name: <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             update_token: <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p> <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p> <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.invalid_token_exception.InvalidTokenException: <p>The token you provided is stale or isn't valid for the operation. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4236,6 +4721,15 @@ class AsyncNetworkFirewallClient:
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_name: <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             delete_protection: <p>A flag indicating whether it is possible to delete the firewall. A setting of <code>TRUE</code> indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to <code>TRUE</code>.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.invalid_token_exception.InvalidTokenException: <p>The token you provided is stale or isn't valid for the operation. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.resource_owner_check_exception.ResourceOwnerCheckException: <p>Unable to change the resource because your account doesn't own it. </p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4294,6 +4788,14 @@ class AsyncNetworkFirewallClient:
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_name: <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             description: <p>The new description for the firewall. If you omit this setting, Network Firewall removes the description for the firewall.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.invalid_token_exception.InvalidTokenException: <p>The token you provided is stale or isn't valid for the operation. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4352,6 +4854,15 @@ class AsyncNetworkFirewallClient:
             update_token: <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p> <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p> <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p>
             firewall_name: <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.invalid_token_exception.InvalidTokenException: <p>The token you provided is stale or isn't valid for the operation. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.resource_owner_check_exception.ResourceOwnerCheckException: <p>Unable to change the resource because your account doesn't own it. </p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4417,6 +4928,14 @@ class AsyncNetworkFirewallClient:
             description: <p>A description of the firewall policy.</p>
             dry_run: <p>Indicates whether you want Network Firewall to just check the validity of the request, rather than run the request. </p> <p>If set to <code>TRUE</code>, Network Firewall checks whether the request can run successfully, but doesn't actually make the requested changes. The call returns the value that the request would return if you ran it with dry run set to <code>FALSE</code>, but doesn't make additions or changes to your resources. This option allows you to make sure that you have the required permissions to run the request and that your request parameters are valid. </p> <p>If set to <code>FALSE</code>, Network Firewall makes the requested changes to your resources. </p>
             encryption_configuration: <p>A complex type that contains settings for encryption of your firewall policy resources.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.invalid_token_exception.InvalidTokenException: <p>The token you provided is stale or isn't valid for the operation. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4478,6 +4997,15 @@ class AsyncNetworkFirewallClient:
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_name: <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_policy_change_protection: <p>A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.invalid_token_exception.InvalidTokenException: <p>The token you provided is stale or isn't valid for the operation. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.resource_owner_check_exception.ResourceOwnerCheckException: <p>Unable to change the resource because your account doesn't own it. </p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4536,6 +5064,15 @@ class AsyncNetworkFirewallClient:
             firewall_name: <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             logging_configuration: <p>Defines how Network Firewall performs logging for a firewall. If you omit this setting, Network Firewall disables logging for the firewall.</p>
             enable_monitoring_dashboard: <p>A boolean that lets you enable or disable the detailed firewall monitoring dashboard on the firewall. </p> <p>The monitoring dashboard provides comprehensive visibility into your firewall's flow logs and alert logs. After you enable detailed monitoring, you can access these dashboards directly from the <b>Monitoring</b> page of the Network Firewall console.</p> <p> Specify <code>TRUE</code> to enable the the detailed monitoring dashboard on the firewall. Specify <code>FALSE</code> to disable the the detailed monitoring dashboard on the firewall. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.invalid_token_exception.InvalidTokenException: <p>The token you provided is stale or isn't valid for the operation. </p>
+            aws_sdk_network_firewall.errors.log_destination_permission_exception.LogDestinationPermissionException: <p>Unable to send logs to a configured logging destination. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4603,6 +5140,14 @@ class AsyncNetworkFirewallClient:
             listener_properties_to_remove: <p>Listener properties for HTTP and HTTPS traffic to remove. </p>
             tls_intercept_properties: <p>TLS decryption on traffic to filter on attributes in the HTTP header. </p>
             update_token: <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy. The token marks the state of the proxy resource at the time of the request. </p> <p>To make changes to the proxy, you provide the token in your request. Network Firewall uses the token to ensure that the proxy hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.unsupported_operation_exception.UnsupportedOperationException: <p>The operation you requested isn't supported by Network Firewall. </p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4662,6 +5207,13 @@ class AsyncNetworkFirewallClient:
             proxy_configuration_arn: <p>The Amazon Resource Name (ARN) of a proxy configuration.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             default_rule_phase_actions: <p>Evaluation points in the traffic flow where rules are applied. There are three phases in a traffic where the rule match is applied. </p>
             update_token: <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy configuration. The token marks the state of the proxy configuration resource at the time of the request. </p> <p>To make changes to the proxy configuration, you provide the token in your request. Network Firewall uses the token to ensure that the proxy configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4731,6 +5283,13 @@ class AsyncNetworkFirewallClient:
             add_conditions: <p>Proxy rule conditions to add. Match criteria that specify what traffic attributes to examine. Conditions include operators (StringEquals, StringLike) and values to match against. </p>
             remove_conditions: <p>Proxy rule conditions to remove. Match criteria that specify what traffic attributes to examine. Conditions include operators (StringEquals, StringLike) and values to match against. </p>
             update_token: <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy rule. The token marks the state of the proxy rule resource at the time of the request. </p> <p>To make changes to the proxy rule, you provide the token in your request. Network Firewall uses the token to ensure that the proxy rule hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy rule again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4792,6 +5351,13 @@ class AsyncNetworkFirewallClient:
             proxy_configuration_arn: <p>The Amazon Resource Name (ARN) of a proxy configuration.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             rule_groups: <p>proxy rule group resources to update to new positions. </p>
             update_token: <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy configuration. The token marks the state of the proxy configuration resource at the time of the request. </p> <p>To make changes to the proxy configuration, you provide the token in your request. Network Firewall uses the token to ensure that the proxy configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4847,6 +5413,13 @@ class AsyncNetworkFirewallClient:
             rule_group_request_phase: <p>Evaluation points in the traffic flow where rules are applied. There are three phases in a traffic where the rule match is applied. </p>
             rules: <p>proxy rule resources to update to new positions. </p>
             update_token: <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the proxy rule group. The token marks the state of the proxy rule group resource at the time of the request. </p> <p>To make changes to the proxy rule group, you provide the token in your request. Network Firewall uses the token to ensure that the proxy rule group hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the proxy rule group again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -4933,6 +5506,14 @@ class AsyncNetworkFirewallClient:
             source_metadata: <p>A complex type that contains metadata about the rule group that your own rule group is copied from. You can use the metadata to keep track of updates made to the originating rule group.</p>
             analyze_rule_group: <p>Indicates whether you want Network Firewall to analyze the stateless rules in the rule group for rule behavior such as asymmetric routing. If set to <code>TRUE</code>, Network Firewall runs the analysis and then updates the rule group for you. To run the stateless rule group analyzer without updating the rule group, set <code>DryRun</code> to <code>TRUE</code>. </p>
             summary_configuration: <p>Updates the selected summary configuration for a rule group.</p> <p>Changes affect subsequent responses from <a>DescribeRuleGroupSummary</a>.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.invalid_token_exception.InvalidTokenException: <p>The token you provided is stale or isn't valid for the operation. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5005,6 +5586,15 @@ class AsyncNetworkFirewallClient:
             firewall_arn: <p>The Amazon Resource Name (ARN) of the firewall.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             firewall_name: <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p> <p>You must specify the ARN or the name, and you can specify both. </p>
             subnet_change_protection: <p>A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.invalid_token_exception.InvalidTokenException: <p>The token you provided is stale or isn't valid for the operation. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.resource_owner_check_exception.ResourceOwnerCheckException: <p>Unable to change the resource because your account doesn't own it. </p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -5067,6 +5657,14 @@ class AsyncNetworkFirewallClient:
             description: <p>A description of the TLS inspection configuration. </p>
             encryption_configuration: <p>A complex type that contains the Amazon Web Services KMS encryption configuration settings for your TLS inspection configuration.</p>
             update_token: <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the TLS inspection configuration. The token marks the state of the TLS inspection configuration resource at the time of the request. </p> <p>To make changes to the TLS inspection configuration, you provide the token in your request. Network Firewall uses the token to ensure that the TLS inspection configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the TLS inspection configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
+
+        Raises:
+            aws_sdk_network_firewall.errors.internal_server_error.InternalServerError: <p>Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request. </p>
+            aws_sdk_network_firewall.errors.invalid_request_exception.InvalidRequestException: <p>The operation failed because of a problem with your request. Examples include: </p> <ul> <li> <p>You specified an unsupported parameter name or value.</p> </li> <li> <p>You tried to update a property with a value that isn't among the available types.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.</p> </li> </ul>
+            aws_sdk_network_firewall.errors.invalid_token_exception.InvalidTokenException: <p>The token you provided is stale or isn't valid for the operation. </p>
+            aws_sdk_network_firewall.errors.resource_not_found_exception.ResourceNotFoundException: <p>Unable to locate a resource using the parameters that you provided.</p>
+            aws_sdk_network_firewall.errors.throttling_exception.ThrottlingException: <p>Unable to process the request due to throttling limitations.</p>
+            aws_sdk_network_firewall.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

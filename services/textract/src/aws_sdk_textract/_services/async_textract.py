@@ -225,6 +225,19 @@ class AsyncTextractClient:
             human_loop_config: <p>Sets the configuration for the human in the loop workflow for analyzing documents.</p>
             queries_config: <p>Contains Queries and the alias for those Queries, as determined by the input. </p>
             adapters_config: <p>Specifies the adapter to be used when analyzing a document.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.bad_document_exception.BadDocumentException: <p>Amazon Textract isn't able to read the document. For more information on the document limits in Amazon Textract, see <a>limits</a>.</p>
+            aws_sdk_textract.errors.document_too_large_exception.DocumentTooLargeException: <p>The document can't be processed because it's too large. The maximum document size for synchronous operations 10 MB. The maximum document size for asynchronous operations is 500 MB for PDF files.</p>
+            aws_sdk_textract.errors.human_loop_quota_exceeded_exception.HumanLoopQuotaExceededException: <p>Indicates you have exceeded the maximum number of active human in the loop workflows available</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Textract is unable to access the S3 object that's specified in the request. for more information, <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">Configure Access to Amazon S3</a> For troubleshooting information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html\">Troubleshooting Amazon S3</a> </p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.unsupported_document_exception.UnsupportedDocumentException: <p>The format of the input document isn't supported. Documents for operations can be in PNG, JPEG, PDF, or TIFF format.</p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -266,7 +279,20 @@ class AsyncTextractClient:
         *,
         config_overrides: Optional[AsyncTextractClientConfig] = None,
     ) -> "aws_sdk_textract.types.analyze_expense_response.AnalyzeExpenseResponse":
-        """<p> <code>AnalyzeExpense</code> synchronously analyzes an input document for financially related relationships between text.</p> <p>Information is returned as <code>ExpenseDocuments</code> and seperated as follows:</p> <ul> <li> <p> <code>LineItemGroups</code>- A data set containing <code>LineItems</code> which store information about the lines of text, such as an item purchased and its price on a receipt.</p> </li> <li> <p> <code>SummaryFields</code>- Contains all other information a receipt, such as header information or the vendors name.</p> </li> </ul>"""
+        """<p> <code>AnalyzeExpense</code> synchronously analyzes an input document for financially related relationships between text.</p> <p>Information is returned as <code>ExpenseDocuments</code> and seperated as follows:</p> <ul> <li> <p> <code>LineItemGroups</code>- A data set containing <code>LineItems</code> which store information about the lines of text, such as an item purchased and its price on a receipt.</p> </li> <li> <p> <code>SummaryFields</code>- Contains all other information a receipt, such as header information or the vendors name.</p> </li> </ul>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.bad_document_exception.BadDocumentException: <p>Amazon Textract isn't able to read the document. For more information on the document limits in Amazon Textract, see <a>limits</a>.</p>
+            aws_sdk_textract.errors.document_too_large_exception.DocumentTooLargeException: <p>The document can't be processed because it's too large. The maximum document size for synchronous operations 10 MB. The maximum document size for asynchronous operations is 500 MB for PDF files.</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Textract is unable to access the S3 object that's specified in the request. for more information, <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">Configure Access to Amazon S3</a> For troubleshooting information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html\">Troubleshooting Amazon S3</a> </p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.unsupported_document_exception.UnsupportedDocumentException: <p>The format of the input document isn't supported. Documents for operations can be in PNG, JPEG, PDF, or TIFF format.</p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_textract.types.analyze_expense_request.AnalyzeExpenseRequest]",
@@ -304,6 +330,18 @@ class AsyncTextractClient:
 
         Args:
             document_pages: <p>The document being passed to AnalyzeID.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.bad_document_exception.BadDocumentException: <p>Amazon Textract isn't able to read the document. For more information on the document limits in Amazon Textract, see <a>limits</a>.</p>
+            aws_sdk_textract.errors.document_too_large_exception.DocumentTooLargeException: <p>The document can't be processed because it's too large. The maximum document size for synchronous operations 10 MB. The maximum document size for asynchronous operations is 500 MB for PDF files.</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Textract is unable to access the S3 object that's specified in the request. for more information, <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">Configure Access to Amazon S3</a> For troubleshooting information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html\">Troubleshooting Amazon S3</a> </p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.unsupported_document_exception.UnsupportedDocumentException: <p>The format of the input document isn't supported. Documents for operations can be in PNG, JPEG, PDF, or TIFF format.</p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -356,6 +394,19 @@ class AsyncTextractClient:
             feature_types: <p>The type of feature that the adapter is being trained on. Currrenly, supported feature types are: <code>QUERIES</code> </p>
             auto_update: <p>Controls whether or not the adapter should automatically update.</p>
             tags: <p>A list of tags to be added to the adapter.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_textract.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation. </p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Textract service limit was exceeded. For example, if you start too many asynchronous jobs concurrently, calls to start operations (<code>StartDocumentTextDetection</code>, for example) raise a LimitExceededException exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Textract service limit. </p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Returned when a request cannot be completed as it would exceed a maximum service quota.</p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.validation_exception.ValidationException: <p> Indicates that a request was not valid. Check request for proper formatting. </p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -414,6 +465,22 @@ class AsyncTextractClient:
             dataset_config: <p>Specifies a dataset used to train a new adapter version. Takes a ManifestS3Object as the value.</p>
             kms_key_id: <p>The identifier for your AWS Key Management Service key (AWS KMS key). Used to encrypt your documents.</p>
             tags: <p>A set of tags (key-value pairs) that you want to attach to the adapter version. </p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_textract.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation. </p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_kms_key_exception.InvalidKMSKeyException: <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key was entered incorrectly. </p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Textract is unable to access the S3 object that's specified in the request. for more information, <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">Configure Access to Amazon S3</a> For troubleshooting information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html\">Troubleshooting Amazon S3</a> </p>
+            aws_sdk_textract.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Textract service limit was exceeded. For example, if you start too many asynchronous jobs concurrently, calls to start operations (<code>StartDocumentTextDetection</code>, for example) raise a LimitExceededException exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Textract service limit. </p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.resource_not_found_exception.ResourceNotFoundException: <p> Returned when an operation tried to access a nonexistent resource. </p>
+            aws_sdk_textract.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Returned when a request cannot be completed as it would exceed a maximum service quota.</p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.validation_exception.ValidationException: <p> Indicates that a request was not valid. Check request for proper formatting. </p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -460,6 +527,17 @@ class AsyncTextractClient:
 
         Args:
             adapter_id: <p>A string containing a unique ID for the adapter to be deleted.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.resource_not_found_exception.ResourceNotFoundException: <p> Returned when an operation tried to access a nonexistent resource. </p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.validation_exception.ValidationException: <p> Indicates that a request was not valid. Check request for proper formatting. </p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -500,6 +578,17 @@ class AsyncTextractClient:
         Args:
             adapter_id: <p>A string containing a unique ID for the adapter version that will be deleted.</p>
             adapter_version: <p>Specifies the adapter version to be deleted.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.resource_not_found_exception.ResourceNotFoundException: <p> Returned when an operation tried to access a nonexistent resource. </p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.validation_exception.ValidationException: <p> Indicates that a request was not valid. Check request for proper formatting. </p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -539,6 +628,18 @@ class AsyncTextractClient:
 
         Args:
             document: <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Textract operations, you can't pass image bytes. The document must be an image in JPEG or PNG format.</p> <p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode image bytes that are passed using the <code>Bytes</code> field. </p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.bad_document_exception.BadDocumentException: <p>Amazon Textract isn't able to read the document. For more information on the document limits in Amazon Textract, see <a>limits</a>.</p>
+            aws_sdk_textract.errors.document_too_large_exception.DocumentTooLargeException: <p>The document can't be processed because it's too large. The maximum document size for synchronous operations 10 MB. The maximum document size for asynchronous operations is 500 MB for PDF files.</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Textract is unable to access the S3 object that's specified in the request. for more information, <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">Configure Access to Amazon S3</a> For troubleshooting information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html\">Troubleshooting Amazon S3</a> </p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.unsupported_document_exception.UnsupportedDocumentException: <p>The format of the input document isn't supported. Documents for operations can be in PNG, JPEG, PDF, or TIFF format.</p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -577,6 +678,16 @@ class AsyncTextractClient:
 
         Args:
             adapter_id: <p>A string containing a unique ID for the adapter.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.resource_not_found_exception.ResourceNotFoundException: <p> Returned when an operation tried to access a nonexistent resource. </p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.validation_exception.ValidationException: <p> Indicates that a request was not valid. Check request for proper formatting. </p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -619,6 +730,16 @@ class AsyncTextractClient:
         Args:
             adapter_id: <p>A string specifying a unique ID for the adapter version you want to retrieve information for.</p>
             adapter_version: <p>A string specifying the adapter version you want to retrieve information for.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.resource_not_found_exception.ResourceNotFoundException: <p> Returned when an operation tried to access a nonexistent resource. </p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.validation_exception.ValidationException: <p> Indicates that a request was not valid. Check request for proper formatting. </p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -664,6 +785,17 @@ class AsyncTextractClient:
             job_id: <p>A unique identifier for the text-detection job. The <code>JobId</code> is returned from <code>StartDocumentAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
             max_results: <p>The maximum number of results to return per paginated call. The largest value that you can specify is 1,000. If you specify a value greater than 1,000, a maximum of 1,000 results is returned. The default value is 1,000.</p>
             next_token: <p>If the previous response was incomplete (because there are more blocks to retrieve), Amazon Textract returns a pagination token in the response. You can use this pagination token to retrieve the next set of blocks.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_job_id_exception.InvalidJobIdException: <p>An invalid job identifier was passed to an asynchronous analysis operation.</p>
+            aws_sdk_textract.errors.invalid_kms_key_exception.InvalidKMSKeyException: <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key was entered incorrectly. </p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Textract is unable to access the S3 object that's specified in the request. for more information, <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">Configure Access to Amazon S3</a> For troubleshooting information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html\">Troubleshooting Amazon S3</a> </p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -712,6 +844,17 @@ class AsyncTextractClient:
             job_id: <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from <code>StartDocumentTextDetection</code>. A <code>JobId</code> value is only valid for 7 days.</p>
             max_results: <p>The maximum number of results to return per paginated call. The largest value you can specify is 1,000. If you specify a value greater than 1,000, a maximum of 1,000 results is returned. The default value is 1,000.</p>
             next_token: <p>If the previous response was incomplete (because there are more blocks to retrieve), Amazon Textract returns a pagination token in the response. You can use this pagination token to retrieve the next set of blocks.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_job_id_exception.InvalidJobIdException: <p>An invalid job identifier was passed to an asynchronous analysis operation.</p>
+            aws_sdk_textract.errors.invalid_kms_key_exception.InvalidKMSKeyException: <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key was entered incorrectly. </p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Textract is unable to access the S3 object that's specified in the request. for more information, <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">Configure Access to Amazon S3</a> For troubleshooting information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html\">Troubleshooting Amazon S3</a> </p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -760,6 +903,17 @@ class AsyncTextractClient:
             job_id: <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from <code>StartExpenseAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
             max_results: <p>The maximum number of results to return per paginated call. The largest value you can specify is 20. If you specify a value greater than 20, a maximum of 20 results is returned. The default value is 20.</p>
             next_token: <p>If the previous response was incomplete (because there are more blocks to retrieve), Amazon Textract returns a pagination token in the response. You can use this pagination token to retrieve the next set of blocks.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_job_id_exception.InvalidJobIdException: <p>An invalid job identifier was passed to an asynchronous analysis operation.</p>
+            aws_sdk_textract.errors.invalid_kms_key_exception.InvalidKMSKeyException: <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key was entered incorrectly. </p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Textract is unable to access the S3 object that's specified in the request. for more information, <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">Configure Access to Amazon S3</a> For troubleshooting information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html\">Troubleshooting Amazon S3</a> </p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -808,6 +962,17 @@ class AsyncTextractClient:
             job_id: <p>A unique identifier for the lending or text-detection job. The <code>JobId</code> is returned from <code>StartLendingAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
             max_results: <p>The maximum number of results to return per paginated call. The largest value that you can specify is 30. If you specify a value greater than 30, a maximum of 30 results is returned. The default value is 30.</p>
             next_token: <p>If the previous response was incomplete, Amazon Textract returns a pagination token in the response. You can use this pagination token to retrieve the next set of lending results.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_job_id_exception.InvalidJobIdException: <p>An invalid job identifier was passed to an asynchronous analysis operation.</p>
+            aws_sdk_textract.errors.invalid_kms_key_exception.InvalidKMSKeyException: <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key was entered incorrectly. </p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Textract is unable to access the S3 object that's specified in the request. for more information, <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">Configure Access to Amazon S3</a> For troubleshooting information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html\">Troubleshooting Amazon S3</a> </p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -850,6 +1015,17 @@ class AsyncTextractClient:
 
         Args:
             job_id: <p> A unique identifier for the lending or text-detection job. The <code>JobId</code> is returned from StartLendingAnalysis. A <code>JobId</code> value is only valid for 7 days.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_job_id_exception.InvalidJobIdException: <p>An invalid job identifier was passed to an asynchronous analysis operation.</p>
+            aws_sdk_textract.errors.invalid_kms_key_exception.InvalidKMSKeyException: <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key was entered incorrectly. </p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Textract is unable to access the S3 object that's specified in the request. for more information, <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">Configure Access to Amazon S3</a> For troubleshooting information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html\">Troubleshooting Amazon S3</a> </p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -900,6 +1076,15 @@ class AsyncTextractClient:
             before_creation_time: <p>Specifies the upper bound for the ListAdapters operation. Ensures ListAdapters returns only adapters created before the specified creation time.</p>
             max_results: <p>The maximum number of results to return when listing adapters.</p>
             next_token: <p>Identifies the next page of results to return when listing adapters.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.validation_exception.ValidationException: <p> Indicates that a request was not valid. Check request for proper formatting. </p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -990,6 +1175,16 @@ class AsyncTextractClient:
             before_creation_time: <p>Specifies the upper bound for the ListAdapterVersions operation. Ensures ListAdapterVersions returns only adapter versions created after the specified creation time.</p>
             max_results: <p>The maximum number of results to return when listing adapter versions.</p>
             next_token: <p>Identifies the next page of results to return when listing adapter versions.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.resource_not_found_exception.ResourceNotFoundException: <p> Returned when an operation tried to access a nonexistent resource. </p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.validation_exception.ValidationException: <p> Indicates that a request was not valid. Check request for proper formatting. </p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1070,6 +1265,16 @@ class AsyncTextractClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that specifies the resource to list tags for.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.resource_not_found_exception.ResourceNotFoundException: <p> Returned when an operation tried to access a nonexistent resource. </p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.validation_exception.ValidationException: <p> Indicates that a request was not valid. Check request for proper formatting. </p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1133,6 +1338,21 @@ class AsyncTextractClient:
             output_config: <p>Sets if the output will go to a customer defined bucket. By default, Amazon Textract will save the results internally to be accessed by the GetDocumentAnalysis operation.</p>
             kms_key_id: <p>The KMS key used to encrypt the inference results. This can be in either Key ID or Key Alias format. When a KMS key is provided, the KMS key will be used for server-side encryption of the objects in the customer bucket. When this parameter is not enabled, the result will be encrypted server side,using SSE-S3.</p>
             adapters_config: <p>Specifies the adapter to be used when analyzing a document.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.bad_document_exception.BadDocumentException: <p>Amazon Textract isn't able to read the document. For more information on the document limits in Amazon Textract, see <a>limits</a>.</p>
+            aws_sdk_textract.errors.document_too_large_exception.DocumentTooLargeException: <p>The document can't be processed because it's too large. The maximum document size for synchronous operations 10 MB. The maximum document size for asynchronous operations is 500 MB for PDF files.</p>
+            aws_sdk_textract.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation. </p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_kms_key_exception.InvalidKMSKeyException: <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key was entered incorrectly. </p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Textract is unable to access the S3 object that's specified in the request. for more information, <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">Configure Access to Amazon S3</a> For troubleshooting information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html\">Troubleshooting Amazon S3</a> </p>
+            aws_sdk_textract.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Textract service limit was exceeded. For example, if you start too many asynchronous jobs concurrently, calls to start operations (<code>StartDocumentTextDetection</code>, for example) raise a LimitExceededException exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Textract service limit. </p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.unsupported_document_exception.UnsupportedDocumentException: <p>The format of the input document isn't supported. Documents for operations can be in PNG, JPEG, PDF, or TIFF format.</p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1202,6 +1422,21 @@ class AsyncTextractClient:
             notification_channel: <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the operation to. </p>
             output_config: <p>Sets if the output will go to a customer defined bucket. By default Amazon Textract will save the results internally to be accessed with the GetDocumentTextDetection operation.</p>
             kms_key_id: <p>The KMS key used to encrypt the inference results. This can be in either Key ID or Key Alias format. When a KMS key is provided, the KMS key will be used for server-side encryption of the objects in the customer bucket. When this parameter is not enabled, the result will be encrypted server side,using SSE-S3.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.bad_document_exception.BadDocumentException: <p>Amazon Textract isn't able to read the document. For more information on the document limits in Amazon Textract, see <a>limits</a>.</p>
+            aws_sdk_textract.errors.document_too_large_exception.DocumentTooLargeException: <p>The document can't be processed because it's too large. The maximum document size for synchronous operations 10 MB. The maximum document size for asynchronous operations is 500 MB for PDF files.</p>
+            aws_sdk_textract.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation. </p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_kms_key_exception.InvalidKMSKeyException: <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key was entered incorrectly. </p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Textract is unable to access the S3 object that's specified in the request. for more information, <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">Configure Access to Amazon S3</a> For troubleshooting information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html\">Troubleshooting Amazon S3</a> </p>
+            aws_sdk_textract.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Textract service limit was exceeded. For example, if you start too many asynchronous jobs concurrently, calls to start operations (<code>StartDocumentTextDetection</code>, for example) raise a LimitExceededException exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Textract service limit. </p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.unsupported_document_exception.UnsupportedDocumentException: <p>The format of the input document isn't supported. Documents for operations can be in PNG, JPEG, PDF, or TIFF format.</p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1266,6 +1501,21 @@ class AsyncTextractClient:
             notification_channel: <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the operation to. </p>
             output_config: <p>Sets if the output will go to a customer defined bucket. By default, Amazon Textract will save the results internally to be accessed by the <code>GetExpenseAnalysis</code> operation.</p>
             kms_key_id: <p>The KMS key used to encrypt the inference results. This can be in either Key ID or Key Alias format. When a KMS key is provided, the KMS key will be used for server-side encryption of the objects in the customer bucket. When this parameter is not enabled, the result will be encrypted server side,using SSE-S3.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.bad_document_exception.BadDocumentException: <p>Amazon Textract isn't able to read the document. For more information on the document limits in Amazon Textract, see <a>limits</a>.</p>
+            aws_sdk_textract.errors.document_too_large_exception.DocumentTooLargeException: <p>The document can't be processed because it's too large. The maximum document size for synchronous operations 10 MB. The maximum document size for asynchronous operations is 500 MB for PDF files.</p>
+            aws_sdk_textract.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation. </p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_kms_key_exception.InvalidKMSKeyException: <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key was entered incorrectly. </p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Textract is unable to access the S3 object that's specified in the request. for more information, <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">Configure Access to Amazon S3</a> For troubleshooting information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html\">Troubleshooting Amazon S3</a> </p>
+            aws_sdk_textract.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Textract service limit was exceeded. For example, if you start too many asynchronous jobs concurrently, calls to start operations (<code>StartDocumentTextDetection</code>, for example) raise a LimitExceededException exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Textract service limit. </p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.unsupported_document_exception.UnsupportedDocumentException: <p>The format of the input document isn't supported. Documents for operations can be in PNG, JPEG, PDF, or TIFF format.</p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1327,6 +1577,21 @@ class AsyncTextractClient:
             client_request_token: <p>The idempotent token that you use to identify the start request. If you use the same token with multiple <code>StartLendingAnalysis</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidentally started more than once. For more information, see <a href=\"https://docs.aws.amazon.com/textract/latest/dg/api-sync.html\">Calling Amazon Textract Asynchronous Operations</a>.</p>
             job_tag: <p>An identifier that you specify to be included in the completion notification published to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of document that the completion notification corresponds to (such as a tax form or a receipt).</p>
             kms_key_id: <p>The KMS key used to encrypt the inference results. This can be in either Key ID or Key Alias format. When a KMS key is provided, the KMS key will be used for server-side encryption of the objects in the customer bucket. When this parameter is not enabled, the result will be encrypted server side, using SSE-S3. </p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.bad_document_exception.BadDocumentException: <p>Amazon Textract isn't able to read the document. For more information on the document limits in Amazon Textract, see <a>limits</a>.</p>
+            aws_sdk_textract.errors.document_too_large_exception.DocumentTooLargeException: <p>The document can't be processed because it's too large. The maximum document size for synchronous operations 10 MB. The maximum document size for asynchronous operations is 500 MB for PDF files.</p>
+            aws_sdk_textract.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException: <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation. </p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_kms_key_exception.InvalidKMSKeyException: <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key was entered incorrectly. </p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.invalid_s3_object_exception.InvalidS3ObjectException: <p>Amazon Textract is unable to access the S3 object that's specified in the request. for more information, <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">Configure Access to Amazon S3</a> For troubleshooting information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html\">Troubleshooting Amazon S3</a> </p>
+            aws_sdk_textract.errors.limit_exceeded_exception.LimitExceededException: <p>An Amazon Textract service limit was exceeded. For example, if you start too many asynchronous jobs concurrently, calls to start operations (<code>StartDocumentTextDetection</code>, for example) raise a LimitExceededException exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Textract service limit. </p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.unsupported_document_exception.UnsupportedDocumentException: <p>The format of the input document isn't supported. Documents for operations can be in PNG, JPEG, PDF, or TIFF format.</p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1377,6 +1642,17 @@ class AsyncTextractClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that specifies the resource to be tagged.</p>
             tags: <p>A set of tags (key-value pairs) that you want to assign to the resource.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.resource_not_found_exception.ResourceNotFoundException: <p> Returned when an operation tried to access a nonexistent resource. </p>
+            aws_sdk_textract.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>Returned when a request cannot be completed as it would exceed a maximum service quota.</p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.validation_exception.ValidationException: <p> Indicates that a request was not valid. Check request for proper formatting. </p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1418,6 +1694,16 @@ class AsyncTextractClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) that specifies the resource to be untagged.</p>
             tag_keys: <p>Specifies the tags to be removed from the resource specified by the ResourceARN.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.resource_not_found_exception.ResourceNotFoundException: <p> Returned when an operation tried to access a nonexistent resource. </p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.validation_exception.ValidationException: <p> Indicates that a request was not valid. Check request for proper formatting. </p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1467,6 +1753,17 @@ class AsyncTextractClient:
             description: <p>The new description to be applied to the adapter.</p>
             adapter_name: <p>The new name to be applied to the adapter.</p>
             auto_update: <p>The new auto-update status to be applied to the adapter.</p>
+
+        Raises:
+            aws_sdk_textract.errors.access_denied_exception.AccessDeniedException: <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.</p>
+            aws_sdk_textract.errors.conflict_exception.ConflictException: <p>Updating or deleting a resource can cause an inconsistent state.</p>
+            aws_sdk_textract.errors.internal_server_error.InternalServerError: <p>Amazon Textract experienced a service issue. Try your call again.</p>
+            aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException: <p>An input parameter violated a constraint. For example, in synchronous operations, an <code>InvalidParameterException</code> exception occurs when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code> request parameter. Validate your parameter before calling the API operation again.</p>
+            aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException: <p>The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.</p>
+            aws_sdk_textract.errors.resource_not_found_exception.ResourceNotFoundException: <p> Returned when an operation tried to access a nonexistent resource. </p>
+            aws_sdk_textract.errors.throttling_exception.ThrottlingException: <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+            aws_sdk_textract.errors.validation_exception.ValidationException: <p> Indicates that a request was not valid. Check request for proper formatting. </p>
+            aws_sdk_textract.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

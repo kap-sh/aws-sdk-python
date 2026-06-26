@@ -89,6 +89,14 @@ class ServiceLevelObjectiveResource:
             burn_rate_configurations: <p>Use this array to create <i>burn rates</i> for this SLO. Each burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>
             create_recommended_slo: <p>Set this to <code>true</code> to create a recommended SLO out of the box. When set to <code>true</code>, you don't need to specify the <code>MetricThreshold</code> or <code>ComparisonOperator</code> in the <code>SliConfig</code> or <code>RequestBasedSliConfig</code>. The default value is <code>false</code>.</p> <p>This is supported for SLOs on a service, service operation, or a dependency.</p>
             auto_investigation_enabled: Indicates whether DevOps Agent will automatically investigate this SLO when it is breached
+
+        Raises:
+            aws_sdk_application_signals.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_application_signals.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_application_signals.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -142,6 +150,12 @@ class ServiceLevelObjectiveResource:
 
         Args:
             id: <p>The ARN or name of the SLO that you want to retrieve information about. You can find the ARNs of SLOs by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListServiceLevelObjectives.html\">ListServiceLevelObjectives</a> operation.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -199,6 +213,12 @@ class ServiceLevelObjectiveResource:
             goal: <p>A structure that contains the attributes that determine the goal of the SLO. This includes the time period for evaluation and the attainment threshold.</p>
             burn_rate_configurations: <p>Use this array to create <i>burn rates</i> for this SLO. Each burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>
             auto_investigation_enabled: Indicates whether DevOps Agent will automatically investigate this SLO when it is breached
+
+        Raises:
+            aws_sdk_application_signals.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -248,6 +268,12 @@ class ServiceLevelObjectiveResource:
 
         Args:
             id: <p>The ARN or name of the service level objective to delete.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -317,6 +343,11 @@ class ServiceLevelObjectiveResource:
             include_linked_accounts: <p>If you are using this operation in a monitoring account, specify <code>true</code> to include SLO from source accounts in the returned data. </p> <p>When you are monitoring an account, you can use Amazon Web Services account ID in <code>KeyAttribute</code> filter for service source account and <code>SloOwnerawsaccountID</code> for SLO source account with <code>IncludeLinkedAccounts</code> to filter the returned data to only a single source account. </p>
             slo_owner_aws_account_id: <p>SLO's Amazon Web Services account ID.</p>
             metric_source: <p>Identifies the metric source to filter SLOs by.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -400,6 +431,14 @@ class AsyncServiceLevelObjectiveResource:
             burn_rate_configurations: <p>Use this array to create <i>burn rates</i> for this SLO. Each burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>
             create_recommended_slo: <p>Set this to <code>true</code> to create a recommended SLO out of the box. When set to <code>true</code>, you don't need to specify the <code>MetricThreshold</code> or <code>ComparisonOperator</code> in the <code>SliConfig</code> or <code>RequestBasedSliConfig</code>. The default value is <code>false</code>.</p> <p>This is supported for SLOs on a service, service operation, or a dependency.</p>
             auto_investigation_enabled: Indicates whether DevOps Agent will automatically investigate this SLO when it is breached
+
+        Raises:
+            aws_sdk_application_signals.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient permissions to perform this action.</p>
+            aws_sdk_application_signals.errors.conflict_exception.ConflictException: <p>This operation attempted to create a resource that already exists.</p>
+            aws_sdk_application_signals.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>This request exceeds a service quota.</p>
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -454,6 +493,12 @@ class AsyncServiceLevelObjectiveResource:
 
         Args:
             id: <p>The ARN or name of the SLO that you want to retrieve information about. You can find the ARNs of SLOs by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListServiceLevelObjectives.html\">ListServiceLevelObjectives</a> operation.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -512,6 +557,12 @@ class AsyncServiceLevelObjectiveResource:
             goal: <p>A structure that contains the attributes that determine the goal of the SLO. This includes the time period for evaluation and the attainment threshold.</p>
             burn_rate_configurations: <p>Use this array to create <i>burn rates</i> for this SLO. Each burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>
             auto_investigation_enabled: Indicates whether DevOps Agent will automatically investigate this SLO when it is breached
+
+        Raises:
+            aws_sdk_application_signals.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -562,6 +613,12 @@ class AsyncServiceLevelObjectiveResource:
 
         Args:
             id: <p>The ARN or name of the service level objective to delete.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.resource_not_found_exception.ResourceNotFoundException: <p>Resource not found.</p>
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -632,6 +689,11 @@ class AsyncServiceLevelObjectiveResource:
             include_linked_accounts: <p>If you are using this operation in a monitoring account, specify <code>true</code> to include SLO from source accounts in the returned data. </p> <p>When you are monitoring an account, you can use Amazon Web Services account ID in <code>KeyAttribute</code> filter for service source account and <code>SloOwnerawsaccountID</code> for SLO source account with <code>IncludeLinkedAccounts</code> to filter the returned data to only a single source account. </p>
             slo_owner_aws_account_id: <p>SLO's Amazon Web Services account ID.</p>
             metric_source: <p>Identifies the metric source to filter SLOs by.</p>
+
+        Raises:
+            aws_sdk_application_signals.errors.throttling_exception.ThrottlingException: <p>The request was throttled because of quota limits.</p>
+            aws_sdk_application_signals.errors.validation_exception.ValidationException: <p>The resource is not valid.</p>
+            aws_sdk_application_signals.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

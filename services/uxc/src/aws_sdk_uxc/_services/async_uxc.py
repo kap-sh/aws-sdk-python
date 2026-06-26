@@ -134,6 +134,13 @@ class AsyncuxcClient:
     ) -> "aws_sdk_uxc.types.get_account_customizations_output.GetAccountCustomizationsOutput":
         """<p>Returns the current account customization settings, including account color, visible services, and visible Regions. Settings that you have not configured return their default values: visible Regions and visible services return `null`, and account color returns `none`.</p> <note> <p>The <code>visibleServices</code> and <code>visibleRegions</code> settings control only the appearance of services and Regions in the Amazon Web Services Management Console. They do not restrict access through the CLI, SDKs, or other APIs.</p> </note>
 
+        Raises:
+            aws_sdk_uxc.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation. Verify that your IAM policy includes the required <code>uxc:</code> permissions for the operation that you are calling. For more information on IAM permissions, see <a href=\"https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/security-iam-awsmanpol.html\">Amazon Web Services managed policies for Amazon Web Services Management Console</a>.</p>
+            aws_sdk_uxc.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_uxc.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Reduce the frequency of your requests.</p>
+            aws_sdk_uxc.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_uxc.errors.UnknownServiceError: The service returned an error code this client does not model.
+
         Examples:
             Get account customizations
             Retrieves all account customization settings
@@ -178,6 +185,13 @@ class AsyncuxcClient:
         Args:
             next_token: <p>The token for retrieving the next page of results. Use the <code>nextToken</code> value from a previous response.</p>
             max_results: <p>The maximum number of results to return per page.</p>
+
+        Raises:
+            aws_sdk_uxc.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation. Verify that your IAM policy includes the required <code>uxc:</code> permissions for the operation that you are calling. For more information on IAM permissions, see <a href=\"https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/security-iam-awsmanpol.html\">Amazon Web Services managed policies for Amazon Web Services Management Console</a>.</p>
+            aws_sdk_uxc.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_uxc.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Reduce the frequency of your requests.</p>
+            aws_sdk_uxc.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_uxc.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             List available services
@@ -250,6 +264,13 @@ class AsyncuxcClient:
             account_color: <p>The account color preference to set. Set to <code>none</code> to reset to the default (no color).</p>
             visible_services: <p>The list of Amazon Web Services service identifiers to make visible in the Amazon Web Services Management Console. Set to <code>null</code> to reset to the default, which makes all services visible. For valid service identifiers, call <a href=\"https://docs.aws.amazon.com/awsconsolehelpdocs/latest/APIReference/API_ListServices.html\">ListServices</a>.</p>
             visible_regions: <p>The list of Amazon Web Services Region codes to make visible in the Amazon Web Services Management Console. Set to <code>null</code> to reset to the default, which makes all Regions visible. For a list of valid Region codes, see <a href=\"https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html\">Amazon Web Services Regions</a>.</p>
+
+        Raises:
+            aws_sdk_uxc.errors.access_denied_exception.AccessDeniedException: <p>You don't have sufficient access to perform this operation. Verify that your IAM policy includes the required <code>uxc:</code> permissions for the operation that you are calling. For more information on IAM permissions, see <a href=\"https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/security-iam-awsmanpol.html\">Amazon Web Services managed policies for Amazon Web Services Management Console</a>.</p>
+            aws_sdk_uxc.errors.internal_server_exception.InternalServerException: <p>The service encountered an internal error. Try your request again later.</p>
+            aws_sdk_uxc.errors.throttling_exception.ThrottlingException: <p>The request was denied because of request throttling. Reduce the frequency of your requests.</p>
+            aws_sdk_uxc.errors.validation_exception.ValidationException: <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+            aws_sdk_uxc.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Update account customizations

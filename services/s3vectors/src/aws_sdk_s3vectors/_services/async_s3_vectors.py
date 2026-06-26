@@ -140,6 +140,16 @@ class AsyncS3VectorsClient:
 
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon S3 Vectors resource that you want to list tags for. The tagged resource can be a vector bucket or a vector index. </p>
+
+        Raises:
+            aws_sdk_s3vectors.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_s3vectors.errors.internal_server_exception.InternalServerException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3vectors.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out. Retry your request.</p>
+            aws_sdk_s3vectors.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3vectors.errors.validation_exception.ValidationException: <p>The requested action isn't valid.</p>
+            aws_sdk_s3vectors.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource can't be found.</p>
+            aws_sdk_s3vectors.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+            aws_sdk_s3vectors.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -180,6 +190,17 @@ class AsyncS3VectorsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon S3 Vectors resource that you're applying tags to. The tagged resource can be a vector bucket or a vector index. </p>
             tags: <p>The user-defined tag that you want to add to the specified S3 Vectors resource. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html\">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p>
+
+        Raises:
+            aws_sdk_s3vectors.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_s3vectors.errors.internal_server_exception.InternalServerException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3vectors.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out. Retry your request.</p>
+            aws_sdk_s3vectors.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3vectors.errors.validation_exception.ValidationException: <p>The requested action isn't valid.</p>
+            aws_sdk_s3vectors.errors.conflict_exception.ConflictException: <p>The request failed because a vector bucket name or a vector index name already exists. Vector bucket names must be unique within your Amazon Web Services account for each Amazon Web Services Region. Vector index names must be unique within your vector bucket. Choose a different vector bucket name or vector index name, and try again.</p>
+            aws_sdk_s3vectors.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource can't be found.</p>
+            aws_sdk_s3vectors.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+            aws_sdk_s3vectors.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -221,6 +242,17 @@ class AsyncS3VectorsClient:
         Args:
             resource_arn: <p>The Amazon Resource Name (ARN) of the Amazon S3 Vectors resource that you're removing tags from. The tagged resource can be a vector bucket or a vector index. </p>
             tag_keys: <p>The array of tag keys that you're removing from the S3 Vectors resource. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html\">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p>
+
+        Raises:
+            aws_sdk_s3vectors.errors.access_denied_exception.AccessDeniedException: <p>Access denied.</p>
+            aws_sdk_s3vectors.errors.internal_server_exception.InternalServerException: <p>The request failed due to an internal server error.</p>
+            aws_sdk_s3vectors.errors.request_timeout_exception.RequestTimeoutException: <p>The request timed out. Retry your request.</p>
+            aws_sdk_s3vectors.errors.too_many_requests_exception.TooManyRequestsException: <p>The request was denied due to request throttling.</p>
+            aws_sdk_s3vectors.errors.validation_exception.ValidationException: <p>The requested action isn't valid.</p>
+            aws_sdk_s3vectors.errors.conflict_exception.ConflictException: <p>The request failed because a vector bucket name or a vector index name already exists. Vector bucket names must be unique within your Amazon Web Services account for each Amazon Web Services Region. Vector index names must be unique within your vector bucket. Choose a different vector bucket name or vector index name, and try again.</p>
+            aws_sdk_s3vectors.errors.not_found_exception.NotFoundException: <p>The request was rejected because the specified resource can't be found.</p>
+            aws_sdk_s3vectors.errors.service_unavailable_exception.ServiceUnavailableException: <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+            aws_sdk_s3vectors.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -211,6 +211,12 @@ class AsyncMigrationHubStrategyClient:
 
         Args:
             application_component_id: <p> The ID of the application component. The ID is unique within an AWS account.</p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ID in the request is not found. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -249,6 +255,12 @@ class AsyncMigrationHubStrategyClient:
 
         Args:
             application_component_id: <p> The ID of the application component. The ID is unique within an AWS account.</p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ID in the request is not found. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -287,6 +299,13 @@ class AsyncMigrationHubStrategyClient:
 
         Args:
             id: <p> The <code>assessmentid</code> returned by <a>StartAssessment</a>.</p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.access_denied_exception.AccessDeniedException: <p> The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.</p>
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ID in the request is not found. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -325,6 +344,14 @@ class AsyncMigrationHubStrategyClient:
 
         Args:
             id: <p> The ID of the import file task. This ID is returned in the response of <a>StartImportFileTask</a>. </p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.access_denied_exception.AccessDeniedException: <p> The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.</p>
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ID in the request is not found. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.validation_exception.ValidationException: <p> The request body isn't valid. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -358,7 +385,15 @@ class AsyncMigrationHubStrategyClient:
         *,
         config_overrides: Optional[AsyncMigrationHubStrategyClientConfig] = None,
     ) -> "aws_sdk_migrationhubstrategy.types.get_latest_assessment_id_response.GetLatestAssessmentIdResponse":
-        """<p>Retrieve the latest ID of a specific assessment task.</p>"""
+        """<p>Retrieve the latest ID of a specific assessment task.</p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.access_denied_exception.AccessDeniedException: <p> The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.</p>
+            aws_sdk_migrationhubstrategy.errors.dependency_exception.DependencyException: <p>Dependency encountered an error.</p>
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.validation_exception.ValidationException: <p> The request body isn't valid. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_migrationhubstrategy.types.get_latest_assessment_id_request.GetLatestAssessmentIdRequest]",
@@ -390,7 +425,15 @@ class AsyncMigrationHubStrategyClient:
         *,
         config_overrides: Optional[AsyncMigrationHubStrategyClientConfig] = None,
     ) -> "aws_sdk_migrationhubstrategy.types.get_portfolio_preferences_response.GetPortfolioPreferencesResponse":
-        """<p> Retrieves your migration and modernization preferences. </p>"""
+        """<p> Retrieves your migration and modernization preferences. </p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.access_denied_exception.AccessDeniedException: <p> The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.</p>
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ID in the request is not found. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_migrationhubstrategy.types.get_portfolio_preferences_request.GetPortfolioPreferencesRequest]",
@@ -422,7 +465,14 @@ class AsyncMigrationHubStrategyClient:
         *,
         config_overrides: Optional[AsyncMigrationHubStrategyClientConfig] = None,
     ) -> "aws_sdk_migrationhubstrategy.types.get_portfolio_summary_response.GetPortfolioSummaryResponse":
-        """<p> Retrieves overall summary including the number of servers to rehost and the overall number of anti-patterns. </p>"""
+        """<p> Retrieves overall summary including the number of servers to rehost and the overall number of anti-patterns. </p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.access_denied_exception.AccessDeniedException: <p> The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.</p>
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_migrationhubstrategy.types.get_portfolio_summary_request.GetPortfolioSummaryRequest]",
@@ -459,6 +509,14 @@ class AsyncMigrationHubStrategyClient:
 
         Args:
             id: <p> The recommendation report generation task <code>id</code> returned by <a>StartRecommendationReportGeneration</a>. </p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.access_denied_exception.AccessDeniedException: <p> The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.</p>
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ID in the request is not found. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.validation_exception.ValidationException: <p> The request body isn't valid. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -505,6 +563,14 @@ class AsyncMigrationHubStrategyClient:
             server_id: <p> The ID of the server. </p>
             next_token: <p> The token from a previous call that you use to retrieve the next set of results. For example, if a previous call to this action returned 100 items, but you set <code>maxResults</code> to 10. You'll receive a set of 10 results along with a token. You then use the returned token to retrieve the next set of 10. </p>
             max_results: <p> The maximum number of items to include in the response. The maximum value is 100. </p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.access_denied_exception.AccessDeniedException: <p> The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.</p>
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ID in the request is not found. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.validation_exception.ValidationException: <p> The request body isn't valid. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -574,6 +640,14 @@ class AsyncMigrationHubStrategyClient:
 
         Args:
             server_id: <p> The ID of the server. </p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.access_denied_exception.AccessDeniedException: <p> The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.</p>
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ID in the request is not found. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.validation_exception.ValidationException: <p> The request body isn't valid. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -622,6 +696,13 @@ class AsyncMigrationHubStrategyClient:
             sort: Specifies whether to sort by ascending (ASC) or descending (DESC) order.
             next_token: The token from a previous call that you use to retrieve the next set of results. For example, if a previous call to this action returned 100 items, but you set maxResults to 10. You'll receive a set of 10 results along with a token. You then use the returned token to retrieve the next set of 10.
             max_results: The maximum number of items to include in the response. The maximum value is 100.
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.access_denied_exception.AccessDeniedException: <p> The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.</p>
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.validation_exception.ValidationException: <p> The request body isn't valid. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
             Invoke ListAnalyzableServers
@@ -721,6 +802,13 @@ class AsyncMigrationHubStrategyClient:
             group_id_filter: <p> The group ID specified in to filter on. </p>
             next_token: <p> The token from a previous call that you use to retrieve the next set of results. For example, if a previous call to this action returned 100 items, but you set <code>maxResults</code> to 10. You'll receive a set of 10 results along with a token. You then use the returned token to retrieve the next set of 10. </p>
             max_results: <p> The maximum number of items to include in the response. The maximum value is 100. </p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.access_denied_exception.AccessDeniedException: <p> The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.</p>
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.service_linked_role_lock_client_exception.ServiceLinkedRoleLockClientException: <p> Exception to indicate that the service-linked role (SLR) is locked. </p>
+            aws_sdk_migrationhubstrategy.errors.validation_exception.ValidationException: <p> The request body isn't valid. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -817,6 +905,13 @@ class AsyncMigrationHubStrategyClient:
         Args:
             next_token: <p> The token from a previous call that you use to retrieve the next set of results. For example, if a previous call to this action returned 100 items, but you set <code>maxResults</code> to 10. You'll receive a set of 10 results along with a token. You then use the returned token to retrieve the next set of 10. </p>
             max_results: <p> The maximum number of items to include in the response. The maximum value is 100. </p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.access_denied_exception.AccessDeniedException: <p> The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.</p>
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.validation_exception.ValidationException: <p> The request body isn't valid. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -887,6 +982,13 @@ class AsyncMigrationHubStrategyClient:
         Args:
             next_token: <p> The token from a previous call that you use to retrieve the next set of results. For example, if a previous call to this action returned 100 items, but you set <code>maxResults</code> to 10. You'll receive a set of 10 results along with a token. You then use the returned token to retrieve the next set of 10. </p>
             max_results: <p> The total number of items to return. The maximum value is 100. </p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.access_denied_exception.AccessDeniedException: <p> The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.</p>
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.validation_exception.ValidationException: <p> The request body isn't valid. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -973,6 +1075,13 @@ class AsyncMigrationHubStrategyClient:
             group_id_filter: <p> Specifies the group ID to filter on. </p>
             next_token: <p> The token from a previous call that you use to retrieve the next set of results. For example, if a previous call to this action returned 100 items, but you set <code>maxResults</code> to 10. You'll receive a set of 10 results along with a token. You then use the returned token to retrieve the next set of 10. </p>
             max_results: <p> The maximum number of items to include in the response. The maximum value is 100. </p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.access_denied_exception.AccessDeniedException: <p> The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.</p>
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.validation_exception.ValidationException: <p> The request body isn't valid. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1077,6 +1186,14 @@ class AsyncMigrationHubStrategyClient:
             application_preferences: <p> The transformation preferences for non-database applications. </p>
             database_preferences: <p> The transformation preferences for database applications. </p>
             application_mode: <p>The classification for application component types.</p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.access_denied_exception.AccessDeniedException: <p> The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.</p>
+            aws_sdk_migrationhubstrategy.errors.conflict_exception.ConflictException: <p> Exception to indicate that there is an ongoing task when a new task is created. Return when once the existing tasks are complete. </p>
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.validation_exception.ValidationException: <p> The request body isn't valid. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1136,6 +1253,13 @@ class AsyncMigrationHubStrategyClient:
             s3bucket_for_report_data: <p> The S3 bucket where all the reports generated by the service are stored. The bucket name must begin with <code>migrationhub-strategy-</code>. </p>
             assessment_targets: <p>List of criteria for assessment.</p>
             assessment_data_source_type: The data source type of an assessment to be started.
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.access_denied_exception.AccessDeniedException: <p> The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.</p>
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The AWS account has reached its quota of imports. Contact AWS Support to increase the quota for this account. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1197,6 +1321,14 @@ class AsyncMigrationHubStrategyClient:
             data_source_type: <p>Specifies the source that the servers are coming from. By default, Strategy Recommendations assumes that the servers specified in the import file are available in AWS Application Discovery Service. </p>
             group_id: <p>Groups the resources in the import file together with a unique name. This ID can be as filter in <code>ListApplicationComponents</code> and <code>ListServers</code>. </p>
             s3bucket_for_report_data: <p> The S3 bucket where Strategy Recommendations uploads import results. The bucket name is required to begin with migrationhub-strategy-. </p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.access_denied_exception.AccessDeniedException: <p> The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.</p>
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p> The AWS account has reached its quota of imports. Contact AWS Support to increase the quota for this account. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.validation_exception.ValidationException: <p> The request body isn't valid. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1249,6 +1381,14 @@ class AsyncMigrationHubStrategyClient:
         Args:
             output_format: <p> The output format for the recommendation report file. The default format is Microsoft Excel. </p>
             group_id_filter: <p> Groups the resources in the recommendation report with a unique name. </p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.access_denied_exception.AccessDeniedException: <p> The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.</p>
+            aws_sdk_migrationhubstrategy.errors.conflict_exception.ConflictException: <p> Exception to indicate that there is an ongoing task when a new task is created. Return when once the existing tasks are complete. </p>
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.validation_exception.ValidationException: <p> The request body isn't valid. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1290,6 +1430,13 @@ class AsyncMigrationHubStrategyClient:
 
         Args:
             assessment_id: <p> The <code>assessmentId</code> returned by <a>StartAssessment</a>. </p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.access_denied_exception.AccessDeniedException: <p> The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.</p>
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.validation_exception.ValidationException: <p> The request body isn't valid. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1352,6 +1499,13 @@ class AsyncMigrationHubStrategyClient:
             secrets_manager_key: <p> Database credentials. </p>
             configure_only: <p>Update the configuration request of an application component. If it is set to true, the source code and/or database credentials are updated. If it is set to false, the source code and/or database credentials are updated and an analysis is initiated.</p>
             app_type: <p>The type of known component.</p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ID in the request is not found. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.validation_exception.ValidationException: <p> The request body isn't valid. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
@@ -1406,6 +1560,13 @@ class AsyncMigrationHubStrategyClient:
         Args:
             server_id: <p> The ID of the server. </p>
             strategy_option: <p> The preferred strategy options for the application component. See the response from <a>GetServerStrategies</a>.</p>
+
+        Raises:
+            aws_sdk_migrationhubstrategy.errors.internal_server_exception.InternalServerException: <p> The server experienced an internal error. Try again. </p>
+            aws_sdk_migrationhubstrategy.errors.resource_not_found_exception.ResourceNotFoundException: <p> The specified ID in the request is not found. </p>
+            aws_sdk_migrationhubstrategy.errors.throttling_exception.ThrottlingException: <p> The request was denied due to request throttling. </p>
+            aws_sdk_migrationhubstrategy.errors.validation_exception.ValidationException: <p> The request body isn't valid. </p>
+            aws_sdk_migrationhubstrategy.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(

@@ -33,7 +33,15 @@ class DataRetentionResource:
     def get_account_data_retention(
         self, *, config_overrides: Optional[BedrockClientConfig] = None
     ) -> "aws_sdk_bedrock.types.get_account_data_retention_response.GetAccountDataRetentionResponse":
-        """<p>Returns the account-wide data retention mode for Amazon Bedrock.</p>"""
+        """<p>Returns the account-wide data retention mode for Amazon Bedrock.</p>
+
+        Raises:
+            aws_sdk_bedrock.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         def _handler(
             req: "OperationRequest[aws_sdk_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest]",
@@ -69,6 +77,13 @@ class DataRetentionResource:
 
         Args:
             mode: <p>The data retention mode to set for the account.</p>
+
+        Raises:
+            aws_sdk_bedrock.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         def _handler(
@@ -104,7 +119,15 @@ class AsyncDataRetentionResource:
     async def get_account_data_retention(
         self, *, config_overrides: Optional[AsyncBedrockClientConfig] = None
     ) -> "aws_sdk_bedrock.types.get_account_data_retention_response.GetAccountDataRetentionResponse":
-        """<p>Returns the account-wide data retention mode for Amazon Bedrock.</p>"""
+        """<p>Returns the account-wide data retention mode for Amazon Bedrock.</p>
+
+        Raises:
+            aws_sdk_bedrock.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
 
         async def _handler(
             req: "AsyncOperationRequest[aws_sdk_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest]",
@@ -141,6 +164,13 @@ class AsyncDataRetentionResource:
 
         Args:
             mode: <p>The data retention mode to set for the account.</p>
+
+        Raises:
+            aws_sdk_bedrock.errors.access_denied_exception.AccessDeniedException: <p>The request is denied because of missing access permissions.</p>
+            aws_sdk_bedrock.errors.internal_server_exception.InternalServerException: <p>An internal server error occurred. Retry your request.</p>
+            aws_sdk_bedrock.errors.throttling_exception.ThrottlingException: <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+            aws_sdk_bedrock.errors.validation_exception.ValidationException: <p>Input validation failed. Check your request parameters and retry the request.</p>
+            aws_sdk_bedrock.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
 
         async def _handler(
